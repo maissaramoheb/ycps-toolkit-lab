@@ -108,34 +108,44 @@ export default function RedTeamReviewPage() {
 
   const structuralChecks = [
     {
+      label: 'Recognition → Implementation: clear implementation action output selected',
+      passed: activePillars.some((e) => e.implementationOutput && e.implementationOutput !== '')
+    },
+    {
+      label: 'Visibility of Youth Agency: active youth-led adaptation and leadership documented',
+      passed: activePillars.some((e) => e.youthRoleAgency.trim().length > 10)
+    },
+    {
+      label: 'Participation + Protection: entry points linked to legal/physical protection safeguards',
+      passed: activePillars.some((e) => e.practicalEntryPoint.trim().length > 5 && e.protectionConcern.trim().length > 5)
+    },
+    {
+      label: 'Prevention + Resilience: linking climate hazards to livelihood adaptation actions',
+      passed: riskPathways.some((p) => p.intervention.trim().length > 10)
+    },
+    {
+      label: 'Structured Partnerships Across the Nexus: mapping actor coordination steps',
+      passed: stakeholders.length > 0 && stakeholders.some((s) => s.engagementStrategy.trim().length > 10)
+    },
+    {
+      label: 'Cross-cutting Dimensions: integrating gender, displacement, and HDP nexus elements',
+      passed: activePillars.some((e) => e.suggestedAction.toLowerCase().includes('gender') || e.suggestedAction.toLowerCase().includes('women') || e.suggestedAction.toLowerCase().includes('displace') || e.suggestedAction.toLowerCase().includes('resilience'))
+    },
+    {
+      label: 'Non-securitized Framing: avoiding youth securitization or labeling as threat risks',
+      passed: !audits.some((a) => a.warnings.some((w) => w.word.toLowerCase().includes('securit') || w.word.toLowerCase().includes('radical')))
+    },
+    {
+      label: 'Validation and Follow-Up: identifying evidence gaps or verification needs',
+      passed: riskPathways.length > 0 && riskPathways.some((p) => p.evidenceGaps.trim().length > 5)
+    },
+    {
       label: 'Mainstream YPS integration: at least one Matrix Pillar mapped',
       passed: activePillars.length > 0
     },
     {
-      label: 'Mainstream YPS integration: all 5 Matrix Pillars completed',
-      passed: activePillars.length === 5
-    },
-    {
       label: 'Construct causal pathways: at least one Risk Pathway built',
       passed: riskPathways.length > 0
-    },
-    {
-      label: 'Identify evidence gaps: evidence quality and gaps specified',
-      passed: riskPathways.length > 0 && riskPathways.every(
-        (p) => p.evidenceStrength !== 'Unclear' && p.evidenceGaps.trim() !== ''
-      )
-    },
-    {
-      label: 'Check conflict-sensitivity: at least one Red-Team Warning logged',
-      passed: activePillars.some((e) => e.redTeamWarning.trim() !== '')
-    },
-    {
-      label: 'Stakeholder mapping: at least one Youth Actor registered',
-      passed: stakeholders.some((s) => s.actorType === 'youth_actor')
-    },
-    {
-      label: 'Strategic engagement: engagement strategies formulated for all actors',
-      passed: stakeholders.length > 0 && stakeholders.every((s) => s.engagementStrategy.trim() !== '')
     }
   ];
 

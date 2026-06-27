@@ -132,6 +132,26 @@ export default function Dashboard() {
         </div>
       </section>
 
+      {/* From Recognition to Implementation */}
+      <section className="glass-panel p-6 rounded-xl border border-brand-gold/15 bg-gradient-to-r from-brand-navy-light/40 to-brand-navy-dark/40 space-y-4">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div className="space-y-1 max-w-2xl">
+            <span className="text-[10px] font-bold text-brand-gold uppercase tracking-widest block">Candidate YCPS Methodology Layer</span>
+            <h2 className="text-lg font-bold text-brand-offwhite">From Recognition to Implementation</h2>
+            <p className="text-xs text-brand-grey-text leading-relaxed">
+              This workspace operationalizes the YCPS framework by translating high-level international declarations into structured, localized, and practical analysis, planning, training, and policy outputs.
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-1.5 shrink-0 max-w-sm">
+            {['Recognition → Implementation', 'Participation + Protection', 'Prevention + Resilience', 'Partnerships Across the Nexus', 'Two-Way CPS × YPS Framework'].map((tag) => (
+              <span key={tag} className="px-2 py-0.5 text-[9px] font-semibold bg-brand-gold/10 text-brand-gold border border-brand-gold/25 rounded-md">
+                {tag}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* About the Lab Cards */}
       <section className="grid md:grid-cols-3 gap-6">
         <div className="glass-panel p-6 rounded-xl border border-brand-grey-border/50 space-y-2">

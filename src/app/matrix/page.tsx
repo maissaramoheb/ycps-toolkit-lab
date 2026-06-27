@@ -117,6 +117,23 @@ export default function MatrixPage() {
         </div>
       </div>
 
+      {/* Two-Way Framework Guidance Note */}
+      <div className="glass-panel p-4 rounded-xl border border-brand-gold/15 bg-brand-navy-light/25 text-xs text-brand-grey-text space-y-2">
+        <span className="text-[10px] font-bold text-brand-gold tracking-widest uppercase block">
+          Candidate Methodology: Two-Way YCPS Integration Framework
+        </span>
+        <div className="grid sm:grid-cols-2 gap-4">
+          <div>
+            <span className="font-semibold text-brand-offwhite block mb-0.5">1. CPS considerations across YPS pillars:</span>
+            Map how climate degradation, pasture drying, and salinity compound local protection and livelihood pressures inside YPS pillars.
+          </div>
+          <div>
+            <span className="font-semibold text-brand-offwhite block mb-0.5">2. Youth agency strengthening climate responses:</span>
+            Highlight how youth participation, innovation, and leadership can build climate-resilient mediation and peace infrastructure.
+          </div>
+        </div>
+      </div>
+
       {/* Main Grid */}
       <div className="grid lg:grid-cols-3 gap-6">
         
@@ -258,6 +275,27 @@ export default function MatrixPage() {
                     rows={3}
                     className="w-full text-xs bg-brand-navy-dark text-brand-offwhite border border-brand-grey-border/80 focus:border-brand-gold rounded-lg p-2.5 focus:outline-none transition-all resize-none"
                   />
+                </div>
+
+                {/* Implementation Output Selector */}
+                <div className="space-y-1.5">
+                  <label htmlFor="implementation-output-select" className="block text-xs font-semibold text-brand-offwhite">
+                    Implementation Output (Action Type)
+                  </label>
+                  <select
+                    id="implementation-output-select"
+                    value={entry.implementationOutput || ''}
+                    onChange={(e) => handleFieldChange('implementationOutput', e.target.value)}
+                    className="w-full text-xs bg-brand-navy-dark text-brand-offwhite border border-brand-grey-border/80 focus:border-brand-gold rounded-lg px-2.5 py-2.5 focus:outline-none cursor-pointer"
+                  >
+                    <option value="">-- Select Practical Output Type --</option>
+                    <option value="policy_entry_point">Policy Entry Point (Embedding youth in formal committees)</option>
+                    <option value="youth_participation">Youth Participation Mechanism (Mediation/monitoring panels)</option>
+                    <option value="protection_safeguard">Protection Safeguard (Access routes and physical security plans)</option>
+                    <option value="prevention_resilience">Prevention/Resilience Action (Solar pumps, soil rehabilitation)</option>
+                    <option value="partnership_model">Partnership Model (Ministry coordination logs)</option>
+                    <option value="reintegration_pathway">Reintegration/Livelihood Pathway (Demobilized youth cooperatives)</option>
+                  </select>
                 </div>
               </div>
             </div>

@@ -5,7 +5,8 @@ export type SourceId =
   | 'cps_manual'
   | 'beyond_vuln'
   | 'peace_ops'
-  | 'diplomatic_rules';
+  | 'diplomatic_rules'
+  | 'candidate_methodology';
 
 export interface SourceMetadata {
   id: SourceId;
@@ -72,8 +73,135 @@ export const SOURCES_HIERARCHY: Record<SourceId, SourceMetadata> = {
     institutionalContext: 'YCPS Source-of-Truth Hierarchy (ToR, Project Document, Workplan, CPS Manual, Beyond Vulnerability, peace operations Guidebook).',
     focusArea: 'Enforcing cautious causality, national ownership, youth agency, and conflict-sensitivity.',
     mandateReminder: 'Always write policy recommendations and planning notes using constructive, rights-based, and prevention-oriented phrasing.'
+  },
+  candidate_methodology: {
+    id: 'candidate_methodology',
+    name: 'Candidate YCPS Methodology Layer',
+    priority: 0.5,
+    institutionalContext: 'Candidate methodology for translating high-level guidelines into concrete actions.',
+    focusArea: 'Two-way framework, practical entry points, Africa-centered application guides, and validation loops.',
+    mandateReminder: 'Move YCPS from policy recognition to local implementation, keeping youth agency visible and safeguarding local participation.'
   }
 };
+
+// Candidate methodology definitions
+export interface CandidateSource {
+  id: string;
+  name: string;
+  role: string;
+  keyPrinciples: string[];
+  crossCutting: string[];
+}
+
+export const candidateMethodologySources: CandidateSource[] = [
+  {
+    id: 'practice_note',
+    name: 'Writing Sample – YCPS Practice Note',
+    role: 'Defines the practical implementation logic for operationalizing YCPS in Africa.',
+    keyPrinciples: [
+      'Move from recognition to implementation: translate strategic frameworks into operational tools.',
+      'Youth agency and capability: do not frame youth only as vulnerable or at-risk; highlight their resilience, innovation, and leadership.',
+      'Complex climate-security feedback loops: climate stress interacts with governance capacity, livelihoods, displacement, and social trust.',
+      'Structured operational methods: systematic mapping, analysis, and planning to embed youth across responses.'
+    ],
+    crossCutting: [
+      'gender-responsiveness',
+      'conflict sensitivity',
+      'forced displacement',
+      'humanitarian-development-peace (HDP) nexus',
+      'context adaptation',
+      'careful handling of prevention-oriented PVE-climate linkages without securitizing youth'
+    ]
+  },
+  {
+    id: 'technical_note',
+    name: 'Technical Note',
+    role: 'Defines the consultant’s proposed methodology for developing the YCPS toolkit.',
+    keyPrinciples: [
+      'Integrated framework: address the gap by merging YPS and CPS into a single, cohesive, action-oriented methodology.',
+      'Africa-centered and user-friendly design: tailor tools for policy, programming, and capacity-building across the continent.',
+      'Two-way YCPS framework: integrate CPS across YPS pillars AND strengthen climate-security responses through youth inclusion.',
+      'Analytical credibility and local validation: ground analytical outputs in localized context evidence and national ownership.'
+    ],
+    crossCutting: [
+      'gender-responsiveness',
+      'conflict sensitivity',
+      'humanitarian-development-peace (HDP) nexus',
+      'forced displacement',
+      'prevention-oriented PVE-climate linkages handled carefully'
+    ]
+  }
+];
+
+export const candidateMethodologyPrinciples = [
+  'Move from recognition to implementation: translate policy statements into practical, community-led intervention plans.',
+  'Youth as active agents: frame young people as leaders and key partners in adaptation and peace, not as threats or victims.',
+  'Multidimensional hazard feedback: analyze how climate hazards compound existing governance, economic, and security vulnerabilities.',
+  'Two-way integration: integrate climate-security factors across YPS pillars and youth leadership into climate adaptation.'
+];
+
+export const practicalEntryPoints = [
+  {
+    id: 'policy_planning',
+    name: 'Embed youth in policy and planning processes',
+    description: 'Ensure young people are actively represented in formal environmental, climate, and security decision-making bodies at local and national levels.'
+  },
+  {
+    id: 'participation_protection',
+    name: 'Link participation with protection',
+    description: 'Provide safeguarding mechanisms, legal protection, and physical safety guarantees for youth peacebuilders and environmental advocates.'
+  },
+  {
+    id: 'prevention_resilience',
+    name: 'Integrate youth into prevention and resilience strategies',
+    description: 'Support youth-led climate adaptation, early warning systems, ecosystem restoration, and sustainable livelihoods.'
+  },
+  {
+    id: 'nexus_partnerships',
+    name: 'Build partnerships across the nexus',
+    description: 'Facilitate cooperation between youth-led organizations, state ministries, civil society, and international partners.'
+  }
+];
+
+export const toolkitMethodologyPrinciples = [
+  'Inception review and mapping analysis to anchor tools in African context realities.',
+  'Two-way YCPS analytical matrix structure linking YPS pillars and climate risk dynamics.',
+  'Combined packaging: conceptual framework, practical tools, audience-specific guidance, and African case studies.',
+  'Alignment with DEDI Component 3 (youth-centered climate resilience, dialogues, and policy uptake).'
+];
+
+export const moduleMethodologyMap = {
+  matrix: {
+    description: 'Translates the two-way YCPS framework, integrating climate risk across the 5 YPS pillars while highlighting youth agency entry points.',
+    grounding: 'Technical Note: Two-way YCPS framework'
+  },
+  pathways: {
+    description: 'Models how climate hazards compound vulnerabilities, livelihoods, and institutional capacities, avoiding simplistic direct causality.',
+    grounding: 'Practice Note: Multidimensional climate-security feedback loops'
+  },
+  stakeholders: {
+    description: 'Identifies partnership models and coordination opportunities across ministries, youth organizations, and regional bodies.',
+    grounding: 'Technical Note & Practice Note: Nexus partnerships and national ownership'
+  },
+  training: {
+    description: 'Delivers structured, scenario-based trainer guidance, group activities, and printable simulation handouts tailored to different audiences.',
+    grounding: 'Technical Note: Audience-specific guidance and Trainer’s Guide packaging'
+  },
+  review: {
+    description: 'Conducts red-team audits to verify diplomatic language compliance, protection inclusion, and context sensitivity.',
+    grounding: 'Practice Note: Safe handling of PVE-climate linkages and conflict sensitivity'
+  }
+};
+
+export const METHOD_TAGS = [
+  'Recognition → Implementation',
+  'Participation + Protection',
+  'Prevention + Resilience',
+  'Partnerships Across the Nexus',
+  'Two-Way CPS × YPS Framework',
+  'Audience-Specific Guidance',
+  'Validation and Follow-Up'
+];
 
 export interface WordingRule {
   prohibitedPattern: RegExp;

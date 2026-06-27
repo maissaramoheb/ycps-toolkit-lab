@@ -67,20 +67,61 @@ export const SourceIntegrityPanel: React.FC<SourceIntegrityPanelProps> = ({
       <hr className="border-brand-grey-border/30" />
 
       {/* Source Details */}
-      <div className="space-y-2 text-[11px] leading-relaxed">
-        <div>
-          <span className="font-semibold text-brand-offwhite block">Source Document:</span>
-          <span className="text-brand-grey-text block text-xs font-medium mt-0.5">{source.name}</span>
+      {sourceId === 'candidate_methodology' ? (
+        <div className="space-y-3.5 text-[11px] leading-relaxed">
+          <div className="bg-brand-navy-dark/45 p-2 rounded border border-brand-grey-border/30 text-[10px] text-brand-gold">
+            <span className="font-semibold block mb-0.5">💡 Methodology Application Layer:</span>
+            To be used alongside the primary DEDI / CCCPA / ToR source hierarchy to operationalize high-level directives.
+          </div>
+
+          <div className="grid sm:grid-cols-2 gap-3 border-t border-brand-grey-border/20 pt-2.5">
+            <div>
+              <span className="font-bold text-brand-offwhite block mb-1">📝 Practice Note Methodology</span>
+              <p className="text-[10px] text-brand-grey-text">Operationalizes YCPS in Africa: moves from recognition to implementation, frames youth as resilient leaders, and maps feedback loops between climate stress and local capacity.</p>
+            </div>
+            <div>
+              <span className="font-bold text-brand-offwhite block mb-1">🔧 Technical Note Methodology</span>
+              <p className="text-[10px] text-brand-grey-text">Proposed toolkit structure: two-way framework (CPS into YPS & youth inclusion into climate adaptation), Africa-centered, and aligned with DEDI Component 3.</p>
+            </div>
+          </div>
+
+          <div className="border-t border-brand-grey-border/20 pt-2.5 space-y-1">
+            <span className="font-bold text-brand-offwhite block">4 Practical Entry Points:</span>
+            <ul className="list-decimal pl-4 text-[10px] text-brand-grey-text space-y-0.5">
+              <li>Embed youth in policy and planning processes.</li>
+              <li>Link participation with protection.</li>
+              <li>Integrate youth into prevention and resilience strategies.</li>
+              <li>Build partnerships across the YCPS nexus.</li>
+            </ul>
+          </div>
+
+          <div className="border-t border-brand-grey-border/20 pt-2.5">
+            <span className="font-bold text-brand-offwhite block mb-0.5">Cross-cutting Dimensions:</span>
+            <div className="flex flex-wrap gap-1 mt-1">
+              {['gender-responsiveness', 'conflict sensitivity', 'HDP nexus', 'displacement', 'PVE-climate care'].map((item) => (
+                <span key={item} className="px-1.5 py-0.5 text-[9px] font-mono bg-brand-navy-light text-brand-gold rounded border border-brand-grey-border/50">
+                  {item}
+                </span>
+              ))}
+            </div>
+          </div>
         </div>
-        <div>
-          <span className="font-semibold text-brand-offwhite block">Focus Scope:</span>
-          <span className="text-brand-grey-text">{source.focusArea}</span>
+      ) : (
+        <div className="space-y-2 text-[11px] leading-relaxed">
+          <div>
+            <span className="font-semibold text-brand-offwhite block">Source Document:</span>
+            <span className="text-brand-grey-text block text-xs font-medium mt-0.5">{source.name}</span>
+          </div>
+          <div>
+            <span className="font-semibold text-brand-offwhite block">Focus Scope:</span>
+            <span className="text-brand-grey-text">{source.focusArea}</span>
+          </div>
+          <div className="bg-brand-navy-dark/65 p-2 rounded border border-brand-grey-border/35 text-[10px] text-brand-gold">
+            <span className="font-semibold block mb-0.5">💡 Strategic Mandate Reminder:</span>
+            {source.mandateReminder}
+          </div>
         </div>
-        <div className="bg-brand-navy-dark/65 p-2 rounded border border-brand-grey-border/35 text-[10px] text-brand-gold">
-          <span className="font-semibold block mb-0.5">💡 Strategic Mandate Reminder:</span>
-          {source.mandateReminder}
-        </div>
-      </div>
+      )}
 
       <hr className="border-brand-grey-border/20" />
 

@@ -507,15 +507,15 @@ export default function TrainingPage() {
               </p>
               <div className="grid sm:grid-cols-2 gap-3 bg-brand-navy-light/25 border border-brand-grey-border/30 p-3 rounded-lg print:bg-gray-100">
                 <div>
-                  <span className="font-semibold text-brand-gold print:text-black block mb-0.5">Learning Objectives:</span>
+                  <span className="font-semibold text-brand-gold print:text-black block mb-0.5">Methodology & Objectives:</span>
                   <ul className="list-disc pl-4 space-y-1">
-                    <li>Understand local climate-security causal chains.</li>
-                    <li>Map herder stakeholder interests and sensitivities.</li>
-                    <li>Draft conflict-sensitive development interventions.</li>
+                    <li>Deliver audience-specific guidance and structured facilitation.</li>
+                    <li>Utilize practical tools and localized group exercises.</li>
+                    <li>Ground scenarios in case studies with validation and follow-up.</li>
                   </ul>
                 </div>
                 <div>
-                  <span className="font-semibold text-brand-gold print:text-black block mb-0.5">Expected Outputs:</span>
+                  <span className="font-semibold text-brand-gold print:text-black block mb-0.5">Implementation Output (What participants produce):</span>
                   <p className="font-medium text-brand-offwhite print:text-black">
                     {getExpectedOutputs()}
                   </p>

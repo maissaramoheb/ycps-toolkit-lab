@@ -156,6 +156,16 @@ export default function StakeholdersPage() {
         </div>
       </div>
 
+      {/* Partnership Guidance Note */}
+      <div className="glass-panel p-4 rounded-xl border border-brand-gold/15 bg-brand-navy-light/25 text-xs text-brand-grey-text space-y-2">
+        <span className="text-[10px] font-bold text-brand-gold tracking-widest uppercase block">
+          Candidate Methodology: Partnership & Feedback Systems
+        </span>
+        <p className="leading-relaxed">
+          Map connections between government institutions, local authorities, youth-led organizations, civil society, regional bodies, and international partners. Create collaborative loops that allow localized feedback and learning to reach high-level policy channels.
+        </p>
+      </div>
+
       <div className="grid lg:grid-cols-3 gap-6">
         
         {/* Left Column: Register Form */}
@@ -315,13 +325,13 @@ export default function StakeholdersPage() {
             {/* Engagement Strategy */}
             <div className="space-y-1">
               <label htmlFor="engagement-strategy" className="block text-xs font-semibold text-brand-offwhite">
-                Engagement Strategy
+                Implementation Output: Coordination / Engagement Step
               </label>
               <textarea
                 id="engagement-strategy"
                 value={engagementStrategy}
                 onChange={(e) => setEngagementStrategy(e.target.value)}
-                placeholder="E.g., Connect local youth with senior technicians to build common ground..."
+                placeholder="What coordination or engagement step follows from this stakeholder map? (E.g., Convene local youth-elder panels to establish joint resource rotas...)"
                 rows={2}
                 className="w-full text-xs bg-brand-navy-dark text-brand-offwhite border border-brand-grey-border/80 focus:border-brand-gold rounded-lg p-2 focus:outline-none transition-all resize-none"
               />

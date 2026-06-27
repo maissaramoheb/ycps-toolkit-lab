@@ -21,6 +21,7 @@ export interface MatrixEntry {
   indicator: string;
   diplomaticWording: string;
   redTeamWarning: string;
+  implementationOutput?: string;
 }
 
 export type PeaceSecurityPathwayType =

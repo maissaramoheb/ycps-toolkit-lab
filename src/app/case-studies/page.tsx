@@ -805,6 +805,42 @@ export default function CaseStudiesPage() {
                     </p>
                   </div>
 
+                  {/* Candidate YCPS Methodology Mapping */}
+                  <div className="glass-panel p-5 rounded-lg border border-brand-gold/25 bg-brand-navy-light/25 space-y-3.5 print:border-gray-400 print:bg-transparent">
+                    <span className="text-[10px] font-bold text-brand-gold uppercase tracking-widest block">
+                      Candidate YCPS Methodology Mapping (Recognition → Implementation)
+                    </span>
+                    <div className="grid sm:grid-cols-2 gap-4 text-[11px] leading-relaxed font-normal">
+                      <div>
+                        <span className="font-semibold text-brand-offwhite block mb-0.5">Practical Entry Point:</span>
+                        {activeCase.integrationOpportunities}
+                      </div>
+                      <div>
+                        <span className="font-semibold text-brand-offwhite block mb-0.5">Youth Agency Focus:</span>
+                        Highlighting youth as resource managers, early warning reporting hubs, and peer mediators.
+                      </div>
+                      <div>
+                        <span className="font-semibold text-brand-offwhite block mb-0.5">Participation & Protection Link:</span>
+                        Formalize youth seats on water/land boards (Participation) coupled with legal/physical protection protocols (Protection).
+                      </div>
+                      <div>
+                        <span className="font-semibold text-brand-offwhite block mb-0.5">Prevention & Resilience Link:</span>
+                        Translate hazards (salinity, droughts) into climate-resilient livelihoods (solar pumps, water trucking cooperatives).
+                      </div>
+                      <div>
+                        <span className="font-semibold text-brand-offwhite block mb-0.5">Partnership Model:</span>
+                        Coordinated feedback loops between local committees, national ministries, and regional bodies ({activeCase.region === 'West & Central Africa' ? 'LCBC' : 'IGAD/AU'}).
+                      </div>
+                      <div>
+                        <span className="font-semibold text-brand-offwhite block mb-0.5">Implementation Output:</span>
+                        {activeCase.interventions}
+                      </div>
+                    </div>
+                    <div className="border-t border-brand-grey-border/30 pt-2.5 text-[10px] text-brand-gold italic">
+                      * Grounded in candidate YCPS Practice Note & Technical Note guidelines alongside DEDI official mandates.
+                    </div>
+                  </div>
+
                   {/* Section 7: Red-Team & Diplomatic Cautions */}
                   <div className="space-y-3 bg-red-950/15 border border-red-500/20 p-4 rounded-lg print:border-gray-400 print:bg-transparent">
                     <span className="text-[10px] font-bold text-red-400 uppercase tracking-widest block print:text-black">

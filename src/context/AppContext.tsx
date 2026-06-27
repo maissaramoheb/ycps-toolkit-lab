@@ -45,7 +45,8 @@ const emptyMatrix = (pillarId: YPSPillarId): MatrixEntry => ({
   suggestedAction: '',
   indicator: '',
   diplomaticWording: '',
-  redTeamWarning: ''
+  redTeamWarning: '',
+  implementationOutput: ''
 });
 
 const defaultMatrixEntries = (): Record<YPSPillarId, MatrixEntry> => ({
@@ -744,7 +745,8 @@ const MATRIX_TEXT_FIELDS: readonly MatrixTextField[] = [
   'suggestedAction',
   'indicator',
   'diplomaticWording',
-  'redTeamWarning'
+  'redTeamWarning',
+  'implementationOutput'
 ];
 
 const normalizeMatrixEntries = (value: unknown): Record<YPSPillarId, MatrixEntry> => {

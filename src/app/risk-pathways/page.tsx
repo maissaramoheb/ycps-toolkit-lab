@@ -142,6 +142,16 @@ export default function RiskPathwaysPage() {
         </div>
       </div>
 
+      {/* Causal Claim Safeguard Guidance Note */}
+      <div className="glass-panel p-4 rounded-xl border border-brand-gold/15 bg-brand-navy-light/25 text-xs text-brand-grey-text space-y-2">
+        <span className="text-[10px] font-bold text-brand-gold tracking-widest uppercase block">
+          Candidate Methodology: Climate-Security Causality Guidance
+        </span>
+        <p className="leading-relaxed">
+          Climate hazards do not automatically cause conflict. Instead, they interact with and compound existing vulnerability dynamics, resource exclusion, governance bottlenecks, coping capacities, and social trust. Highlight these institutional capacity constraints in your mapping.
+        </p>
+      </div>
+
       {/* Grid Layout */}
       <div className="grid lg:grid-cols-5 gap-6">
         
@@ -295,13 +305,13 @@ export default function RiskPathwaysPage() {
             {/* Intervention */}
             <div className="space-y-1">
               <label htmlFor="intervention-input" className="block text-xs font-semibold text-brand-offwhite">
-                Prevention / Resilience Intervention
+                Implementation Output: Prevention, Resilience, or Programming Action
               </label>
               <textarea
                 id="intervention-input"
                 value={intervention}
                 onChange={(e) => setIntervention(e.target.value)}
-                placeholder="E.g., Supply solar water pumps for agropastoral youth cooperatives..."
+                placeholder="What prevention, resilience, or programming action follows from this pathway? (E.g., Supply solar water pumps for youth cooperatives...)"
                 rows={2}
                 className="w-full text-xs bg-brand-navy-dark text-brand-offwhite border border-brand-grey-border/80 focus:border-brand-gold rounded-lg p-2.5 focus:outline-none transition-all resize-none"
               />
