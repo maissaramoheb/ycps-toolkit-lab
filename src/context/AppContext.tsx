@@ -609,17 +609,17 @@ export const SCENARIOS: Record<
       }
     ]
   },
-  pokuland: {
-    name: 'Pokuland (Fictional Borderland)',
-    context: 'Pokuland Borderland (Fictional East-West River Corridor)',
+  carana: {
+    name: 'CARANA (Fictional Borderland)',
+    context: 'CARANA Borderland (Fictional East-West River Corridor)',
     matrix: {
       participation: {
         pillarId: 'participation',
-        climateSecurityConsideration: 'Upstream damming and erratic rainfall dry up the Poku River, fueling resource disputes between downstream farmers and nomadic herders.',
-        youthRoleAgency: 'Downstream and nomadic youth create a joint water-sharing committee called \'Poku River Youth Alliance\' to coordinate water allocation.',
+        climateSecurityConsideration: 'Upstream damming and erratic rainfall dry up the Carana River, fueling resource disputes between downstream farmers and nomadic herders.',
+        youthRoleAgency: 'Downstream and nomadic youth create a joint water-sharing committee called \'Carana River Youth Alliance\' to coordinate water allocation.',
         protectionConcern: 'Local political factions try to manipulate youth leaders to support aggressive water-right claims.',
-        practicalEntryPoint: 'Establish a formal consultative seat for the Youth Alliance on the Pokuland Water Commission.',
-        suggestedAction: 'Train 50 members of the Poku River Youth Alliance in water flow mapping and shared negotiation.',
+        practicalEntryPoint: 'Establish a formal consultative seat for the Youth Alliance on the CARANA Water Commission.',
+        suggestedAction: 'Train 50 members of the Carana River Youth Alliance in water flow mapping and shared negotiation.',
         indicator: 'Number of cooperative water allocation agreements co-signed by downstream and nomadic youth.',
         diplomaticWording: 'Supporting local coordination and water management by formalizing youth advisory roles in borderland water commissions.',
         redTeamWarning: 'Ensure balanced representation of both downstream farming youth and nomadic herding youth to prevent ethnic polarization.'
@@ -671,8 +671,8 @@ export const SCENARIOS: Record<
     },
     riskPathways: [
       {
-        id: 'pokuland-path-1',
-        context: 'Downstream Poku River Valley',
+        id: 'carana-path-1',
+        context: 'Downstream Carana River Valley',
         hazard: 'Upstream water diversion combined with seasonal drought',
         exposure: 'Irrigated agricultural valleys and nomadic watering holes',
         vulnerability: 'High clan polarization, complete dependence on the river, and low alternative livelihood options',
@@ -687,8 +687,8 @@ export const SCENARIOS: Record<
     ],
     stakeholders: [
       {
-        id: 'pokuland-stake-1',
-        name: 'Pokuland Water Commission',
+        id: 'carana-stake-1',
+        name: 'CARANA Water Commission',
         actorType: 'government_institution',
         interest: 'Regulating water flow, maintaining infrastructure, and preventing cross-border resource conflicts.',
         influence: 'High',
@@ -699,8 +699,8 @@ export const SCENARIOS: Record<
         engagementStrategy: 'Present hydrological data proving that youth-led water sharing agreements improve overall water use efficiency.'
       },
       {
-        id: 'pokuland-stake-2',
-        name: 'Poku River Youth Alliance (PRYA)',
+        id: 'carana-stake-2',
+        name: 'Carana River Youth Alliance (CRYA)',
         actorType: 'youth_actor',
         interest: 'Fair water allocation, prevention of border skirmishes, and inclusion in local water committees.',
         influence: 'Medium',

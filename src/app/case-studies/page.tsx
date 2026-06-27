@@ -244,32 +244,32 @@ ${cs.cautions.map((c) => `- ${c}`).join('\n')}
       ]
     },
     {
-      id: 'pokuland',
-      title: 'Pokuland fictional training scenario',
+      id: 'carana',
+      title: 'CARANA fictional training scenario',
       region: 'Fictional',
       pathway: 'Resource herding/competition',
       ypsPillar: 'Participation',
-      summary: 'Fictional border dispute over the Sudd-fed Poku River herding zones, designed for diplomat training simulations.',
+      summary: 'Fictional border dispute over the Sudd-fed Carana River herding zones, designed for diplomat training simulations.',
       trainingUse: 'Scenario-based simulation',
       policyUse: 'Stabilization training',
       evidenceStrength: 'Unclear',
-      context: 'Fictional border region between Upper and Lower Pokuland, containing changing agropastoral corridors and the Poku River basin.',
+      context: 'Fictional border region between Upper and Lower CARANA, containing changing agropastoral corridors and the Carana River basin.',
       stressors: 'Shifting river corridors, sudden regional droughts, and unmapped herding corridors.',
       risksAndVulnerabilities: 'High borderland dependency on shared water basins. Frontier communities lack formal communication channels.',
       securityDynamics: 'Migrating herders cross frontiers without local permit notice, causing local herder defense mobilizations and border security skirmishes.',
       youthDimensions: 'Borderland youth herders coordinate river access timings but face specific protection risks and border transhumance arrest threats.',
-      integrationOpportunities: 'Establishing a joint youth-led Pokuland Borderland Water Pan Commission to manage shared ranges.',
+      integrationOpportunities: 'Establishing a joint youth-led CARANA Borderland Water Pan Commission to manage shared ranges.',
       stakeholderGroups: [
-        'Pokuland Water Commission (Joint board)',
-        'Poku River Youth Alliance (PRYA)',
+        'CARANA Water Commission (Joint board)',
+        'Carana River Youth Alliance (CRYA)',
         'Borderland local traditional councils'
       ],
-      pathwayPrompts: 'Stressor: Poku River shifting -> Exposure: borderland herder herders -> Vulnerability: lack of border checkpoints -> Capacity Constraint: uncoordinated border policies -> Conflict Pathway: borderland resource clashes.',
+      pathwayPrompts: 'Stressor: Carana River shifting -> Exposure: borderland herder herders -> Vulnerability: lack of border checkpoints -> Capacity Constraint: uncoordinated border policies -> Conflict Pathway: borderland resource clashes.',
       interventions: 'Setting up joint youth-elder border resource monitoring kiosks equipped with mobile GPS herder trackers.',
       cautions: [
         'This is a fictional training model. Use to test extreme scenarios without political sensitivities.',
-        'Ensure neither Upper nor Lower Pokuland is framed as a "failed state."',
-        'Focus herders on mediation and corridor coordination rather than military containment.'
+        'Ensure neither Upper nor Lower CARANA is framed as a "failed state."',
+        'Focus herders on corridor coordination and mediation rather than military containment.'
       ],
       questions: [
         'How does joint border resource management reduce the need for military intervention during extreme dry seasons?',

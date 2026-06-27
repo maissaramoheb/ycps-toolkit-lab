@@ -201,6 +201,14 @@ export default function DiplomaticLanguagePage() {
             </div>
           </div>
 
+          {/* Lightweight Guidance Box */}
+          <div className="glass-panel p-5 rounded-xl border border-brand-grey-border/60 space-y-2 no-print">
+            <span className="text-[10px] font-bold text-brand-gold uppercase tracking-widest block">💡 Next Step</span>
+            <p className="text-[11px] text-brand-grey-text leading-relaxed">
+              After revising wording, review the Diplomatic Language Briefing Note. Copy the revised text or briefing note, then validate it against institutional language and context sensitivity. Ensure there is no overclaiming, youth securitization, government-blaming, or assumptions of direct climate-conflict causality.
+            </p>
+          </div>
+
           {/* Guidelines Rules Reference Accordion */}
           <div className="glass-panel p-6 rounded-xl border border-brand-grey-border/60 space-y-4 no-print">
             <h3 className="text-xs font-bold text-brand-offwhite uppercase tracking-wider">

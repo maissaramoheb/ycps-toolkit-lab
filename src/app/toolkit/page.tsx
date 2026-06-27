@@ -89,7 +89,7 @@ ${activeActivity.outputs.map((o, idx) => `  ${idx + 1}. ${o}`).join('\n')}
     }
 
     md += `## 6. Training Methodology (CCCPA CPS Manual)\n`;
-    md += `- **Simulations:** Build a scenario-based exercise modeled after the Pokuland framework.\n`;
+    md += `- **Simulations:** Build a scenario-based exercise modeled after the CARANA framework.\n`;
     md += `- **Facilitator Note:** Focus on intergenerational dialogue, pairing youth mediators with traditional elders to validate local water-sharing agreements.\n\n`;
     
     md += `---\n`;
@@ -411,7 +411,7 @@ ${activeActivity.outputs.map((o, idx) => `  ${idx + 1}. ${o}`).join('\n')}
               </h3>
               <div className="p-3 bg-brand-navy-dark/65 border border-brand-grey-border/40 rounded text-[11px] leading-relaxed text-brand-gold print:bg-gray-100 print:text-black print:border-gray-300">
                 <span className="font-semibold block mb-1">🎮 Scenario-Based Simulation Guideline:</span>
-                Facilitators should run a Pokuland-style borderland dispute exercise. Split participants into representatives of agropastoral youth cooperatives and traditional elders. Tasks: Negotiate a mutual water pan sharing agreement and map a joint early-warning system. Avoid securitizing water access or depicting youth as combat risks.
+                Facilitators should run a CARANA-style borderland dispute exercise. Split participants into representatives of agropastoral youth cooperatives and traditional elders. Tasks: Negotiate a mutual water pan sharing agreement and map a joint early-warning system. Avoid securitizing water access or depicting youth as combat risks.
               </div>
             </div>
 

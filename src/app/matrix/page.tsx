@@ -5,6 +5,7 @@ import { useApp } from '@/context/AppContext';
 import { YPSPillarId, MatrixEntry } from '@/types';
 import { SourceIntegrityPanel } from '@/components/SourceIntegrityPanel';
 import { CopyButton } from '@/components/CopyButton';
+import Link from 'next/link';
 
 export default function MatrixPage() {
   const { matrixEntries, updateMatrixEntry, contextName } = useApp();
@@ -422,6 +423,50 @@ export default function MatrixPage() {
               <div className="border-t border-brand-grey-border/30 pt-2.5 text-[9px] text-brand-gold/90 italic leading-relaxed">
                 * Draft planning output. To be validated against official regional mandates and context-specific field evidence before deployment.
               </div>
+            </div>
+          </div>
+
+          {/* Next Steps & Workflow Guidance */}
+          <div className="glass-panel p-5 rounded-xl border border-brand-gold/25 bg-gradient-to-br from-brand-navy-light/45 to-slate-900 space-y-3 no-print">
+            <div className="flex items-center gap-1.5 border-b border-brand-grey-border/30 pb-2">
+              <span className="h-1.5 w-1.5 rounded-full bg-brand-gold" />
+              <h4 className="text-xs font-bold text-brand-offwhite uppercase tracking-wider">
+                Next-Step Action Guidance
+              </h4>
+            </div>
+
+            {/* Workflow Indicator */}
+            <div className="flex items-center justify-between text-[9px] uppercase tracking-widest text-brand-grey-text/60 font-semibold px-1 py-0.5 bg-brand-navy-dark/45 border border-brand-grey-border/20 rounded-md">
+              <span className="text-brand-gold">1. Input</span>
+              <span>→</span>
+              <span className="text-brand-gold">2. Output</span>
+              <span>→</span>
+              <span className="text-brand-offwhite font-bold">3. Review</span>
+              <span>→</span>
+              <span>4. Export</span>
+            </div>
+
+            <p className="text-[11px] text-brand-grey-text leading-relaxed">
+              After editing a YPS pillar entry, review the Practical Output card. It turns your input into a draft recommendation, M&E indicator, and validation note. Then copy the output, review it, or connect it to the toolkit/workplan.
+            </p>
+
+            <p className="text-[10px] text-brand-grey-text/85 italic leading-relaxed">
+              💡 This card updates based on your entry. Use the copy buttons to export the recommendation or indicator, then validate it through the Review page.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-2 pt-1">
+              <Link
+                href="/review"
+                className="flex-1 px-3 py-2 bg-brand-gold hover:bg-brand-gold-dark text-brand-navy-dark font-bold rounded-md text-[10px] tracking-wider uppercase text-center transition-all cursor-pointer"
+              >
+                Review this output →
+              </Link>
+              <Link
+                href="/toolkit"
+                className="flex-1 px-3 py-2 bg-brand-navy-light hover:bg-brand-navy-dark text-brand-offwhite border border-brand-grey-border rounded-md text-[10px] font-bold tracking-wider uppercase text-center transition-all cursor-pointer"
+              >
+                Use in Toolkit / Workplan
+              </Link>
             </div>
           </div>
 

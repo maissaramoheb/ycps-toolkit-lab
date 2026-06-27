@@ -397,6 +397,12 @@ export default function RiskPathwaysPage() {
               )}
             </div>
           </form>
+
+          {/* Lightweight Guidance Box */}
+          <div className="mt-4 p-3.5 bg-brand-navy-dark/45 border border-brand-grey-border/40 rounded-xl text-[11px] text-brand-grey-text leading-relaxed no-print">
+            <span className="font-semibold text-brand-gold block mb-1">💡 Next Step:</span>
+            After mapping the pathway, review the Pathway Programming Card. Copy the programming note or validate evidence gaps against local realities before using the output. Always verify that causal claims are backed by local evidence without assuming automatic climate-conflict dynamics.
+          </div>
         </div>
 
         {/* Right Column: Existing Pathways List & Guidance */}

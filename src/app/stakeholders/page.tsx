@@ -372,6 +372,12 @@ export default function StakeholdersPage() {
               )}
             </div>
           </form>
+
+          {/* Lightweight Guidance Box */}
+          <div className="mt-4 p-3.5 bg-brand-navy-dark/45 border border-brand-grey-border/40 rounded-xl text-[11px] text-brand-grey-text leading-relaxed no-print">
+            <span className="font-semibold text-brand-gold block mb-1">💡 Next Step:</span>
+            After mapping actors, review the Nexus Coordination Strategy. Copy the coordination strategy or review sensitive actors to ensure diplomatic and conflict-sensitive engagement.
+          </div>
         </div>
 
         {/* Right Column: Stakeholder Table & Guidance */}

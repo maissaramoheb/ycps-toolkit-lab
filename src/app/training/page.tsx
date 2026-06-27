@@ -90,10 +90,10 @@ export default function TrainingPage() {
       stakeholders: ['Delta farming youth herder cooperatives', 'University startups', 'National development banks'],
       action: 'Fund university-incubated soil restoration start-ups and small-scale solar irrigation cooperatives.'
     },
-    pokuland: {
-      context: 'Pokuland fictional training scenario',
-      pathway: 'Drying of the Poku River forcing border herders to cross frontiers without local municipal notice.',
-      stakeholders: ['Pokuland Border herder commissions', 'Poku River Youth Alliance', 'Frontier traditional chiefs'],
+    carana: {
+      context: 'CARANA fictional training scenario',
+      pathway: 'Drying of the Carana River forcing border herders to cross frontiers without local municipal notice.',
+      stakeholders: ['CARANA Border herder commissions', 'Carana River Youth Alliance', 'Frontier traditional chiefs'],
       action: 'Deploy borderland resource sharing kiosks equipped with GPS early-warning trackers.'
     }
   };
@@ -117,7 +117,7 @@ export default function TrainingPage() {
           { time: '09:00 - 09:45', activity: 'Introduction to YCPS & Diplomatic Rules', details: 'Framing local ownership, avoiding failed-state tropes, and reviewing the 6 Strategic Language guidelines.' },
           { time: '09:45 - 10:45', activity: 'Causal Risk Pathway Mapping', details: `Examine herder vulnerability in ${injectWorkspaceData ? contextName : getActiveCaseTemplate().context}. Identify capacity constraints.` },
           { time: '10:45 - 11:00', activity: 'Break & Intergenerational Networking', details: 'Coffee break focusing on dialogue between youth participants and senior practitioners.' },
-          { time: '11:00 - 12:15', activity: 'breakout simulation: Pokuland borderland case', details: 'Interactive roleplay where participants negotiate a river resource sharing agreement using GPS coordinates.' },
+          { time: '11:00 - 12:15', activity: 'breakout simulation: CARANA borderland case', details: 'Interactive roleplay where participants negotiate a river resource sharing agreement using GPS coordinates.' },
           { time: '12:15 - 13:00', activity: 'Policy Brief consolidation & M&E Indicators', details: 'Group drafts Suggested Actions and M&E Indicators. Conduct red-team audit checks for language.' }
         ];
       case 'full_day':
@@ -125,7 +125,7 @@ export default function TrainingPage() {
           { time: '09:00 - 10:30', activity: 'High-Level Opening & Source grounding', details: 'Establish alignment with the Egypt-Denmark DEDI workplan and ToR consultant mandates.' },
           { time: '10:30 - 12:00', activity: 'Case Study Lab: Multi-hazard Analysis', details: `Map stressors (rainfall, salinization) for ${injectWorkspaceData ? contextName : getActiveCaseTemplate().context}. List stakeholder interests.` },
           { time: '12:00 - 13:00', activity: 'Lunch Break & Informal Consultations', details: 'Catered lunch respecting local dietary and gender-safe parameters.' },
-          { time: '13:00 - 15:00', activity: 'Main breakout roleplay exercise', details: 'Run Pokuland-style training simulation. herder councils draft water sharing agreements.' },
+          { time: '13:00 - 15:00', activity: 'Main breakout roleplay exercise', details: 'Run CARANA-style training simulation. herder councils draft water sharing agreements.' },
           { time: '15:00 - 16:00', activity: 'Diplomatic Language Clinic & Audits', details: 'Review group briefs against word compliance guidelines in review panel. Replace sensitive terms.' },
           { time: '16:00 - 17:00', activity: 'Validation workshop & Closing', details: 'Consolidate workshop session briefs. Final M&E review, safeguarding checks, and closing statements.' }
         ];
@@ -397,8 +397,8 @@ export default function TrainingPage() {
               <option value="somalia">Somalia pastoral conflicts</option>
               <option value="south_sudan">South Sudan local peace</option>
               <option value="horn_of_africa">Horn of Africa displacement</option>
-              <option value="egypt">North Africa / Egypt green startup</option>
-              <option value="pokuland">Pokuland fictional simulation</option>
+              <option value="egypt">North Africa / Egypt green transition</option>
+              <option value="carana">CARANA fictional training scenario</option>
             </select>
           </div>
 
@@ -451,6 +451,14 @@ export default function TrainingPage() {
             <label htmlFor="inject-data-checkbox" className="text-xs text-brand-offwhite font-medium cursor-pointer select-none">
               Inject active workspace data (Matrix, Pathways, Stakeholders)
             </label>
+          </div>
+
+          <hr className="border-brand-grey-border/30 pt-1" />
+
+          {/* Lightweight Guidance Box */}
+          <div className="p-3 bg-brand-navy-dark/45 border border-brand-grey-border/40 rounded-lg text-[10.5px] text-brand-grey-text leading-relaxed">
+            <span className="font-semibold text-brand-gold block mb-1">💡 Next Step:</span>
+            After building the session, review the Trainer Guide Output on the right. Print or copy the guide, then confirm the conflict-sensitivity, safeguarding, and validation checklist before use.
           </div>
         </div>
 

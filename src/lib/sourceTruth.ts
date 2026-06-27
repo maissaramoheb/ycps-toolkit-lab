@@ -47,7 +47,7 @@ export const SOURCES_HIERARCHY: Record<SourceId, SourceMetadata> = {
     name: 'CCCPA CPS Manual and Training Materials',
     priority: 4,
     institutionalContext: 'Institutional training methodology.',
-    focusArea: 'Climate risk analysis, scenario-based learning, and Pokuland simulation structures.',
+    focusArea: 'Climate risk analysis, scenario-based learning, and CARANA simulation structures.',
     mandateReminder: 'Ensure pathways follow clear logical links: Climate Hazard → Exposure → Vulnerability → Capacity Constraint → Conflict Pathway.'
   },
   beyond_vuln: {
