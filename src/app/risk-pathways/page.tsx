@@ -538,15 +538,15 @@ export default function RiskPathwaysPage() {
                     )}
 
                     {/* Practical Output: Pathway Programming Card */}
-                    <div className="mt-3 pt-3 border-t border-brand-grey-border/30 text-xs space-y-2">
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-1">
-                          <span className="text-[9px] font-bold text-brand-gold uppercase tracking-widest">
+                    <div className="mt-4 p-4 rounded-lg border border-brand-gold/45 bg-gradient-to-br from-brand-navy-light/65 to-brand-navy-dark/95 space-y-3">
+                      <div className="flex items-center justify-between border-b border-brand-grey-border/30 pb-2">
+                        <div>
+                          <span className="text-[9px] font-bold text-brand-gold uppercase tracking-widest block">
                             Practical Output
                           </span>
-                          <span className="text-[10px] font-bold text-brand-offwhite uppercase tracking-wider">
-                            • Pathway Programming Card
-                          </span>
+                          <h3 className="text-xs font-bold text-brand-offwhite uppercase tracking-wider mt-0.5">
+                            Pathway Programming Card
+                          </h3>
                         </div>
                         <CopyButton
                           text={compilePathwayNote(path)}
@@ -554,7 +554,7 @@ export default function RiskPathwaysPage() {
                           className="scale-90"
                         />
                       </div>
-                      <div className="bg-brand-navy-dark/45 p-3 rounded border border-brand-grey-border/35 text-[11px] leading-relaxed text-brand-grey-text space-y-2">
+                      <div className="text-[11px] leading-relaxed text-brand-grey-text space-y-2">
                         <div>
                           <span className="font-semibold text-brand-offwhite block mb-0.5">Causal Chain & Programming Action:</span>
                           Under {path.hazard}, young people face {path.youthImpact || 'risks'} due to {path.capacityConstraint || 'capacity constraints'}. Youth agency focuses on {path.youthOpportunity || 'resilience actions'}. Prevention response targets: <span className="text-brand-gold font-medium">{path.intervention || 'Not specified'}</span>.
@@ -569,6 +569,9 @@ export default function RiskPathwaysPage() {
                             Local authorities, youth mediators, and Ministry representatives.
                           </div>
                         </div>
+                      </div>
+                      <div className="border-t border-brand-grey-border/30 pt-2 text-[9px] text-brand-gold/90 italic leading-relaxed">
+                        * Draft planning output. To be validated against official regional mandates and context-specific field evidence before deployment.
                       </div>
                     </div>
                   </div>

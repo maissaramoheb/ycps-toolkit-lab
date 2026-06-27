@@ -117,7 +117,7 @@ ${cs.cautions.map((c) => `- ${c}`).join('\n')}
       region: 'East & Horn of Africa',
       pathway: 'Elite capture',
       ypsPillar: 'Prevention',
-      summary: 'Severe droughts trigger water point capture by dominant clans, excluding minority herding youth and heightening vulnerability.',
+      summary: 'Severe droughts trigger water point capture by dominant clans, excluding minority herding youth and heightening resource access constraints.',
       trainingUse: 'Diplomatic Briefings',
       policyUse: 'National Adaptation Plans',
       evidenceStrength: 'Medium',
@@ -125,7 +125,7 @@ ${cs.cautions.map((c) => `- ${c}`).join('\n')}
       stressors: 'Frequent multi-season droughts, vegetation loss, and flash floods that destroy infrastructure.',
       risksAndVulnerabilities: 'Absolute dependence of nomadic pastoralists on deep aquifers. Clannish control of water points leaves minor lineages marginalized.',
       securityDynamics: 'Water points are captured by dominant herder clan militias during droughts, forcing minority herding groups to pay high fees, which can compound historical clan grievances.',
-      youthDimensions: 'Excluded herding youth face absolute loss of livestock, making them vulnerable to armed group recruitment. Youth networks lead local water trucking operations.',
+      youthDimensions: 'Excluded herding youth face absolute loss of livestock, exposing them to heightened recruitment risks under resource constraints. Youth networks lead local water trucking operations.',
       integrationOpportunities: 'Establishing multi-clan youth environmental protection committees to manage common sand dams and open herding ranges.',
       stakeholderGroups: [
         'Somali Ministry of Energy and Water Resources',
@@ -257,7 +257,7 @@ ${cs.cautions.map((c) => `- ${c}`).join('\n')}
       stressors: 'Shifting river corridors, sudden regional droughts, and unmapped herding corridors.',
       risksAndVulnerabilities: 'High borderland dependency on shared water basins. Frontier communities lack formal communication channels.',
       securityDynamics: 'Migrating herders cross frontiers without local permit notice, causing local herder defense mobilizations and border security skirmishes.',
-      youthDimensions: 'Borderland youth herders coordinate river access timings but are highly vulnerable to border borderland security arrest.',
+      youthDimensions: 'Borderland youth herders coordinate river access timings but face specific protection risks and border transhumance arrest threats.',
       integrationOpportunities: 'Establishing a joint youth-led Pokuland Borderland Water Pan Commission to manage shared ranges.',
       stakeholderGroups: [
         'Pokuland Water Commission (Joint board)',
@@ -805,6 +805,10 @@ ${cs.cautions.map((c) => `- ${c}`).join('\n')}
                           Mainstream climate-adaptation training (Resilience) to prevent militia co-optation (Prevention).
                         </div>
                       </div>
+                    </div>
+
+                    <div className="border-t border-brand-grey-border/30 pt-2.5 text-[9px] text-brand-gold/90 italic leading-relaxed">
+                      * Draft planning output. To be validated against official regional mandates and context-specific field evidence before deployment.
                     </div>
                   </div>
                 </div>

@@ -479,7 +479,7 @@ export default function TrainingPage() {
           </div>
 
           {/* Printable Trainer sheet */}
-          <div className="bg-slate-900 border border-brand-grey-border rounded-xl p-6 md:p-8 shadow-xl text-xs text-brand-grey-text space-y-6 print:bg-white print:text-black print:border-none print:shadow-none print:p-0">
+          <div className="bg-gradient-to-br from-brand-navy-light/65 to-brand-navy-dark/95 border border-brand-gold/45 rounded-xl p-6 md:p-8 shadow-xl text-xs text-brand-grey-text space-y-6 print:bg-white print:text-black print:border-none print:shadow-none print:p-0">
             
             {/* Practical Output: Trainer Guide Output */}
             <div className="border-b border-brand-grey-border/30 pb-2 mb-2 no-print">
@@ -645,6 +645,10 @@ export default function TrainingPage() {
               <p className="text-[10px] text-brand-grey-text leading-relaxed print:text-black">
                 This session plan is for training, dialogue, and policy-support purposes. It should not be used as an operational security plan, intelligence assessment, or official institutional position. Users must validate all outputs against sovereign mandates and local context-specific evidence.
               </p>
+            </div>
+
+            <div className="border-t border-brand-grey-border/30 pt-2.5 text-[9px] text-brand-gold/90 italic leading-relaxed no-print">
+              * Draft planning output. To be validated against official regional mandates and context-specific field evidence before deployment.
             </div>
 
           </div>

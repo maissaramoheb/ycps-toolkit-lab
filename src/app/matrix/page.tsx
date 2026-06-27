@@ -418,6 +418,10 @@ export default function MatrixPage() {
                   className="w-full justify-center"
                 />
               </div>
+
+              <div className="border-t border-brand-grey-border/30 pt-2.5 text-[9px] text-brand-gold/90 italic leading-relaxed">
+                * Draft planning output. To be validated against official regional mandates and context-specific field evidence before deployment.
+              </div>
             </div>
           </div>
 

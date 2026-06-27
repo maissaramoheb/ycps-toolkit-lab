@@ -304,6 +304,10 @@ ${activeActivity.outputs.map((o, idx) => `  ${idx + 1}. ${o}`).join('\n')}
                   <p className="text-brand-grey-text">Verify draft compatibility against national mandates and localized climate evidence before use.</p>
                 </div>
               </div>
+
+              <div className="border-t border-brand-grey-border/30 pt-2.5 text-[9px] text-brand-gold/90 italic leading-relaxed">
+                * Draft planning output. To be validated against official regional mandates and context-specific field evidence before deployment.
+              </div>
             </div>
           </div>
 

@@ -109,8 +109,13 @@ export default function Dashboard() {
             Youth, Climate, Peace and <span className="text-brand-gold">Security Toolkit Lab</span>
           </h1>
           <p className="text-sm md:text-base text-brand-grey-text leading-relaxed">
-            A practical planning and training companion for YCPS in Africa. Translate regional stabilization agendas into context-specific risk pathways, herder stakeholder maps, and action matrices for conflict-sensitive response.
+            YCPS Toolkit Lab is a practical planning and training workspace that helps users translate Youth, Climate, Peace and Security concepts into validated policy, programming, stakeholder, and training outputs for African contexts. Moving from <span className="text-brand-gold font-semibold">Recognition to Implementation</span>.
           </p>
+
+          <div className="pt-2 text-xs text-brand-grey-text space-y-1.5">
+            <span className="text-[10px] font-bold text-brand-gold tracking-widest uppercase block">Target Audience Roles:</span>
+            <p>Designed for <span className="text-brand-offwhite font-medium">policymakers</span> (for national ownership alignments), <span className="text-brand-offwhite font-medium">practitioners</span> (for conflict-sensitive programming), <span className="text-brand-offwhite font-medium">trainers</span> (for scenario-based simulations), and <span className="text-brand-offwhite font-medium">youth/climate/peacebuilding actors</span> (for strengthening local resilience agency).</p>
+          </div>
           
           <div className="pt-4 flex flex-wrap gap-3">
             {currentScenario === 'custom' && (
@@ -119,7 +124,7 @@ export default function Dashboard() {
                 type="button"
                 className="px-5 py-2.5 bg-brand-gold hover:bg-brand-gold-dark text-brand-navy-dark font-bold rounded-lg text-xs tracking-wider uppercase shadow-md transition-all duration-200 cursor-pointer"
               >
-                Seed Sahel Preset Scenario
+                Seed Sahel Preset Scenario (Recommended)
               </button>
             )}
             <Link
@@ -129,6 +134,43 @@ export default function Dashboard() {
               Start Empty Workspace Matrix
             </Link>
           </div>
+        </div>
+      </section>
+
+      {/* Demo Flow Navigation Bar */}
+      <section className="glass-panel p-5 rounded-xl border border-brand-gold/25 bg-gradient-to-r from-brand-navy-light/35 to-slate-900 space-y-3">
+        <div className="flex items-center justify-between">
+          <span className="text-[10px] font-bold text-brand-gold tracking-widest uppercase">Quick Demo Flow Navigation (Follow Steps in under 60 seconds)</span>
+          <span className="text-[9px] text-brand-grey-text/80 uppercase">Demo Sequence</span>
+        </div>
+        <div className="flex flex-wrap gap-2 text-[10px] font-medium">
+          <Link href="/case-studies" className="px-3 py-2 rounded bg-brand-navy-light/65 border border-brand-grey-border/50 text-brand-grey-text hover:text-brand-gold hover:border-brand-gold transition-all">
+            1. Select Case Study
+          </Link>
+          <span className="text-brand-grey-text/40 self-center">→</span>
+          <Link href="/matrix" className="px-3 py-2 rounded bg-brand-navy-light/65 border border-brand-grey-border/50 text-brand-grey-text hover:text-brand-gold hover:border-brand-gold transition-all">
+            2. Build YPS Matrix
+          </Link>
+          <span className="text-brand-grey-text/40 self-center">→</span>
+          <Link href="/risk-pathways" className="px-3 py-2 rounded bg-brand-navy-light/65 border border-brand-grey-border/50 text-brand-grey-text hover:text-brand-gold hover:border-brand-gold transition-all">
+            3. Risk Pathway
+          </Link>
+          <span className="text-brand-grey-text/40 self-center">→</span>
+          <Link href="/stakeholders" className="px-3 py-2 rounded bg-brand-navy-light/65 border border-brand-grey-border/50 text-brand-grey-text hover:text-brand-gold hover:border-brand-gold transition-all">
+            4. Stakeholder Map
+          </Link>
+          <span className="text-brand-grey-text/40 self-center">→</span>
+          <Link href="/toolkit" className="px-3 py-2 rounded bg-brand-navy-light/65 border border-brand-grey-border/50 text-brand-grey-text hover:text-brand-gold hover:border-brand-gold transition-all">
+            5. Workplan / Training
+          </Link>
+          <span className="text-brand-grey-text/40 self-center">→</span>
+          <Link href="/language" className="px-3 py-2 rounded bg-brand-navy-light/65 border border-brand-grey-border/50 text-brand-grey-text hover:text-brand-gold hover:border-brand-gold transition-all">
+            6. Wording Review
+          </Link>
+          <span className="text-brand-grey-text/40 self-center">→</span>
+          <Link href="/review" className="px-3 py-2 rounded bg-brand-navy-light/65 border border-brand-grey-border/50 text-brand-grey-text hover:text-brand-gold hover:border-brand-gold transition-all">
+            7. Red-Team Review
+          </Link>
         </div>
       </section>
 

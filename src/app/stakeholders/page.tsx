@@ -432,6 +432,10 @@ export default function StakeholdersPage() {
                   Establish a monthly briefing schedule with regional bodies (AU, LCBC, or IGAD) to relay ground-level agropastoral monitoring data directly to national ministries.
                 </p>
               </div>
+
+              <div className="border-t border-brand-grey-border/30 pt-2.5 text-[9px] text-brand-gold/90 italic leading-relaxed">
+                * Draft planning output. To be validated against official regional mandates and context-specific field evidence before deployment.
+              </div>
             </div>
           </div>
 
@@ -482,9 +486,11 @@ export default function StakeholdersPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                   </svg>
                 </div>
-                <h4 className="text-sm font-bold text-brand-offwhite">No Stakeholders Found</h4>
+                <h4 className="text-sm font-bold text-brand-offwhite">No Stakeholders Mapped</h4>
                 <p className="text-xs text-brand-grey-text max-w-sm mx-auto">
-                  No stakeholders match your active filter settings. Try clearing the filters or register a new actor.
+                  {stakeholders.length === 0
+                    ? 'Register a stakeholder using the registration form on the left, or seed a preset scenario from the dashboard overview to populate the workspace.'
+                    : 'No stakeholders match your active filter settings. Try resetting the filters above.'}
                 </p>
               </div>
             ) : (
