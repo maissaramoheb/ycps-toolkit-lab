@@ -250,7 +250,7 @@ export default function BriefGeneratorPage() {
           {/* Main Brief Content (Styled Sheet) */}
           <div
             ref={printAreaRef}
-            className="lg:col-span-3 bg-slate-900 border border-brand-grey-border rounded-xl p-8 md:p-12 shadow-2xl print:bg-white print:text-black print:border-none print:shadow-none print:p-0"
+            className="lg:col-span-3 bg-gradient-to-br from-brand-navy-light/65 to-brand-navy-dark/95 border border-brand-gold/45 rounded-xl p-8 md:p-12 shadow-2xl print:bg-white print:text-black print:border-none print:shadow-none print:p-0"
           >
             {/* Brief Header */}
             <div className="border-b-2 border-brand-gold pb-6 space-y-2 mb-8 print:border-black">
@@ -489,6 +489,10 @@ export default function BriefGeneratorPage() {
             {/* Brief Footer Disclaimer */}
             <div className="mt-12 pt-6 border-t border-brand-grey-border/50 text-[10px] text-brand-grey-text leading-relaxed print:text-gray-500 print:border-gray-400">
               <span className="font-semibold text-brand-gold print:text-black">Disclaimer:</span> Prototype support tool. Not an official UN, CCCPA, DEDI, or government platform. Users should validate all outputs against official mandates, policies, and context-specific evidence.
+            </div>
+
+            <div className="border-t border-brand-grey-border/30 pt-2.5 text-[9px] text-brand-gold/90 italic leading-relaxed no-print">
+              * Draft planning output. To be validated against official regional mandates and context-specific field evidence before deployment.
             </div>
           </div>
 
