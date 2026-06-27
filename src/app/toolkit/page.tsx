@@ -5,13 +5,14 @@ import { useApp } from '@/context/AppContext';
 import { WORKPLAN_ACTIVITIES } from '@/lib/sourceTruth';
 import { CopyButton } from '@/components/CopyButton';
 import { SourceIntegrityPanel } from '@/components/SourceIntegrityPanel';
+import { YPSPillarId } from '@/types';
 
 export default function WorkplanToolkitPage() {
   const { matrixEntries, riskPathways, stakeholders, contextName } = useApp();
 
   // Selected Options for Mapping
   const [selectedActivity, setSelectedActivity] = useState<string>(WORKPLAN_ACTIVITIES[0].id);
-  const [selectedPillarId, setSelectedPillarId] = useState<string>('participation');
+  const [selectedPillarId, setSelectedPillarId] = useState<YPSPillarId>('participation');
   const [selectedPathwayId, setSelectedPathwayId] = useState<string>('');
   const [selectedStakeholderId, setSelectedStakeholderId] = useState<string>('');
 
@@ -19,20 +20,20 @@ export default function WorkplanToolkitPage() {
 
 
 
-  const selectedPillar = matrixEntries[selectedPillarId as keyof typeof matrixEntries];
+  const selectedPillar = matrixEntries[selectedPillarId];
   const selectedPathway = riskPathways.find((p) => p.id === selectedPathwayId) || riskPathways[0];
   const selectedStakeholder = stakeholders.find((s) => s.id === selectedStakeholderId) || stakeholders[0];
 
   // Helper to compile a markdown plan for copying
   const compileSessionPlanMarkdown = () => {
-    let md = `# OPERATIONAL WORKSHOP SESSION PLAN: ${activeActivity.name.toUpperCase()}\n\n`;
+    let md = `# DRAFT WORKSHOP SESSION PLAN: ${activeActivity.name.toUpperCase()}\n\n`;
     md += `**Context Environment:** ${contextName}\n`;
     md += `**Activity Scope:** ${activeActivity.description}\n`;
     md += `*Mapped via YCPS Toolkit Lab Activity Connector*\n\n`;
     md += `---\n\n`;
 
     md += `## 1. Session Objectives & Outputs\n`;
-    md += `- **Objectives:** Design youth-inclusive stabilization programs matching ${activeActivity.name}.\n`;
+    md += `- **Objectives:** Design conflict-sensitive, youth-inclusive programming aligned with ${activeActivity.name}.\n`;
     md += `- **Target Outputs:**\n`;
     activeActivity.outputs.forEach((out) => {
       md += `  * ${out}\n`;
@@ -54,8 +55,8 @@ export default function WorkplanToolkitPage() {
     if (selectedStakeholder) {
       md += `Engaging primary stakeholder **${selectedStakeholder.name}**:\n`;
       md += `- **Actor Type:** ${selectedStakeholder.actorType.replace('_', ' ')}\n`;
-      md += `- **Mandated Interest:** ${selectedStakeholder.interest}\n`;
-      md += `- **Co-optation Risks:** ${selectedStakeholder.risks || 'None'}\n`;
+      md += `- **Recorded Interest / Mandate:** ${selectedStakeholder.interest}\n`;
+      md += `- **Recorded Engagement Risks:** ${selectedStakeholder.risks || 'None recorded'}\n`;
       md += `- **Recommended Strategy:** ${selectedStakeholder.engagementStrategy || 'Not specified'}\n\n`;
     } else {
       md += `*No primary actors attached. Please select one from the dropdown.*\n\n`;
@@ -70,7 +71,7 @@ export default function WorkplanToolkitPage() {
     md += `- **Indicator:** ${selectedPillar.indicator || 'None detailed'}\n\n`;
 
     md += `## 5. Diplomatic Compliance & Red-Teaming\n`;
-    md += `- **Approved Wording:** *"${selectedPillar.diplomaticWording || 'Enhancing local resilience through youth-led partnerships'}"*\n`;
+    md += `- **Suggested Draft Wording:** *"${selectedPillar.diplomaticWording || 'To be validated: no draft wording entered.'}"*\n`;
     if (selectedPillar.redTeamWarning) {
       md += `- **Red-Team Warning:** ⚠️ ${selectedPillar.redTeamWarning}\n\n`;
     }
@@ -80,7 +81,7 @@ export default function WorkplanToolkitPage() {
     md += `- **Facilitator Note:** Focus on intergenerational dialogue, pairing youth mediators with traditional elders to validate local water-sharing agreements.\n\n`;
     
     md += `---\n`;
-    md += `*Disclaimer: Prototype support tool. Validate all session plans against official mandates and context evidence.*`;
+    md += `*Disclaimer: Prototype support tool. Not official advice. Validate all session plans against official mandates and context-specific evidence.*`;
 
     return md;
   };
@@ -158,7 +159,7 @@ export default function WorkplanToolkitPage() {
               <select
                 id="pillar-select"
                 value={selectedPillarId}
-                onChange={(e) => setSelectedPillarId(e.target.value)}
+                onChange={(e) => setSelectedPillarId(e.target.value as YPSPillarId)}
                 className="w-full text-xs bg-brand-navy-dark text-brand-offwhite border border-brand-grey-border/80 focus:border-brand-gold rounded-lg px-3 py-2.5 focus:outline-none cursor-pointer"
               >
                 <option value="participation">Pillar: Participation</option>
@@ -250,7 +251,7 @@ export default function WorkplanToolkitPage() {
                 CCCPA Component 3 Operational Planner
               </span>
               <h2 className="text-base font-bold text-brand-offwhite leading-snug mt-1 print:text-black">
-                WORKSHOP SESSION PLAN: {activeActivity.name.toUpperCase()}
+                DRAFT WORKSHOP SESSION PLAN: {activeActivity.name.toUpperCase()}
               </h2>
               <div className="grid grid-cols-2 gap-4 text-[10px] text-brand-grey-text/75 mt-2 print:text-gray-600">
                 <div>Context: <span className="text-brand-offwhite print:text-black font-semibold">{contextName}</span></div>
@@ -264,7 +265,7 @@ export default function WorkplanToolkitPage() {
                 1. Session Objectives & Target Outputs
               </h3>
               <p>
-                The objective of this session is to design youth-inclusive stabilization responses. In line with the Egypt-Denmark bilateral priorities, this plan targets the following concrete deliverables:
+                The objective of this session is to design conflict-sensitive, youth-inclusive programming. With reference to the Egypt–Denmark partnership framework, this draft targets the following deliverables:
               </p>
               <ul className="list-disc pl-5 space-y-1">
                 {activeActivity.outputs.map((out, idx) => (
@@ -300,8 +301,8 @@ export default function WorkplanToolkitPage() {
               {selectedStakeholder ? (
                 <div className="bg-brand-navy-light/25 border border-brand-grey-border/30 p-3.5 rounded-lg space-y-2 print:bg-gray-100 print:border-gray-300">
                   <p><span className="font-semibold text-brand-offwhite print:text-black">Primary stakeholder:</span> {selectedStakeholder.name} ({selectedStakeholder.actorType.replace('_', ' ')})</p>
-                  <p><span className="font-semibold text-brand-offwhite print:text-black">Mandated Interest:</span> {selectedStakeholder.interest}</p>
-                  <p><span className="font-semibold text-brand-offwhite print:text-black">Co-optation/Spoiler Risks:</span> {selectedStakeholder.risks || 'No risks identified'}</p>
+                  <p><span className="font-semibold text-brand-offwhite print:text-black">Recorded interest / mandate:</span> {selectedStakeholder.interest}</p>
+                  <p><span className="font-semibold text-brand-offwhite print:text-black">Recorded engagement risks:</span> {selectedStakeholder.risks || 'No risks recorded'}</p>
                   <p><span className="font-semibold text-brand-offwhite print:text-black">Engagement strategy:</span> {selectedStakeholder.engagementStrategy}</p>
                 </div>
               ) : (
@@ -328,7 +329,7 @@ export default function WorkplanToolkitPage() {
                 5. Diplomatic Compliance & Red-Teaming
               </h3>
               <div className="bg-brand-navy-light/25 border border-brand-grey-border/30 p-3.5 rounded-lg space-y-2 print:bg-gray-100 print:border-gray-300">
-                <p><span className="font-semibold text-brand-offwhite print:text-black">Approved wording:</span> &ldquo;<span className="text-brand-gold print:text-black italic">{selectedPillar.diplomaticWording || 'Enhancing local resilience through youth-led partnerships.'}</span>&rdquo;</p>
+                <p><span className="font-semibold text-brand-offwhite print:text-black">Suggested draft wording:</span> &ldquo;<span className="text-brand-gold print:text-black italic">{selectedPillar.diplomaticWording || 'To be validated: no draft wording entered.'}</span>&rdquo;</p>
                 {selectedPillar.redTeamWarning && (
                   <p className="text-red-400 print:text-red-800"><span className="font-semibold text-brand-offwhite print:text-black">Red-Team Warning:</span> ⚠️ {selectedPillar.redTeamWarning}</p>
                 )}
@@ -348,7 +349,7 @@ export default function WorkplanToolkitPage() {
 
             {/* Footer Disclaimer */}
             <div className="mt-8 pt-4 border-t border-brand-grey-border/40 text-[9px] text-brand-grey-text/80 print:text-gray-500">
-              Prototype support tool. Mapped under the DEDI 2024-2028 Project Document guidelines. Validate all outputs before field deployment.
+              Prototype support tool. Not official advice. Prepared with reference to the DEDI Project Document 2024–2028; validate all outputs before field use.
             </div>
           </div>
         </div>

@@ -73,12 +73,12 @@ export interface WordingRule {
   reason: string;
 }
 
-export const APPROVED_VOCABULARY_RULES: WordingRule[] = [
+export const APPROVED_VOCABULARY_RULES: readonly WordingRule[] = [
   {
-    prohibitedPattern: /climate\s+causes?\s+conflict|climate\s+conflict\s+direct|causes?\s+war/i,
+    prohibitedPattern: /climate\s+(?:directly\s+)?causes?\s+(?:conflict|war)|climate[-\s]conflict\s+(?:is\s+)?direct|causes?\s+war/i,
     prohibitedWord: 'climate causes conflict',
     approvedReplacement: 'climate-related risks compound existing vulnerabilities',
-    reason: 'Avoid overstating causal links. Environmental stressors act as threat multipliers rather than direct linear causes of war.'
+    reason: 'Avoid overstating causal links. Climate-related stressors may compound existing vulnerabilities under specific conditions.'
   },
   {
     prohibitedPattern: /failed\s+state|failed\s+governance|government\s+failure|state\s+collapse/i,
@@ -87,14 +87,14 @@ export const APPROVED_VOCABULARY_RULES: WordingRule[] = [
     reason: 'Support sovereign national ownership and use constructive, non-inflammatory diplomatic phrasing.'
   },
   {
-    prohibitedPattern: /vulnerable\s+youth|youth\s+risk|radicalization\s+risk|radical\s+youth|youth\s+radicalization/i,
-    prohibitedWord: 'vulnerable youth / youth radicalization risk',
+    prohibitedPattern: /vulnerable\s+youth|youth\s+(?:are\s+)?vulnerable|youth\s+risk|radicalization\s+risk|radical\s+youth|youth\s+radicalization/i,
+    prohibitedWord: 'vulnerable youth / youth are vulnerable / youth radicalization risk',
     approvedReplacement: 'young people face differentiated risks and contribute as active agents of resilience, prevention, and peacebuilding',
     reason: 'Avoid framing young people primarily as security threats, risks, or passive victims. Highlight agency and innovation.'
   },
   {
-    prohibitedPattern: /security\s+response|military\s+intervention|military\s+solution|armed\s+containment/i,
-    prohibitedWord: 'security response / military intervention',
+    prohibitedPattern: /security\s+(?:response|solution)|military\s+intervention|military\s+solution|armed\s+containment/i,
+    prohibitedWord: 'security response / security solution / military intervention',
     approvedReplacement: 'conflict-sensitive, rights-based, and prevention-oriented response',
     reason: 'Avoid over-securitizing climate adaptation or youth activities. Emphasize developmental and community-led solutions.'
   },
@@ -109,6 +109,18 @@ export const APPROVED_VOCABULARY_RULES: WordingRule[] = [
     prohibitedWord: 'radicalization trigger / terrorist recruit',
     approvedReplacement: 'exposure to livelihood pressures and recruitment vulnerabilities',
     reason: 'Maintain careful, analytical diplomatic language. Focus on structural economic and environmental drivers.'
+  },
+  {
+    prohibitedPattern: /international\s+actors?\s+(?:should\s+)?impose\s+(?:a\s+)?solutions?/i,
+    prohibitedWord: 'international actors should impose solutions',
+    approvedReplacement: 'responses should be grounded in national ownership, local priorities, and context-specific evidence',
+    reason: 'Preserve national ownership and avoid externally imposed prescriptions.'
+  },
+  {
+    prohibitedPattern: /ai[-\s]+powered\s+official\s+advice/i,
+    prohibitedWord: 'AI-powered official advice',
+    approvedReplacement: 'draft support from a prototype support tool, to be validated',
+    reason: 'Do not imply that prototype-generated text constitutes official or institutionally endorsed advice.'
   }
 ];
 
@@ -141,7 +153,7 @@ export const WORKPLAN_ACTIVITIES: WorkplanActivity[] = [
   {
     id: 'intergenerational_dialogue',
     name: 'Intergenerational Dialogue Workshops on Local Climate Security',
-    description: 'Facilitating structured disputes resolution dialogues between youth committees and traditional elders over water.',
+    description: 'Facilitating structured dispute-resolution dialogues between youth committees and traditional elders over water.',
     outputs: ['Pastoral Corridor Mediation Agreement', 'Water Management Rota', 'Joint Peace Council Mandate']
   },
   {
@@ -154,7 +166,7 @@ export const WORKPLAN_ACTIVITIES: WorkplanActivity[] = [
     id: 'national_capacity',
     name: 'Capacity Building for National Governance & Local Institutions',
     description: 'Technical seminars assisting ministries of environment, water, and youth in formulating joint YCPS action plans.',
-    outputs: ['Integrated Ministerial Action Matrix', 'National Adaption Plan (NAP) Youth Annex']
+    outputs: ['Integrated Ministerial Action Matrix', 'National Adaptation Plan (NAP) Youth Annex']
   }
 ];
 

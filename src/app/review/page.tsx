@@ -2,13 +2,18 @@
 
 import React from 'react';
 import { useApp } from '@/context/AppContext';
-import { checkTextCompliance, ComplianceWarning } from '@/lib/sourceTruth';
+import {
+  APPROVED_VOCABULARY_RULES,
+  checkTextCompliance,
+  ComplianceWarning
+} from '@/lib/sourceTruth';
 
 export default function RedTeamReviewPage() {
   const { matrixEntries, riskPathways, stakeholders, contextName } = useApp();
 
   // Run compliance audit across all loaded data
   const audits: { source: string; text: string; warnings: ComplianceWarning[] }[] = [];
+  let totalAuditedFields = 0;
 
   // 1. Audit Matrix
   Object.entries(matrixEntries).forEach(([pillarId, entry]) => {
@@ -19,12 +24,15 @@ export default function RedTeamReviewPage() {
       { key: 'protectionConcern', label: 'Protection Concern' },
       { key: 'practicalEntryPoint', label: 'Practical Entry Point' },
       { key: 'suggestedAction', label: 'Suggested Action' },
+      { key: 'indicator', label: 'Indicator' },
       { key: 'diplomaticWording', label: 'Diplomatic Wording' },
       { key: 'redTeamWarning', label: 'Red-Team Warning' }
     ];
 
     fieldsToCheck.forEach((f) => {
       const val = entry[f.key] as string;
+      if (val.trim() === '') return;
+      totalAuditedFields += 1;
       const warnings = checkTextCompliance(`${pillarName} Matrix — ${f.label}`, val);
       if (warnings.length > 0) {
         audits.push({
@@ -50,6 +58,8 @@ export default function RedTeamReviewPage() {
     ];
 
     fieldsToCheck.forEach((f) => {
+      if (f.val.trim() === '') return;
+      totalAuditedFields += 1;
       const warnings = checkTextCompliance(`Pathway ${idx + 1} — ${f.label}`, f.val);
       if (warnings.length > 0) {
         audits.push({
@@ -71,6 +81,8 @@ export default function RedTeamReviewPage() {
     ];
 
     fieldsToCheck.forEach((f) => {
+      if (f.val.trim() === '') return;
+      totalAuditedFields += 1;
       const warnings = checkTextCompliance(`Stakeholder ${s.name} — ${f.label}`, f.val);
       if (warnings.length > 0) {
         audits.push({
@@ -83,11 +95,10 @@ export default function RedTeamReviewPage() {
   });
 
   // Calculations
-  const totalAuditedFields = 5 * 7 + riskPathways.length * 8 + stakeholders.length * 4;
   const infractionsCount = audits.reduce((sum, item) => sum + item.warnings.length, 0);
-  
-  // Compliance Score calculation (starts at 100%, drops by 10% per warning, floor at 10%)
-  const complianceScore = Math.max(10, 100 - infractionsCount * 10);
+  const screeningScore = totalAuditedFields > 0
+    ? Math.round(((totalAuditedFields - audits.length) / totalAuditedFields) * 100)
+    : null;
 
   // Structural Checklist
   const activePillars = Object.values(matrixEntries).filter(
@@ -110,11 +121,13 @@ export default function RedTeamReviewPage() {
     },
     {
       label: 'Identify evidence gaps: evidence quality and gaps specified',
-      passed: riskPathways.length > 0 && riskPathways.every((p) => p.evidenceStrength !== 'Unclear')
+      passed: riskPathways.length > 0 && riskPathways.every(
+        (p) => p.evidenceStrength !== 'Unclear' && p.evidenceGaps.trim() !== ''
+      )
     },
     {
       label: 'Check conflict-sensitivity: at least one Red-Team Warning logged',
-      passed: activePillars.some((e) => e.redTeamWarning.trim() !== '') || stakeholders.some((s) => s.risks.trim() !== '')
+      passed: activePillars.some((e) => e.redTeamWarning.trim() !== '')
     },
     {
       label: 'Stakeholder mapping: at least one Youth Actor registered',
@@ -148,19 +161,19 @@ export default function RedTeamReviewPage() {
         {/* Compliance Meter */}
         <div className="glass-panel p-6 rounded-xl border border-brand-grey-border/60 flex flex-col items-center justify-center text-center space-y-3">
           <span className="text-xs font-bold text-brand-grey-text uppercase tracking-widest">
-            Diplomatic Compliance Score
+            Prototype Wording Screen
           </span>
           <div className="relative flex items-center justify-center h-28 w-28">
             {/* Outer Circle Ring */}
             <div className="absolute inset-0 rounded-full border-4 border-brand-navy-light" />
             <div className="text-3xl font-extrabold text-brand-offwhite">
-              <span className={complianceScore > 80 ? 'text-brand-green' : complianceScore > 50 ? 'text-brand-gold' : 'text-red-400'}>
-                {complianceScore}%
+              <span className={screeningScore === null ? 'text-brand-grey-text' : screeningScore > 80 ? 'text-brand-green' : screeningScore > 50 ? 'text-brand-gold' : 'text-red-400'}>
+                {screeningScore === null ? '—' : `${screeningScore}%`}
               </span>
             </div>
           </div>
           <p className="text-[10px] text-brand-grey-text">
-            Audited {totalAuditedFields} planning data fields inside workspace.
+            Screened {totalAuditedFields} non-empty planning fields against configured wording patterns.
           </p>
         </div>
 
@@ -178,11 +191,13 @@ export default function RedTeamReviewPage() {
             </div>
             <div className="p-3.5 bg-brand-navy-light/45 rounded-lg border border-brand-grey-border/50">
               <span className="text-brand-grey-text block">Predefined Language Guidelines:</span>
-              <span className="text-2xl font-extrabold text-brand-offwhite block mt-1">6 Strict Rules</span>
+              <span className="text-2xl font-extrabold text-brand-offwhite block mt-1">
+                {APPROVED_VOCABULARY_RULES.length} Screening Rules
+              </span>
             </div>
           </div>
           <p className="text-[10px] text-brand-grey-text leading-relaxed">
-            The YCPS Toolkit Lab enforces UNDP, DEDI, and CCCPA strategic language protocols, ensuring outputs do not over-securitize climate issues, map youth as risks, or bypass sovereign national ownership.
+            This prototype screen flags selected wording patterns derived from the project&apos;s diplomatic language rules. Results are draft support and must be validated against the source hierarchy, national mandates, and context-specific evidence.
           </p>
         </div>
       </section>
@@ -206,9 +221,13 @@ export default function RedTeamReviewPage() {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <h4 className="text-sm font-bold text-brand-green">100% Diplomatic Compliance Cleared</h4>
+              <h4 className="text-sm font-bold text-brand-green">
+                {totalAuditedFields === 0 ? 'No Content to Screen' : 'No Configured Wording Flags Detected'}
+              </h4>
               <p className="text-xs text-brand-grey-text max-w-sm mx-auto">
-                No non-compliant terms detected. Your analytical entries fully conform to CCCPA, DEDI, and UNDP diplomatic language rules.
+                {totalAuditedFields === 0
+                  ? 'Add working content before running the wording screen.'
+                  : 'The screen found no matches in the non-empty fields reviewed. This is not institutional validation; review the draft against official mandates and context-specific evidence.'}
               </p>
             </div>
           ) : (
@@ -297,7 +316,7 @@ export default function RedTeamReviewPage() {
               <span className="font-semibold text-brand-gold block mb-1">
                 💡 Policy validation warning:
               </span>
-              This red-team checklist audits the structural density of YCPS briefs. Full completion ensures robust analysis fit for diplomat training and COP side events.
+              This checklist indicates structural completeness only. It does not validate the quality, accuracy, or institutional suitability of a draft for diplomat training or COP-related use.
             </div>
           </div>
         </div>

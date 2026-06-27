@@ -25,7 +25,7 @@ export const SourceIntegrityPanel: React.FC<SourceIntegrityPanelProps> = ({
       case 'complete':
         return (
           <span className="inline-flex items-center gap-1 text-[9px] font-bold px-1.5 py-0.5 rounded bg-brand-green/10 text-brand-green border border-brand-green/20">
-            Validated Output
+            User-Marked Validated
           </span>
         );
       case 'warning':
@@ -38,7 +38,7 @@ export const SourceIntegrityPanel: React.FC<SourceIntegrityPanelProps> = ({
       default:
         return (
           <span className="inline-flex items-center gap-1 text-[9px] font-bold px-1.5 py-0.5 rounded bg-brand-gold/10 text-brand-gold border border-brand-gold/20">
-            Operational Draft
+            To Be Validated
           </span>
         );
     }

@@ -73,7 +73,7 @@ export const SCENARIOS: Record<
     matrix: {
       participation: {
         pillarId: 'participation',
-        climateSecurityConsideration: 'Shrinkage of Lake Chad and degradation of pastures force herders southward, sparking violent friction with local farming communities. Traditional resource management structures exclude young pastoralists and farmers.',
+        climateSecurityConsideration: 'Shrinkage of Lake Chad and pasture degradation may intensify mobility pressures and contribute to tensions with farming communities where resource governance is limited. Traditional resource management structures may exclude young pastoralists and farmers.',
         youthRoleAgency: 'Young herders and farmers form localized joint natural resource committees to negotiate seasonal migration corridors, establish water-sharing rotas, and defuse immediate conflicts.',
         protectionConcern: 'Young mediators face physical safety risks from transhumance raiders and marginalization or reprimand by traditional community elders who view youth agency as a challenge to their authority.',
         practicalEntryPoint: 'Integrate youth committee representatives into municipal land-use boards and traditional mediation panels, backed by regional framework agreements.',
@@ -84,7 +84,7 @@ export const SCENARIOS: Record<
       },
       protection: {
         pillarId: 'protection',
-        climateSecurityConsideration: 'Unpredictable seasonal rainfall forces long, unmapped migration paths. Young herders are exposed to extreme heat, water scarcity, and hostile local defense forces.',
+        climateSecurityConsideration: 'Unpredictable seasonal rainfall may lengthen or alter migration routes. Young herders can face extreme heat, water scarcity, and protection risks along poorly mapped routes.',
         youthRoleAgency: 'Youth-led emergency notification networks use SMS and local radio to disseminate information on safe corridors, climate hazards, and access to water.',
         protectionConcern: 'Young women fetching water from increasingly distant wells face heightened risks of gender-based violence (GBV) along unmonitored routes.',
         practicalEntryPoint: 'Collaborate with local youth networks to identify high-risk routes and install solar-lighted, protected water points.',
@@ -95,14 +95,14 @@ export const SCENARIOS: Record<
       },
       prevention: {
         pillarId: 'prevention',
-        climateSecurityConsideration: 'Widespread crop failures and loss of livestock severely reduce household income. Non-state armed groups exploit this financial stress, offering economic incentives to recruit desperate youth.',
+        climateSecurityConsideration: 'Widespread crop failures and livestock losses may reduce household income. In some settings, armed groups may exploit these pressures by offering economic incentives to young people facing constrained livelihood options.',
         youthRoleAgency: 'Youth agricultural cooperatives develop solar-powered drip irrigation and resilient crops, establishing alternative livelihoods that keep peers economically engaged and anchored.',
         protectionConcern: 'Youth cooperatives are targeted for extortion by armed groups or viewed with suspicion by national security services.',
         practicalEntryPoint: 'Provide seed funding, technical agronomy training, and basic security coordination for youth-led eco-agricultural cooperatives.',
         suggestedAction: 'Equip 10 youth-led agricultural cooperatives with solar water pumps, climate-resilient seed packets, and business management training.',
         indicator: 'Number of young people engaged in viable green cooperative livelihoods who express increased community connection.',
         diplomaticWording: 'Strengthening economic resilience and prevention frameworks by expanding opportunities in climate-smart value chains for youth.',
-        redTeamWarning: 'Livelihood programs targeted solely at \'at-risk\' youth can breed local resentment. Ensure selections are transparent and benefit the wider community.'
+        redTeamWarning: 'Livelihood programs targeted through security-based labels can contribute to local resentment. Ensure selection criteria are transparent and benefits extend to the wider community.'
       },
       partnerships: {
         pillarId: 'partnerships',
@@ -148,9 +148,9 @@ export const SCENARIOS: Record<
         hazard: 'Prolonged droughts and desertification',
         exposure: 'Rain-fed farming communities with limited alternative income channels',
         vulnerability: 'Youth unemployment, food insecurity, and breakdown of traditional social safety nets',
-        capacityConstraint: 'Marginal state presence, lack of trust in national security forces, and ungoverned border spaces',
+        capacityConstraint: 'Limited public-service coverage, low trust between communities and public institutions, and constrained cross-border coordination',
         pathwayType: 'armed_group_exploitation',
-        youthImpact: 'Total loss of agricultural income leaves young men vulnerable to financial recruitment and safety promises made by armed extremist organizations.',
+        youthImpact: 'Loss of agricultural income may increase exposure to recruitment incentives offered by armed groups, while young people also contribute to local prevention and resilience efforts.',
         youthOpportunity: 'Engage youth in solar-powered value-addition (milling, cooling) cooperatives that provide stable economic anchors.',
         intervention: 'Establish climate-resilient youth enterprise hubs offering micro-grants and mentorship in green livelihoods.',
         evidenceStrength: 'Medium',
@@ -213,7 +213,7 @@ export const SCENARIOS: Record<
       },
       protection: {
         pillarId: 'protection',
-        climateSecurityConsideration: 'Water scarcity in rural areas increases domestic burdens. Decreasing Nile water flow leads to local agricultural distress and migration.',
+        climateSecurityConsideration: 'Water scarcity may increase domestic burdens. Reduced water availability can compound agricultural pressures and influence mobility decisions under specific local conditions.',
         youthRoleAgency: 'Youth groups create local water conservation awareness campaigns and implement simple greywater recycling systems in public facilities.',
         protectionConcern: 'Displaced rural youth entering urban informal settlements face poor living conditions and lack legal protections.',
         practicalEntryPoint: 'Strengthen local vocational training centers to equip migrating youth with technical skills for water-efficient industries.',
@@ -246,7 +246,7 @@ export const SCENARIOS: Record<
       },
       disengagement_reintegration: {
         pillarId: 'disengagement_reintegration',
-        climateSecurityConsideration: 'Economic stagnation in coastal communities drives irregular maritime migration attempts among youth.',
+        climateSecurityConsideration: 'Economic stagnation in coastal communities may contribute to irregular maritime migration decisions among some young people, alongside other social and economic factors.',
         youthRoleAgency: 'Returned migrants lead peer-mentorship networks, guiding local youth into green jobs and inland sustainable agricultural projects.',
         protectionConcern: 'Returned irregular migrants face social stigma, legal checks, and high risk of re-migration due to lack of local alternatives.',
         practicalEntryPoint: 'Integrate returned youth into national land reclamation projects (e.g., the Toshka or New Delta projects) with clear ownership stakes.',
@@ -265,7 +265,7 @@ export const SCENARIOS: Record<
         vulnerability: 'High dependency on traditional farming methods, soil degradation, and low access to green finance',
         capacityConstraint: 'Centralized decision-making that slows down local adaptation responses in rural districts',
         pathwayType: 'livelihood_loss',
-        youthImpact: 'Loss of family agricultural lands drives high rates of youth unemployment and forces distress migration to Cairo and Alexandria.',
+        youthImpact: 'Loss of family agricultural land may compound youth unemployment and contribute to distress migration decisions toward Cairo and Alexandria.',
         youthOpportunity: 'Engage youth in technical jobs like hydroponics, soil salinization testing, and solar-powered coastal farming.',
         intervention: 'Launch a Delta Green Jobs Initiative offering training and seed grants for climate-resilient agribusinesses.',
         evidenceStrength: 'High',
@@ -316,7 +316,7 @@ export const SCENARIOS: Record<
       },
       protection: {
         pillarId: 'protection',
-        climateSecurityConsideration: 'Extreme drought forces communities into poorly secured IDP camps around Mogadishu and Baidoa.',
+        climateSecurityConsideration: 'Extreme drought may contribute to displacement toward camps around Mogadishu and Baidoa, where service and protection capacities can be constrained.',
         youthRoleAgency: 'Youth networks volunteer as safety coordinators in IDP camps, monitoring water points and lighting.',
         protectionConcern: 'High levels of gender-based violence against women and children seeking fuel and water.',
         practicalEntryPoint: 'Install community-managed solar streetlights at water points and communal spaces.',
@@ -327,7 +327,7 @@ export const SCENARIOS: Record<
       },
       prevention: {
         pillarId: 'prevention',
-        climateSecurityConsideration: 'Loss of livelihood drives young pastoralists to join illicit charcoal trading networks, worsening deforestation.',
+        climateSecurityConsideration: 'Livelihood losses may increase exposure to illicit charcoal markets for some young pastoralists, while charcoal production can further degrade local ecosystems.',
         youthRoleAgency: 'Youth groups lead reforestation efforts, distributing fuel-efficient cookstoves and planting native trees.',
         protectionConcern: 'Charcoal networks are linked to local power brokers who resist alternative energy initiatives.',
         practicalEntryPoint: 'Promote alternative livelihoods in solar energy distribution and cookstove assembly.',
@@ -471,7 +471,7 @@ export const SCENARIOS: Record<
         vulnerability: 'Destruction of agricultural crops, flooding of grazing pastures, and high availability of small arms',
         capacityConstraint: 'Inability of national government to provide alternative grazing or enforce borders',
         pathwayType: 'forced_displacement',
-        youthImpact: 'Armed youth cattle keepers (Gelweng) force their herds south into agricultural Equatoria, resulting in violent clash with farmers.',
+        youthImpact: 'Some armed cattle-keeping groups move herds south toward agricultural areas in Equatoria, where weak coordination and unresolved grievances may contribute to clashes with farmers; young people also participate in local mediation and early warning.',
         youthOpportunity: 'Organizing pre-migration committees to negotiate routes and resource sharing under local authority agreements.',
         intervention: 'Facilitate inter-communal dialogues and build cattle watering points in intermediate non-agricultural zones.',
         evidenceStrength: 'High',
@@ -511,7 +511,7 @@ export const SCENARIOS: Record<
     matrix: {
       participation: {
         pillarId: 'participation',
-        climateSecurityConsideration: 'Chronic droughts force cross-border displacement, resulting in crowded camps and friction with host communities over firewood and water.',
+        climateSecurityConsideration: 'Chronic drought may contribute to cross-border displacement. In contexts with limited services and resource governance, crowded settlements may experience tensions over firewood and water.',
         youthRoleAgency: 'Displaced and host youth establish joint natural resource monitoring networks, resolving firewood collection disputes.',
         protectionConcern: 'Displaced youth face harassment, lack of legal status, and exclusion from local employment markets.',
         practicalEntryPoint: 'Form cross-border youth networks under IGAD to coordinate resource conservation near refugee settlements.',
@@ -522,12 +522,12 @@ export const SCENARIOS: Record<
       },
       protection: {
         pillarId: 'protection',
-        climateSecurityConsideration: 'Severe droughts trigger rapid rural-to-urban displacement, leaving young women vulnerable to trafficking.',
+        climateSecurityConsideration: 'Severe drought may contribute to rapid rural-to-urban displacement. Young women can face differentiated protection risks, including trafficking, where safe services and livelihood options are limited.',
         youthRoleAgency: 'Youth organizations establish safe houses and monitoring desks at bus terminals to protect arriving migrants.',
         protectionConcern: 'Lack of coordination between local police, child welfare, and youth organizations.',
         practicalEntryPoint: 'Create emergency shelter protocols linking municipal transport services and youth NGOs.',
         suggestedAction: 'Train 40 transport operators and youth volunteers in trafficking detection and reporting.',
-        indicator: 'Number of vulnerable youth successfully identified and routed to safe housing.',
+        indicator: 'Number of young people facing differentiated protection risks who access safe housing and appropriate referral services.',
         diplomaticWording: 'Mitigating trafficking risks and human security vulnerabilities among displaced populations through capacity building.',
         redTeamWarning: 'Ensure youth volunteers do not engage in law enforcement operations. Keep roles strictly to identification and referral.'
       },
@@ -625,7 +625,7 @@ export const SCENARIOS: Record<
       },
       protection: {
         pillarId: 'protection',
-        climateSecurityConsideration: 'Water scarcity leads to unsafe migration routes through minefields and hostile zones.',
+        climateSecurityConsideration: 'Water scarcity may alter migration routes and increase exposure to mine-contaminated or otherwise unsafe areas.',
         youthRoleAgency: 'Youth groups map secure water paths and put up simple warning markers near suspected danger areas.',
         protectionConcern: 'Youth run the risk of landmine accidents or arrests by border patrol guards.',
         practicalEntryPoint: 'Coordinate with international demining organizations to train youth in mine risk education.',
@@ -636,7 +636,7 @@ export const SCENARIOS: Record<
       },
       prevention: {
         pillarId: 'prevention',
-        climateSecurityConsideration: 'Loss of fertile soil drives youth into illegal smuggling and timber extraction networks in border forests.',
+        climateSecurityConsideration: 'Loss of fertile soil may constrain livelihood options and increase exposure to illicit smuggling and timber markets for some young people in border forests.',
         youthRoleAgency: 'Youth cooperatives establish agroforestry projects, planting fast-growing fruit trees to generate alternative incomes.',
         protectionConcern: 'Smuggling cartels threaten youth cooperative members who refuse to cooperate or who report illegal activities.',
         practicalEntryPoint: 'Collaborate with local environmental authorities to secure community land leases for youth agroforestry.',
@@ -658,7 +658,7 @@ export const SCENARIOS: Record<
       },
       disengagement_reintegration: {
         pillarId: 'disengagement_reintegration',
-        climateSecurityConsideration: 'Degraded agricultural lands offer no economic futures for young ex-militants, pushing them back to armed groups.',
+        climateSecurityConsideration: 'Degraded agricultural land may constrain reintegration livelihoods and, under specific conditions, increase exposure to renewed recruitment by armed groups.',
         youthRoleAgency: 'Ex-militants collaborate with host communities to build check-dams and restore groundwater tables.',
         protectionConcern: 'Host communities resist the return of former militants, fear of active combat return.',
         practicalEntryPoint: 'Implement community-based water conservation works that employ both returnees and community youth.',
@@ -713,6 +713,115 @@ export const SCENARIOS: Record<
   }
 };
 
+const STORAGE_KEY = 'ycps_workspace_v1';
+const STORAGE_VERSION = 1;
+
+interface StoredWorkspace {
+  version: typeof STORAGE_VERSION;
+  state: AppState;
+}
+
+const isRecord = (value: unknown): value is Record<string, unknown> =>
+  typeof value === 'object' && value !== null && !Array.isArray(value);
+
+const parseStoredValue = (value: string | null): unknown => {
+  if (value === null) return undefined;
+
+  try {
+    return JSON.parse(value);
+  } catch {
+    return undefined;
+  }
+};
+
+type MatrixTextField = Exclude<keyof MatrixEntry, 'pillarId'>;
+
+const MATRIX_TEXT_FIELDS: readonly MatrixTextField[] = [
+  'climateSecurityConsideration',
+  'youthRoleAgency',
+  'protectionConcern',
+  'practicalEntryPoint',
+  'suggestedAction',
+  'indicator',
+  'diplomaticWording',
+  'redTeamWarning'
+];
+
+const normalizeMatrixEntries = (value: unknown): Record<YPSPillarId, MatrixEntry> => {
+  const defaults = defaultMatrixEntries();
+  if (!isRecord(value)) return defaults;
+
+  return Object.fromEntries(
+    (Object.keys(defaults) as YPSPillarId[]).map((pillarId) => {
+      const candidate = value[pillarId];
+      if (!isRecord(candidate) || candidate.pillarId !== pillarId) {
+        return [pillarId, defaults[pillarId]];
+      }
+
+      const normalized = { ...defaults[pillarId] };
+      for (const field of MATRIX_TEXT_FIELDS) {
+        if (typeof candidate[field] === 'string') {
+          normalized[field] = candidate[field];
+        }
+      }
+      return [pillarId, normalized];
+    })
+  ) as Record<YPSPillarId, MatrixEntry>;
+};
+
+const hasStringFields = (value: unknown, fields: readonly string[]): value is Record<string, string> =>
+  isRecord(value) && fields.every((field) => typeof value[field] === 'string');
+
+const isRiskPathway = (value: unknown): value is RiskPathway =>
+  hasStringFields(value, [
+    'id', 'context', 'hazard', 'exposure', 'vulnerability', 'capacityConstraint',
+    'pathwayType', 'youthImpact', 'youthOpportunity', 'intervention',
+    'evidenceStrength', 'evidenceGaps'
+  ]);
+
+const isStakeholder = (value: unknown): value is Stakeholder =>
+  hasStringFields(value, [
+    'id', 'name', 'actorType', 'interest', 'influence', 'position',
+    'youthInclusionQuality', 'risks', 'diplomaticSensitivity', 'engagementStrategy'
+  ]);
+
+const normalizeState = (value: unknown): AppState => {
+  const candidate = isRecord(value) ? value : {};
+  const pathways = Array.isArray(candidate.riskPathways)
+    ? candidate.riskPathways.filter(isRiskPathway)
+    : [];
+  const stakeholders = Array.isArray(candidate.stakeholders)
+    ? candidate.stakeholders.filter(isStakeholder)
+    : [];
+
+  return {
+    currentScenario: typeof candidate.currentScenario === 'string' ? candidate.currentScenario : 'custom',
+    contextName: typeof candidate.contextName === 'string' ? candidate.contextName : 'Custom Context',
+    matrixEntries: normalizeMatrixEntries(candidate.matrixEntries),
+    riskPathways: pathways,
+    stakeholders
+  };
+};
+
+const loadStoredState = (): AppState => {
+  const storedWorkspace = parseStoredValue(localStorage.getItem(STORAGE_KEY));
+  if (
+    isRecord(storedWorkspace) &&
+    storedWorkspace.version === STORAGE_VERSION &&
+    'state' in storedWorkspace
+  ) {
+    return normalizeState(storedWorkspace.state);
+  }
+
+  return normalizeState({
+    currentScenario: localStorage.getItem('ycps_current_scenario'),
+    contextName: localStorage.getItem('ycps_context_name'),
+    matrixEntries: parseStoredValue(localStorage.getItem('ycps_matrix')),
+    riskPathways: parseStoredValue(localStorage.getItem('ycps_pathways')),
+    stakeholders: parseStoredValue(localStorage.getItem('ycps_stakeholders'))
+  });
+};
+
 export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [state, setState] = useState<AppState>({
     currentScenario: 'custom',
@@ -725,23 +834,12 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   // Load from localStorage on mount (safe for Next.js SSR)
   useEffect(() => {
     try {
-      const storedScenario = localStorage.getItem('ycps_current_scenario');
-      const storedContext = localStorage.getItem('ycps_context_name');
-      const storedMatrix = localStorage.getItem('ycps_matrix');
-      const storedPathways = localStorage.getItem('ycps_pathways');
-      const storedStakeholders = localStorage.getItem('ycps_stakeholders');
+      const storedState = loadStoredState();
 
       // Update state in an asynchronous timeout block to satisfy ESLint
       // which checks for synchronous cascading setState inside effect body
-      setTimeout(() => {
-        setState({
-          currentScenario: storedScenario || 'custom',
-          contextName: storedContext || 'Custom Context',
-          matrixEntries: storedMatrix ? JSON.parse(storedMatrix) : defaultMatrixEntries(),
-          riskPathways: storedPathways ? JSON.parse(storedPathways) : [],
-          stakeholders: storedStakeholders ? JSON.parse(storedStakeholders) : []
-        });
-      }, 0);
+      const timeoutId = window.setTimeout(() => setState(storedState), 0);
+      return () => window.clearTimeout(timeoutId);
     } catch (e) {
       console.error('Failed to load YCPS state from localStorage', e);
     }
@@ -756,11 +854,17 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     stk: Stakeholder[]
   ) => {
     try {
-      localStorage.setItem('ycps_current_scenario', scenario);
-      localStorage.setItem('ycps_context_name', context);
-      localStorage.setItem('ycps_matrix', JSON.stringify(matrix));
-      localStorage.setItem('ycps_pathways', JSON.stringify(pathways));
-      localStorage.setItem('ycps_stakeholders', JSON.stringify(stk));
+      const workspace: StoredWorkspace = {
+        version: STORAGE_VERSION,
+        state: {
+          currentScenario: scenario,
+          contextName: context,
+          matrixEntries: matrix,
+          riskPathways: pathways,
+          stakeholders: stk
+        }
+      };
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(workspace));
     } catch (e) {
       console.error('Failed to save YCPS state to localStorage', e);
     }

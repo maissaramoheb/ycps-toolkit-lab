@@ -25,7 +25,7 @@ export default function Dashboard() {
   const pathwaysCount = riskPathways.length;
   const stakeholdersCount = stakeholders.length;
 
-  const isBriefReady = pillarsFilled > 0 || pathwaysCount > 0 || stakeholdersCount > 0;
+  const isPlanReady = pillarsFilled > 0 || pathwaysCount > 0 || stakeholdersCount > 0;
 
   // Workflow steps definition
   const workflowSteps = [
@@ -76,10 +76,10 @@ export default function Dashboard() {
     },
     {
       num: '06',
-      name: 'Export',
-      desc: 'Policy Analysis Brief',
-      link: '/brief',
-      active: isBriefReady,
+      name: 'Connect',
+      desc: 'Workshop Session Plan',
+      link: '/toolkit',
+      active: isPlanReady,
       count: '',
       color: 'from-teal-500/20 to-teal-500/5'
     }
@@ -100,7 +100,7 @@ export default function Dashboard() {
             From policy language to <span className="text-brand-gold">practical YCPS action.</span>
           </h1>
           <p className="text-sm md:text-base text-brand-grey-text leading-relaxed">
-            Translate the Youth, Climate, Peace and Security (YCPS) nexus from generic high-level policy into concrete, localized risk pathways, stakeholder maps, and action matrices for regional stabilization.
+            Translate Youth, Climate, Peace and Security (YCPS) policy into context-specific risk pathways, stakeholder maps, and action matrices for conflict-sensitive, nationally owned programming.
           </p>
           
           <div className="pt-4 flex flex-wrap gap-3">
@@ -214,7 +214,7 @@ export default function Dashboard() {
           />
           <ModuleCard
             title="Climate-Security Risk Pathways"
-            description="Build climate-conflict causal pathways identifying hazards, vulnerabilities, capacity constraints, youth impacts, and youth-led response interventions with structural evidence scales."
+            description="Map context-specific pathways through which climate-related risks may compound existing vulnerabilities, including capacity constraints, differentiated youth impacts, youth agency, and evidence gaps."
             href="/risk-pathways"
             statusText={pathwaysCount > 0 ? `${pathwaysCount} Active` : 'Empty'}
             statusType={pathwaysCount > 0 ? 'completed' : 'draft'}
@@ -237,11 +237,11 @@ export default function Dashboard() {
             }
           />
           <ModuleCard
-            title="YCPS Policy Brief Generator"
-            description="Compile matrix entries, risk pathways, and stakeholder assessments into a comprehensive Word-ready or print-ready diplomatic briefing note."
-            href="/brief"
-            statusText={isBriefReady ? 'Ready' : 'Empty State'}
-            statusType={isBriefReady ? 'completed' : 'draft'}
+            title="Activity & Workplan Connector"
+            description="Connect matrix entries, risk pathways, and stakeholder assessments to a CCCPA/DEDI workplan activity and compile a draft workshop session plan."
+            href="/toolkit"
+            statusText={isPlanReady ? 'Ready' : 'Empty State'}
+            statusType={isPlanReady ? 'completed' : 'draft'}
             icon={
               <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />

@@ -33,7 +33,7 @@ export default function MatrixPage() {
     {
       id: 'prevention',
       name: 'Prevention',
-      desc: 'Addressing root causes of conflict and livelihood degradation.',
+      desc: 'Addressing context-specific risk factors, prevention priorities, and livelihood pressures.',
       icon: (
         <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
           <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
@@ -82,8 +82,8 @@ export default function MatrixPage() {
         };
       case 'prevention':
         return {
-          do: 'Highlight how green livelihoods and solar systems establish alternative security anchors.',
-          dont: 'Avoid treating poverty as a direct trigger for violence. Ground it in environmental stress.'
+          do: 'Highlight how green livelihoods and locally appropriate technologies can strengthen resilience and prevention.',
+          dont: 'Avoid treating poverty or environmental stress as a direct trigger for violence. Describe the context-specific conditions and evidence.'
         };
       case 'partnerships':
         return {
@@ -179,7 +179,7 @@ export default function MatrixPage() {
                     id="climate-sec-textarea"
                     value={entry.climateSecurityConsideration}
                     onChange={(e) => handleFieldChange('climateSecurityConsideration', e.target.value)}
-                    placeholder="E.g., Land degradation along river basin drives migratory friction..."
+                    placeholder="E.g., Land degradation may compound livelihood pressures and contribute to mobility-related tensions under specific conditions..."
                     rows={3}
                     className="w-full text-xs bg-brand-navy-dark text-brand-offwhite border border-brand-grey-border/80 focus:border-brand-gold rounded-lg p-2.5 focus:outline-none transition-all resize-none"
                   />
@@ -376,7 +376,7 @@ export default function MatrixPage() {
                 {helperText?.dont}
               </div>
               <p className="text-[10px] text-brand-grey-text/75 italic">
-                *Beyond Vulnerability Principle: Always phrase actions to portray youth as agents of stabilization, rather than passive risks or victims.
+                *Beyond Vulnerability Principle: Frame young people as agents of resilience, innovation, prevention, and peacebuilding, while recognizing differentiated risks.
               </p>
             </div>
           </div>
