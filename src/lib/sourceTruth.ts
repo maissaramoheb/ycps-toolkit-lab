@@ -4,7 +4,8 @@ export type SourceId =
   | 'workplan'
   | 'cps_manual'
   | 'beyond_vuln'
-  | 'peace_ops';
+  | 'peace_ops'
+  | 'diplomatic_rules';
 
 export interface SourceMetadata {
   id: SourceId;
@@ -63,6 +64,14 @@ export const SOURCES_HIERARCHY: Record<SourceId, SourceMetadata> = {
     institutionalContext: 'Multilateral peace operations guidance.',
     focusArea: 'Rights-based programming and careful diplomatic language in conflict zones.',
     mandateReminder: 'Use highly careful diplomatic framing, avoiding over-securitization of environmental issues or local communities.'
+  },
+  diplomatic_rules: {
+    id: 'diplomatic_rules',
+    name: 'Strategic Diplomatic Language Rules & Safeguards',
+    priority: 0,
+    institutionalContext: 'YCPS Source-of-Truth Hierarchy (ToR, Project Document, Workplan, CPS Manual, Beyond Vulnerability, peace operations Guidebook).',
+    focusArea: 'Enforcing cautious causality, national ownership, youth agency, and conflict-sensitivity.',
+    mandateReminder: 'Always write policy recommendations and planning notes using constructive, rights-based, and prevention-oriented phrasing.'
   }
 };
 
@@ -71,56 +80,82 @@ export interface WordingRule {
   prohibitedWord: string;
   approvedReplacement: string;
   reason: string;
+  category: string;
+  confidence: 'Direct replacement' | 'Context-sensitive suggestion' | 'To be validated';
 }
 
 export const APPROVED_VOCABULARY_RULES: readonly WordingRule[] = [
   {
     prohibitedPattern: /climate\s+(?:directly\s+)?causes?\s+(?:conflict|war)|climate[-\s]conflict\s+(?:is\s+)?direct|causes?\s+war/i,
     prohibitedWord: 'climate causes conflict',
-    approvedReplacement: 'climate-related risks compound existing vulnerabilities',
-    reason: 'Avoid overstating causal links. Climate-related stressors may compound existing vulnerabilities under specific conditions.'
+    approvedReplacement: 'climate-related risks compound existing vulnerabilities and contribute to instability under specific conditions',
+    reason: 'Avoid overstating causal links. Climate-related stressors do not directly cause war, but rather interact with socio-economic context factors.',
+    category: 'Unsupported climate-conflict causality',
+    confidence: 'Context-sensitive suggestion'
   },
   {
-    prohibitedPattern: /failed\s+state|failed\s+governance|government\s+failure|state\s+collapse/i,
+    prohibitedPattern: /failed\s+state|failed\s+governance|government\s+failed|failed\s+to\s+manage|government\s+failure|state\s+collapse/i,
     prohibitedWord: 'failed state / governance failure',
     approvedReplacement: 'governance and institutional capacity constraints',
-    reason: 'Support sovereign national ownership and use constructive, non-inflammatory diplomatic phrasing.'
+    reason: 'Support sovereign national ownership and use constructive, non-inflammatory diplomatic phrasing instead of pointing blame.',
+    category: 'Government-blaming language',
+    confidence: 'Direct replacement'
   },
   {
-    prohibitedPattern: /vulnerable\s+youth|youth\s+(?:are\s+)?vulnerable|youth\s+risk|radicalization\s+risk|radical\s+youth|youth\s+radicalization/i,
-    prohibitedWord: 'vulnerable youth / youth are vulnerable / youth radicalization risk',
-    approvedReplacement: 'young people face differentiated risks and contribute as active agents of resilience, prevention, and peacebuilding',
-    reason: 'Avoid framing young people primarily as security threats, risks, or passive victims. Highlight agency and innovation.'
+    prohibitedPattern: /vulnerable\s+youth|youth\s+(?:are\s+)?vulnerable/i,
+    prohibitedWord: 'vulnerable youth / youth are vulnerable',
+    approvedReplacement: 'young people face differentiated risks while contributing as active agents of resilience, prevention, and peacebuilding',
+    reason: 'Avoid framing young people primarily as passive victims. Highlight their active agency and local adaptation capacity.',
+    category: 'Youth victim-only framing',
+    confidence: 'Context-sensitive suggestion'
   },
   {
-    prohibitedPattern: /security\s+(?:response|solution)|military\s+intervention|military\s+solution|armed\s+containment/i,
+    prohibitedPattern: /radicalization\s+risk|radical\s+youth|youth\s+radicalization|radicalization\s+is\s+caused|driving\s+youth\s+radicalization/i,
+    prohibitedWord: 'youth radicalization / radical youth',
+    approvedReplacement: 'exposure to livelihood pressures and recruitment vulnerabilities',
+    reason: 'Do not securitize youth or frame them primarily as security threats or recruitment risks. Use development-oriented framing.',
+    category: 'Youth securitization',
+    confidence: 'Context-sensitive suggestion'
+  },
+  {
+    prohibitedPattern: /security\s+(?:response|solution|forces)|military\s+intervention|military\s+solution|armed\s+containment/i,
     prohibitedWord: 'security response / security solution / military intervention',
     approvedReplacement: 'conflict-sensitive, rights-based, and prevention-oriented response',
-    reason: 'Avoid over-securitizing climate adaptation or youth activities. Emphasize developmental and community-led solutions.'
+    reason: 'Avoid over-securitizing climate adaptation or local resource access disputes. Emphasize developmental and community-led solutions.',
+    category: 'Over-securitization',
+    confidence: 'Direct replacement'
   },
   {
     prohibitedPattern: /universal\s+solution|universal\s+model|standard\s+prescription/i,
     prohibitedWord: 'universal solution',
     approvedReplacement: 'context-specific, locally owned intervention',
-    reason: 'Context specificity is vital for YCPS programming. Avoid applying generic frameworks without local adaptation.'
+    reason: 'Context specificity is vital for YCPS programming. Avoid applying generic frameworks without local adaptation.',
+    category: 'Generic recommendation',
+    confidence: 'Context-sensitive suggestion'
   },
   {
     prohibitedPattern: /radicalization\s+trigger|terrorist\s+recruits?|extremist\s+magnet/i,
     prohibitedWord: 'radicalization trigger / terrorist recruit',
-    approvedReplacement: 'exposure to livelihood pressures and recruitment vulnerabilities',
-    reason: 'Maintain careful, analytical diplomatic language. Focus on structural economic and environmental drivers.'
+    approvedReplacement: 'livelihood pressures and vulnerabilities to recruitment',
+    reason: 'Maintain careful, analytical diplomatic language. Focus on structural economic and environmental drivers.',
+    category: 'Over-securitization',
+    confidence: 'Direct replacement'
   },
   {
     prohibitedPattern: /international\s+actors?\s+(?:should\s+)?impose\s+(?:a\s+)?solutions?/i,
     prohibitedWord: 'international actors should impose solutions',
     approvedReplacement: 'responses should be grounded in national ownership, local priorities, and context-specific evidence',
-    reason: 'Preserve national ownership and avoid externally imposed prescriptions.'
+    reason: 'Preserve national ownership and avoid externally imposed prescriptions.',
+    category: 'Weak national ownership',
+    confidence: 'To be validated'
   },
   {
     prohibitedPattern: /ai[-\s]+powered\s+official\s+advice/i,
     prohibitedWord: 'AI-powered official advice',
     approvedReplacement: 'draft support from a prototype support tool, to be validated',
-    reason: 'Do not imply that prototype-generated text constitutes official or institutionally endorsed advice.'
+    reason: 'Do not imply that prototype-generated text constitutes official or institutionally endorsed advice.',
+    category: 'Too much jargon',
+    confidence: 'Direct replacement'
   }
 ];
 
