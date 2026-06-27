@@ -18,6 +18,18 @@ export default function WorkplanToolkitPage() {
 
   const activeActivity = WORKPLAN_ACTIVITIES.find((a) => a.id === selectedActivity) || WORKPLAN_ACTIVITIES[0];
 
+  const compileWorkplanNote = () => {
+    return `YCPS Workplan Implementation Note:
+--------------------------------------------------
+- Linked DEDI/CCCPA Activity: ${activeActivity.name}
+- Workshop/Session Objective: Design conflict-sensitive, youth-inclusive programming.
+- Target Participants: Policymakers, youth adaptation mediators, traditional elder mentors, and Ministry officers.
+- Expected Outputs:
+${activeActivity.outputs.map((o, idx) => `  ${idx + 1}. ${o}`).join('\n')}
+- Follow-up Action: Liaise with ministry technical desks to review the wording linter suggestions and host local validation hearings.
+- Validation Checklist: Verify this draft against national mandates, sovereign boundaries, and context-specific climate data.`;
+  };
+
 
 
   const selectedPillar = matrixEntries[selectedPillarId];
@@ -240,6 +252,58 @@ export default function WorkplanToolkitPage() {
                 </svg>
                 <span>Print Plan</span>
               </button>
+            </div>
+          </div>
+
+          {/* Practical Output: Workplan Implementation Output */}
+          <div className="glass-panel p-5 rounded-xl border border-brand-gold/45 bg-gradient-to-br from-brand-navy-light/65 to-brand-navy-dark/95 space-y-4 no-print">
+            <div className="border-b border-brand-grey-border/30 pb-2 flex justify-between items-center">
+              <div>
+                <span className="text-[9px] font-bold text-brand-gold uppercase tracking-widest block">
+                  Practical Output
+                </span>
+                <h3 className="text-xs font-bold text-brand-offwhite uppercase tracking-wider mt-0.5">
+                  Workplan Implementation Output
+                </h3>
+              </div>
+              <CopyButton
+                text={compileWorkplanNote()}
+                label="Copy Workplan Implementation Note"
+              />
+            </div>
+
+            <div className="space-y-3.5 text-xs">
+              <div className="bg-brand-navy-dark/45 p-3 rounded border border-brand-grey-border/30 space-y-1.5">
+                <span className="text-[10px] font-bold text-brand-gold uppercase block">📌 Linked Workplan Activity</span>
+                <span className="font-semibold text-brand-offwhite block">{activeActivity.name}</span>
+                <p className="text-[11px] text-brand-grey-text leading-relaxed">{activeActivity.description}</p>
+              </div>
+
+              <div className="grid sm:grid-cols-2 gap-3 text-[11px] leading-relaxed">
+                <div className="space-y-1">
+                  <span className="font-semibold text-brand-offwhite block">👥 Target Participants:</span>
+                  <p className="text-brand-grey-text">Policymakers, youth mediators, traditional elders, Ministry technical officers.</p>
+                </div>
+                <div className="space-y-1">
+                  <span className="font-semibold text-brand-offwhite block">🎯 Expected Deliverables:</span>
+                  <ul className="list-disc pl-4 space-y-0.5 text-brand-grey-text text-[10px]">
+                    {activeActivity.outputs.slice(0, 2).map((o, idx) => (
+                      <li key={idx}>{o}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              <div className="grid sm:grid-cols-2 gap-3 border-t border-brand-grey-border/30 pt-3 text-[11px] leading-relaxed">
+                <div className="space-y-1">
+                  <span className="font-semibold text-brand-offwhite block">➡️ Follow-up Action:</span>
+                  <p className="text-brand-grey-text">Liaise with ministry technical desks to review wording and convene validation hearings.</p>
+                </div>
+                <div className="space-y-1">
+                  <span className="font-semibold text-brand-gold block">🔍 Validation Note:</span>
+                  <p className="text-brand-grey-text">Verify draft compatibility against national mandates and localized climate evidence before use.</p>
+                </div>
+              </div>
             </div>
           </div>
 

@@ -46,6 +46,37 @@ export default function CaseStudiesPage() {
   const [filterTraining, setFilterTraining] = useState<string>('all');
   const [filterPolicy, setFilterPolicy] = useState<string>('all');
 
+  const compileParticipantHandout = (cs: CaseStudy) => {
+    return `YCPS Participant Handout - Case Study: ${cs.title}
+--------------------------------------------------
+1. Scenario Context:
+${cs.context}
+
+2. Environmental Stressors:
+${cs.stressors}
+
+3. Youth Agency & Opportunities:
+${cs.youthDimensions}
+Entry Point: ${cs.integrationOpportunities}
+
+4. Discussion & Action Prompts:
+${cs.questions.map((q, i) => `${i+1}. ${q}`).join('\n')}
+
+*Disclaimer: Draft training material to be validated against localized conditions.`;
+  };
+
+  const compileFacilitatorNotes = (cs: CaseStudy) => {
+    return `YCPS Facilitator Guidance Notes: ${cs.title}
+--------------------------------------------------
+- Main YPS Pillar: ${cs.ypsPillar}
+- Primary Conflict Pathway: ${cs.pathway}
+- Participation/Protection Safeguard Link: Formalize youth seats on resource councils while actively mitigating elder retaliation and border conflict vulnerabilities.
+- Prevention/Resilience Link: Transition drying pasture risks into climate-resilient agropastoral youth cooperative programs.
+- Facilitator Cautions & Safeguards:
+${cs.cautions.map((c) => `- ${c}`).join('\n')}
+- Validation Guidelines: Ensure evidence quality (${cs.evidenceStrength}) is highlighted. Address gaps: traditional elder alignment and border security coordinates.`;
+  };
+
   const cases: CaseStudy[] = [
     {
       id: 'sahel',
@@ -719,6 +750,63 @@ export default function CaseStudiesPage() {
                   >
                     ← Back to Grid
                   </button>
+                </div>
+
+                {/* Practical Output: Training Handout & Facilitator Card */}
+                <div className="glass-panel p-5 rounded-xl border border-brand-gold/45 bg-gradient-to-br from-brand-navy-light/65 to-brand-navy-dark/95 space-y-4 mb-6 no-print">
+                  <div className="border-b border-brand-grey-border/30 pb-2">
+                    <span className="text-[9px] font-bold text-brand-gold uppercase tracking-widest block">
+                      Practical Output
+                    </span>
+                    <h3 className="text-xs font-bold text-brand-offwhite uppercase tracking-wider mt-0.5">
+                      Training Handout & Facilitator Card
+                    </h3>
+                  </div>
+
+                  <div className="space-y-3.5 text-xs">
+                    <div className="grid sm:grid-cols-2 gap-3 text-[11px] leading-relaxed">
+                      <div className="bg-brand-navy-dark/45 p-3 rounded border border-brand-grey-border/30 space-y-1.5">
+                        <span className="text-[10px] font-bold text-brand-gold uppercase block">📌 Participant Handout Brief</span>
+                        <p className="text-brand-grey-text">
+                          Includes the context, stressors, youth dimensions, and localized questions. Ready to be copied and printed for group exercises.
+                        </p>
+                        <div className="pt-1">
+                          <CopyButton
+                            text={compileParticipantHandout(activeCase)}
+                            label="Copy Participant Handout"
+                            className="w-full justify-center text-[10px]"
+                          />
+                        </div>
+                      </div>
+                      <div className="bg-brand-navy-dark/45 p-3 rounded border border-brand-grey-border/30 space-y-1.5">
+                        <span className="text-[10px] font-bold text-brand-gold uppercase block">🔑 Facilitator Guide Notes</span>
+                        <p className="text-brand-grey-text">
+                          Includes primary conflict pathways, YPS/YCPS nexus links, protection safeguards, and validation checkpoints.
+                        </p>
+                        <div className="pt-1">
+                          <CopyButton
+                            text={compileFacilitatorNotes(activeCase)}
+                            label="Copy Facilitator Notes"
+                            className="w-full justify-center text-[10px]"
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="p-3 bg-brand-navy-dark/65 rounded border border-brand-grey-border/40 space-y-2">
+                      <div className="text-[10px] font-semibold text-brand-offwhite uppercase tracking-wide">Nexus Link Summary:</div>
+                      <div className="grid sm:grid-cols-2 gap-3 text-[10px] text-brand-grey-text leading-relaxed">
+                        <div>
+                          <span className="font-semibold text-brand-gold block">Participation & Protection Link:</span>
+                          Formalize youth seats on committees (Participation) alongside safe border transhumance pathways (Protection).
+                        </div>
+                        <div>
+                          <span className="font-semibold text-brand-gold block">Prevention & Resilience Link:</span>
+                          Mainstream climate-adaptation training (Resilience) to prevent militia co-optation (Prevention).
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
 
                 {/* Case Analytical content */}

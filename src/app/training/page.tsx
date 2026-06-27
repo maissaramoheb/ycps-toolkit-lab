@@ -481,6 +481,16 @@ export default function TrainingPage() {
           {/* Printable Trainer sheet */}
           <div className="bg-slate-900 border border-brand-grey-border rounded-xl p-6 md:p-8 shadow-xl text-xs text-brand-grey-text space-y-6 print:bg-white print:text-black print:border-none print:shadow-none print:p-0">
             
+            {/* Practical Output: Trainer Guide Output */}
+            <div className="border-b border-brand-grey-border/30 pb-2 mb-2 no-print">
+              <span className="text-[9px] font-bold text-brand-gold uppercase tracking-widest block">
+                Practical Output
+              </span>
+              <h3 className="text-xs font-bold text-brand-offwhite uppercase tracking-wider mt-0.5">
+                Trainer Guide Output
+              </h3>
+            </div>
+
             {/* Header */}
             <div className="border-b-2 border-brand-gold pb-4 print:border-black">
               <span className="text-[10px] font-bold text-brand-gold uppercase tracking-widest block no-print">

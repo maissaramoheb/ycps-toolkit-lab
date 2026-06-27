@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { useApp } from '@/context/AppContext';
 import { YPSPillarId, MatrixEntry } from '@/types';
 import { SourceIntegrityPanel } from '@/components/SourceIntegrityPanel';
+import { CopyButton } from '@/components/CopyButton';
 
 export default function MatrixPage() {
   const { matrixEntries, updateMatrixEntry, contextName } = useApp();
@@ -350,48 +351,73 @@ export default function MatrixPage() {
         <div className="space-y-6">
           {/* Source Integrity Panel (Rank 1: ToR Consultant Scope) */}
           <SourceIntegrityPanel sourceId="tor" />
-
-          {/* Live Card Preview */}
-          <div className="glass-panel p-5 rounded-xl border border-brand-gold/30 bg-gradient-to-br from-brand-navy-light/60 to-brand-navy-dark/95 space-y-4">
-            <span className="text-[10px] font-bold tracking-widest text-brand-gold uppercase block">
-              Suggested Draft Language Preview
-            </span>
+          {/* Practical Output: Practical Action Card */}
+          <div className="glass-panel p-5 rounded-xl border border-brand-gold/45 bg-gradient-to-br from-brand-navy-light/65 to-brand-navy-dark/95 space-y-4">
+            <div className="border-b border-brand-grey-border/30 pb-2">
+              <span className="text-[9px] font-bold text-brand-gold uppercase tracking-widest block">
+                Practical Output
+              </span>
+              <h3 className="text-xs font-bold text-brand-offwhite uppercase tracking-wider mt-0.5">
+                Practical Action Card
+              </h3>
+            </div>
             
-            <div className="space-y-3">
-              <div>
-                <h4 className="text-xs font-bold text-brand-offwhite uppercase">
-                  {pillars.find((p) => p.id === activePillar)?.name} Recommendation
-                </h4>
-                <p className="text-[11px] text-brand-gold font-medium mt-1 leading-relaxed italic">
-                  {entry.diplomaticWording.trim() !== ''
-                    ? `"${entry.diplomaticWording}"`
-                    : 'Provide Diplomatic Wording in the form to see preview.'}
+            <div className="space-y-3.5 text-xs">
+              <div className="space-y-1">
+                <span className="text-[10px] font-bold text-brand-gold uppercase block">📌 What to do next?</span>
+                <p className="text-[11px] text-brand-grey-text leading-relaxed">
+                  Mainstream the generated strategic recommendations and localized indicators into municipal plans or regional climate-stabilization briefings.
+                </p>
+              </div>
+
+              <div className="space-y-1">
+                <span className="text-[10px] font-bold text-brand-gold uppercase block">👥 Who to involve?</span>
+                <p className="text-[11px] text-brand-grey-text leading-relaxed">
+                  Agropastoral youth representatives, traditional elder mediators, Ministry technicians, and regional peace operations focal points.
+                </p>
+              </div>
+
+              <div className="space-y-1">
+                <span className="text-[10px] font-bold text-brand-gold uppercase block">🔍 What to validate?</span>
+                <p className="text-[11px] text-brand-grey-text leading-relaxed">
+                  Verify local seasonal corridor availability, elder-mentor roles, and potential transhumance security hazards in border zones.
                 </p>
               </div>
 
               <hr className="border-brand-grey-border/30" />
 
-              <div className="grid grid-cols-2 gap-2 text-[10px]">
+              <div className="space-y-2">
                 <div>
-                  <span className="text-brand-grey-text block">Practical Action</span>
-                  <span className="text-brand-offwhite leading-normal truncate block">
-                    {entry.suggestedAction || '—'}
-                  </span>
+                  <span className="text-[10px] font-bold text-brand-offwhite block mb-0.5">Draft Action Recommendation:</span>
+                  <p className="text-[11px] text-brand-gold font-medium leading-relaxed italic bg-brand-navy-dark/60 p-2.5 rounded border border-brand-grey-border/30">
+                    {entry.diplomaticWording || entry.suggestedAction
+                      ? `For YPS ${pillars.find((p) => p.id === activePillar)?.name} (output: ${entry.implementationOutput || 'action'}): ${entry.diplomaticWording || entry.suggestedAction}. ${entry.redTeamWarning ? `[Safeguard: ${entry.redTeamWarning}]` : ''}`
+                      : 'Complete inputs on the left to compile.'}
+                  </p>
                 </div>
+
                 <div>
-                  <span className="text-brand-grey-text block">M&E Indicator</span>
-                  <span className="text-brand-offwhite leading-normal truncate block">
-                    {entry.indicator || '—'}
-                  </span>
+                  <span className="text-[10px] font-bold text-brand-offwhite block mb-0.5">M&E Indicator:</span>
+                  <p className="text-[11px] text-brand-grey-text font-mono bg-brand-navy-dark/45 p-2 rounded border border-brand-grey-border/20">
+                    {entry.indicator || 'Not specified'}
+                  </p>
                 </div>
               </div>
 
-              {entry.redTeamWarning.trim() !== '' && (
-                <div className="p-2.5 rounded bg-red-950/20 border border-red-500/20 text-[10px] text-red-400 leading-normal">
-                  <span className="font-semibold block">⚠️ Red-Team Warning:</span>
-                  {entry.redTeamWarning}
-                </div>
-              )}
+              <div className="flex flex-wrap gap-2 pt-1 no-print">
+                <CopyButton
+                  text={entry.diplomaticWording || entry.suggestedAction
+                    ? `For YPS ${pillars.find((p) => p.id === activePillar)?.name} (output: ${entry.implementationOutput || 'action'}): ${entry.diplomaticWording || entry.suggestedAction}. ${entry.redTeamWarning ? `[Safeguard: ${entry.redTeamWarning}]` : ''}`
+                    : ''}
+                  label="Copy Matrix Recommendation"
+                  className="w-full justify-center"
+                />
+                <CopyButton
+                  text={entry.indicator || ''}
+                  label="Copy M&E Indicator"
+                  className="w-full justify-center"
+                />
+              </div>
             </div>
           </div>
 

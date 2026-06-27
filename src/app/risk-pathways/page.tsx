@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { useApp } from '@/context/AppContext';
 import { RiskPathway, PeaceSecurityPathwayType, EvidenceStrengthType } from '@/types';
 import { SourceIntegrityPanel } from '@/components/SourceIntegrityPanel';
+import { CopyButton } from '@/components/CopyButton';
 
 export default function RiskPathwaysPage() {
   const {
@@ -123,6 +124,19 @@ export default function RiskPathwaysPage() {
 
   const getPathwayLabel = (val: PeaceSecurityPathwayType) => {
     return pathwayOptions.find((o) => o.value === val)?.label || val;
+  };
+
+  const compilePathwayNote = (p: RiskPathway) => {
+    return `Operational YCPS Risk Pathway & Action Note:
+- Pathway Type: ${getPathwayLabel(p.pathwayType)}
+- Climate Stressor (Hazard): ${p.hazard}
+- Exposure & Vulnerability: ${p.exposure || 'Not specified'}, ${p.vulnerability || 'Not specified'}
+- Capacity Constraint: ${p.capacityConstraint || 'Not specified'}
+- Youth Impact & Opportunity (Agency): ${p.youthImpact || 'Not specified'} (Opportunity: ${p.youthOpportunity || 'Not specified'})
+- Proposed Prevention/Resilience Action: ${p.intervention || 'Not specified'}
+- Verification Needs: Validate evidence gaps (${p.evidenceGaps || 'none registered'}) against local field reports.
+- Target Actors to Involve: Local borderland administrators, youth-led adaptation networks, and local traditional elder councils.
+- Conflict Sensitivity Warning: Environmental factors do not directly cause conflict; they interact with governance bottlenecks and livelihoods. Design response in cooperation with local authorities.`;
   };
 
   return (
@@ -522,6 +536,41 @@ export default function RiskPathwaysPage() {
                         <span className="font-semibold text-brand-gold">Evidence Gaps:</span> {path.evidenceGaps}
                       </div>
                     )}
+
+                    {/* Practical Output: Pathway Programming Card */}
+                    <div className="mt-3 pt-3 border-t border-brand-grey-border/30 text-xs space-y-2">
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-1">
+                          <span className="text-[9px] font-bold text-brand-gold uppercase tracking-widest">
+                            Practical Output
+                          </span>
+                          <span className="text-[10px] font-bold text-brand-offwhite uppercase tracking-wider">
+                            • Pathway Programming Card
+                          </span>
+                        </div>
+                        <CopyButton
+                          text={compilePathwayNote(path)}
+                          label="Copy Pathway Programming Note"
+                          className="scale-90"
+                        />
+                      </div>
+                      <div className="bg-brand-navy-dark/45 p-3 rounded border border-brand-grey-border/35 text-[11px] leading-relaxed text-brand-grey-text space-y-2">
+                        <div>
+                          <span className="font-semibold text-brand-offwhite block mb-0.5">Causal Chain & Programming Action:</span>
+                          Under {path.hazard}, young people face {path.youthImpact || 'risks'} due to {path.capacityConstraint || 'capacity constraints'}. Youth agency focuses on {path.youthOpportunity || 'resilience actions'}. Prevention response targets: <span className="text-brand-gold font-medium">{path.intervention || 'Not specified'}</span>.
+                        </div>
+                        <div className="grid grid-cols-2 gap-2 text-[10px] border-t border-brand-grey-border/20 pt-1.5">
+                          <div>
+                            <span className="font-semibold text-brand-offwhite block">Validate Gaps:</span>
+                            {path.evidenceGaps || 'None registered'}
+                          </div>
+                          <div>
+                            <span className="font-semibold text-brand-offwhite block">Who to Involve:</span>
+                            Local authorities, youth mediators, and Ministry representatives.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 ))}
               </div>

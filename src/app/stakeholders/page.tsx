@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { useApp } from '@/context/AppContext';
 import { Stakeholder, ActorType, InfluenceType, PositionType, YouthInclusionQualityType } from '@/types';
 import { SourceIntegrityPanel } from '@/components/SourceIntegrityPanel';
+import { CopyButton } from '@/components/CopyButton';
 
 export default function StakeholdersPage() {
   const {
@@ -48,6 +49,21 @@ export default function StakeholdersPage() {
 
   const getActorTypeLabel = (val: ActorType) => {
     return actorTypeOptions.find((o) => o.value === val)?.label || val;
+  };
+
+  const compileCoordinationStrategy = () => {
+    const supportive = stakeholders.filter((s) => s.position === 'Supportive' && s.influence !== 'Low').map(s => s.name);
+    const spoilers = stakeholders.filter((s) => s.position === 'Opposed' || s.diplomaticSensitivity.trim() !== '').map(s => s.name);
+    const careful = stakeholders.filter((s) => s.position === 'Neutral' || s.position === 'Undetermined').map(s => s.name);
+    
+    return `Operational YCPS Nexus Coordination Strategy:
+- High-Influence Supportive Partners: ${supportive.join(', ') || 'None mapped'}
+- Actors Needing Careful Engagement: ${careful.join(', ') || 'None mapped'}
+- Possible Diplomatic Spoilers / Sensitive Actors: ${spoilers.join(', ') || 'None mapped'}
+- Immediate Coordination Step: Convene local dialogue panels linking youth-led groups with traditional elders and Ministry officials.
+- Youth Inclusion Quality Notes: Ensure youth representatives hold voting authority rather than advisory observer status.
+- Feedback & Learning Loop: Establish monthly regional briefing rounds with regional organizations (AU, LCBC, or IGAD) to relay local data to high-level policy desks.
+- Validation: Verify traditional elder approval in target borderland districts before convening joint panels.`;
   };
 
   const clearForm = () => {
@@ -362,6 +378,62 @@ export default function StakeholdersPage() {
         <div className="lg:col-span-2 space-y-6">
           {/* Source Integrity Panel (Rank 5: Beyond Vulnerability Agency) */}
           <SourceIntegrityPanel sourceId="beyond_vuln" />
+
+          {/* Practical Output: Nexus Coordination Strategy */}
+          <div className="glass-panel p-5 rounded-xl border border-brand-gold/45 bg-gradient-to-br from-brand-navy-light/65 to-brand-navy-dark/95 space-y-4">
+            <div className="border-b border-brand-grey-border/30 pb-2 flex justify-between items-center">
+              <div>
+                <span className="text-[9px] font-bold text-brand-gold uppercase tracking-widest block">
+                  Practical Output
+                </span>
+                <h3 className="text-xs font-bold text-brand-offwhite uppercase tracking-wider mt-0.5">
+                  Nexus Coordination Strategy
+                </h3>
+              </div>
+              <CopyButton
+                text={compileCoordinationStrategy()}
+                label="Copy Coordination Strategy"
+              />
+            </div>
+
+            <div className="space-y-3.5 text-xs">
+              <div className="grid sm:grid-cols-2 gap-3">
+                <div className="space-y-1 bg-brand-navy-dark/40 p-2.5 rounded border border-brand-grey-border/30">
+                  <span className="text-[10px] font-bold text-brand-green uppercase block">✔️ Supportive Nexus Partners</span>
+                  <p className="text-[11px] text-brand-grey-text mt-0.5 leading-relaxed">
+                    {stakeholders.filter(s => s.position === 'Supportive' && s.influence !== 'Low').map(s => s.name).join(', ') || 'No supportive high/medium-influence actors mapped yet.'}
+                  </p>
+                </div>
+                <div className="space-y-1 bg-brand-navy-dark/40 p-2.5 rounded border border-brand-grey-border/30">
+                  <span className="text-[10px] font-bold text-red-400 uppercase block">⚠️ Spoilers & Sensitive Actors</span>
+                  <p className="text-[11px] text-brand-grey-text mt-0.5 leading-relaxed">
+                    {stakeholders.filter(s => s.position === 'Opposed' || s.diplomaticSensitivity.trim() !== '').map(s => s.name).join(', ') || 'No oppositional/sensitive actors mapped.'}
+                  </p>
+                </div>
+              </div>
+
+              <div className="space-y-1">
+                <span className="text-[10px] font-bold text-brand-gold uppercase block">📌 Immediate Coordination Action Step</span>
+                <p className="text-[11px] text-brand-offwhite leading-relaxed">
+                  Convene a joint natural resource dialogue panel linking mapped youth organizations with local elders and district authorities.
+                </p>
+              </div>
+
+              <div className="space-y-1">
+                <span className="text-[10px] font-bold text-brand-gold uppercase block">📊 Youth Inclusion Quality Note</span>
+                <p className="text-[11px] text-brand-grey-text leading-relaxed">
+                  Validate that youth-led groups are mapped with at least &ldquo;Medium&rdquo; or &ldquo;High&rdquo; inclusion quality to avoid mere tokenistic representation.
+                </p>
+              </div>
+
+              <div className="space-y-1">
+                <span className="text-[10px] font-bold text-brand-gold uppercase block">🔄 Feedback & Learning Loop</span>
+                <p className="text-[11px] text-brand-grey-text leading-relaxed">
+                  Establish a monthly briefing schedule with regional bodies (AU, LCBC, or IGAD) to relay ground-level agropastoral monitoring data directly to national ministries.
+                </p>
+              </div>
+            </div>
+          </div>
 
           {/* Table Controls (Filters) */}
           <div className="space-y-4">

@@ -203,6 +203,56 @@ export default function Dashboard() {
         </div>
       </section>
 
+      {/* Practical Output Overview */}
+      <section className="space-y-4">
+        <div className="flex items-center justify-between">
+          <h2 className="text-lg font-semibold text-brand-offwhite">Practical Output Overview</h2>
+          <span className="text-xs text-brand-grey-text">Actionable workspace deliverables</span>
+        </div>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
+          <div className="glass-panel p-4 rounded-xl border border-brand-grey-border/50 space-y-1.5">
+            <span className="text-[10px] font-bold text-brand-gold uppercase tracking-wider block">Matrix</span>
+            <span className="font-semibold text-brand-offwhite block">CPS × YPS Action Recommendation</span>
+            <p className="text-[11px] text-brand-grey-text">Mainstream climate adaptation, local indicators, and youth agency elements into policy briefs.</p>
+          </div>
+          <div className="glass-panel p-4 rounded-xl border border-brand-grey-border/50 space-y-1.5">
+            <span className="text-[10px] font-bold text-brand-gold uppercase tracking-wider block">Risk Pathways</span>
+            <span className="font-semibold text-brand-offwhite block">Prevention & Resilience Programming Note</span>
+            <p className="text-[11px] text-brand-grey-text">Map climate stressors and institutional capacity constraints to concrete community resilience options.</p>
+          </div>
+          <div className="glass-panel p-4 rounded-xl border border-brand-grey-border/50 space-y-1.5">
+            <span className="text-[10px] font-bold text-brand-gold uppercase tracking-wider block">Stakeholders</span>
+            <span className="font-semibold text-brand-offwhite block">Nexus Coordination Strategy</span>
+            <p className="text-[11px] text-brand-grey-text">Synthesize supportive actors, spoilers, and localized learning loops into coordination logs.</p>
+          </div>
+          <div className="glass-panel p-4 rounded-xl border border-brand-grey-border/50 space-y-1.5">
+            <span className="text-[10px] font-bold text-brand-gold uppercase tracking-wider block">Case Studies</span>
+            <span className="font-semibold text-brand-offwhite block">Training Handout & Case Brief</span>
+            <p className="text-[11px] text-brand-grey-text">Extract real-world scenario briefs and facilitator questions for capacity building seminars.</p>
+          </div>
+          <div className="glass-panel p-4 rounded-xl border border-brand-grey-border/50 space-y-1.5">
+            <span className="text-[10px] font-bold text-brand-gold uppercase tracking-wider block">Training</span>
+            <span className="font-semibold text-brand-offwhite block">Trainer Guide & Activity Card</span>
+            <p className="text-[11px] text-brand-grey-text">Export structured workshop guides, time blocks, and participant exercise logs.</p>
+          </div>
+          <div className="glass-panel p-4 rounded-xl border border-brand-grey-border/50 space-y-1.5">
+            <span className="text-[10px] font-bold text-brand-gold uppercase tracking-wider block">Language</span>
+            <span className="font-semibold text-brand-offwhite block">Diplomatic Rewrite Note</span>
+            <p className="text-[11px] text-brand-grey-text">Screen and sanitize policy content to align with sovereign-friendly regional terminology.</p>
+          </div>
+          <div className="glass-panel p-4 rounded-xl border border-brand-grey-border/50 space-y-1.5">
+            <span className="text-[10px] font-bold text-brand-gold uppercase tracking-wider block">Review</span>
+            <span className="font-semibold text-brand-offwhite block">Readiness Action Plan</span>
+            <p className="text-[11px] text-brand-grey-text">Verify compliance, highlight missing entry points, and compile pre-validation reviews.</p>
+          </div>
+          <div className="glass-panel p-4 rounded-xl border border-brand-grey-border/50 space-y-1.5">
+            <span className="text-[10px] font-bold text-brand-gold uppercase tracking-wider block">Toolkit & Workplan</span>
+            <span className="font-semibold text-brand-offwhite block">Workplan-Linked Session Plan</span>
+            <p className="text-[11px] text-brand-grey-text">Connect planning matrix deliverables directly to Component 3 DEDI workplan activities.</p>
+          </div>
+        </div>
+      </section>
+
       {/* Workflow Visualizer */}
       <section className="space-y-4">
         <div className="flex items-center justify-between">

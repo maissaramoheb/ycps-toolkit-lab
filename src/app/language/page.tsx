@@ -299,27 +299,61 @@ export default function DiplomaticLanguagePage() {
                 )}
               </div>
 
-              {/* Polished Rewrite Panel */}
-              <div className="glass-panel p-5 rounded-xl border border-brand-grey-border/60 space-y-3.5">
-                <span className="text-[10px] font-bold text-brand-gold tracking-widest uppercase block">
-                  Suggested draft language — to be validated
-                </span>
-
-                <div className="bg-slate-900 border border-brand-grey-border/40 p-4 rounded-lg text-xs leading-relaxed text-brand-offwhite select-all font-medium whitespace-pre-line print:bg-white print:text-black">
-                  {rewrittenText}
+              {/* Practical Output: Diplomatic Language Briefing Note */}
+              <div className="glass-panel p-5 rounded-xl border border-brand-gold/45 bg-gradient-to-br from-brand-navy-light/65 to-brand-navy-dark/95 space-y-4">
+                <div className="border-b border-brand-grey-border/30 pb-2 flex justify-between items-center">
+                  <div>
+                    <span className="text-[9px] font-bold text-brand-gold uppercase tracking-widest block">
+                      Practical Output
+                    </span>
+                    <h3 className="text-xs font-bold text-brand-offwhite uppercase tracking-wider mt-0.5">
+                      Diplomatic Language Briefing Note
+                    </h3>
+                  </div>
                 </div>
 
-                {/* Export Action Controls */}
-                <div className="flex flex-wrap items-center gap-2 pt-2 no-print">
-                  <CopyButton text={rewrittenText} label="Copy Revised Text" />
-                  <CopyButton text={compileReviewNotes()} label="Copy Review Notes" />
-                  <button
-                    onClick={handlePrint}
-                    type="button"
-                    className="px-3 py-1.5 bg-brand-navy-light text-brand-gold border border-brand-gold/30 hover:border-brand-gold hover:bg-brand-navy-dark rounded-md text-xs font-semibold cursor-pointer transition-all"
-                  >
-                    Print Page
-                  </button>
+                <div className="space-y-3.5 text-xs">
+                  <div>
+                    <span className="text-[10px] font-bold text-brand-offwhite block mb-1">Suggested Revised Wording (To Be Validated):</span>
+                    <div className="bg-slate-900 border border-brand-grey-border/40 p-4 rounded-lg text-xs leading-relaxed text-brand-gold select-all font-medium whitespace-pre-line print:bg-white print:text-black">
+                      {rewrittenText}
+                    </div>
+                  </div>
+
+                  <div className="grid sm:grid-cols-2 gap-3 text-[11px] leading-relaxed">
+                    <div className="bg-brand-navy-dark/45 p-3 rounded border border-brand-grey-border/30 space-y-1">
+                      <span className="font-semibold text-brand-offwhite block">⚠️ Risks & Concerns Found:</span>
+                      <p className="text-brand-grey-text">
+                        {matchedResults.length > 0
+                          ? `Flagged ${matchedResults.length} wording violations against regional guidelines.`
+                          : 'No high-risk terminology detected.'}
+                      </p>
+                    </div>
+                    <div className="bg-brand-navy-dark/45 p-3 rounded border border-brand-grey-border/30 space-y-1">
+                      <span className="font-semibold text-brand-offwhite block">⚖️ Why This Revision Matters:</span>
+                      <p className="text-brand-grey-text">
+                        Maintains sovereign ownership, highlights youth leadership roles, and prevents securitizing resource access.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="p-3 bg-brand-navy-dark/65 rounded border border-brand-grey-border/45 text-[10px] text-brand-grey-text leading-relaxed">
+                    <span className="font-semibold text-brand-gold block mb-0.5">🔍 Validation Reminder:</span>
+                    Confirm that terminology matches official AU / LCBC stabilization frameworks, security mandates, and context-specific data.
+                  </div>
+
+                  {/* Export Action Controls */}
+                  <div className="flex flex-wrap items-center gap-2 pt-2 no-print">
+                    <CopyButton text={compileReviewNotes()} label="Copy Diplomatic Briefing Note" />
+                    <CopyButton text={rewrittenText} label="Copy Revised Text" />
+                    <button
+                      onClick={handlePrint}
+                      type="button"
+                      className="px-3 py-1.5 bg-brand-navy-light text-brand-gold border border-brand-gold/30 hover:border-brand-gold hover:bg-brand-navy-dark rounded-md text-xs font-semibold cursor-pointer transition-all"
+                    >
+                      Print Briefing Note
+                    </button>
+                  </div>
                 </div>
               </div>
 

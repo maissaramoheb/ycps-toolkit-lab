@@ -7,6 +7,7 @@ import {
   checkTextCompliance,
   ComplianceWarning
 } from '@/lib/sourceTruth';
+import { CopyButton } from '@/components/CopyButton';
 
 export default function RedTeamReviewPage() {
   const { matrixEntries, riskPathways, stakeholders, contextName } = useApp();
@@ -148,6 +149,29 @@ export default function RedTeamReviewPage() {
       passed: riskPathways.length > 0
     }
   ];
+
+  const compileReadinessActionPlan = () => {
+    const failedChecks = structuralChecks.filter(c => !c.passed).map(c => c.label);
+    const passedCount = structuralChecks.filter(c => c.passed).length;
+    const totalCount = structuralChecks.length;
+    const wordingViolationsCount = infractionsCount;
+    
+    return `YCPS Policy / Training Readiness Action Plan:
+--------------------------------------------------
+- Readiness Summary: Workspace completeness score is ${screeningScore ?? 0}%. Passed ${passedCount} of ${totalCount} checks.
+- Wording Risks Detected: ${wordingViolationsCount} active strategic infractions.
+- Missing Components / Action Gaps:
+${failedChecks.map((f, i) => `${i+1}. ${f}`).join('\n') || 'All checklist items successfully completed.'}
+
+- Immediate Follow-up Action Steps:
+1. Mainstream lacking YPS pillar recommendations.
+2. Formulate explicit engagement strategies for neutral or oppositional actors.
+3. Validate low-evidence causal pathways against localized field reports.
+
+- Local Verification Tasks:
+* Review high-risk wording flags with national ministry technicians.
+* Convene district-level elder consultations to confirm grazing corridors.`;
+  };
 
   return (
     <div className="space-y-6 animate-fade-in">
@@ -332,6 +356,70 @@ export default function RedTeamReviewPage() {
         </div>
 
       </div>
+
+      {/* Practical Output: Policy / Training Readiness Action Plan */}
+      <section className="glass-panel p-6 rounded-xl border border-brand-gold/45 bg-gradient-to-r from-brand-navy-light/65 to-brand-navy-dark/95 space-y-4">
+        <div className="border-b border-brand-grey-border/30 pb-2 flex justify-between items-center">
+          <div>
+            <span className="text-[9px] font-bold text-brand-gold uppercase tracking-widest block">
+              Practical Output
+            </span>
+            <h2 className="text-sm font-bold text-brand-offwhite uppercase tracking-wider mt-0.5">
+              Policy / Training Readiness Action Plan
+            </h2>
+          </div>
+          <CopyButton
+            text={compileReadinessActionPlan()}
+            label="Copy Readiness Action Plan"
+          />
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-6 text-xs leading-relaxed">
+          {/* Readiness Summary */}
+          <div className="bg-brand-navy-dark/45 p-4 rounded-lg border border-brand-grey-border/30 space-y-2">
+            <span className="text-[10px] font-bold text-brand-gold uppercase block">📊 Readiness Summary</span>
+            <p className="text-[11px] text-brand-grey-text">
+              Completions: Passed {structuralChecks.filter(c => c.passed).length} of {structuralChecks.length} checklist items.
+            </p>
+            <p className="text-[11px] text-brand-grey-text">
+              Language Risks: {infractionsCount} active wording infractions in your draft text.
+            </p>
+            <div className="pt-2">
+              <span className="text-[10px] font-bold text-brand-offwhite block">Current Suitability:</span>
+              <span className={`font-semibold uppercase tracking-wider text-[10px] ${screeningScore && screeningScore > 80 ? 'text-brand-green' : 'text-brand-gold'}`}>
+                {screeningScore && screeningScore > 80 ? '✅ High Readiness' : '⚠️ Refinement Needed'}
+              </span>
+            </div>
+          </div>
+
+          {/* Missing Components */}
+          <div className="bg-brand-navy-dark/45 p-4 rounded-lg border border-brand-grey-border/30 space-y-2">
+            <span className="text-[10px] font-bold text-brand-gold uppercase block">❌ Action Gaps & Missing Items</span>
+            {structuralChecks.some(c => !c.passed) ? (
+              <ul className="list-disc pl-4 space-y-1 text-brand-grey-text text-[11px]">
+                {structuralChecks.filter(c => !c.passed).slice(0, 3).map((c, i) => (
+                  <li key={i}>{c.label.split(':')[0]}</li>
+                ))}
+                {structuralChecks.filter(c => !c.passed).length > 3 && (
+                  <li>+ {structuralChecks.filter(c => !c.passed).length - 3} more items</li>
+                )}
+              </ul>
+            ) : (
+              <p className="text-[11px] text-brand-green font-medium">All structural completeness checks passed!</p>
+            )}
+          </div>
+
+          {/* Verification Tasks */}
+          <div className="bg-brand-navy-dark/45 p-4 rounded-lg border border-brand-grey-border/30 space-y-2">
+            <span className="text-[10px] font-bold text-brand-gold uppercase block">🔍 Critical Verification Tasks</span>
+            <ul className="list-disc pl-4 space-y-1 text-brand-grey-text text-[11px]">
+              <li>Liaise with ministry technical desks to review flagged terms.</li>
+              <li>Validate low-evidence hazard corridors directly with community elders.</li>
+              <li>Incorporate local gender-safeguard metrics in training plans.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
