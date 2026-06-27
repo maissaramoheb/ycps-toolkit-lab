@@ -48,24 +48,79 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, setIsOpen }) => {
           <path strokeLinecap="round" strokeLinejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
         </svg>
       )
+    }
+  ];
+
+  const complianceLinks = [
+    {
+      href: '/language',
+      label: 'Language Compliance',
+      icon: (
+        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 0A18.015 18.015 0 0110 14.828M15 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2 3h4a2 2 0 012 2v2" />
+        </svg>
+      )
     },
     {
-      href: '/toolkit',
-      label: 'Activity Connector',
+      href: '/review',
+      label: 'Red-Team Review',
       icon: (
-        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
         </svg>
       )
     }
   ];
 
-  const placeholderLinks = [
-    { href: '/case-studies', label: 'Case Studies' },
-    { href: '/training', label: 'Training Support' },
-    { href: '/language', label: 'Language Compliance' },
-    { href: '/review', label: 'Quality Review' },
-    { href: '/export', label: 'Bulk Export' }
+  const trainingLinks = [
+    {
+      href: '/case-studies',
+      label: 'Case Study Lab',
+      icon: (
+        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+        </svg>
+      )
+    },
+    {
+      href: '/training',
+      label: 'Training Support',
+      icon: (
+        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479L12 21l-6.825-4a12.083 12.083 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />
+        </svg>
+      )
+    }
+  ];
+
+  const outputLinks = [
+    {
+      href: '/toolkit',
+      label: 'Activity Connector',
+      icon: (
+        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+        </svg>
+      )
+    },
+    {
+      href: '/brief',
+      label: 'Brief Generator',
+      icon: (
+        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+        </svg>
+      )
+    },
+    {
+      href: '/export',
+      label: 'Bulk Export (Planned)',
+      icon: (
+        <svg className="w-4 h-4 text-brand-grey-text/40" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M8 4H6a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-2m-4-1v8m0 0l3-3m-3 3L9 8m-5 5h2.586a1 1 0 01.707.293l2.414 2.414a1 1 0 00.707.293h3.172a1 1 0 00.707-.293l2.414-2.414a1 1 0 01.707-.293H20" />
+        </svg>
+      )
+    }
   ];
 
   const isActive = (href: string) => {
@@ -111,13 +166,13 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, setIsOpen }) => {
         </div>
 
         {/* Navigation Content */}
-        <div className="flex-1 overflow-y-auto px-4 py-6 space-y-7">
-          {/* Core Modules */}
+        <div className="flex-1 overflow-y-auto px-4 py-4 space-y-6">
+          {/* Core Workspace */}
           <div>
-            <span className="block px-3 text-[10px] font-bold text-brand-gold uppercase tracking-widest mb-3">
-              Core Modules
+            <span className="block px-3 text-[10px] font-bold text-brand-gold uppercase tracking-widest mb-2">
+              Core Workspace
             </span>
-            <nav className="space-y-1">
+            <nav className="space-y-0.5">
               {coreLinks.map((link) => {
                 const active = isActive(link.href);
                 return (
@@ -125,9 +180,9 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, setIsOpen }) => {
                     key={link.href}
                     href={link.href}
                     onClick={() => setIsOpen(false)}
-                    className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 ${
+                    className={`flex items-center gap-3 px-3 py-2 rounded-lg text-xs font-medium transition-all duration-150 ${
                       active
-                        ? 'bg-brand-navy-light text-brand-gold border-l-2 border-brand-gold shadow-md shadow-black/10'
+                        ? 'bg-brand-navy-light text-brand-gold border-l-2 border-brand-gold shadow-md'
                         : 'text-brand-grey-text hover:text-brand-offwhite hover:bg-brand-navy-light/40'
                     }`}
                   >
@@ -141,34 +196,87 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, setIsOpen }) => {
             </nav>
           </div>
 
-          {/* Future Expansion Placeholder Routes */}
+          {/* Compliance & Review */}
           <div>
-            <div className="flex items-center gap-1.5 px-3 mb-3">
-              <span className="text-[10px] font-bold text-brand-grey-text/60 uppercase tracking-widest">
-                Future Modules
-              </span>
-              <span className="bg-brand-gold/10 text-brand-gold text-[8px] font-semibold px-1.5 py-0.5 rounded border border-brand-gold/20">
-                PLAN
-              </span>
-            </div>
-            <nav className="space-y-1">
-              {placeholderLinks.map((link) => {
+            <span className="block px-3 text-[10px] font-bold text-brand-gold uppercase tracking-widest mb-2">
+              Compliance & Review
+            </span>
+            <nav className="space-y-0.5">
+              {complianceLinks.map((link) => {
                 const active = isActive(link.href);
                 return (
                   <Link
                     key={link.href}
                     href={link.href}
                     onClick={() => setIsOpen(false)}
-                    className={`flex items-center justify-between px-3 py-2 rounded-lg text-xs font-medium transition-all duration-200 ${
+                    className={`flex items-center gap-3 px-3 py-2 rounded-lg text-xs font-medium transition-all duration-150 ${
                       active
-                        ? 'bg-brand-navy-light/80 text-brand-gold'
-                        : 'text-brand-grey-text/70 hover:text-brand-offwhite hover:bg-brand-navy-light/30'
+                        ? 'bg-brand-navy-light text-brand-gold border-l-2 border-brand-gold shadow-md'
+                        : 'text-brand-grey-text hover:text-brand-offwhite hover:bg-brand-navy-light/40'
                     }`}
                   >
+                    <span className={active ? 'text-brand-gold' : 'text-brand-grey-text'}>
+                      {link.icon}
+                    </span>
                     <span>{link.label}</span>
-                    <svg className="w-3 h-3 text-brand-grey-text/40" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                    </svg>
+                  </Link>
+                );
+              })}
+            </nav>
+          </div>
+
+          {/* Training & Simulation */}
+          <div>
+            <span className="block px-3 text-[10px] font-bold text-brand-gold uppercase tracking-widest mb-2">
+              Training & Simulation
+            </span>
+            <nav className="space-y-0.5">
+              {trainingLinks.map((link) => {
+                const active = isActive(link.href);
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setIsOpen(false)}
+                    className={`flex items-center gap-3 px-3 py-2 rounded-lg text-xs font-medium transition-all duration-150 ${
+                      active
+                        ? 'bg-brand-navy-light text-brand-gold border-l-2 border-brand-gold shadow-md'
+                        : 'text-brand-grey-text hover:text-brand-offwhite hover:bg-brand-navy-light/40'
+                    }`}
+                  >
+                    <span className={active ? 'text-brand-gold' : 'text-brand-grey-text'}>
+                      {link.icon}
+                    </span>
+                    <span>{link.label}</span>
+                  </Link>
+                );
+              })}
+            </nav>
+          </div>
+
+          {/* Outputs & Actions */}
+          <div>
+            <span className="block px-3 text-[10px] font-bold text-brand-gold uppercase tracking-widest mb-2">
+              Outputs & Actions
+            </span>
+            <nav className="space-y-0.5">
+              {outputLinks.map((link) => {
+                const active = isActive(link.href);
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setIsOpen(false)}
+                    className={`flex items-center gap-3 px-3 py-2 rounded-lg text-xs font-medium transition-all duration-150 ${
+                      active
+                        ? 'bg-brand-navy-light text-brand-gold border-l-2 border-brand-gold shadow-md'
+                        : 'text-brand-grey-text hover:text-brand-offwhite hover:bg-brand-navy-light/40'
+                    }`}
+                  >
+                    <span className={active ? 'text-brand-gold' : 'text-brand-grey-text'}>
+                      {link.icon}
+                    </span>
+                    <span>{link.label}</span>
                   </Link>
                 );
               })}
