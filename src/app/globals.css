@@ -64,35 +64,46 @@ body {
 
 /* Print layout optimizations */
 @media print {
+  @page {
+    size: A4;
+    margin: 14mm;
+  }
   body {
-    background: #ffffff !important;
-    color: #1a1a1a !important;
-    font-size: 12pt;
+    background: white !important;
   }
-  
-  header, footer, nav, aside, button, .no-print {
-    display: none !important;
+  body * {
+    visibility: hidden;
   }
-  
-  main {
+  .print-document,
+  .print-document * {
+    visibility: visible;
+  }
+  .print-document {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    max-width: none !important;
     margin: 0 !important;
     padding: 0 !important;
-    width: 100% !important;
-  }
-
-  .print-card {
-    background: transparent !important;
-    border: none !important;
     box-shadow: none !important;
-    page-break-inside: avoid;
-    margin-bottom: 2rem;
-    padding: 0 !important;
+    background: white !important;
+    color: #111827 !important;
   }
-
-  .print-title {
-    color: #070d1e !important;
-    border-bottom: 2px solid #c5a880;
-    padding-bottom: 0.5rem;
-    margin-top: 2rem;
+  .print-hidden {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+  .print-page-break {
+    break-before: page;
+    page-break-before: always;
+  }
+  .print-avoid-break {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  .md\:pl-64 {
+    padding-left: 0 !important;
   }
 }

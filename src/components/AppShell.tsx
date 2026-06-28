@@ -18,7 +18,7 @@ export const AppShell: React.FC<AppShellProps> = ({ children }) => {
       <Sidebar isOpen={isSidebarOpen} setIsOpen={setIsSidebarOpen} />
 
       {/* Main Page Area */}
-      <div className="flex-1 flex flex-col min-w-0 md:pl-64">
+      <div className="flex-1 flex flex-col min-w-0 md:pl-64 print:pl-0">
         {/* Top Header Bar */}
         <TopBar onMenuToggle={() => setIsSidebarOpen(!isSidebarOpen)} />
 

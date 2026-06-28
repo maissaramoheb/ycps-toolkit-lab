@@ -83,80 +83,90 @@ export default function WorkplanToolkitPage() {
 
   // Markdown compilers for each of the 7 output types
   const getToolkitSectionMarkdown = () => {
-    let md = `# YCPS TOOLKIT SECTION DRAFT\n`;
+    let md = `# YCPS TOOLKIT SECTION DRAFT (TOOL SHEET)\n`;
     md += `**Linked Activity:** ${activeActivity.name}\n`;
     md += `**Source Grounding:** CCCPA Guidebook on CPS Programming & DEDI Workplan\n`;
-    md += `**Scope:** ${activeActivity.description}\n\n`;
+    md += `**Context Scenario:** ${contextName}\n`;
+    md += `**Status:** Draft for Review and Contextual Validation\n\n`;
     md += `## 1. PURPOSE\n`;
-    md += `Provides a practical method to operationalize youth integration within regional climate stabilization, focusing on the ${pillarDetails.name} pillar.\n\n`;
-    md += `## 2. WHEN TO USE THIS TOOL\n`;
-    md += `Use during project formulation, joint stabilization mapping, or intergenerational consultations in borderland zones.\n\n`;
-    md += `## 3. KEY YCPS ISSUE IN PLAY\n`;
+    md += `Provides a practical method to operationalize youth integration in climate, peace and security programming, focusing on the ${pillarDetails.name} pillar.\n\n`;
+    md += `## 2. WHEN TO USE\n`;
+    md += `Use during project formulation, joint local planning, or intergenerational consultations in borderland zones.\n\n`;
+    md += `## 3. WHO SHOULD USE IT\n`;
+    md += `Policy planners, local administrators, peacebuilding practitioners, and youth community organizers.\n\n`;
+    md += `## 4. KEY YCPS ISSUE IN PLAY\n`;
     md += `- **Climate Stress:** ${activePathway.hazard}\n`;
     md += `- **Capacity Constraint:** ${activePathway.capacityConstraint}\n`;
     md += `- **Vulnerability Context:** ${activePathway.vulnerability}\n\n`;
-    md += `## 4. PRACTICAL ENTRY POINTS\n`;
+    md += `## 5. PRACTICAL ENTRY POINTS\n`;
     md += `${pillarDetails.practicalEntryPoint}\n\n`;
-    md += `## 5. STEP-BY-STEP USE INSTRUCTIONS\n`;
-    md += `1. **Mapping:** Chart transhumance corridors and seasonal grazing ranges relative to changing water resources.\n`;
-    md += `2. **Engagement:** Convene local youth cooperatives and traditional elders to co-design resource scheduling.\n`;
-    md += `3. **Formalization:** Formally integrate youth delegates into local coordination commissions.\n\n`;
-    md += `## 6. EXPECTED OUTCOME FOR USERS\n`;
-    md += `A youth-inclusive natural resource sharing agreement with local indicators, mapped directly to Component 3 Workplan targets.\n\n`;
-    md += `## 7. VALIDATION ACTORS\n`;
-    md += `Must be validated with: ${activeStakeholder.name}, traditional borderlands councils, and Ministry technicians.\n\n`;
-    md += `## 8. ADAPTATION FOR DIFFERENT AFRICAN CONTEXTS\n`;
-    md += `Adapt this tool's focus depending on regional settings (e.g., agropastoral water access in the Sahel vs. soil salinity adaptation in the Nile Delta).\n\n`;
+    md += `## 6. STEP-BY-STEP USE INSTRUCTIONS\n`;
+    md += `1. **Mapping:** Chart transhumance corridors, local grazing areas, and water points relative to seasonal trends.\n`;
+    md += `2. **Engagement:** Convene local youth cooperatives, pastoralist leaders, and traditional elders to co-design resource-sharing schedules.\n`;
+    md += `3. **Formalization:** Formally integrate youth representatives into local coordination committees and planning tables.\n\n`;
+    md += `## 7. EXPECTED USER OUTPUT\n`;
+    md += `A youth-inclusive natural resource sharing draft, localized indicators, and a community validation timeline.\n\n`;
+    md += `## 8. PARTICIPATION & PROTECTION SAFEGUARDS\n`;
+    md += `Ensure young participants are provided a secure environment to express priorities without fear of elder or political backlash. Avoid framing youth solely as security risks or combat recruits. Protection warning: ${pillarDetails.redTeamWarning}\n\n`;
+    md += `## 9. VALIDATION ACTORS\n`;
+    md += `Must be validated with: ${activeStakeholder.name}, traditional borderlands councils, local administrators, and Ministry technical desks.\n\n`;
+    md += `## 10. MINI REVIEW CHECKLIST\n`;
+    md += `- [ ] Grounded in CCCPA / DEDI YCPS source-of-truth guidelines.\n`;
+    md += `- [ ] Built on context-specific climate evidence rather than generic assumptions.\n`;
+    md += `- [ ] Frames young people as active agents of resilience and peace.\n`;
+    md += `- [ ] Avoids deterministic climate-conflict causality claims.\n\n`;
     md += `---\n`;
-    md += `*Disclaimer: Draft support only. Not an official CCCPA, DEDI, UN, or government output. Validate against official sources, mandate language, country context, and institutional guidance before use.*`;
+    md += `*Disclaimer: Draft support only. Not an official CCCPA, DEDI, UN, or government output. Validate against official sources, country context, and institutional guidance before use.*`;
     return md;
   };
 
   const getActivitySheetMarkdown = () => {
-    let md = `# PRACTICAL ACTIVITY SHEET\n`;
+    let md = `# PRACTICAL YCPS ACTIVITY SHEET\n`;
     md += `**Activity Title:** Scenario-Based Dialogue on ${pillarDetails.name} in ${contextName}\n`;
     md += `**Linked Activity:** ${activeActivity.name}\n`;
-    md += `**Time Required:** 90 Minutes\n`;
-    md += `**Target Participants:** Youth leaders, traditional elders, municipal authorities, regional practitioners.\n\n`;
-    md += `## 1. PURPOSE\n`;
-    md += `To co-design localized conflict-sensitive stabilization recommendations using the workspace diagnostic maps.\n\n`;
-    md += `## 2. MATERIALS NEEDED\n`;
-    md += `Workspace maps, GPS trackers/radio logs, flipcharts, and conflict-sensitivity checklists.\n\n`;
+    md += `**Status:** Draft for Review and Contextual Validation\n\n`;
+    md += `## 1. PURPOSE & LEARNING OBJECTIVE\n`;
+    md += `To operationalize local youth engagement inside climate, peace and security programming. Participants learn to analyze climate-security pathways and co-design resource coordination plans.\n\n`;
+    md += `## 2. TIME, PARTICIPANTS & MATERIALS\n`;
+    md += `- **Time Required:** 90 Minutes\n`;
+    md += `- **Target Participants:** Youth representatives, traditional elders, local planners\n`;
+    md += `- **Materials Needed:** Resource maps, GPS trackers, wording cards\n\n`;
     md += `## 3. STEP-BY-STEP INSTRUCTIONS\n`;
     md += `1. **Setup (20 mins):** Present the climate-security pathway: ${activePathway.hazard}.\n`;
-    md += `2. **Split (30 mins):** Form mixed groups (youth + elders) representing grazing cooperatives and councils.\n`;
-    md += `3. **Negotiation (30 mins):** Draft mutual water-sharing rotas based on stakeholder interests: ${activeStakeholder.interest}.\n`;
-    md += `4. **Diplomatic Check (10 mins):** Audit the recommendations for non-securitized wording.\n\n`;
+    md += `2. **Split (30 mins):** Form mixed teams of youth and elders representing grazing cooperatives and councils.\n`;
+    md += `3. **Negotiation (30 mins):** Draft mutual resource-sharing schedules based on stakeholder interests: ${activeStakeholder.interest}.\n`;
+    md += `4. **Diplomatic Check (10 mins):** Audit the recommendations for constructive, non-securitized wording.\n\n`;
     md += `## 4. GROUP TASK\n`;
     md += `Draft a joint resource-sharing agreement addressing the pathway: ${activePathway.youthOpportunity}.\n\n`;
-    md += `## 5. OUTPUT TEMPLATE\n`;
-    md += `- **Suggested Action:** ${pillarDetails.suggestedAction}\n`;
+    md += `## 5. EXPECTED PARTICIPANT OUTPUT\n`;
+    md += `- **Suggested Action Plan:** ${pillarDetails.suggestedAction}\n`;
     md += `- **M&E Indicator:** ${pillarDetails.indicator}\n\n`;
     md += `## 6. DEBRIEF QUESTIONS\n`;
-    md += `1. How does pairing youth and elders change trust dynamics during negotiations?\n`;
-    md += `2. What are the primary protection risks for young people mapping migration paths?\n\n`;
+    md += `1. How does the suggested action plan address the capacity constraint of local institutions?\n`;
+    md += `2. What measures will guarantee that youth participation in resource sharing is non-tokenistic?\n\n`;
     md += `## 7. FACILITATOR CAUTIONS & SAFEGUARDS\n`;
-    md += `⚠️ **Conflict Sensitivity:** ${pillarDetails.redTeamWarning}\n\n`;
-    md += `## 8. VALIDATION REQUIREMENTS\n`;
-    md += `Validate all draft agreements with: ${activeStakeholder.name} prior to implementation.\n\n`;
+    md += `⚠️ **Safeguard Warning:** ${pillarDetails.redTeamWarning}\n\n`;
+    md += `## 8. VALIDATION NOTE\n`;
+    md += `This activity plan is a training draft. Validate outputs with ${activeStakeholder.name} and traditional councils prior to consolidation.\n\n`;
     md += `---\n`;
     md += `*Disclaimer: Draft support only. Not an official CCCPA, DEDI, UN, or government output. Validate against official sources, mandate language, country context, and institutional guidance before use.*`;
     return md;
   };
 
   const getFacilitatorGuideMarkdown = () => {
-    let md = `# FACILITATOR GUIDE NOTE\n`;
-    md += `**Subject:** Facilitating ${pillarDetails.name} in Climate-Conflict Stabilization Settings\n`;
-    md += `**Linked Activity:** ${activeActivity.name}\n\n`;
+    let md = `# YCPS FACILITATOR GUIDE NOTE\n`;
+    md += `**Subject:** Facilitating ${pillarDetails.name} in Climate-Conflict Settings\n`;
+    md += `**Linked Activity:** ${activeActivity.name}\n`;
+    md += `**Status:** Draft for Review and Contextual Validation\n\n`;
     md += `## 1. SESSION FRAMING\n`;
     md += `Frame young people as active agents of resilience, innovation, prevention, and peacebuilding rather than passive victims or risks. Avoid taking sides in clan-based water disputes. Strictly respect the mentorship role of traditional elders.\n\n`;
     md += `## 2. AUDIENCE ADAPTATION\n`;
     md += `- **For Policymakers:** Emphasize technical indicators: ${pillarDetails.indicator}.\n`;
     md += `- **For Local Youth:** Focus on practical coordination steps and personal safety.\n\n`;
     md += `## 3. SENSITIVE ISSUES TO WATCH\n`;
-    md += `Avoid taking sides in clan-based water disputes. Strictly respect the mentors role of traditional elders. Maintain absolute neutrality.\n\n`;
+    md += `Avoid taking sides in clan-based resource access disputes. Maintain absolute neutrality.\n\n`;
     md += `## 4. YOUTH PARTICIPATION & PROTECTION\n`;
-    md += `Ensure young women are included in all resource panels and that travel paths to validation hearings are physically secure. Safeguard: ${pillarDetails.redTeamWarning}.\n\n`;
+    md += `Ensure young women are included in all panels and that travel paths to validation hearings are physically secure. Safeguard: ${pillarDetails.redTeamWarning}.\n\n`;
     md += `## 5. DISCUSSION SAFETY PROTOCOLS\n`;
     md += `Establish clear guidelines: discussions must focus on water flow and resource access rather than sovereign borders, armed factions, or national politics.\n\n`;
     md += `## 6. AVOIDING OVERCLAIMING\n`;
@@ -166,34 +176,37 @@ export default function WorkplanToolkitPage() {
     md += `## 8. FOLLOW-UP & VALIDATION ACTORS\n`;
     md += `Liaise with ministry technical desks and traditional councils to schedule validation hearings. Key reviewer: ${activeStakeholder.name}.\n\n`;
     md += `---\n`;
-    md += `*Disclaimer: Draft support only. Not an official CCCPA, DEDI, UN, or government output. Validate against official sources, mandate language, country context, and institutional guidance before use.*`;
+    md += `*Disclaimer: Draft support only. Not an official CCCPA, DEDI, UN, or government output. Validate against official sources, country context, and institutional guidance before use.*`;
     return md;
   };
 
   const getPolicyNoteMarkdown = () => {
     let md = `# YCPS POLICY / PROGRAMMING NOTE\n`;
     md += `**Context:** Draft support tool briefing note for ${contextName}\n`;
-    md += `**Linked Activity:** ${activeActivity.name}\n\n`;
+    md += `**Linked Activity:** ${activeActivity.name}\n`;
+    md += `**Status:** Draft for Review and Contextual Validation\n\n`;
     md += `## 1. CONTEXT SUMMARY\n`;
     md += `Context environment: ${contextName}. Analysis focuses on integrating YPS and CPS dynamics in stabilizing borderland zones.\n\n`;
-    md += `## 2. CLIMATE-RELATED RISK PATHWAY\n`;
-    md += `Climate hazard (${activePathway.hazard}) combined with capacity constraint (${activePathway.capacityConstraint}) impacts communities, exposing youth to security risks.\n\n`;
-    md += `## 3. YOUTH AGENCY & PARTICIPATION ENTRY POINT\n`;
-    md += `Youth act via ${activePathway.youthOpportunity} to stabilize local resource coordination and support early warning.\n\n`;
-    md += `## 4. STAKEHOLDER COORDINATION NEED\n`;
-    md += `Coordinate with ${activeStakeholder.name} (type: ${activeStakeholder.actorType.replace('_', ' ')}) to align local agreements with national priorities.\n\n`;
-    md += `## 5. PROPOSED ACTION\n`;
+    md += `## 2. PROBLEM STATEMENT\n`;
+    md += `Climate change is accelerating agropastoral resources depletion, which intersects with local institutional weaknesses to exacerbate regional tensions and marginalize youth.\n\n`;
+    md += `## 3. CLIMATE-RELATED RISK PATHWAY\n`;
+    md += `Climate hazard (${activePathway.hazard}) combined with capacity constraint (${activePathway.capacityConstraint}) impacts community ranges, creating conflict pathways.\n\n`;
+    md += `## 4. YOUTH AGENCY & PARTICIPATION ENTRY POINT\n`;
+    md += `Youth act via: ${activePathway.youthOpportunity}.\n\n`;
+    md += `## 5. STAKEHOLDER COORDINATION NEED\n`;
+    md += `Requires close coordination with: ${activeStakeholder.name} to leverage their influence and prevent duplicative efforts.\n\n`;
+    md += `## 6. PROPOSED ACTION\n`;
     md += `${pillarDetails.suggestedAction}\n\n`;
-    md += `## 6. M&E INDICATOR\n`;
+    md += `## 7. M&E INDICATOR\n`;
     md += `${pillarDetails.indicator}\n\n`;
-    md += `## 7. RISKS & SAFEGUARDS\n`;
-    md += `⚠️ **Red-Team Warning:** ${pillarDetails.redTeamWarning}\n\n`;
     md += `## 8. EVIDENCE GAPS\n`;
     md += `${activePathway.evidenceGaps}\n\n`;
-    md += `## 9. VALIDATION ACTORS\n`;
-    md += `Ministry technicians, traditional councils, and key reviewer ${activeStakeholder.name}.\n\n`;
-    md += `## 10. SUGGESTED NEXT STEP\n`;
-    md += `Liaise with ministry technical desks to review suggested agreements and coordinate validation hearings.\n\n`;
+    md += `## 9. SAFEGUARDS\n`;
+    md += `⚠️ **Safeguard Warning:** ${pillarDetails.redTeamWarning}\n\n`;
+    md += `## 10. VALIDATION ACTORS\n`;
+    md += `Validate recommendations with traditional authorities, youth leagues, and technical desks prior to drafting final policy briefs.\n\n`;
+    md += `## 11. NEXT STEP\n`;
+    md += `Translate this policy note into localized consultation sessions and coordinate with Ministry desks.\n\n`;
     md += `---\n`;
     md += `*Disclaimer: Draft support only. Not an official CCCPA, DEDI, UN, or government output. Validate against official sources, mandate language, country context, and institutional guidance before use.*`;
     return md;
@@ -201,21 +214,22 @@ export default function WorkplanToolkitPage() {
 
   const getStakeholderBriefMarkdown = () => {
     let md = `# STAKEHOLDER CONSULTATION BRIEF\n`;
-    md += `**Objective:** Ensure local community buy-in and coordinate YCPS activities across layers.\n`;
+    md += `**Objective:** Ensure local buy-in and coordinate YCPS activities across layers.\n`;
     md += `**Target Stakeholder:** ${activeStakeholder.name}\n`;
-    md += `**Linked Activity:** ${activeActivity.name}\n\n`;
+    md += `**Linked Activity:** ${activeActivity.name}\n`;
+    md += `**Status:** Draft for Review and Contextual Validation\n\n`;
     md += `## 1. CONSULTATION OBJECTIVE\n`;
     md += `Coordinate YCPS activities and align with stakeholder interests: ${activeStakeholder.interest}.\n\n`;
     md += `## 2. WHO SHOULD PARTICIPATE\n`;
-    md += `Ministry representatives, traditional elders, agropastoral youth unions, and women-led cooperatives.\n\n`;
+    md += `Ministry representatives, traditional elders, agropastoral youth unions, and agropastoral cooperatives.\n\n`;
     md += `## 3. YOUTH PARTICIPATION SAFEGUARDS\n`;
-    md += `Verify that youth delegates are free to speak without fear of political backlash or elder reprimand. Safeguard: ${activeStakeholder.risks || 'None recorded'}.\n\n`;
+    md += `Verify that youth delegates are free to express priorities without fear of political backlash or elder reprimand. Safeguard: ${activeStakeholder.risks || 'None recorded'}.\n\n`;
     md += `## 4. KEY DISCUSSION QUESTIONS\n`;
     md += `1. What interest does ${activeStakeholder.name} have in local resource sharing?\n`;
     md += `2. How can we support youth agency without creating friction with traditional structures?\n`;
     md += `3. What are the primary protection risks for young people operating water kiosks?\n\n`;
     md += `## 5. SENSITIVE ISSUES\n`;
-    md += `Land ownership claims, border patrollers presence, and transhumance security routes. Wording risks: ${activeStakeholder.diplomaticSensitivity}.\n\n`;
+    md += `Land ownership claims and transhumance security routes. Wording restrictions: ${activeStakeholder.diplomaticSensitivity}.\n\n`;
     md += `## 6. EXPECTED OUTPUTS\n`;
     md += `A mapped stakeholder influence matrix and signed coordination memorandum.\n\n`;
     md += `## 7. FEEDBACK MECHANISM\n`;
@@ -223,13 +237,14 @@ export default function WorkplanToolkitPage() {
     md += `## 8. FOLLOW-UP PLAN & VALIDATION\n`;
     md += `Liaise with ministry technical desks to review suggested agreements and coordinate validation hearings. Validate with: ${activeStakeholder.name}.\n\n`;
     md += `---\n`;
-    md += `*Disclaimer: Draft support only. Not an official CCCPA, DEDI, UN, or government output. Validate against official sources, mandate language, country context, and institutional guidance before use.*`;
+    md += `*Disclaimer: Draft support only. Not an official CCCPA, DEDI, UN, or government output. Validate against official sources, country context, and institutional guidance before use.*`;
     return md;
   };
 
   const getValidationChecklistMarkdown = () => {
     let md = `# YCPS VALIDATION CHECKLIST\n`;
-    md += `**Subject:** Validation requirements for ${activeActivity.name} outputs\n\n`;
+    md += `**Subject:** Validation checklist for ${activeActivity.name}\n`;
+    md += `**Status:** Draft for Review and Contextual Validation\n\n`;
     
     const checklistItems = [
       { label: 'Source Grounding', desc: 'Grounded in CCCPA / DEDI YCPS source-of-truth guidelines.' },
@@ -256,7 +271,7 @@ export default function WorkplanToolkitPage() {
 
     md += `\n*Checklist completion does not equal institutional validation. Use it to prepare for human review.*\n\n`;
     md += `---\n`;
-    md += `*Disclaimer: Draft support only. Not an official CCCPA, DEDI, UN, or government output. Validate against official sources, mandate language, country context, and institutional guidance before use.*`;
+    md += `*Disclaimer: Draft support only. Not an official CCCPA, DEDI, UN, or government output. Validate against official sources, country context, and institutional guidance before use.*`;
     return md;
   };
 
@@ -275,7 +290,7 @@ export default function WorkplanToolkitPage() {
     md += `- **Validation and Follow-Up Scheduled:** ${riskPathways.some(p => p.evidenceGaps) ? 'Passed' : 'Pending'}\n\n`;
     md += `*Checklist completion does not equal institutional validation. Use it to prepare for human review.*\n\n`;
     md += `---\n`;
-    md += `*Disclaimer: Draft support only. Not an official CCCPA, DEDI, UN, or government output. Validate against official sources, mandate language, country context, and institutional guidance before use.*`;
+    md += `*Disclaimer: Draft support only. Not an official CCCPA, DEDI, UN, or government output. Validate against official sources, country context, and institutional guidance before use.*`;
     return md;
   };
 
@@ -288,42 +303,95 @@ export default function WorkplanToolkitPage() {
     md += `3. **Non-securitized youth role:** Sanitized 'youth recruitment' or combat threat tropes to emphasize youth resilience, mediation, and leadership agency.\n\n`;
     md += `*Checklist completion does not equal institutional validation. Use it to prepare for human review.*\n\n`;
     md += `---\n`;
-    md += `*Disclaimer: Draft support only. Not an official CCCPA, DEDI, UN, or government output. Validate against official sources, mandate language, country context, and institutional guidance before use.*`;
+    md += `*Disclaimer: Draft support only. Not an official CCCPA, DEDI, UN, or government output. Validate against official sources, country context, and institutional guidance before use.*`;
+    return md;
+  };
+
+  const getCoverSummaryBlock = () => {
+    let md = `# YCPS OPERATIONAL PROGRAMME & TOOLKIT BRIEF\n`;
+    md += `**Platform:** YCPS Toolkit Lab • Africa\n`;
+    md += `**Target Country / Context:** ${contextName}\n`;
+    md += `**Workplan Target:** Component 3 (Local Capacity and Youth Adaptation Mapping)\n`;
+    md += `**Drafting Status:** Draft for Review and Contextual Validation\n`;
+    md += `**Date Created:** ${new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}\n\n`;
+    if (isWorkspaceEmpty) {
+      md += `**Notice:** Template fallback: CARANA fictional training scenario — replace with validated local data before use.\n\n`;
+    }
+    md += `This package compiles operational templates and strategic alignment tools to integrate youth priorities into climate, peace and security programming. All sections are drafts and must undergo national and localized validation.\n`;
+    return md;
+  };
+
+  const getContextSummary = () => {
+    let md = `## SECTION 1: CONTEXT SUMMARY\n`;
+    md += `**Context Setting:** ${contextName}\n`;
+    md += `**Core Vulnerabilities:** Rainfall variability, agricultural instability, and youth marginalization. High dependence on natural resources makes borderland communities sensitive to shifting seasonal corridors.\n`;
+    md += `**National Ownership Note:** Projects should align with national adaptation programs (NAPs) and national youth frameworks.\n\n`;
+    return md;
+  };
+
+  const getYCPSMatrixRecommendation = () => {
+    let md = `## SECTION 2: YCPS MATRIX OPERATIONAL MATRIX SUMMARY\n`;
+    md += `**Operational Pillar:** ${pillarDetails.name.toUpperCase()}\n`;
+    md += `**Climate-Security Considerations:** ${pillarDetails.climateSecurityConsideration || 'Under review'}\n`;
+    md += `**Youth Agency & Engagement:** ${pillarDetails.youthRoleAgency || 'Under review'}\n`;
+    md += `**Practical Entry Point:** ${pillarDetails.practicalEntryPoint || 'Under review'}\n`;
+    md += `**Suggested Action Plan:** ${pillarDetails.suggestedAction || 'Under review'}\n`;
+    md += `**M&E Indicator:** ${pillarDetails.indicator || 'Under review'}\n\n`;
+    return md;
+  };
+
+  const getRiskPathwayNote = () => {
+    let md = `## SECTION 3: CLIMATE-SECURITY CAUSAL RISK PATHWAY\n`;
+    md += `**Hazard Stressor:** ${activePathway.hazard}\n`;
+    md += `**Vulnerability Factors:** ${activePathway.vulnerability}\n`;
+    md += `**Exposure Profile:** Agropastoral borderlands communities and young resource collectors.\n`;
+    md += `**Capacity Constraints:** ${activePathway.capacityConstraint}\n`;
+    md += `**Conflict Pathway Type:** ${activePathway.pathwayType.replace(/_/g, ' ')}\n`;
+    md += `**Youth Impact:** ${activePathway.youthImpact}\n`;
+    md += `**Validation Evidence Gap:** ${activePathway.evidenceGaps}\n\n`;
+    return md;
+  };
+
+  const getStakeholderCoordinationStrategy = () => {
+    let md = `## SECTION 4: STAKEHOLDER COORDINATION STRATEGY\n`;
+    md += `**Key Stakeholder:** ${activeStakeholder.name} (${activeStakeholder.actorType.replace('_', ' ')})\n`;
+    md += `**Interests & Objectives:** ${activeStakeholder.interest}\n`;
+    md += `**Perceived Influence / Power:** ${activeStakeholder.influence}\n`;
+    md += `**Dialogue Engagement Strategy:** ${activeStakeholder.engagementStrategy}\n`;
+    md += `**Generational and Gender Safeguards:** ${activeStakeholder.risks || 'Ensure equal representation and protective security'}\n\n`;
     return md;
   };
 
   const getCompletePackageMarkdown = () => {
-    let md = `# COMPLETE YCPS TOOLKIT OUTPUT PACKAGE\n`;
-    md += `**Context Environment:** ${contextName}\n`;
-    md += `**Linked Activity:** ${activeActivity.name}\n`;
-    if (isWorkspaceEmpty) {
-      md += `**Notice:** Template fallback: CARANA fictional training scenario — replace with validated local data before use.\n`;
-    }
-    md += `*Compiled via YCPS Toolkit Lab Toolkit Builder*\n\n`;
-    md += `================================================================================\n\n`;
-    
+    let md = ``;
+    md += getCoverSummaryBlock();
+    md += `\n\n================================================================================\n\n`;
+    md += getContextSummary();
+    md += `\n\n================================================================================\n\n`;
+    md += getYCPSMatrixRecommendation();
+    md += `\n\n================================================================================\n\n`;
+    md += getRiskPathwayNote();
+    md += `\n\n================================================================================\n\n`;
+    md += getStakeholderCoordinationStrategy();
+    md += `\n\n================================================================================\n\n`;
     md += getToolkitSectionMarkdown();
     md += `\n\n================================================================================\n\n`;
-    
     md += getActivitySheetMarkdown();
     md += `\n\n================================================================================\n\n`;
-    
     md += getFacilitatorGuideMarkdown();
     md += `\n\n================================================================================\n\n`;
-    
     md += getPolicyNoteMarkdown();
     md += `\n\n================================================================================\n\n`;
-    
     md += getStakeholderBriefMarkdown();
     md += `\n\n================================================================================\n\n`;
-    
     md += getValidationChecklistMarkdown();
     md += `\n\n================================================================================\n\n`;
-    
     md += getRedTeamScreeningSummaryMarkdown();
     md += `\n\n================================================================================\n\n`;
-    
     md += getDiplomaticLanguageNoteMarkdown();
+    md += `\n\n================================================================================\n\n`;
+    md += `# FINAL VALIDATION DISCLAIMER\n\n`;
+    md += `*Checklist completion does not equal institutional validation. Use this compiled package to prepare for human and institutional review prior to any operational deployment.*\n`;
     return md;
   };
 
@@ -350,7 +418,7 @@ export default function WorkplanToolkitPage() {
   const getCopyButtonLabel = () => {
     switch (selectedOutputType) {
       case 'toolkit_section':
-        return 'Copy Toolkit Section Draft';
+        return 'Copy Toolkit Tool Sheet';
       case 'activity_sheet':
         return 'Copy Activity Sheet';
       case 'facilitator_note':
@@ -364,6 +432,26 @@ export default function WorkplanToolkitPage() {
       case 'complete_package':
       default:
         return 'Copy Complete Toolkit Package';
+    }
+  };
+
+  const getPrintButtonLabel = () => {
+    switch (selectedOutputType) {
+      case 'toolkit_section':
+        return 'Print Toolkit Tool Sheet';
+      case 'activity_sheet':
+        return 'Print Activity Sheet';
+      case 'facilitator_note':
+        return 'Print Facilitator Guide';
+      case 'policy_note':
+        return 'Print Policy Note';
+      case 'stakeholder_brief':
+        return 'Print Consultation Brief';
+      case 'validation_checklist':
+        return 'Print Validation Checklist';
+      case 'complete_package':
+      default:
+        return 'Print Complete Package';
     }
   };
 
@@ -630,201 +718,307 @@ export default function WorkplanToolkitPage() {
           </div>
 
           {/* Action Row */}
-          <div className="flex items-center justify-between border-b border-brand-grey-border/40 pb-2 no-print">
-            <h3 className="text-sm font-semibold text-brand-offwhite">
-              Generated Toolkit Output Package
-            </h3>
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-brand-grey-border/40 pb-2 gap-2 no-print">
+            <div>
+              <h3 className="text-sm font-semibold text-brand-offwhite">
+                Generated Toolkit Output Package
+              </h3>
+              <p className="text-[10px] text-brand-grey-text mt-0.5">
+                For a clean PDF, choose <strong>Save as PDF</strong> and disable browser headers/footers in the print dialog.
+              </p>
+            </div>
             <div className="flex items-center gap-2">
               <CopyButton text={compileActiveOutputMarkdown()} label={getCopyButtonLabel()} />
               <button
                 onClick={() => window.print()}
                 type="button"
-                className="px-3 py-1.5 bg-brand-gold hover:bg-brand-gold-dark text-brand-navy-dark rounded-md text-xs font-semibold cursor-pointer shadow-md shadow-brand-gold/15 flex items-center gap-1"
+                className="px-3 py-1.5 bg-brand-gold hover:bg-brand-gold-dark text-brand-navy-dark rounded-md text-xs font-semibold cursor-pointer shadow-md shadow-brand-gold/15 flex items-center gap-1 shrink-0"
               >
                 <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-3a2 2 0 00-2-2H9a2 2 0 00-2 2v3a2 2 0 002 2zm5-17v2m-6 0h12" />
                 </svg>
-                <span>Print Toolkit Package</span>
+                <span>{getPrintButtonLabel()}</span>
               </button>
             </div>
           </div>
 
           {/* Styled Sheet Preview Container */}
-          <div className="bg-slate-900 border border-brand-gold/45 bg-gradient-to-br from-brand-navy-light/65 to-brand-navy-dark/95 rounded-xl p-8 shadow-xl text-xs text-brand-grey-text space-y-6 print:bg-white print:text-black print:border-none print:shadow-none print:p-0">
+          <div className={`bg-slate-900 border border-brand-gold/45 bg-gradient-to-br from-brand-navy-light/65 to-brand-navy-dark/95 rounded-xl p-8 shadow-xl text-xs text-brand-grey-text space-y-6 print:bg-white print:text-black print:border-none print:shadow-none print:p-0 print-document ${
+            selectedOutputType === 'complete_package' ? '' : 'print-avoid-break'
+          }`}>
             
-            {/* Header block inside the sheet */}
-            <div className="border-b border-brand-gold pb-4 print:border-black">
-              <span className="text-[10px] font-bold text-brand-gold uppercase tracking-widest block no-print">
+            {/* Print Header (Visible only on print) */}
+            <div className="hidden print:block border-b-2 border-black pb-4 mb-6 text-black">
+              <div className="flex justify-between items-start">
+                <div>
+                  <h1 className="text-lg font-bold tracking-tight">YCPS TOOLKIT LAB</h1>
+                  <p className="text-[10px] font-semibold uppercase tracking-wider text-gray-500">
+                    Draft Support Annex • Africa
+                  </p>
+                </div>
+                <div className="text-right text-[9px] text-gray-500">
+                  <div>Generated: {new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</div>
+                  <div>ID: YCPS-ANNEX-{activeActivity.id.toUpperCase()}</div>
+                </div>
+              </div>
+              <div className="mt-4 pt-3 border-t border-gray-200 grid grid-cols-2 gap-y-2 gap-x-4 text-xs">
+                <div>
+                  <span className="text-[9px] font-bold text-gray-500 uppercase block">Output Type</span>
+                  <span className="font-bold text-black uppercase">{selectedOutputType.replace('_', ' ')}</span>
+                </div>
+                <div>
+                  <span className="text-[9px] font-bold text-gray-500 uppercase block">Linked Activity</span>
+                  <span className="font-semibold text-black">{activeActivity.name}</span>
+                </div>
+                <div>
+                  <span className="text-[9px] font-bold text-gray-500 uppercase block">Scenario / Context</span>
+                  <span className="font-semibold text-black">{contextName}</span>
+                </div>
+                <div>
+                  <span className="text-[9px] font-bold text-gray-500 uppercase block">Status</span>
+                  <span className="font-bold text-gray-800">Draft for Review and Contextual Validation</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Screen Header block inside the sheet (Hidden on print) */}
+            <div className="border-b border-brand-gold pb-4 print:hidden">
+              <span className="text-[10px] font-bold text-brand-gold uppercase tracking-widest block">
                 CCCPA Component 3 Operational Planner
               </span>
-              <h2 className="text-base font-bold text-brand-offwhite leading-snug mt-1 print:text-black uppercase">
+              <h2 className="text-base font-bold text-brand-offwhite leading-snug mt-1 uppercase">
                 {selectedOutputType.replace('_', ' ')}: {activeActivity.name}
               </h2>
-              <div className="grid grid-cols-2 gap-4 text-[10px] text-brand-grey-text/75 mt-2 print:text-gray-600">
-                <div>Context Area: <span className="text-brand-offwhite print:text-black font-semibold">{contextName}</span></div>
-                <div>Status: <span className="text-brand-gold font-semibold">Ready for Regional Validation</span></div>
+              <div className="grid grid-cols-2 gap-4 text-[10px] text-brand-grey-text/75 mt-2">
+                <div>Context Area: <span className="text-brand-offwhite font-semibold">{contextName}</span></div>
+                <div>Status: <span className="text-brand-gold font-semibold">Draft for Review and Contextual Validation</span></div>
               </div>
             </div>
 
             {/* Content Switcher */}
             {selectedOutputType === 'toolkit_section' && (
-              <div className="space-y-4">
+              <div className="space-y-4 text-brand-grey-text print:text-black">
                 <div className="space-y-1.5">
-                  <h4 className="font-bold text-brand-offwhite uppercase tracking-wider print:text-black">1. Tool Purpose & Scope</h4>
-                  <p className="leading-relaxed">Provides a practical method to operationalize youth integration within regional climate stabilization, focusing on the <strong>{pillarDetails.name}</strong> pillar.</p>
+                  <h4 className="font-bold text-brand-offwhite uppercase tracking-wider print:text-black">1. Purpose</h4>
+                  <p className="leading-relaxed">Provides a practical method to operationalize youth integration in climate, peace and security programming, focusing on the <strong>{pillarDetails.name}</strong> pillar.</p>
                 </div>
                 <div className="space-y-1.5">
                   <h4 className="font-bold text-brand-offwhite uppercase tracking-wider print:text-black">2. When to Use</h4>
-                  <p className="leading-relaxed">Use during project formulation, joint stabilization mapping, or intergenerational consultations in borderland zones.</p>
+                  <p className="leading-relaxed">Use during project formulation, joint local planning, or intergenerational consultations in borderland zones.</p>
                 </div>
                 <div className="space-y-1.5">
-                  <h4 className="font-bold text-brand-offwhite uppercase tracking-wider print:text-black">3. Key YCPS Issue in Play</h4>
-                  <div className="bg-brand-navy-dark/45 p-3 rounded border border-brand-grey-border/30 space-y-1 print:bg-transparent print:border-none">
-                    <p><strong>Climate Stress:</strong> {activePathway.hazard}</p>
-                    <p><strong>Capacity Constraint:</strong> {activePathway.capacityConstraint}</p>
+                  <h4 className="font-bold text-brand-offwhite uppercase tracking-wider print:text-black">3. Who Should Use This</h4>
+                  <p className="leading-relaxed">Policy planners, local administrators, peacebuilding practitioners, and youth community organizers.</p>
+                </div>
+                <div className="space-y-1.5">
+                  <h4 className="font-bold text-brand-offwhite uppercase tracking-wider print:text-black">4. Key YCPS Issue</h4>
+                  <div className="bg-brand-navy-dark/45 p-3 rounded border border-brand-grey-border/30 space-y-1 print:bg-transparent print:border-none print:p-0">
+                    <p><strong>Climate Stressor:</strong> {activePathway.hazard}</p>
+                    <p><strong>Institutional / Capacity Constraint:</strong> {activePathway.capacityConstraint}</p>
                     <p><strong>Vulnerability Context:</strong> {activePathway.vulnerability}</p>
                   </div>
                 </div>
                 <div className="space-y-1.5">
-                  <h4 className="font-bold text-brand-offwhite uppercase tracking-wider print:text-black">4. Practical Entry Points</h4>
-                  <p className="leading-relaxed text-brand-gold print:text-black font-medium">{pillarDetails.practicalEntryPoint}</p>
+                  <h4 className="font-bold text-brand-offwhite uppercase tracking-wider print:text-black">5. Practical Entry Points</h4>
+                  <p className="leading-relaxed text-brand-gold print:text-black font-semibold">{pillarDetails.practicalEntryPoint}</p>
                 </div>
                 <div className="space-y-1.5">
-                  <h4 className="font-bold text-brand-offwhite uppercase tracking-wider print:text-black">5. Step-by-Step Instructions</h4>
+                  <h4 className="font-bold text-brand-offwhite uppercase tracking-wider print:text-black">6. Step-by-Step Instructions</h4>
                   <ol className="list-decimal pl-5 space-y-1">
-                    <li><strong>Mapping:</strong> Chart transhumance corridors and seasonal grazing ranges relative to changing water resources.</li>
-                    <li><strong>Engagement:</strong> Convene local youth cooperatives and traditional elders to co-design resource scheduling.</li>
-                    <li><strong>Formalization:</strong> Formally integrate youth delegates into local coordination commissions.</li>
+                    <li><strong>Mapping:</strong> Chart transhumance corridors, local grazing areas, and water points relative to seasonal trends.</li>
+                    <li><strong>Engagement:</strong> Convene local youth cooperatives, pastoralist leaders, and traditional elders to co-design resource-sharing schedules.</li>
+                    <li><strong>Formalization:</strong> Formally integrate youth representatives into local coordination committees and planning tables.</li>
                   </ol>
                 </div>
+                <div className="space-y-1.5">
+                  <h4 className="font-bold text-brand-offwhite uppercase tracking-wider print:text-black">7. Expected User Output</h4>
+                  <p className="leading-relaxed">A youth-inclusive natural resource sharing draft, localized indicators, and a community validation timeline.</p>
+                </div>
+                <div className="space-y-1.5">
+                  <h4 className="font-bold text-brand-offwhite uppercase tracking-wider print:text-black">8. Participation and Protection Safeguards</h4>
+                  <p className="text-red-400 print:text-red-800 font-semibold">⚠️ {pillarDetails.redTeamWarning}</p>
+                  <p className="text-[11px] leading-relaxed mt-1">Ensure young participants are provided a secure environment to express priorities without fear of elder or political backlash. Avoid framing youth solely as security risks or combat recruits.</p>
+                </div>
                 <div className="space-y-1.5 font-medium">
-                  <h4 className="font-bold text-brand-offwhite uppercase tracking-wider print:text-black">6. Who Should Validate This</h4>
-                  <p className="leading-relaxed">Must be validated with: <strong>{activeStakeholder.name}</strong>, traditional borderlands councils, and Ministry technicians.</p>
+                  <h4 className="font-bold text-brand-offwhite uppercase tracking-wider print:text-black">9. Validation Actors</h4>
+                  <p className="leading-relaxed">Must be validated with: <strong>{activeStakeholder.name}</strong>, traditional borderlands councils, local administrators, and Ministry technical desks.</p>
+                </div>
+                <div className="space-y-1.5">
+                  <h4 className="font-bold text-brand-offwhite uppercase tracking-wider print:text-black">10. Mini Review Checklist</h4>
+                  <ul className="list-disc pl-5 space-y-1 text-[11px]">
+                    <li>Grounded in CCCPA / DEDI YCPS source-of-truth guidelines.</li>
+                    <li>Built on context-specific climate evidence rather than generic assumptions.</li>
+                    <li>Frames young people as active agents of resilience and peace.</li>
+                    <li>Avoids deterministic climate-conflict causality claims.</li>
+                  </ul>
                 </div>
               </div>
             )}
 
             {selectedOutputType === 'activity_sheet' && (
-              <div className="space-y-4">
+              <div className="space-y-4 text-brand-grey-text print:text-black">
                 <div className="space-y-1.5">
                   <h4 className="font-bold text-brand-offwhite uppercase tracking-wider print:text-black">1. Activity Title</h4>
                   <p className="leading-relaxed">Scenario-Based Dialogue on <strong>{pillarDetails.name}</strong> in {contextName}</p>
                 </div>
-                <div className="grid sm:grid-cols-3 gap-3 bg-brand-navy-light/10 p-3 border border-brand-grey-border/20 rounded print:bg-transparent print:border-none">
+                <div className="space-y-1.5">
+                  <h4 className="font-bold text-brand-offwhite uppercase tracking-wider print:text-black">2. Purpose & Learning Objective</h4>
+                  <p className="leading-relaxed">To operationalize local youth engagement inside climate, peace and security programming. Participants learn to analyze climate-security pathways and co-design resource coordination plans.</p>
+                </div>
+                <div className="grid sm:grid-cols-3 gap-3 bg-brand-navy-light/10 p-3 border border-brand-grey-border/20 rounded print:bg-transparent print:border-none print:p-0">
                   <div>
                     <span className="font-bold text-brand-offwhite print:text-black block text-[10px]">TIME REQUIRED:</span>
                     <span>90 Minutes</span>
                   </div>
                   <div>
                     <span className="font-bold text-brand-offwhite print:text-black block text-[10px]">MATERIALS NEEDED:</span>
-                    <span>Resource maps, GPS trackers, checklists</span>
+                    <span>Resource maps, GPS trackers, wording cards</span>
                   </div>
                   <div>
                     <span className="font-bold text-brand-offwhite print:text-black block text-[10px]">TARGET PARTICIPANTS:</span>
-                    <span>Youth, traditional elders, officials</span>
+                    <span>Youth representatives, traditional elders, local planners</span>
                   </div>
                 </div>
                 <div className="space-y-1.5">
-                  <h4 className="font-bold text-brand-offwhite uppercase tracking-wider print:text-black">2. Step-by-Step Guide</h4>
+                  <h4 className="font-bold text-brand-offwhite uppercase tracking-wider print:text-black">3. Step-by-Step Instructions</h4>
                   <ul className="list-disc pl-5 space-y-1">
                     <li><strong>Setup (20 mins):</strong> Present the climate-security pathway: {activePathway.hazard}.</li>
-                    <li><strong>Split (30 mins):</strong> Form mixed groups (youth + elders) representing grazing cooperatives and councils.</li>
-                    <li><strong>Negotiation (30 mins):</strong> Draft mutual water-sharing rotas based on stakeholder interests: {activeStakeholder.interest}.</li>
-                    <li><strong>Diplomatic Check (10 mins):</strong> Audit the recommendations for non-securitized wording.</li>
+                    <li><strong>Split (30 mins):</strong> Form mixed teams of youth and elders representing grazing cooperatives and councils.</li>
+                    <li><strong>Negotiation (30 mins):</strong> Draft mutual resource-sharing schedules based on stakeholder interests: {activeStakeholder.interest}.</li>
+                    <li><strong>Diplomatic Check (10 mins):</strong> Audit the recommendations for constructive, non-securitized wording.</li>
                   </ul>
                 </div>
                 <div className="space-y-1.5">
-                  <h4 className="font-bold text-brand-offwhite uppercase tracking-wider print:text-black">3. Group Task</h4>
+                  <h4 className="font-bold text-brand-offwhite uppercase tracking-wider print:text-black">4. Group Task</h4>
                   <p className="leading-relaxed font-semibold text-brand-gold print:text-black">{activePathway.youthOpportunity}</p>
                 </div>
                 <div className="space-y-1.5">
-                  <h4 className="font-bold text-brand-offwhite uppercase tracking-wider print:text-black">4. Output Template</h4>
-                  <div className="bg-brand-navy-dark/45 p-3 rounded border border-brand-grey-border/30 space-y-1">
-                    <p><strong>Suggested Action:</strong> {pillarDetails.suggestedAction}</p>
+                  <h4 className="font-bold text-brand-offwhite uppercase tracking-wider print:text-black">5. Expected Participant Output</h4>
+                  <div className="bg-brand-navy-dark/45 p-3 rounded border border-brand-grey-border/30 space-y-1 print:bg-transparent print:border-none print:p-0">
+                    <p><strong>Suggested Action Plan:</strong> {pillarDetails.suggestedAction}</p>
                     <p><strong>M&E Indicator:</strong> {pillarDetails.indicator}</p>
                   </div>
                 </div>
                 <div className="space-y-1.5">
-                  <h4 className="font-bold text-brand-offwhite uppercase tracking-wider print:text-black">5. Facilitator Cautions & Safeguards</h4>
+                  <h4 className="font-bold text-brand-offwhite uppercase tracking-wider print:text-black">6. Debrief Questions</h4>
+                  <ul className="list-disc pl-5 space-y-1">
+                    <li>How does the suggested action plan address the capacity constraint of local institutions?</li>
+                    <li>What measures will guarantee that youth participation in resource sharing is non-tokenistic?</li>
+                  </ul>
+                </div>
+                <div className="space-y-1.5">
+                  <h4 className="font-bold text-brand-offwhite uppercase tracking-wider print:text-black">7. Facilitator Cautions & Safeguards</h4>
                   <p className="text-red-400 print:text-red-800">⚠️ {pillarDetails.redTeamWarning}</p>
+                </div>
+                <div className="space-y-1.5 font-medium">
+                  <h4 className="font-bold text-brand-offwhite uppercase tracking-wider print:text-black">8. Validation Note</h4>
+                  <p className="leading-relaxed">This activity plan is a training draft. Validate outputs with <strong>{activeStakeholder.name}</strong> and traditional councils prior to consolidation.</p>
                 </div>
               </div>
             )}
 
             {selectedOutputType === 'facilitator_note' && (
-              <div className="space-y-4">
+              <div className="space-y-4 text-brand-grey-text print:text-black">
                 <div className="space-y-1.5">
                   <h4 className="font-bold text-brand-offwhite uppercase tracking-wider print:text-black">1. Session Framing & Guidelines</h4>
                   <p className="leading-relaxed">Frame young people as active agents of resilience, innovation, prevention, and peacebuilding rather than passive victims or risks. Avoid taking sides in clan-based water disputes. Strictly respect the mentorship role of traditional elders.</p>
                 </div>
                 <div className="space-y-1.5">
-                  <h4 className="font-bold text-brand-offwhite uppercase tracking-wider print:text-black">2. Youth Protection Considerations</h4>
-                  <p className="text-red-400 print:text-red-800">⚠️ {pillarDetails.redTeamWarning}</p>
-                </div>
-                <div className="space-y-1.5">
-                  <h4 className="font-bold text-brand-offwhite uppercase tracking-wider print:text-black">3. Safety Protocols</h4>
-                  <p className="leading-relaxed">Establish clear guidelines: discussions must focus on water flow and resource access rather than sovereign borders, armed factions, or national politics.</p>
-                </div>
-                <div className="space-y-1.5">
-                  <h4 className="font-bold text-brand-offwhite uppercase tracking-wider print:text-black">4. Avoiding Wording Overclaims</h4>
-                  <p className="leading-relaxed">Instruct facilitators to challenge statements claiming climate change directly causes local conflict. Keep focus on compounding risks: {activePathway.capacityConstraint}.</p>
-                </div>
-                <div className="space-y-1.5">
-                  <h4 className="font-bold text-brand-offwhite uppercase tracking-wider print:text-black">5. Audience Adaptation</h4>
+                  <h4 className="font-bold text-brand-offwhite uppercase tracking-wider print:text-black">2. Audience Adaptation</h4>
                   <p className="leading-relaxed">For policymakers, emphasize technical indicators (<em>{pillarDetails.indicator}</em>). For youth, focus on physical access and safety.</p>
                 </div>
                 <div className="space-y-1.5">
-                  <h4 className="font-bold text-brand-offwhite uppercase tracking-wider print:text-black">6. Follow-up and Validation</h4>
+                  <h4 className="font-bold text-brand-offwhite uppercase tracking-wider print:text-black">3. Sensitive Issues to Manage</h4>
+                  <p className="leading-relaxed">Land ownership claims and transhumance security routes. Wording restrictions: <em>{activeStakeholder.diplomaticSensitivity}</em>.</p>
+                </div>
+                <div className="space-y-1.5">
+                  <h4 className="font-bold text-brand-offwhite uppercase tracking-wider print:text-black">4. Participation & Protection Safeguards</h4>
+                  <p className="text-red-400 print:text-red-800">⚠️ {pillarDetails.redTeamWarning}</p>
+                </div>
+                <div className="space-y-1.5">
+                  <h4 className="font-bold text-brand-offwhite uppercase tracking-wider print:text-black">5. How to Manage Discussion Safely</h4>
+                  <p className="leading-relaxed">Establish clear guidelines: discussions must focus on water flow and resource access rather than sovereign borders, armed factions, or national politics.</p>
+                </div>
+                <div className="space-y-1.5">
+                  <h4 className="font-bold text-brand-offwhite uppercase tracking-wider print:text-black">6. How to Avoid Climate-Conflict Simplification</h4>
+                  <p className="leading-relaxed">Instruct facilitators to challenge statements claiming climate change directly causes local conflict. Keep focus on compounding risks: {activePathway.capacityConstraint}.</p>
+                </div>
+                <div className="space-y-1.5">
+                  <h4 className="font-bold text-brand-offwhite uppercase tracking-wider print:text-black">7. Documentation of Outputs</h4>
+                  <p className="leading-relaxed">Compile suggested action: <em>{pillarDetails.suggestedAction}</em> and track indicators in the community dashboard.</p>
+                </div>
+                <div className="space-y-1.5 font-medium">
+                  <h4 className="font-bold text-brand-offwhite uppercase tracking-wider print:text-black">8. Follow-up and Validation</h4>
                   <p className="leading-relaxed">Liaise with ministry technical desks and traditional councils to schedule validation hearings. Key reviewer: <strong>{activeStakeholder.name}</strong>.</p>
                 </div>
               </div>
             )}
 
             {selectedOutputType === 'policy_note' && (
-              <div className="space-y-4">
+              <div className="space-y-4 text-brand-grey-text print:text-black">
                 <div className="space-y-1.5">
                   <h4 className="font-bold text-brand-offwhite uppercase tracking-wider print:text-black">1. Context Summary</h4>
                   <p className="leading-relaxed">Briefing note for <strong>{contextName}</strong> regarding integrating YPS and CPS dynamics in stabilizing borderland zones.</p>
                 </div>
                 <div className="space-y-1.5">
-                  <h4 className="font-bold text-brand-offwhite uppercase tracking-wider print:text-black">2. Risk Pathway Mapping</h4>
+                  <h4 className="font-bold text-brand-offwhite uppercase tracking-wider print:text-black">2. Problem Statement</h4>
+                  <p className="leading-relaxed">Climate change is accelerating agropastoral resources depletion, which intersects with local institutional weaknesses to exacerbate regional tensions and marginalize youth.</p>
+                </div>
+                <div className="space-y-1.5">
+                  <h4 className="font-bold text-brand-offwhite uppercase tracking-wider print:text-black">3. Climate-Related Risk Pathway</h4>
                   <p className="leading-relaxed">Climate hazard (<em>{activePathway.hazard}</em>) combined with capacity constraint (<em>{activePathway.capacityConstraint}</em>) impacts community ranges, creating conflict pathways.</p>
                 </div>
                 <div className="space-y-1.5">
-                  <h4 className="font-bold text-brand-offwhite uppercase tracking-wider print:text-black">3. Youth Agency Entry Point</h4>
+                  <h4 className="font-bold text-brand-offwhite uppercase tracking-wider print:text-black">4. Youth Agency & Participation Entry Point</h4>
                   <p className="leading-relaxed text-brand-green font-medium">{activePathway.youthOpportunity}</p>
                 </div>
                 <div className="space-y-1.5">
-                  <h4 className="font-bold text-brand-offwhite uppercase tracking-wider print:text-black">4. Proposed Stabilization Action</h4>
+                  <h4 className="font-bold text-brand-offwhite uppercase tracking-wider print:text-black">5. Stakeholder Coordination Need</h4>
+                  <p className="leading-relaxed">Requires close coordination with: <strong>{activeStakeholder.name}</strong> to leverage their influence and prevent duplicative efforts.</p>
+                </div>
+                <div className="space-y-1.5">
+                  <h4 className="font-bold text-brand-offwhite uppercase tracking-wider print:text-black">6. Proposed Action</h4>
                   <p className="leading-relaxed font-semibold text-brand-gold print:text-black">{pillarDetails.suggestedAction}</p>
                 </div>
                 <div className="space-y-1.5">
-                  <h4 className="font-bold text-brand-offwhite uppercase tracking-wider print:text-black">5. M&E Indicator</h4>
-                  <p className="leading-relaxed font-mono bg-brand-navy-dark/45 p-2 rounded border border-brand-grey-border/30">{pillarDetails.indicator}</p>
+                  <h4 className="font-bold text-brand-offwhite uppercase tracking-wider print:text-black">7. M&E Indicator</h4>
+                  <p className="leading-relaxed font-mono bg-brand-navy-dark/45 p-2 rounded border border-brand-grey-border/30 print:bg-transparent print:border-none print:p-0">{pillarDetails.indicator}</p>
                 </div>
                 <div className="space-y-1.5">
-                  <h4 className="font-bold text-brand-offwhite uppercase tracking-wider print:text-black">6. Risks & Safeguards</h4>
+                  <h4 className="font-bold text-brand-offwhite uppercase tracking-wider print:text-black">8. Evidence Gaps</h4>
+                  <p className="leading-relaxed">{activePathway.evidenceGaps}</p>
+                </div>
+                <div className="space-y-1.5">
+                  <h4 className="font-bold text-brand-offwhite uppercase tracking-wider print:text-black">9. Safeguards</h4>
                   <p className="text-red-400 print:text-red-800">⚠️ {pillarDetails.redTeamWarning}</p>
                 </div>
+                <div className="space-y-1.5 font-medium">
+                  <h4 className="font-bold text-brand-offwhite uppercase tracking-wider print:text-black">10. Validation Actors</h4>
+                  <p className="leading-relaxed">Validate recommendations with traditional authorities, youth leagues, and technical desks prior to drafting final policy briefs.</p>
+                </div>
                 <div className="space-y-1.5">
-                  <h4 className="font-bold text-brand-offwhite uppercase tracking-wider print:text-black">7. Evidence Gaps & Validation</h4>
-                  <p className="leading-relaxed">{activePathway.evidenceGaps} — Mapped stakeholder <strong>{activeStakeholder.name}</strong> will validate prior to draft consolidation.</p>
+                  <h4 className="font-bold text-brand-offwhite uppercase tracking-wider print:text-black">11. Next Step</h4>
+                  <p className="leading-relaxed">Translate this policy note into localized consultation sessions and coordinate with Ministry desks.</p>
                 </div>
               </div>
             )}
 
             {selectedOutputType === 'stakeholder_brief' && (
-              <div className="space-y-4">
+              <div className="space-y-4 text-brand-grey-text print:text-black">
                 <div className="space-y-1.5">
                   <h4 className="font-bold text-brand-offwhite uppercase tracking-wider print:text-black">1. Consultation Objective</h4>
                   <p className="leading-relaxed">Coordinate YCPS activities and align with stakeholder interests: <strong>{activeStakeholder.interest}</strong>.</p>
                 </div>
                 <div className="space-y-1.5">
-                  <h4 className="font-bold text-brand-offwhite uppercase tracking-wider print:text-black">2. Youth Safeguards</h4>
-                  <p className="leading-relaxed">Verify that youth delegates are free to speak without fear of political backlash or elder reprimand. Risks: <em>{activeStakeholder.risks}</em>.</p>
+                  <h4 className="font-bold text-brand-offwhite uppercase tracking-wider print:text-black">2. Who Should Participate</h4>
+                  <p className="leading-relaxed">Ministry representatives, traditional elders, agropastoral youth unions, and agropastoral cooperatives.</p>
                 </div>
                 <div className="space-y-1.5">
-                  <h4 className="font-bold text-brand-offwhite uppercase tracking-wider print:text-black">3. Key Consultation Questions</h4>
+                  <h4 className="font-bold text-brand-offwhite uppercase tracking-wider print:text-black">3. Youth Participation Safeguards</h4>
+                  <p className="leading-relaxed">Verify that youth delegates are free to express priorities without fear of political backlash or elder reprimand. Safeguard warning: <em>{activeStakeholder.risks || 'None recorded'}</em>.</p>
+                </div>
+                <div className="space-y-1.5">
+                  <h4 className="font-bold text-brand-offwhite uppercase tracking-wider print:text-black">4. Key Discussion Questions</h4>
                   <ul className="list-disc pl-5 space-y-1">
                     <li>What interest does <strong>{activeStakeholder.name}</strong> have in local resource sharing?</li>
                     <li>How can we support youth agency without creating friction with traditional structures?</li>
@@ -832,12 +1026,20 @@ export default function WorkplanToolkitPage() {
                   </ul>
                 </div>
                 <div className="space-y-1.5">
-                  <h4 className="font-bold text-brand-offwhite uppercase tracking-wider print:text-black">4. Expected Outputs & Feedback</h4>
-                  <p className="leading-relaxed">Stakeholder influence map and monthly joint feedback sessions to adjust resource rotas based on seasonal rainfall changes.</p>
+                  <h4 className="font-bold text-brand-offwhite uppercase tracking-wider print:text-black">5. Sensitive Issues</h4>
+                  <p className="leading-relaxed">Land ownership claims and transhumance security routes. Wording restrictions: <em>{activeStakeholder.diplomaticSensitivity}</em>.</p>
                 </div>
                 <div className="space-y-1.5">
-                  <h4 className="font-bold text-brand-offwhite uppercase tracking-wider print:text-black">5. Sensitive Issues to Manage</h4>
-                  <p className="leading-relaxed">Land ownership claims and transhumance security routes. Wording restrictions: <em>{activeStakeholder.diplomaticSensitivity}</em>.</p>
+                  <h4 className="font-bold text-brand-offwhite uppercase tracking-wider print:text-black">6. Expected Outputs</h4>
+                  <p className="leading-relaxed">A mapped stakeholder influence matrix and signed coordination memorandum.</p>
+                </div>
+                <div className="space-y-1.5">
+                  <h4 className="font-bold text-brand-offwhite uppercase tracking-wider print:text-black">7. Feedback Mechanism</h4>
+                  <p className="leading-relaxed">Convene monthly joint feedback sessions to adjust resource rotas based on seasonal changes.</p>
+                </div>
+                <div className="space-y-1.5 font-medium">
+                  <h4 className="font-bold text-brand-offwhite uppercase tracking-wider print:text-black">8. Follow-up Plan</h4>
+                  <p className="leading-relaxed">Liaise with ministry technical desks to review suggested agreements and coordinate validation hearings. Validate with: <strong>{activeStakeholder.name}</strong>.</p>
                 </div>
               </div>
             )}
@@ -868,7 +1070,7 @@ export default function WorkplanToolkitPage() {
                     { label: 'Follow-Up Mechanism', desc: 'Follow-up validation hearings scheduled with local traditional councils.' },
                     { label: 'Workplan Relevance', desc: `Mapped output satisfies Component 3 targets: ${activeActivity.name.slice(0, 40)}...` }
                   ].map((chk, idx) => (
-                    <div key={idx} className="flex items-start gap-3">
+                    <div key={idx} className="flex items-start gap-3 text-brand-grey-text print:text-black">
                       <input
                         type="checkbox"
                         checked={!!checkedChecks[idx]}
@@ -882,7 +1084,7 @@ export default function WorkplanToolkitPage() {
                             {!!checkedChecks[idx] ? 'Validated' : 'Not yet validated'}
                           </span>
                         </div>
-                        <span className="text-[10px] text-brand-grey-text block mt-0.5">{chk.desc}</span>
+                        <span className="text-[10px] text-brand-grey-text print:text-black block mt-0.5">{chk.desc}</span>
                       </div>
                     </div>
                   ))}
@@ -894,46 +1096,136 @@ export default function WorkplanToolkitPage() {
             )}
 
             {selectedOutputType === 'complete_package' && (
-              <div className="space-y-6 divide-y divide-brand-grey-border/30">
-                <div className="space-y-2">
-                  <h3 className="font-bold text-brand-gold uppercase tracking-widest block text-[13px]">SECTION 1: TOOLKIT SECTION DRAFT</h3>
-                  <p><strong>Purpose:</strong> Operationalize youth integration in regional climate stabilization under the {pillarDetails.name} pillar.</p>
-                  <p><strong>Climate Stress:</strong> {activePathway.hazard}</p>
-                  <p><strong>Practical Entry Point:</strong> {pillarDetails.practicalEntryPoint}</p>
+              <div className="space-y-8 divide-y divide-brand-grey-border/30 print:divide-y print:divide-black/30 print:text-black">
+                {/* 1. Cover / Summary Block */}
+                <div className="space-y-3 pb-4">
+                  <span className="text-[10px] font-bold text-brand-gold uppercase tracking-widest block print:text-black">
+                    YCPS Operational Programme & Toolkit Brief
+                  </span>
+                  <h1 className="text-xl font-bold text-brand-offwhite uppercase print:text-black">
+                    Complete YCPS Toolkit Output Package
+                  </h1>
+                  <p className="leading-relaxed">
+                    This package compiles operational templates and strategic alignment tools to integrate youth priorities into climate, peace and security programming. All sections are drafts and must undergo national and localized validation.
+                  </p>
+                  <div className="grid grid-cols-2 gap-4 text-[10px] text-brand-grey-text/75 mt-2 print:text-gray-600 bg-brand-navy-light/10 p-3 rounded border border-brand-grey-border/20 print:bg-transparent print:border-none print:p-0">
+                    <div>Context Environment: <span className="text-brand-offwhite print:text-black font-semibold">{contextName}</span></div>
+                    <div>Linked Activity: <span className="text-brand-offwhite print:text-black font-semibold">{activeActivity.name}</span></div>
+                    <div>Status: <span className="text-brand-gold print:text-black font-bold">Draft for Review and Contextual Validation</span></div>
+                    <div>Date Generated: <span className="text-brand-offwhite print:text-black font-semibold">{new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</span></div>
+                  </div>
                 </div>
-                <div className="space-y-2 pt-4">
-                  <h3 className="font-bold text-brand-gold uppercase tracking-widest block text-[13px]">SECTION 2: PRACTICAL ACTIVITY SHEET</h3>
+
+                {/* 2. Context Summary */}
+                <div className="space-y-2 pt-6 print-page-break">
+                  <h3 className="font-bold text-brand-gold uppercase tracking-widest block text-[13px] print:text-black print:border-b print:pb-1">SECTION 1: CONTEXT SUMMARY</h3>
+                  <p><strong>Context Area:</strong> {contextName}</p>
+                  <p><strong>Core Vulnerabilities:</strong> Rainfall variability, agricultural instability, and youth marginalization. High dependence on natural resources makes borderland communities sensitive to shifting seasonal corridors.</p>
+                  <p><strong>National Ownership Note:</strong> Projects should align with national adaptation programs (NAPs) and national youth frameworks.</p>
+                </div>
+
+                {/* 3. YCPS Matrix Recommendation */}
+                <div className="space-y-2 pt-6 print-page-break">
+                  <h3 className="font-bold text-brand-gold uppercase tracking-widest block text-[13px] print:text-black print:border-b print:pb-1">SECTION 2: YCPS MATRIX OPERATIONAL MATRIX SUMMARY</h3>
+                  <p><strong>Operational Pillar:</strong> {pillarDetails.name}</p>
+                  <p><strong>Climate-Security Considerations:</strong> {pillarDetails.climateSecurityConsideration || 'Under review'}</p>
+                  <p><strong>Youth Agency & Engagement:</strong> {pillarDetails.youthRoleAgency || 'Under review'}</p>
+                  <p><strong>Practical Entry Point:</strong> {pillarDetails.practicalEntryPoint || 'Under review'}</p>
+                  <p><strong>Suggested Action Plan:</strong> {pillarDetails.suggestedAction || 'Under review'}</p>
+                  <p><strong>M&E Indicator:</strong> {pillarDetails.indicator || 'Under review'}</p>
+                </div>
+
+                {/* 4. Risk Pathway Note */}
+                <div className="space-y-2 pt-6 print-page-break">
+                  <h3 className="font-bold text-brand-gold uppercase tracking-widest block text-[13px] print:text-black print:border-b print:pb-1">SECTION 3: CLIMATE-SECURITY CAUSAL RISK PATHWAY</h3>
+                  <p><strong>Hazard Stressor:</strong> {activePathway.hazard}</p>
+                  <p><strong>Vulnerability Factors:</strong> {activePathway.vulnerability}</p>
+                  <p><strong>Exposure Profile:</strong> Agropastoral borderlands communities and young resource collectors.</p>
+                  <p><strong>Capacity Constraints:</strong> {activePathway.capacityConstraint}</p>
+                  <p><strong>Conflict Pathway Type:</strong> {activePathway.pathwayType.replace(/_/g, ' ')}</p>
+                  <p><strong>Youth Impact:</strong> {activePathway.youthImpact}</p>
+                  <p><strong>Validation Evidence Gap:</strong> {activePathway.evidenceGaps}</p>
+                </div>
+
+                {/* 5. Stakeholder Coordination Strategy */}
+                <div className="space-y-2 pt-6 print-page-break">
+                  <h3 className="font-bold text-brand-gold uppercase tracking-widest block text-[13px] print:text-black print:border-b print:pb-1">SECTION 4: STAKEHOLDER COORDINATION STRATEGY</h3>
+                  <p><strong>Key Stakeholder:</strong> {activeStakeholder.name} ({activeStakeholder.actorType.replace('_', ' ')})</p>
+                  <p><strong>Interests & Objectives:</strong> {activeStakeholder.interest}</p>
+                  <p><strong>Perceived Influence / Power:</strong> {activeStakeholder.influence}</p>
+                  <p><strong>Dialogue Engagement Strategy:</strong> {activeStakeholder.engagementStrategy}</p>
+                  <p><strong>Generational and Gender Safeguards:</strong> {activeStakeholder.risks || 'Ensure equal representation and protective security'}</p>
+                </div>
+
+                {/* 6. Toolkit Section Draft */}
+                <div className="space-y-2 pt-6 print-page-break">
+                  <h3 className="font-bold text-brand-gold uppercase tracking-widest block text-[13px] print:text-black print:border-b print:pb-1">SECTION 5: TOOLKIT SECTION DRAFT (TOOL SHEET)</h3>
+                  <p><strong>Purpose:</strong> Operationalize youth integration in climate, peace and security programming, focusing on the {pillarDetails.name} pillar.</p>
+                  <p><strong>Key YCPS Issue:</strong> {activePathway.hazard} intersecting with {activePathway.capacityConstraint}.</p>
+                  <p><strong>Practical Entry Point:</strong> {pillarDetails.practicalEntryPoint}</p>
+                  <p><strong>Step-by-Step Instructions:</strong> 1. Map resource corridors. 2. Convene youth-elder dialogues. 3. Formalize youth in resource commissions.</p>
+                  <p><strong>Expected Output:</strong> A youth-inclusive natural resource sharing agreement with local indicators.</p>
+                  <p><strong>Safeguard Warning:</strong> {pillarDetails.redTeamWarning}</p>
+                </div>
+
+                {/* 7. Activity Sheet */}
+                <div className="space-y-2 pt-6 print-page-break">
+                  <h3 className="font-bold text-brand-gold uppercase tracking-widest block text-[13px] print:text-black print:border-b print:pb-1">SECTION 6: PRACTICAL ACTIVITY SHEET</h3>
                   <p><strong>Title:</strong> Scenario-Based Dialogue on {pillarDetails.name} in {contextName}</p>
-                  <p><strong>Instructions:</strong> Split youth/elders, negotiate shared rotas, audit recommendations.</p>
+                  <p><strong>Time Required:</strong> 90 Minutes</p>
+                  <p><strong>Materials:</strong> Resource maps, GPS trackers, wording cards</p>
+                  <p><strong>Group Task:</strong> {activePathway.youthOpportunity}</p>
                   <p><strong>Suggested Action:</strong> {pillarDetails.suggestedAction}</p>
                 </div>
-                <div className="space-y-2 pt-4">
-                  <h3 className="font-bold text-brand-gold uppercase tracking-widest block text-[13px]">SECTION 3: FACILITATOR GUIDE NOTE</h3>
+
+                {/* 8. Facilitator Guide Note */}
+                <div className="space-y-2 pt-6 print-page-break">
+                  <h3 className="font-bold text-brand-gold uppercase tracking-widest block text-[13px] print:text-black print:border-b print:pb-1">SECTION 7: YCPS FACILITATOR GUIDE NOTE</h3>
                   <p>Frame youth as active agents of resilience. Respect the mentorship role of traditional elders. Establish clear rules to avoid political, national, or military details. Avoid climate-conflict causal overclaiming.</p>
+                  <p><strong>Discussion safety rules:</strong> focus strictly on agronomical access and water availability.</p>
                 </div>
-                <div className="space-y-2 pt-4">
-                  <h3 className="font-bold text-brand-gold uppercase tracking-widest block text-[13px]">SECTION 4: POLICY / PROGRAMMING NOTE</h3>
-                  <p><strong>Context:</strong> {contextName}</p>
+
+                {/* 9. Policy / Programming Note */}
+                <div className="space-y-2 pt-6 print-page-break">
+                  <h3 className="font-bold text-brand-gold uppercase tracking-widest block text-[13px] print:text-black print:border-b print:pb-1">SECTION 8: POLICY / PROGRAMMING NOTE</h3>
                   <p><strong>Opportunity:</strong> {activePathway.youthOpportunity}</p>
                   <p><strong>Action Recommendation:</strong> {pillarDetails.suggestedAction}</p>
                   <p><strong>Indicator:</strong> {pillarDetails.indicator}</p>
+                  <p><strong>Evidence Gaps:</strong> {activePathway.evidenceGaps}</p>
                 </div>
-                <div className="space-y-2 pt-4">
-                  <h3 className="font-bold text-brand-gold uppercase tracking-widest block text-[13px]">SECTION 5: STAKEHOLDER CONSULTATION BRIEF</h3>
+
+                {/* 10. Stakeholder Consultation Brief */}
+                <div className="space-y-2 pt-6 print-page-break">
+                  <h3 className="font-bold text-brand-gold uppercase tracking-widest block text-[13px] print:text-black print:border-b print:pb-1">SECTION 9: STAKEHOLDER CONSULTATION BRIEF</h3>
                   <p><strong>Target Stakeholder:</strong> {activeStakeholder.name}</p>
                   <p><strong>Objective:</strong> Coordinate YCPS and align with stakeholder interests ({activeStakeholder.interest}).</p>
+                  <p><strong>Safeguard:</strong> Ensure youth are free to speak without fear of political backlash or elder reprimand.</p>
                 </div>
-                <div className="space-y-2 pt-4">
-                  <h3 className="font-bold text-brand-gold uppercase tracking-widest block text-[13px]">SECTION 6: VALIDATION CHECKLIST</h3>
+
+                {/* 11. Validation Checklist */}
+                <div className="space-y-2 pt-6 print-page-break">
+                  <h3 className="font-bold text-brand-gold uppercase tracking-widest block text-[13px] print:text-black print:border-b print:pb-1">SECTION 10: YCPS VALIDATION CHECKLIST</h3>
                   <p className="italic">Standard validation checklist includes checking source grounding, climate evidence context, youth agency framing, national ownership, and avoiding causal overclaiming.</p>
                 </div>
-                <div className="space-y-2 pt-4">
-                  <h3 className="font-bold text-brand-gold uppercase tracking-widest block text-[13px]">SECTION 7: RED-TEAM SCREENING SUMMARY</h3>
+
+                {/* 12. Red-Team Screening Summary */}
+                <div className="space-y-2 pt-6 print-page-break">
+                  <h3 className="font-bold text-brand-gold uppercase tracking-widest block text-[13px] print:text-black print:border-b print:pb-1">SECTION 11: RED-TEAM COMPLIANCE SCREENING SUMMARY</h3>
                   <p>Automated screening complete. Mapped entries checked for non-securitized youth framing, visible agency parameters, and alignment with national ownership.</p>
                 </div>
-                <div className="space-y-2 pt-4">
-                  <h3 className="font-bold text-brand-gold uppercase tracking-widest block text-[13px]">SECTION 8: DIPLOMATIC LANGUAGE SCREENING NOTE</h3>
+
+                {/* 13. Diplomatic Language Screening Note */}
+                <div className="space-y-2 pt-6 print-page-break">
+                  <h3 className="font-bold text-brand-gold uppercase tracking-widest block text-[13px] print:text-black print:border-b print:pb-1">SECTION 12: DIPLOMATIC LANGUAGE SCREENING NOTE</h3>
                   <p>Strategic word scan applied. Prohibited sovereign-sensitive failed-state formulations, direct climate-conflict causality claims, and youth vulnerability tropes screened.</p>
+                </div>
+
+                {/* 14. Final Validation Disclaimer */}
+                <div className="space-y-2 pt-6 print-page-break">
+                  <h3 className="font-bold text-brand-gold uppercase tracking-widest block text-[13px] print:text-black print:border-b print:pb-1">SECTION 13: FINAL VALIDATION DISCLAIMER</h3>
+                  <p className="italic text-brand-gold print:text-black">
+                    Checklist completion does not equal institutional validation. Use this compiled package to prepare for human and institutional review prior to any operational deployment.
+                  </p>
                 </div>
               </div>
             )}
