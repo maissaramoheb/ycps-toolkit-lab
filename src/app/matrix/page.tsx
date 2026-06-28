@@ -549,128 +549,135 @@ Validation: ${cell.validationNote}`;
             Map climate-security pathways and design youth-inclusive safeguards across pillars.
           </p>
         </div>
-        <div className="text-xs px-3 py-1.5 rounded-lg bg-brand-navy-light border border-brand-grey-border font-medium text-brand-gold self-start">
+        <div className="text-xs px-3 py-1.5 rounded-lg bg-brand-navy-light border border-brand-grey-border font-semibold text-brand-gold self-start">
           Context: {contextName}
         </div>
       </div>
 
       {/* Interactive Matrix Workspace Grid */}
-      <div className="grid xl:grid-cols-3 gap-6">
-        
-        {/* Visual 6x6 Grid & Selected-Cell Workspace */}
-        <div className="xl:col-span-2 space-y-6">
-          
-          {/* Main Visual Matrix Container */}
-          <div className="overflow-x-auto border border-brand-grey-border/30 rounded-xl bg-slate-900/40 p-1 no-print">
-            <table className="min-w-[900px] w-full text-xs text-brand-offwhite border-collapse">
-              <thead>
-                <tr className="border-b border-brand-grey-border/30 bg-brand-navy-dark/60">
-                  <th className="p-3 text-left font-semibold text-brand-gold w-[16%]">YPS Pillar / Lens</th>
-                  {cols.map((col) => (
-                    <th key={col.id} className="p-3 text-left font-semibold text-brand-grey-text tracking-wide text-[10px] w-[14%]">
-                      {col.label}
-                    </th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-brand-grey-border/20">
-                {rows.map((row) => (
-                  <tr
-                    key={row.id}
-                    className={`${
-                      !row.isOfficial
-                        ? 'bg-brand-navy-light/10 border-t border-brand-gold/20'
-                        : 'bg-transparent'
-                    }`}
-                  >
-                    {/* Row Header */}
-                    <td className="p-3 align-middle font-medium border-r border-brand-grey-border/25">
-                      <div className="space-y-1">
-                        <span className="font-bold text-brand-offwhite block leading-tight">{row.name}</span>
-                        {!row.isOfficial ? (
-                          <span className="text-[8px] font-bold px-1.5 py-0.2 rounded bg-brand-gold/10 text-brand-gold border border-brand-gold/20 uppercase tracking-widest block w-max">
-                            Cross-cutting Lens
+      {/* 1. Full-Width Visual Grid (The Visual Hero) */}
+      <div className="overflow-x-auto border border-brand-grey-border/30 rounded-xl bg-slate-900/40 p-1.5 no-print shadow-inner">
+        <table className="min-w-[1280px] w-full text-xs text-brand-offwhite border-collapse">
+          <thead>
+            <tr className="border-b border-brand-grey-border/30 bg-brand-navy-dark/80">
+              <th className="px-5 py-5 text-left font-extrabold text-brand-gold uppercase tracking-wider text-[11px] w-[18%] min-w-[220px] border-r border-brand-grey-border/25">YPS Pillar / Lens</th>
+              {cols.map((col) => (
+                <th key={col.id} className="px-4 py-5 text-left font-bold text-brand-grey-text uppercase tracking-wider text-[10px] min-w-[170px]">
+                  <div>{col.label}</div>
+                  <div className="text-[8px] text-brand-grey-text/60 font-medium normal-case tracking-normal mt-0.5 font-sans">
+                    {col.id === 'climate_stressor' ? 'Stressor analysis' :
+                     col.id === 'peace_pathway' ? 'Pathway analysis' :
+                     col.id === 'youth_entry' ? 'Agency opportunity' :
+                     col.id === 'protection_safeguard' ? 'Risk mitigation' :
+                     col.id === 'stakeholder_coordination' ? 'Coordination need' :
+                     'M&E validation'}
+                  </div>
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-brand-grey-border/20">
+            {rows.map((row) => (
+              <tr
+                key={row.id}
+                className={`${
+                  !row.isOfficial
+                    ? 'bg-brand-navy-light/10 border-t border-brand-gold/20'
+                    : 'bg-transparent'
+                }`}
+              >
+                {/* Row Header */}
+                <td className="px-5 py-5 align-middle border-r border-brand-grey-border/25 bg-brand-navy-dark/30">
+                  <div className="space-y-1.5">
+                    <span className="font-extrabold text-brand-offwhite block leading-snug text-xs tracking-wide">{row.name}</span>
+                    {!row.isOfficial ? (
+                      <span className="text-[8px] font-bold px-2 py-0.5 rounded bg-brand-gold/10 text-brand-gold border border-brand-gold/30 uppercase tracking-widest block w-max">
+                        Cross-cutting Lens
+                      </span>
+                    ) : (
+                      <span className="text-[8px] font-bold px-2 py-0.5 rounded bg-brand-navy-light text-brand-grey-text border border-brand-grey-border/40 uppercase tracking-wider block w-max">
+                        Official YPS Pillar
+                      </span>
+                    )}
+                  </div>
+                </td>
+
+                {/* Intersection Cells */}
+                {cols.map((col) => {
+                  const cellKey = `${row.id}_${col.id}`;
+                  const cellItem = cells[cellKey];
+                  if (!cellItem) {
+                    return <td key={cellKey} className="px-4 py-5 border border-brand-grey-border/20 bg-brand-navy-dark/10"></td>;
+                  }
+                  
+                  const isSelected = activeRow === row.id && activeCol === col.id;
+                  const isSaved = !!savedCells[cellKey];
+                  const status = getCellStatus(cellItem, isSaved);
+                  
+                  let statusText = "Draft";
+                  let statusDotColor = "bg-brand-grey-text";
+                  let statusBg = "bg-brand-navy-dark/20";
+                  let statusBorder = "border-brand-grey-border/20";
+                  
+                  if (status === 'needs_protection') {
+                    statusText = "Protection Review";
+                    statusDotColor = "bg-red-400";
+                    statusBg = "bg-red-950/15";
+                    statusBorder = "border-red-900/30";
+                  } else if (status === 'needs_evidence') {
+                    statusText = "Needs Evidence";
+                    statusDotColor = "bg-brand-gold";
+                    statusBg = "bg-brand-gold/5";
+                    statusBorder = "border-brand-gold/20";
+                  } else if (status === 'ready') {
+                    statusText = "Ready for Review";
+                    statusDotColor = "bg-brand-green";
+                    statusBg = "bg-brand-green/5";
+                    statusBorder = "border-brand-green/20";
+                  }
+
+                  return (
+                    <td
+                      key={cellKey}
+                      onClick={() => handleCellClick(row.id as YCPSMatrixRowId, col.id as YCPSMatrixColumnId)}
+                      className={`px-4 py-5 border border-brand-grey-border/20 transition-all cursor-pointer text-left align-top select-none min-w-[170px] ${statusBg} ${
+                        isSelected
+                          ? 'ring-2 ring-brand-gold bg-brand-navy-light/95 border-transparent shadow-xl shadow-brand-gold/15 z-10'
+                          : 'hover:bg-brand-navy-light/25'
+                      }`}
+                    >
+                      <div className="flex flex-col justify-between h-full min-h-[112px] gap-3">
+                        <div className="flex items-center justify-between gap-1 border-b border-brand-grey-border/20 pb-1.5">
+                          <span className="text-[9px] text-brand-grey-text font-bold uppercase tracking-wider">
+                            {row.id.slice(0, 4)}×{col.id.slice(0, 4)}
                           </span>
-                        ) : (
-                          <span className="text-[8px] font-semibold text-brand-grey-text/75 uppercase tracking-wider block">
-                            YPS Pillar
+                          <span className={`flex items-center gap-1 text-[8px] font-bold px-1.5 py-0.5 rounded border ${statusBorder} ${statusDotColor.replace('bg-', 'text-')}`}>
+                            <span className={`h-1.5 w-1.5 rounded-full ${statusDotColor}`} />
+                            {statusText}
                           </span>
-                        )}
+                        </div>
+                        <p className="text-[11px] text-brand-offwhite/90 leading-relaxed font-medium line-clamp-2 mb-1 flex-1">
+                          {cellItem.draftAction || '(No action drafted)'}
+                        </p>
                       </div>
                     </td>
+                  );
+                })}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
 
-                    {/* Intersection Cells */}
-                    {cols.map((col) => {
-                      const cellKey = `${row.id}_${col.id}`;
-                      const cellItem = cells[cellKey];
-                      if (!cellItem) {
-                        return <td key={cellKey} className="p-3 border border-brand-grey-border/20 bg-brand-navy-dark/10"></td>;
-                      }
-                      
-                      const isSelected = activeRow === row.id && activeCol === col.id;
-                      const isSaved = !!savedCells[cellKey];
-                      const status = getCellStatus(cellItem, isSaved);
-                      
-                      let statusText = "Draft";
-                      let statusDotColor = "bg-brand-grey-text";
-                      let statusBg = "bg-brand-navy-dark/20";
-                      let statusBorder = "border-brand-grey-border/20";
-                      
-                      if (status === 'needs_protection') {
-                        statusText = "Protection Review";
-                        statusDotColor = "bg-red-400";
-                        statusBg = "bg-red-950/15";
-                        statusBorder = "border-red-900/30";
-                      } else if (status === 'needs_evidence') {
-                        statusText = "Needs Evidence";
-                        statusDotColor = "bg-brand-gold";
-                        statusBg = "bg-brand-gold/5";
-                        statusBorder = "border-brand-gold/20";
-                      } else if (status === 'ready') {
-                        statusText = "Ready for Review";
-                        statusDotColor = "bg-brand-green";
-                        statusBg = "bg-brand-green/5";
-                        statusBorder = "border-brand-green/20";
-                      }
-
-                      return (
-                        <td
-                          key={cellKey}
-                          onClick={() => handleCellClick(row.id as YCPSMatrixRowId, col.id as YCPSMatrixColumnId)}
-                          className={`p-3 border border-brand-grey-border/20 transition-all cursor-pointer text-left align-top select-none ${statusBg} ${
-                            isSelected
-                              ? 'ring-2 ring-brand-gold bg-brand-navy-light/65 border-transparent shadow-lg shadow-brand-gold/10 z-10'
-                              : 'hover:bg-brand-navy-light/25'
-                          }`}
-                        >
-                          <div className="flex flex-col justify-between h-full min-h-[55px] gap-2">
-                            <div className="flex items-center justify-between gap-1">
-                              <span className="text-[8px] text-brand-grey-text font-bold uppercase">
-                                {row.id.slice(0, 4)}×{col.id.slice(0, 4)}
-                              </span>
-                              <span className={`flex items-center gap-1 text-[8px] font-bold px-1 py-0.2 rounded border ${statusBorder} ${statusDotColor.replace('bg-', 'text-')}`}>
-                                <span className={`h-1 w-1 rounded-full ${statusDotColor}`} />
-                                {statusText}
-                              </span>
-                            </div>
-                            <p className="text-[10px] text-brand-offwhite leading-relaxed line-clamp-1">
-                              {cellItem.draftAction || '(No action drafted)'}
-                            </p>
-                          </div>
-                        </td>
-                      );
-                    })}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-
-          {/* Selected Cell Detail Workspace */}
+      {/* 2. Interactive Matrix Workspace & Sidebar Details Grid */}
+      <div className="grid xl:grid-cols-4 gap-6">
+        
+        {/* Selected-Cell Workspace (75%) */}
+        <div className="xl:col-span-3 space-y-6">
           {isLoaded && cell ? (
             <div className="glass-panel p-6 rounded-xl border border-brand-grey-border/60 space-y-6">
               
-              {/* Workspace Workspace Header */}
+              {/* Workspace Header */}
               <div className="flex justify-between items-start border-b border-brand-grey-border/30 pb-3.5 gap-4">
                 <div>
                   <h2 className="text-sm font-bold text-brand-gold uppercase tracking-wider flex items-center gap-2">
@@ -695,117 +702,117 @@ Validation: ${cell.validationNote}`;
               </div>
 
               {/* Editable Text Fields */}
-              <div className="grid md:grid-cols-2 gap-5 text-xs">
+              <div className="grid md:grid-cols-2 gap-6 text-xs">
                 
                 {/* Matters */}
-                <div className="space-y-1">
-                  <label htmlFor="cell-matters" className="block font-semibold text-brand-offwhite">
+                <div className="space-y-1.5">
+                  <label htmlFor="cell-matters" className="block font-bold text-brand-offwhite text-[11px] tracking-wide">
                     1. Why this intersection matters
                   </label>
                   <textarea
                     id="cell-matters"
                     value={cell.whyMatters}
                     onChange={(e) => handleCellFieldChange('whyMatters', e.target.value)}
-                    rows={2}
-                    className="w-full text-xs bg-brand-navy-dark text-brand-offwhite border border-brand-grey-border/80 focus:border-brand-gold rounded-lg p-2.5 focus:outline-none resize-none leading-relaxed"
+                    rows={3}
+                    className="w-full text-xs bg-brand-navy-dark text-brand-offwhite border border-brand-grey-border/80 focus:border-brand-gold rounded-lg p-3 focus:outline-none resize-none leading-relaxed min-h-[100px]"
                   />
                 </div>
 
                 {/* Practical Action */}
-                <div className="space-y-1">
-                  <label htmlFor="cell-action" className="block font-semibold text-brand-offwhite">
+                <div className="space-y-1.5">
+                  <label htmlFor="cell-action" className="block font-bold text-brand-offwhite text-[11px] tracking-wide">
                     2. Draft practical action
                   </label>
                   <textarea
                     id="cell-action"
                     value={cell.draftAction}
                     onChange={(e) => handleCellFieldChange('draftAction', e.target.value)}
-                    rows={2}
-                    className="w-full text-xs bg-brand-navy-dark text-brand-offwhite border border-brand-grey-border/80 focus:border-brand-gold rounded-lg p-2.5 focus:outline-none resize-none leading-relaxed"
+                    rows={3}
+                    className="w-full text-xs bg-brand-navy-dark text-brand-offwhite border border-brand-grey-border/80 focus:border-brand-gold rounded-lg p-3 focus:outline-none resize-none leading-relaxed min-h-[100px]"
                   />
                 </div>
 
                 {/* Youth Role */}
-                <div className="space-y-1">
-                  <label htmlFor="cell-youth-role" className="block font-semibold text-brand-offwhite">
+                <div className="space-y-1.5">
+                  <label htmlFor="cell-youth-role" className="block font-bold text-brand-offwhite text-[11px] tracking-wide">
                     3. Youth agency role
                   </label>
                   <textarea
                     id="cell-youth-role"
                     value={cell.youthRole}
                     onChange={(e) => handleCellFieldChange('youthRole', e.target.value)}
-                    rows={2}
-                    className="w-full text-xs bg-brand-navy-dark text-brand-offwhite border border-brand-grey-border/80 focus:border-brand-gold rounded-lg p-2.5 focus:outline-none resize-none leading-relaxed"
+                    rows={3}
+                    className="w-full text-xs bg-brand-navy-dark text-brand-offwhite border border-brand-grey-border/80 focus:border-brand-gold rounded-lg p-3 focus:outline-none resize-none leading-relaxed min-h-[100px]"
                   />
                 </div>
 
                 {/* Safeguard */}
-                <div className="space-y-1">
-                  <label htmlFor="cell-safeguard" className="block font-semibold text-brand-offwhite">
+                <div className="space-y-1.5">
+                  <label htmlFor="cell-safeguard" className="block font-bold text-brand-offwhite text-[11px] tracking-wide">
                     4. Participation/protection safeguard
                   </label>
                   <textarea
                     id="cell-safeguard"
                     value={cell.safeguard}
                     onChange={(e) => handleCellFieldChange('safeguard', e.target.value)}
-                    rows={2}
-                    className="w-full text-xs bg-brand-navy-dark text-brand-offwhite border border-brand-grey-border/80 focus:border-brand-gold rounded-lg p-2.5 focus:outline-none resize-none leading-relaxed"
+                    rows={3}
+                    className="w-full text-xs bg-brand-navy-dark text-brand-offwhite border border-brand-grey-border/80 focus:border-brand-gold rounded-lg p-3 focus:outline-none resize-none leading-relaxed min-h-[100px]"
                   />
                 </div>
 
                 {/* Stakeholders */}
-                <div className="space-y-1">
-                  <label htmlFor="cell-stakeholders" className="block font-semibold text-brand-offwhite">
+                <div className="space-y-1.5">
+                  <label htmlFor="cell-stakeholders" className="block font-bold text-brand-offwhite text-[11px] tracking-wide">
                     5. Stakeholders to involve
                   </label>
                   <textarea
                     id="cell-stakeholders"
                     value={cell.stakeholders}
                     onChange={(e) => handleCellFieldChange('stakeholders', e.target.value)}
-                    rows={2}
-                    className="w-full text-xs bg-brand-navy-dark text-brand-offwhite border border-brand-grey-border/80 focus:border-brand-gold rounded-lg p-2.5 focus:outline-none resize-none leading-relaxed"
+                    rows={3}
+                    className="w-full text-xs bg-brand-navy-dark text-brand-offwhite border border-brand-grey-border/80 focus:border-brand-gold rounded-lg p-3 focus:outline-none resize-none leading-relaxed min-h-[100px]"
                   />
                 </div>
 
                 {/* Indicator */}
-                <div className="space-y-1">
-                  <label htmlFor="cell-indicator" className="block font-semibold text-brand-offwhite">
+                <div className="space-y-1.5">
+                  <label htmlFor="cell-indicator" className="block font-bold text-brand-offwhite text-[11px] tracking-wide">
                     6. Draft M&E indicator
                   </label>
                   <textarea
                     id="cell-indicator"
                     value={cell.indicator}
                     onChange={(e) => handleCellFieldChange('indicator', e.target.value)}
-                    rows={2}
-                    className="w-full text-xs bg-brand-navy-dark text-brand-offwhite border border-brand-grey-border/80 focus:border-brand-gold rounded-lg p-2.5 focus:outline-none resize-none leading-relaxed"
+                    rows={3}
+                    className="w-full text-xs bg-brand-navy-dark text-brand-offwhite border border-brand-grey-border/80 focus:border-brand-gold rounded-lg p-3 focus:outline-none resize-none leading-relaxed min-h-[100px]"
                   />
                 </div>
 
                 {/* Evidence Gap */}
-                <div className="space-y-1">
-                  <label htmlFor="cell-evidence-gap" className="block font-semibold text-brand-offwhite">
+                <div className="space-y-1.5">
+                  <label htmlFor="cell-evidence-gap" className="block font-bold text-brand-offwhite text-[11px] tracking-wide">
                     7. Evidence gap (Assumptions / Data lack)
                   </label>
                   <textarea
                     id="cell-evidence-gap"
                     value={cell.evidenceGap}
                     onChange={(e) => handleCellFieldChange('evidenceGap', e.target.value)}
-                    rows={2}
-                    className="w-full text-xs bg-brand-navy-dark text-brand-offwhite border border-brand-grey-border/80 focus:border-brand-gold rounded-lg p-2.5 focus:outline-none resize-none leading-relaxed"
+                    rows={3}
+                    className="w-full text-xs bg-brand-navy-dark text-brand-offwhite border border-brand-grey-border/80 focus:border-brand-gold rounded-lg p-3 focus:outline-none resize-none leading-relaxed min-h-[100px]"
                   />
                 </div>
 
                 {/* Validation Note */}
-                <div className="space-y-1">
-                  <label htmlFor="cell-validation-note" className="block font-semibold text-brand-offwhite">
+                <div className="space-y-1.5">
+                  <label htmlFor="cell-validation-note" className="block font-bold text-brand-offwhite text-[11px] tracking-wide">
                     8. Validation note
                   </label>
                   <textarea
                     id="cell-validation-note"
                     value={cell.validationNote}
                     onChange={(e) => handleCellFieldChange('validationNote', e.target.value)}
-                    rows={2}
-                    className="w-full text-xs bg-brand-navy-dark text-brand-offwhite border border-brand-grey-border/80 focus:border-brand-gold rounded-lg p-2.5 focus:outline-none resize-none leading-relaxed"
+                    rows={3}
+                    className="w-full text-xs bg-brand-navy-dark text-brand-offwhite border border-brand-grey-border/80 focus:border-brand-gold rounded-lg p-3 focus:outline-none resize-none leading-relaxed min-h-[100px]"
                   />
                 </div>
 
@@ -813,44 +820,44 @@ Validation: ${cell.validationNote}`;
 
               {/* Advanced Section for Official Pillars */}
               {activeRow !== 'youth_agency_leadership' && (
-                <details className="border border-brand-grey-border/30 rounded-lg p-3 bg-brand-navy-dark/30 select-none text-xs">
+                <details className="border border-brand-grey-border/30 rounded-lg p-4 bg-brand-navy-dark/30 select-none text-xs transition-all">
                   <summary className="font-bold text-brand-gold cursor-pointer outline-none uppercase tracking-wider text-[10px]">
                     Advanced Legacy Integration Fields (Optional)
                   </summary>
-                  <div className="grid md:grid-cols-2 gap-4 mt-3 text-xs">
-                    <div className="space-y-1">
-                      <span className="block font-semibold text-brand-offwhite">Practical Entry Point</span>
+                  <div className="grid md:grid-cols-2 gap-4 mt-4 text-xs">
+                    <div className="space-y-1.5">
+                      <span className="block font-bold text-brand-offwhite text-[11px]">Practical Entry Point</span>
                       <textarea
                         value={matrixEntries[activeRow as YPSPillarId]?.practicalEntryPoint || ''}
                         onChange={(e) => updateMatrixEntry(activeRow as YPSPillarId, { practicalEntryPoint: e.target.value })}
                         rows={2}
-                        className="w-full text-xs bg-brand-navy-dark text-brand-offwhite border border-brand-grey-border/80 focus:border-brand-gold rounded-lg p-2 focus:outline-none resize-none leading-normal"
+                        className="w-full text-xs bg-brand-navy-dark text-brand-offwhite border border-brand-grey-border/80 focus:border-brand-gold rounded-lg p-2.5 focus:outline-none resize-none leading-normal"
                       />
                     </div>
-                    <div className="space-y-1">
-                      <span className="block font-semibold text-brand-offwhite">Diplomatic Wording</span>
+                    <div className="space-y-1.5">
+                      <span className="block font-bold text-brand-offwhite text-[11px]">Diplomatic Wording</span>
                       <textarea
                         value={matrixEntries[activeRow as YPSPillarId]?.diplomaticWording || ''}
                         onChange={(e) => updateMatrixEntry(activeRow as YPSPillarId, { diplomaticWording: e.target.value })}
                         rows={2}
-                        className="w-full text-xs bg-brand-navy-dark text-brand-offwhite border border-brand-grey-border/80 focus:border-brand-gold rounded-lg p-2 focus:outline-none resize-none leading-normal"
+                        className="w-full text-xs bg-brand-navy-dark text-brand-offwhite border border-brand-grey-border/80 focus:border-brand-gold rounded-lg p-2.5 focus:outline-none resize-none leading-normal"
                       />
                     </div>
-                    <div className="space-y-1">
-                      <span className="block font-semibold text-brand-offwhite">Red-Team Warning</span>
+                    <div className="space-y-1.5">
+                      <span className="block font-bold text-brand-offwhite text-[11px]">Red-Team Warning</span>
                       <textarea
                         value={matrixEntries[activeRow as YPSPillarId]?.redTeamWarning || ''}
                         onChange={(e) => updateMatrixEntry(activeRow as YPSPillarId, { redTeamWarning: e.target.value })}
                         rows={2}
-                        className="w-full text-xs bg-brand-navy-dark text-brand-offwhite border border-brand-grey-border/80 focus:border-brand-gold rounded-lg p-2 focus:outline-none resize-none leading-normal"
+                        className="w-full text-xs bg-brand-navy-dark text-brand-offwhite border border-brand-grey-border/80 focus:border-brand-gold rounded-lg p-2.5 focus:outline-none resize-none leading-normal"
                       />
                     </div>
-                    <div className="space-y-1">
-                      <span className="block font-semibold text-brand-offwhite">Implementation Output</span>
+                    <div className="space-y-1.5">
+                      <span className="block font-bold text-brand-offwhite text-[11px]">Implementation Output</span>
                       <select
                         value={matrixEntries[activeRow as YPSPillarId]?.implementationOutput || ''}
                         onChange={(e) => updateMatrixEntry(activeRow as YPSPillarId, { implementationOutput: e.target.value })}
-                        className="w-full text-xs bg-brand-navy-dark text-brand-offwhite border border-brand-grey-border/80 focus:border-brand-gold rounded-lg p-2 focus:outline-none cursor-pointer"
+                        className="w-full text-xs bg-brand-navy-dark text-brand-offwhite border border-brand-grey-border/80 focus:border-brand-gold rounded-lg p-2.5 focus:outline-none cursor-pointer"
                       >
                         <option value="">-- Select Practical Output Type --</option>
                         <option value="policy_entry_point">Policy Entry Point</option>
@@ -868,11 +875,11 @@ Validation: ${cell.validationNote}`;
               <hr className="border-brand-grey-border/40" />
 
               {/* Scoring & Computing Sliders */}
-              <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-5">
+              <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
                 {/* 1. Priority */}
-                <div className="space-y-2">
+                <div className="space-y-2.5">
                   <div className="flex justify-between items-center text-xs">
-                    <span className="font-semibold text-brand-offwhite">Priority</span>
+                    <span className="font-bold text-brand-offwhite text-[11px] uppercase tracking-wide">Priority</span>
                     <span className="font-bold text-brand-gold text-sm">{cell.priority} / 5</span>
                   </div>
                   <input
@@ -891,9 +898,9 @@ Validation: ${cell.validationNote}`;
                 </div>
 
                 {/* 2. Protection Risk */}
-                <div className="space-y-2">
+                <div className="space-y-2.5">
                   <div className="flex justify-between items-center text-xs">
-                    <span className="font-semibold text-brand-offwhite">Protection Risk</span>
+                    <span className="font-bold text-brand-offwhite text-[11px] uppercase tracking-wide">Protection Risk</span>
                     <span className="font-bold text-brand-gold text-sm">{cell.protectionRisk} / 5</span>
                   </div>
                   <input
@@ -912,9 +919,9 @@ Validation: ${cell.validationNote}`;
                 </div>
 
                 {/* 3. Feasibility */}
-                <div className="space-y-2">
+                <div className="space-y-2.5">
                   <div className="flex justify-between items-center text-xs">
-                    <span className="font-semibold text-brand-offwhite">Feasibility</span>
+                    <span className="font-bold text-brand-offwhite text-[11px] uppercase tracking-wide">Feasibility</span>
                     <span className="font-bold text-brand-gold text-sm">{cell.feasibility} / 5</span>
                   </div>
                   <input
@@ -933,9 +940,9 @@ Validation: ${cell.validationNote}`;
                 </div>
 
                 {/* 4. Evidence Confidence */}
-                <div className="space-y-2">
+                <div className="space-y-2.5">
                   <div className="flex justify-between items-center text-xs">
-                    <span className="font-semibold text-brand-offwhite">Evidence Confidence</span>
+                    <span className="font-bold text-brand-offwhite text-[11px] uppercase tracking-wide">Evidence Confidence</span>
                     <span className="font-bold text-brand-gold text-sm">{cell.evidenceConfidence} / 5</span>
                   </div>
                   <input
@@ -958,31 +965,31 @@ Validation: ${cell.validationNote}`;
               {renderPlanningInterpretation(cell)}
 
               {/* Action Buttons */}
-              <div className="flex flex-col sm:flex-row gap-3 pt-2">
+              <div className="flex flex-col sm:flex-row gap-4 pt-3">
                 <button
                   type="button"
                   onClick={handleSaveCell}
-                  className="flex-1 px-4 py-2.5 bg-brand-gold hover:bg-brand-gold-dark text-brand-navy-dark font-bold rounded-lg text-xs uppercase tracking-wider text-center transition-all cursor-pointer shadow-md shadow-brand-gold/10"
+                  className="flex-1 px-5 py-3 bg-brand-gold hover:bg-brand-gold-dark text-brand-navy-dark font-extrabold rounded-lg text-xs uppercase tracking-wider text-center transition-all cursor-pointer shadow-md shadow-brand-gold/15"
                 >
                   Save cell to workspace
                 </button>
                 <button
                   type="button"
                   onClick={handleCopyCellNote}
-                  className="flex-1 px-4 py-2.5 bg-brand-navy-light hover:bg-brand-navy-dark text-brand-offwhite border border-brand-grey-border rounded-lg text-xs font-bold tracking-wider uppercase text-center transition-all cursor-pointer"
+                  className="flex-1 px-5 py-3 bg-brand-navy-light hover:bg-brand-navy-dark text-brand-offwhite border border-brand-grey-border rounded-lg text-xs font-bold tracking-wider uppercase text-center transition-all cursor-pointer"
                 >
                   Copy selected cell note
                 </button>
                 <button
                   type="button"
                   onClick={handleCopyForToolkit}
-                  className="flex-1 px-4 py-2.5 border border-brand-grey-border hover:bg-brand-navy-light text-brand-grey-text hover:text-brand-offwhite rounded-lg text-xs font-bold tracking-wider uppercase text-center transition-all cursor-pointer"
+                  className="flex-1 px-5 py-3 border border-brand-grey-border hover:bg-brand-navy-light text-brand-grey-text hover:text-brand-offwhite rounded-lg text-xs font-bold tracking-wider uppercase text-center transition-all cursor-pointer"
                 >
                   Copy for Toolkit Package
                 </button>
                 <Link
                   href="/risk-pathways"
-                  className="flex-grow px-4 py-2.5 bg-brand-navy-light border border-brand-gold/20 hover:border-brand-gold text-brand-gold rounded-lg text-xs font-bold tracking-wider uppercase text-center transition-all"
+                  className="flex-grow px-5 py-3 bg-brand-navy-light border border-brand-gold/25 hover:border-brand-gold text-brand-gold rounded-lg text-xs font-bold tracking-wider uppercase text-center transition-all"
                 >
                   Next: Map Risk Pathway
                 </Link>
@@ -990,7 +997,7 @@ Validation: ${cell.validationNote}`;
 
               {/* Temporary copy/save indicator */}
               {copyFeedback && (
-                <div className="text-[10px] text-brand-gold text-center italic mt-2 animate-pulse">
+                <div className="text-[11px] text-brand-gold text-center font-semibold italic mt-2 animate-pulse">
                   {copyFeedback}
                 </div>
               )}
@@ -1001,11 +1008,10 @@ Validation: ${cell.validationNote}`;
               Loading YCPS Matrix 2.0 workspace cells...
             </div>
           )}
-
         </div>
 
-        {/* Legacy right-hand panel (Source Guidance, Live card, and integrity panel) */}
-        <div className="space-y-6">
+        {/* Sidebar Panel (25%) */}
+        <div className="xl:col-span-1 space-y-6">
           {/* Source Integrity Panel */}
           <SourceIntegrityPanel sourceId="tor" />
 

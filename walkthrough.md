@@ -1,60 +1,45 @@
-# Operational Walkthrough — YCPS Toolkit Lab v0.4.0 (CBD-Inspired YCPS Matrix 2.0)
+# Operational Walkthrough — YCPS Toolkit Lab v0.4.1 (Matrix Visual Scale & Typography Pass)
 
-We have successfully upgraded the matrix module into **YCPS Matrix 2.0**, introducing an interactive 6x6 visual grid, starter recommendation paths, a selected-cell workspace with automatic scoring interpretation, and seamless synchronization with the global workspace context.
+We have successfully completed a layout and typography modernization pass to elevate the readability and usability of the YCPS Integration Matrix workspace.
 
 ## 🛠️ Changes Implemented
 
-### 1. Interactive 6x6 Visual Grid & Cell Design
+### 1. Typography Modernization
+- **Files modified:** 
+  - [RootLayout](file:///Users/maissaraselim/Library/CloudStorage/OneDrive-Personal/Consultancy/YCPS%20Toolkit%20Lap/src/app/layout.tsx)
+  - [Globals CSS](file:///Users/maissaraselim/Library/CloudStorage/OneDrive-Personal/Consultancy/YCPS%20Toolkit%20Lap/src/app/globals.css)
+- Imported the Google Font **Urbanist** (`latin` subsets) using Next.js App Router optimization via `next/font/google`.
+- Added the CSS variable `--font-urbanist` to the root `<html>` element.
+- Set the global body font family to prioritize `Urbanist`, providing clean sans-serif system fallbacks (`Geist Sans`, `system-ui`, etc.) to enhance card, input, and matrix readability.
+- Skipped local font reference for `Azonix` to keep build size and assets safe from missing file regressions.
+
+### 2. Full-Width Visual Matrix Layout (Visual Hero)
 - **File modified:** [page.tsx (Matrix)](file:///Users/maissaraselim/Library/CloudStorage/OneDrive-Personal/Consultancy/YCPS%20Toolkit%20Lap/src/app/matrix/page.tsx)
-- Replaced the tabbed interface with a structured visual matrix.
-- **Rows:** 
-  1. Participation (`participation`)
-  2. Protection (`protection`)
-  3. Prevention (`prevention`)
-  4. Partnerships (`partnerships`)
-  5. Disengagement / Reintegration (`disengagement_reintegration`)
-  6. Youth Agency / Leadership (`youth_agency_leadership` - styled as a cross-cutting lens rather than an official pillar).
-- **Columns:**
-  1. Climate-related stressor
-  2. Peace and security pathway
-  3. Youth agency entry point
-  4. Participation/protection safeguard
-  5. Stakeholder coordination
-  6. Indicator / validation need
-- Cells display status chips and single-line previews, highlighting the active selection with a gold border.
+- Restructured page structure. The 6x6 visual matrix is no longer constrained in a shared sidebar layout; it now takes **100% width** as the visual hero at the top of the interface.
+- Scaled up the matrix table minimum width from `900px` to `1280px` for a wider, uncompressed, console-like grid presentation.
+- Set minimum cell heights to `min-h-[112px]` and cell padding to `px-4 py-5`.
+- Set row title cells width to `w-[18%] min-w-[220px]` and styled pillar names to be larger and bold.
 
-### 2. Guidance & Recommended Starter Cells
-- Added a top explanation box outlining how to click cells and refine YCPS actions.
-- Introduced a **Recommended starter cells** dashboard allowing users to instantly select high-impact entry points:
-  1. Participation × Safeguard
-  2. Youth Agency Lens × Youth Entry
-  3. Protection × Safeguard
-  4. Partnerships × Coordination
-  5. Prevention × Indicator
+### 3. Grid Column Hierarchies & Multi-Line Preview
+- Redesigned the table headers: each YPS column contains its short name along with a small descriptive label underneath (e.g. *Stressor analysis*, *Agency opportunity*, *M&E validation*).
+- Expanded cell text wrapper previews: cell actions display up to 2 lines of preview (`line-clamp-2` with `leading-relaxed text-[11px]`) instead of a single truncated line, allowing users to understand cell content at a glance.
+- Restrained selected-cell highlight ring (`ring-2 ring-brand-gold bg-brand-navy-light/95 border-transparent shadow-xl`) to look premium and focused.
 
-### 3. Selected Cell Workspace & 4 Scoring Sliders
-- Positioned a detail editor panel below the matrix containing:
-  - Text fields for matters, action, youth role, safeguards, stakeholders, indicators, evidence gaps, and validation notes.
-  - Collapsed advanced legacy integration fields (for official pillars only).
-  - Sliders for **Priority**, **Protection risk**, **Feasibility**, and **Evidence confidence**.
-  - A computed **Planning interpretation** box alerting the user to review safeguards, collect evidence, or queue the cell for the toolkit package based on score rules.
-
-### 4. Data Persistence & Legacy Synchronization
-- Cell states are isolated and persisted in `localStorage` under `ycps_matrix_2_cells` and keyed by `contextName` to prevent cross-scenario data contamination.
-- Switch scenarios dynamically clears/resets the cell matrix to avoid stale data.
-- Clicking **Save cell to workspace** marks the cell as ready and synchronizes compatible legacy fields back to the global `matrixEntries` context, ensuring full compatibility with the Toolkit Builder and Policy Brief generators.
+### 4. Optimized Workspace & Right-Sidebar Split
+- Below the full-width matrix grid, the details editor and the sidebar cards are split in a **75% / 25% layout** (`xl:grid-cols-4` with workspace taking `col-span-3` and sidebar taking `col-span-1`).
+- Workspace textareas have been increased to `rows={3}` with padding `p-3` and a minimum height of `100px`.
+- Input labels, slider headers, and dynamic copy action buttons have been scaled up for increased legibility.
+- Added a visual helper subtitle to the starter cells dashboard: `"Start here if you are not sure which cell to analyze first."`
 
 ---
 
 ## 🧪 Verification & Testing Results
 
 ### Automated Validation
-- **Linter Run:** `npm run lint` -> Passed with 0 errors.
-- **Production Build:** `npm run build` -> Passed with success, successfully compiling all App Router pages.
+- **Linter Run:** `npm run lint` -> Passed with **0 errors**.
+- **Production Build:** `npm run build` -> Passed with success, prerendering all static App Router pages cleanly.
 
-### Manual Verification
-- Verified horizontal scrolling support for viewports under 768px (down to 390px).
-- Confirmed that the visual matrix correctly displays rows and columns.
-- Confirmed that Clicking starter cells updates active coordinates.
-- Validated that planning interpretation notes react dynamically to score sliders.
-- Verified clipboard copy output formats for both cell notes and toolkit packages.
+### Manual Layout Verification
+- **Mobile Viewport (390px):** Checked responsiveness. The visual matrix scrolls smoothly horizontally, while the starter cells dashboard wraps neatly and the selected-cell workspace stacks vertically.
+- **Normal Screen Share Scale:** Fonts, text inputs, and table headers are highly readable without crowding or overlapping labels.
+- **Print Regression check:** Confirmed that print outputs in Toolkit Builder and Trainer Guide continue to inherit fallback rules correctly without styling breakages.

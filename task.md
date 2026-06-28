@@ -42,3 +42,13 @@
 - [x] Integrated computed planning interpretation box and output actions (Save, Copy note, Copy for toolkit).
 - [x] Configured localStorage state keys and legacy synchronization for official YPS pillars.
 - [x] Verified ESLint, TypeScript compilation, and build success.
+
+## 2026-06-28 — v0.4.1 Matrix Visual Scale & Typography Pass
+- [x] Integrated Urbanist Google Font globally as the primary UI font.
+- [x] Adjusted visual scale of YCPS Matrix to min-width `1280px` for enhanced readability.
+- [x] Redesigned visual grid columns with descriptive sub-titles.
+- [x] Configured 2-line cell preview layout using `line-clamp-2` with increased line height.
+- [x] Restructured matrix layout to be full-width, placing workspace and sidebar cards side-by-side below.
+- [x] Scaled selected-cell workspace with larger textareas and bolds labels.
+- [x] Refined starter cells dashboard text and click sizing.
+- [x] Ran linter and production build with successful results.
