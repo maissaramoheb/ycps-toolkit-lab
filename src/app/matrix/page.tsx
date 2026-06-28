@@ -429,7 +429,7 @@ Validation: ${cell.validationNote}`;
 
   // Structural columns definition
   const cols = [
-    { id: 'climate_stressor', name: 'Climate-Related Stressor', label: 'Climate Stressor' },
+    { id: 'climate_stressor', name: 'Climate-Related Stressor', label: 'Climate' },
     { id: 'peace_pathway', name: 'Peace and Security Pathway', label: 'Peace Pathway' },
     { id: 'youth_entry', name: 'Youth Agency Entry Point', label: 'Youth Entry' },
     { id: 'protection_safeguard', name: 'Participation/Protection Safeguard', label: 'Safeguard' },
@@ -557,20 +557,20 @@ Validation: ${cell.validationNote}`;
       {/* Interactive Matrix Workspace Grid */}
       {/* 1. Full-Width Visual Grid (The Visual Hero) */}
       <div className="overflow-x-auto border border-brand-grey-border/30 rounded-xl bg-slate-900/40 p-1.5 no-print shadow-inner">
-        <table className="min-w-[1280px] w-full text-xs text-brand-offwhite border-collapse">
+        <table className="w-full table-fixed lg:min-w-0 min-w-[1080px] text-xs text-brand-offwhite border-collapse">
           <thead>
             <tr className="border-b border-brand-grey-border/30 bg-brand-navy-dark/80">
-              <th className="px-5 py-5 text-left font-extrabold text-brand-gold uppercase tracking-wider text-[11px] w-[18%] min-w-[220px] border-r border-brand-grey-border/25">YPS Pillar / Lens</th>
+              <th className="px-3.5 py-4 text-left font-extrabold text-brand-gold uppercase tracking-wider text-[11px] w-[18%] lg:w-[195px] border-r border-brand-grey-border/25">YPS Pillar / Lens</th>
               {cols.map((col) => (
-                <th key={col.id} className="px-4 py-5 text-left font-bold text-brand-grey-text uppercase tracking-wider text-[10px] min-w-[170px]">
+                <th key={col.id} className="px-3 py-4 text-left font-bold text-brand-grey-text uppercase tracking-wider text-[10px]">
                   <div>{col.label}</div>
                   <div className="text-[8px] text-brand-grey-text/60 font-medium normal-case tracking-normal mt-0.5 font-sans">
                     {col.id === 'climate_stressor' ? 'Stressor analysis' :
-                     col.id === 'peace_pathway' ? 'Pathway analysis' :
-                     col.id === 'youth_entry' ? 'Agency opportunity' :
-                     col.id === 'protection_safeguard' ? 'Risk mitigation' :
-                     col.id === 'stakeholder_coordination' ? 'Coordination need' :
-                     'M&E validation'}
+                     col.id === 'peace_pathway' ? 'Risk pathway' :
+                     col.id === 'youth_entry' ? 'Agency role' :
+                     col.id === 'protection_safeguard' ? 'Protection check' :
+                     col.id === 'stakeholder_coordination' ? 'Actors/partners' :
+                     'M&E / validation'}
                   </div>
                 </th>
               ))}
@@ -587,7 +587,7 @@ Validation: ${cell.validationNote}`;
                 }`}
               >
                 {/* Row Header */}
-                <td className="px-5 py-5 align-middle border-r border-brand-grey-border/25 bg-brand-navy-dark/30">
+                <td className="px-3.5 py-4 align-middle border-r border-brand-grey-border/25 bg-brand-navy-dark/30">
                   <div className="space-y-1.5">
                     <span className="font-extrabold text-brand-offwhite block leading-snug text-xs tracking-wide">{row.name}</span>
                     {!row.isOfficial ? (
@@ -607,7 +607,7 @@ Validation: ${cell.validationNote}`;
                   const cellKey = `${row.id}_${col.id}`;
                   const cellItem = cells[cellKey];
                   if (!cellItem) {
-                    return <td key={cellKey} className="px-4 py-5 border border-brand-grey-border/20 bg-brand-navy-dark/10"></td>;
+                    return <td key={cellKey} className="px-3 py-4 border border-brand-grey-border/20 bg-brand-navy-dark/10"></td>;
                   }
                   
                   const isSelected = activeRow === row.id && activeCol === col.id;
@@ -640,13 +640,13 @@ Validation: ${cell.validationNote}`;
                     <td
                       key={cellKey}
                       onClick={() => handleCellClick(row.id as YCPSMatrixRowId, col.id as YCPSMatrixColumnId)}
-                      className={`px-4 py-5 border border-brand-grey-border/20 transition-all cursor-pointer text-left align-top select-none min-w-[170px] ${statusBg} ${
+                      className={`px-3 py-4 border border-brand-grey-border/20 transition-all cursor-pointer text-left align-top select-none ${statusBg} ${
                         isSelected
                           ? 'ring-2 ring-brand-gold bg-brand-navy-light/95 border-transparent shadow-xl shadow-brand-gold/15 z-10'
                           : 'hover:bg-brand-navy-light/25'
                       }`}
                     >
-                      <div className="flex flex-col justify-between h-full min-h-[112px] gap-3">
+                      <div className="flex flex-col justify-between h-full min-h-[100px] gap-2.5">
                         <div className="flex items-center justify-between gap-1 border-b border-brand-grey-border/20 pb-1.5">
                           <span className="text-[9px] text-brand-grey-text font-bold uppercase tracking-wider">
                             {row.id.slice(0, 4)}×{col.id.slice(0, 4)}

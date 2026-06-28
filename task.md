@@ -52,3 +52,11 @@
 - [x] Scaled selected-cell workspace with larger textareas and bolds labels.
 - [x] Refined starter cells dashboard text and click sizing.
 - [x] Ran linter and production build with successful results.
+
+## 2026-06-28 — v0.4.2 Matrix Fit-to-Screen & Global Font Readability Pass
+- [x] Removed hard min-w-1280px table limit for desktop, replacing it with fluid `w-full table-fixed lg:min-w-0 min-w-[1080px]`.
+- [x] Reduced cell vertical height to `min-h-[100px]` and cell padding to `px-3 py-4` for a clean layout fit.
+- [x] Shortened visible column header labels to 1-2 words (e.g. Climate, Peace Pathway, Youth Entry).
+- [x] Clarified column focus through subtitles (e.g. Stressor analysis, Risk pathway, Agency role).
+- [x] Increased global base font size to `15.5px` and line height to `1.55` in globals.css.
+- [x] Verified build success and linter compatibility.
