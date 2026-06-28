@@ -106,7 +106,7 @@ export default function MatrixPage() {
   return (
     <div className="space-y-6">
       {/* Workflow Strip */}
-      <WorkflowStrip currentStep="analyze" />
+      <WorkflowStrip currentStep="matrix" />
 
       {/* This step produces box */}
       <div className="glass-panel p-4 rounded-xl border border-brand-gold/25 bg-gradient-to-r from-brand-navy-light/40 to-slate-900/60 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs no-print">

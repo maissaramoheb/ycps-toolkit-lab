@@ -3,7 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 
-export type WorkflowStepId = 'context' | 'analyze' | 'plan' | 'protect' | 'toolkit' | 'review' | 'export';
+export type WorkflowStepId = 'context' | 'matrix' | 'risk' | 'stakeholders' | 'draft' | 'review' | 'finalize';
 
 interface StepItem {
   id: WorkflowStepId;
@@ -13,12 +13,12 @@ interface StepItem {
 
 const STEPS: StepItem[] = [
   { id: 'context', label: 'Context', href: '/case-studies' },
-  { id: 'analyze', label: 'Analyze', href: '/matrix' },
-  { id: 'plan', label: 'Plan', href: '/stakeholders' },
-  { id: 'protect', label: 'Protect & Validate', href: '/review' },
-  { id: 'toolkit', label: 'Toolkit', href: '/toolkit' },
-  { id: 'review', label: 'Review', href: '/language' },
-  { id: 'export', label: 'Export', href: '/toolkit' }
+  { id: 'matrix', label: 'Matrix', href: '/matrix' },
+  { id: 'risk', label: 'Risk', href: '/risk-pathways' },
+  { id: 'stakeholders', label: 'Stakeholders', href: '/stakeholders' },
+  { id: 'draft', label: 'Draft', href: '/toolkit' },
+  { id: 'review', label: 'Review', href: '/review' },
+  { id: 'finalize', label: 'Finalize', href: '/toolkit?outputType=complete_package' }
 ];
 
 interface WorkflowStripProps {

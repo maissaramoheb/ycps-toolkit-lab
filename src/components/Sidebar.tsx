@@ -156,7 +156,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, setIsOpen }) => {
         {/* Navigation Content */}
         <div className="flex-1 overflow-y-auto px-4 py-4 space-y-6">
           {/* Dashboard Main Link */}
-          <div className="border-b border-brand-grey-border/40 pb-3">
+          <div className="border-b border-brand-grey-border/40 pb-3 space-y-1">
             <Link
               href="/"
               onClick={() => setIsOpen(false)}
@@ -170,6 +170,20 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, setIsOpen }) => {
                 <path strokeLinecap="round" strokeLinejoin="round" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v4a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v4a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v4a2 2 0 01-2 2H6a2 2 0 01-2-2v-4zM14 16a2 2 0 012-2h2a2 2 0 012 2v4a2 2 0 01-2 2h-2a2 2 0 01-2-2v-4z" />
               </svg>
               <span>Dashboard Overview</span>
+            </Link>
+            <Link
+              href="/workflow"
+              onClick={() => setIsOpen(false)}
+              className={`flex items-center gap-3 px-3 py-2 rounded-lg text-xs font-semibold tracking-wide transition-all duration-150 ${
+                isActive('/workflow')
+                  ? 'bg-brand-navy-light text-brand-gold border-l-2 border-brand-gold shadow-md'
+                  : 'text-brand-offwhite hover:text-brand-gold hover:bg-brand-navy-light/40'
+              }`}
+            >
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+              </svg>
+              <span>Guided Workflow</span>
             </Link>
           </div>
 

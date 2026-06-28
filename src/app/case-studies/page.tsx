@@ -98,19 +98,19 @@ ${cs.cautions.map((c) => `- ${c}`).join('\n')}
       integrationOpportunities: 'Formalizing herder-farmer youth committees inside traditional local governance structures to pre-negotiate seasonal water pan sharing.',
       stakeholderGroups: [
         'Lake Chad Basin Commission herder desks',
-        'Association of herder herders (local youth group)',
+        'Association of pastoralist youth (local youth group)',
         'Traditional local council of elders'
       ],
-      pathwayPrompts: 'Stressor: rainfall shifts -> Exposure: agropastoral herding herders -> Vulnerability: loss of pasture -> Capacity Constraint: lack of municipal herder corridors -> Conflict Pathway: herder clashes.',
-      interventions: 'Demarcating regional grazing corridors using GPS herding apps managed by mixed herder herding youth committees.',
+      pathwayPrompts: 'Stressor: rainfall shifts -> Exposure: agropastoral communities -> Vulnerability: loss of pasture -> Capacity Constraint: lack of municipal transhumance corridors -> Conflict Pathway: localized clashes.',
+      interventions: 'Demarcating regional grazing corridors using GPS tracking apps managed by mixed pastoralist youth committees.',
       cautions: [
         'Do not overstate climate-conflict links. Environmental factors act as threat multipliers, not direct triggers.',
-        'Avoid securitizing pastoral herder youth; frame them as technical herder resource managers.',
+        'Avoid securitizing pastoralist youth; frame them as community resource managers.',
         'Preserve national ownership by partnering with local borderland administrations.'
       ],
       questions: [
-        'How can herder youth herding committees verify water availability along corridors prior to migration?',
-        'In what ways can traditional elders be integrated into herder youth monitoring councils without blocking youth leadership?'
+        'How can pastoralist youth committees verify water availability along corridors prior to migration?',
+        'In what ways can traditional elders be integrated into youth monitoring councils without blocking youth leadership?'
       ]
     },
     {
@@ -209,7 +209,7 @@ ${cs.cautions.map((c) => `- ${c}`).join('\n')}
       ],
       questions: [
         'How does green enterprise integration reduce herder-host resource friction?',
-        'What protection measures ensure equal revenue share for young herder herding women in green fuel processing?'
+        'What protection measures ensure equal revenue share for young pastoralist women in green fuel processing?'
       ]
     },
     {
@@ -266,8 +266,8 @@ ${cs.cautions.map((c) => `- ${c}`).join('\n')}
         'Carana River Youth Alliance (CRYA)',
         'Borderland local traditional councils'
       ],
-      pathwayPrompts: 'Stressor: Carana River shifting -> Exposure: borderland herder herders -> Vulnerability: lack of border checkpoints -> Capacity Constraint: uncoordinated border policies -> Conflict Pathway: borderland resource clashes.',
-      interventions: 'Setting up joint youth-elder border resource monitoring kiosks equipped with mobile GPS herder trackers.',
+      pathwayPrompts: 'Stressor: Carana River shifting -> Exposure: borderland pastoralist communities -> Vulnerability: lack of border checkpoints -> Capacity Constraint: uncoordinated border policies -> Conflict Pathway: borderland resource clashes.',
+      interventions: 'Setting up joint youth-elder border resource monitoring kiosks equipped with mobile GPS tracking units.',
       cautions: [
         'This is a fictional training model. Use to test extreme scenarios without political sensitivities.',
         'Ensure neither Upper nor Lower CARANA is framed as a "failed state."',
@@ -275,7 +275,7 @@ ${cs.cautions.map((c) => `- ${c}`).join('\n')}
       ],
       questions: [
         'How does joint border resource management reduce the need for military intervention during extreme dry seasons?',
-        'What indicators measure the quality of youth herder inclusion in joint border resource commissions?'
+        'What indicators measure the quality of youth inclusion in joint border resource commissions?'
       ]
     }
   ];

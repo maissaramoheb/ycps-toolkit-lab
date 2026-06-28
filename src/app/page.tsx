@@ -27,21 +27,21 @@ export default function Dashboard() {
 
   const isPlanReady = pillarsFilled > 0 || pathwaysCount > 0 || stakeholdersCount > 0;
 
-  // Workflow steps: Diagnose → Integrate → Map → Apply → Train → Review → Export
+  // Workflow steps: Context → Matrix → Risk → Stakeholders → Draft → Review → Finalize
   const workflowSteps = [
     {
       num: '01',
-      name: 'Diagnose',
-      desc: 'Risk Pathways',
-      link: '/risk-pathways',
-      active: pathwaysCount > 0,
-      count: pathwaysCount,
-      color: 'from-blue-500/20 to-blue-500/5'
+      name: 'Context',
+      desc: 'Case Study Lab',
+      link: '/case-studies',
+      active: currentScenario !== 'custom',
+      count: currentScenario !== 'custom' ? 'Loaded' : '',
+      color: 'from-brand-green/20 to-brand-green/5'
     },
     {
       num: '02',
-      name: 'Integrate',
-      desc: 'YPS x CPS Matrix',
+      name: 'Matrix',
+      desc: 'YPS x CPS Integration',
       link: '/matrix',
       active: pillarsFilled > 0,
       count: `${pillarsFilled}/5`,
@@ -49,27 +49,27 @@ export default function Dashboard() {
     },
     {
       num: '03',
-      name: 'Map',
-      desc: 'Stakeholder Relations',
+      name: 'Risk',
+      desc: 'Pathway Builder',
+      link: '/risk-pathways',
+      active: pathwaysCount > 0,
+      count: pathwaysCount,
+      color: 'from-blue-500/20 to-blue-500/5'
+    },
+    {
+      num: '04',
+      name: 'Stakeholders',
+      desc: 'Coordination Map',
       link: '/stakeholders',
       active: stakeholdersCount > 0,
       count: stakeholdersCount,
       color: 'from-purple-500/20 to-purple-500/5'
     },
     {
-      num: '04',
-      name: 'Apply',
-      desc: 'Case Study Lab',
-      link: '/case-studies',
-      active: currentScenario !== 'custom',
-      count: '',
-      color: 'from-brand-green/20 to-brand-green/5'
-    },
-    {
       num: '05',
-      name: 'Train',
-      desc: 'Facilitation Guide',
-      link: '/training',
+      name: 'Draft',
+      desc: 'Toolkit & Session Builder',
+      link: '/toolkit',
       active: isPlanReady,
       count: '',
       color: 'from-teal-500/20 to-teal-500/5'
@@ -77,7 +77,7 @@ export default function Dashboard() {
     {
       num: '06',
       name: 'Review',
-      desc: 'Compliance Review',
+      desc: 'Red-Team & Wording Screen',
       link: '/review',
       active: false,
       count: '',
@@ -85,9 +85,9 @@ export default function Dashboard() {
     },
     {
       num: '07',
-      name: 'Export',
-      desc: 'Compiled Policy Brief',
-      link: '/brief',
+      name: 'Finalize',
+      desc: 'Export Package',
+      link: '/toolkit?outputType=complete_package',
       active: isPlanReady,
       count: '',
       color: 'from-indigo-500/20 to-indigo-500/5'
@@ -157,19 +157,19 @@ export default function Dashboard() {
             {/* Horizontal Stepper Graphic */}
             <div className="py-2">
               <div className="flex flex-wrap items-center gap-2 text-[10px] font-bold text-brand-grey-text/80 uppercase">
-                <span className="text-brand-gold">1. Select Context</span>
+                <span className="text-brand-gold">1. Context</span>
                 <span className="text-brand-grey-text/40">→</span>
-                <span>2. Analyze</span>
+                <span>2. Matrix</span>
                 <span className="text-brand-grey-text/40">→</span>
-                <span>3. Plan</span>
+                <span>3. Risk</span>
                 <span className="text-brand-grey-text/40">→</span>
-                <span>4. Protect & Validate</span>
+                <span>4. Stakeholders</span>
                 <span className="text-brand-grey-text/40">→</span>
-                <span>5. Generate Toolkit Outputs</span>
+                <span>5. Draft</span>
                 <span className="text-brand-grey-text/40">→</span>
-                <span>6. Review and Refine</span>
+                <span>6. Review</span>
                 <span className="text-brand-grey-text/40">→</span>
-                <span className="text-brand-green">7. Export Package</span>
+                <span className="text-brand-green">7. Finalize</span>
               </div>
             </div>
 
@@ -240,9 +240,9 @@ export default function Dashboard() {
           </p>
         </div>
         <div className="glass-panel p-6 rounded-xl border border-brand-grey-border/50 space-y-2">
-          <span className="text-xs font-bold text-brand-gold uppercase tracking-wider block">🎓 Training Audiance</span>
+          <span className="text-xs font-bold text-brand-gold uppercase tracking-wider block">🎓 Training Audience</span>
           <p className="text-xs text-brand-grey-text leading-relaxed">
-            Structured for policymakers, herding herder youth organizations, regional organizations (LCBC, IGAD, AU), and diplomatic institutions focused on environmental peacebuilding and resilience in Africa.
+            Structured for policymakers, pastoralist and agropastoral youth organizations, regional organizations (LCBC, IGAD, AU), and diplomatic institutions focused on environmental peacebuilding and resilience in Africa.
           </p>
         </div>
         <div className="glass-panel p-6 rounded-xl border border-brand-grey-border/50 space-y-2">

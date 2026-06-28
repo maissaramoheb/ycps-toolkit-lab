@@ -33,13 +33,11 @@ export default function GuidedWorkflowPage() {
   };
 
   const getStep3Status = () => {
-    if (pathwaysCount > 0 && stakeholdersCount > 0) return 'Ready for review';
-    if (pathwaysCount > 0 || stakeholdersCount > 0) return 'In progress';
-    return 'Not started';
+    return pathwaysCount > 0 ? 'Ready for review' : 'Not started';
   };
 
   const getStep4Status = () => {
-    return pillarsFilled > 0 ? 'Ready for review' : 'Not started';
+    return stakeholdersCount > 0 ? 'Ready for review' : 'Not started';
   };
 
   const getStep5Status = () => {
@@ -94,7 +92,7 @@ export default function GuidedWorkflowPage() {
                   {getStep1Status()}
                 </span>
               </div>
-              <h3 className="text-sm font-bold text-brand-offwhite">Select Context</h3>
+              <h3 className="text-sm font-bold text-brand-offwhite">Context</h3>
               <p className="text-xs text-brand-grey-text leading-relaxed">
                 <strong>Task:</strong> Choose a region-specific case study or load presets to seed your workspace.
               </p>
@@ -113,7 +111,7 @@ export default function GuidedWorkflowPage() {
                 href="/case-studies"
                 className="block text-center text-xs py-2 bg-brand-navy-light hover:bg-brand-navy-dark text-brand-offwhite border border-brand-grey-border rounded-lg font-bold transition-all"
               >
-                Select Case Study
+                Load Context
               </Link>
             </div>
           </div>
@@ -127,7 +125,7 @@ export default function GuidedWorkflowPage() {
                   {getStep2Status()}
                 </span>
               </div>
-              <h3 className="text-sm font-bold text-brand-offwhite">Analyze YCPS Nexus</h3>
+              <h3 className="text-sm font-bold text-brand-offwhite">Matrix</h3>
               <p className="text-xs text-brand-grey-text leading-relaxed">
                 <strong>Task:</strong> Integrate climate security factors across five Youth, Peace & Security pillars.
               </p>
@@ -146,7 +144,7 @@ export default function GuidedWorkflowPage() {
                 href="/matrix"
                 className="block text-center text-xs py-2 bg-brand-navy-light hover:bg-brand-navy-dark text-brand-offwhite border border-brand-grey-border rounded-lg font-bold transition-all"
               >
-                Build Matrix Workspace
+                Open Matrix
               </Link>
             </div>
           </div>
@@ -160,26 +158,26 @@ export default function GuidedWorkflowPage() {
                   {getStep3Status()}
                 </span>
               </div>
-              <h3 className="text-sm font-bold text-brand-offwhite">Plan Responses</h3>
+              <h3 className="text-sm font-bold text-brand-offwhite">Risk</h3>
               <p className="text-xs text-brand-grey-text leading-relaxed">
-                <strong>Task:</strong> Map climate-security conflict risk pathways and stakeholder coordinates.
+                <strong>Task:</strong> Map climate-security conflict risk pathways and detail youth opportunities.
               </p>
               <p className="text-[11px] text-brand-grey-text/80 leading-normal">
-                <strong>Why it matters:</strong> Prevents fragmented actions and charts precise youth agency paths.
+                <strong>Why it matters:</strong> Charts context-specific instability factors.
               </p>
             </div>
             <div className="space-y-2 pt-2">
               <div className="text-[10px] text-brand-grey-text">
-                <span className="font-semibold block text-brand-gold">Tools:</span> Pathway Builder, Stakeholder Map
+                <span className="font-semibold block text-brand-gold">Tools:</span> Risk Pathway Builder
               </div>
               <div className="text-[10px] text-brand-grey-text">
-                <span className="font-semibold block text-brand-gold">Output:</span> Livelihood notes & Partnership strategy
+                <span className="font-semibold block text-brand-gold">Output:</span> Climate risk pathway notes
               </div>
               <Link
                 href="/risk-pathways"
-                className="block text-center text-xs py-2 bg-brand-navy-light hover:bg-brand-navy-dark text-brand-offwhite border border-brand-grey-border rounded-lg font-bold transition-all"
+                className="block text-center text-xs py-2 bg-brand-navy-light hover:bg-navy-dark text-brand-offwhite border border-brand-grey-border rounded-lg font-bold transition-all"
               >
-                Map Risk Pathways
+                Open Pathway Builder
               </Link>
             </div>
           </div>
@@ -193,26 +191,26 @@ export default function GuidedWorkflowPage() {
                   {getStep4Status()}
                 </span>
               </div>
-              <h3 className="text-sm font-bold text-brand-offwhite">Protect and Validate</h3>
+              <h3 className="text-sm font-bold text-brand-offwhite">Stakeholders</h3>
               <p className="text-xs text-brand-grey-text leading-relaxed">
-                <strong>Task:</strong> Audit entries for safety, wording, and non-securitized phrasing.
+                <strong>Task:</strong> Map actor interest, influence, and youth coordination dynamics.
               </p>
               <p className="text-[11px] text-brand-grey-text/80 leading-normal">
-                <strong>Why it matters:</strong> Ensures youth protection and sovereign-sensitive language.
+                <strong>Why it matters:</strong> Prevents fragmented actions and tracks coordination.
               </p>
             </div>
             <div className="space-y-2 pt-2">
               <div className="text-[10px] text-brand-grey-text">
-                <span className="font-semibold block text-brand-gold">Tools:</span> Red-Team Review, Language Assistant
+                <span className="font-semibold block text-brand-gold">Tools:</span> Stakeholder Map
               </div>
               <div className="text-[10px] text-brand-grey-text">
-                <span className="font-semibold block text-brand-gold">Output:</span> Wording checks & Safeguard brief
+                <span className="font-semibold block text-brand-gold">Output:</span> Coordination logs & strategies
               </div>
               <Link
-                href="/review"
+                href="/stakeholders"
                 className="block text-center text-xs py-2 bg-brand-navy-light hover:bg-brand-navy-dark text-brand-offwhite border border-brand-grey-border rounded-lg font-bold transition-all"
               >
-                Run Protection Review
+                Open Stakeholder Map
               </Link>
             </div>
           </div>
@@ -226,9 +224,9 @@ export default function GuidedWorkflowPage() {
                   {getStep5Status()}
                 </span>
               </div>
-              <h3 className="text-sm font-bold text-brand-offwhite">Generate Toolkit Outputs</h3>
+              <h3 className="text-sm font-bold text-brand-offwhite">Draft</h3>
               <p className="text-xs text-brand-grey-text leading-relaxed">
-                <strong>Task:</strong> Compile workspace parameters into training guides and templates.
+                <strong>Task:</strong> Compile workspace parameters into training guides, policy drafts, and activity sheets.
               </p>
               <p className="text-[11px] text-brand-grey-text/80 leading-normal">
                 <strong>Why it matters:</strong> Converts conceptual mappings into immediate trainer/policy deliverables.
@@ -259,26 +257,26 @@ export default function GuidedWorkflowPage() {
                   {getStep6Status()}
                 </span>
               </div>
-              <h3 className="text-sm font-bold text-brand-offwhite">Review and Refine</h3>
+              <h3 className="text-sm font-bold text-brand-offwhite">Review</h3>
               <p className="text-xs text-brand-grey-text leading-relaxed">
-                <strong>Task:</strong> Double check wording, blame tags, and overclaiming risks.
+                <strong>Task:</strong> Run compliance reviews, wording screen, and safeguards check.
               </p>
               <p className="text-[11px] text-brand-grey-text/80 leading-normal">
-                <strong>Why it matters:</strong> Prepares the output package for formal institutional validation.
+                <strong>Why it matters:</strong> Ensures youth protection and sovereign-friendly language.
               </p>
             </div>
             <div className="space-y-2 pt-2">
               <div className="text-[10px] text-brand-grey-text">
-                <span className="font-semibold block text-brand-gold">Tools:</span> Diplomatic Wording Assistant
+                <span className="font-semibold block text-brand-gold">Tools:</span> Red-Team Review, Wording Assistant
               </div>
               <div className="text-[10px] text-brand-grey-text">
-                <span className="font-semibold block text-brand-gold">Output:</span> Sanitized diplomatic text & notes
+                <span className="font-semibold block text-brand-gold">Output:</span> Compliance logs & Wording reviews
               </div>
               <Link
-                href="/language"
+                href="/review"
                 className="block text-center text-xs py-2 bg-brand-navy-light hover:bg-brand-navy-dark text-brand-offwhite border border-brand-grey-border rounded-lg font-bold transition-all"
               >
-                Refine Wording
+                Run Red-Team Review
               </Link>
             </div>
           </div>
@@ -292,9 +290,9 @@ export default function GuidedWorkflowPage() {
                   {getStep7Status()}
                 </span>
               </div>
-              <h3 className="text-sm font-bold text-brand-offwhite">Export Final Package</h3>
+              <h3 className="text-sm font-bold text-brand-offwhite">Finalize</h3>
               <p className="text-xs text-brand-grey-text leading-relaxed">
-                <strong>Task:</strong> Export the compiled toolkit package or print it using custom overrides.
+                <strong>Task:</strong> Export the compiled complete toolkit package or print it using custom overrides.
               </p>
               <p className="text-[11px] text-brand-grey-text/80 leading-normal">
                 <strong>Why it matters:</strong> Yields a unified dossier ready for training simulations and policy dialogues.
@@ -308,10 +306,10 @@ export default function GuidedWorkflowPage() {
                 <span className="font-semibold block text-brand-gold">Output:</span> Consolidated YCPS Planning Dossier
               </div>
               <Link
-                href="/toolkit"
+                href="/toolkit?outputType=complete_package"
                 className="block text-center text-xs py-2 bg-brand-gold hover:bg-brand-gold-dark text-brand-navy-dark rounded-lg font-bold transition-all"
               >
-                Export Package
+                Finalize: Complete Package
               </Link>
             </div>
           </div>

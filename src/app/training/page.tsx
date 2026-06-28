@@ -64,14 +64,14 @@ export default function TrainingPage() {
   }> = {
     sahel: {
       context: 'Sahel / Lake Chad Basin',
-      pathway: 'Shrinkage of Lake Chad driving herder migration earlier and further, resulting in crop clashes.',
-      stakeholders: ['Lake Chad Basin herder herding groups', 'Local Traditional Councils of Elders', 'LCBC Secretariats'],
+      pathway: 'Shrinkage of Lake Chad leading to earlier herder migration, which may compound local crop tensions.',
+      stakeholders: ['Lake Chad Basin pastoralist groups', 'Local Traditional Councils of Elders', 'LCBC Secretariats'],
       action: 'Set up peer-led local resource monitoring networks and pre-negotiate seasonal migration corridors.'
     },
     somalia: {
       context: 'Somalia pastoral conflicts',
-      pathway: 'Severe droughts leading to elite capture of deep aquifers by dominant clans, leaving minor lineages water-excluded.',
-      stakeholders: ['nomadic water trucking youth herder groups', 'Clan elders', 'Ministry of Water Resources'],
+      pathway: 'Severe droughts leading to clan capture of deep aquifers, leaving minor lineages water-excluded.',
+      stakeholders: ['nomadic water trucking youth groups', 'Clan elders', 'Ministry of Water Resources'],
       action: 'Construct local sand dams managed by mixed-clan water management committees.'
     },
     south_sudan: {
@@ -146,19 +146,19 @@ export default function TrainingPage() {
   const getExpectedOutputs = () => {
     switch (sessionPurpose) {
       case 'pathway_analysis':
-        return 'Completed climate-security risk pathway (hazard -> exposure -> vulnerability herder herding steps).';
+        return 'Completed climate-security risk pathway (hazard -> exposure -> vulnerability steps).';
       case 'stakeholder_mapping':
-        return 'Detailed stakeholder herder map with engagement strategies and diplomatic risk checks.';
+        return 'Detailed stakeholder map with engagement strategies and diplomatic risk checks.';
       case 'language_review':
         return 'Red-team revised language note with replacement words for policy briefs.';
       case 'policy_development':
         return 'Draft policy recommendation and monitoring indicators matching DEDI Workplan.';
       case 'case_study':
-        return 'Case study brief outlining herding opportunities and validation needs.';
+        return 'Case study brief outlining response opportunities and validation needs.';
       case 'ycps_intro':
       case 'integration':
       default:
-        return 'Completed YCPS integration matrix, suggested herder herding actions, and indicators.';
+        return 'Completed YCPS integration matrix, suggested action plans, and indicators.';
     }
   };
 
@@ -166,12 +166,12 @@ export default function TrainingPage() {
   const getFacilitatorNotes = () => {
     switch (sensitivityLevel) {
       case 'High':
-        return 'CRITICAL SENSITIVITY: Facilitators must operate strictly under safe space protocols. Ensure herder herding groups and government representatives are seated neutrally to balance power dynamics. Do not publish herder participant names or record clan affiliations. Keep discussions strictly technical (agronomy, solar pumps, mediation) rather than political.';
+        return 'CRITICAL SENSITIVITY: Facilitators must operate strictly under safe space protocols. Ensure pastoralist groups and government representatives are seated neutrally to balance power dynamics. Do not publish participant names or record clan affiliations. Keep discussions strictly technical (agronomy, solar pumps, mediation) rather than political.';
       case 'Moderate':
-        return 'MODERATE SENSITIVITY: Monitor group dynamics to prevent older herding herders from dominated herder herding youth. Ensure gender representation is visible. Enforce the strategic language rules during policy briefs, replacing government-blaming comments with capacity-constraint references.';
+        return 'MODERATE SENSITIVITY: Monitor group dynamics to prevent older community members from dominating pastoralist youth. Ensure gender representation is visible. Enforce the strategic language rules during policy briefs, replacing government-blaming comments with capacity-constraint references.';
       case 'Low':
       default:
-        return 'STANDARD SENSITIVITY: Encourage active peer-to-peer herder discussion. Focus on scenario exercises, timing, and checking that herder herding indicators are measurable.';
+        return 'STANDARD SENSITIVITY: Encourage active peer-to-peer discussion. Focus on scenario exercises, timing, and checking that indicators are measurable.';
     }
   };
 
@@ -223,9 +223,9 @@ export default function TrainingPage() {
     md += `**Session:** ${sessionTitle}\n`;
     md += `**Audience adaptation protocol:**\n`;
     md += `- Focus on constructive, conflict-sensitive cooperation.\n`;
-    md += `- Enforce strategic vocabulary rules (avoiding 'failed state', 'radical herder herding youth').\n\n`;
+    md += `- Enforce strategic vocabulary rules (avoiding 'failed state', 'radicalized youth').\n\n`;
     md += `**Breakout instructions:**\n`;
-    md += `Split herders into mixed stakeholder teams representing local herder herders, water officials, and community elders. Instruct them to draft a joint water pan rota.\n\n`;
+    md += `Split participants into mixed stakeholder teams representing local pastoralists, water officials, and community elders. Instruct them to draft a joint water pan rota.\n\n`;
     md += `**Sensitive triggers warning:**\n`;
     md += `${getFacilitatorNotes()}\n`;
     return md;
@@ -234,7 +234,7 @@ export default function TrainingPage() {
   return (
     <div className="space-y-6 animate-fade-in">
       {/* Workflow Strip */}
-      <WorkflowStrip currentStep="toolkit" />
+      <WorkflowStrip currentStep="draft" />
 
       {/* This step produces box */}
       <div className="glass-panel p-4 rounded-xl border border-brand-gold/25 bg-gradient-to-r from-brand-navy-light/40 to-slate-900/60 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs no-print">
@@ -249,7 +249,7 @@ export default function TrainingPage() {
           href="/toolkit"
           className="shrink-0 px-4 py-2 bg-brand-gold hover:bg-brand-gold-dark text-brand-navy-dark font-bold rounded-lg text-xs uppercase tracking-wider text-center transition-all cursor-pointer"
         >
-          Use in Toolkit Package →
+          Next: Open Toolkit Builder →
         </Link>
       </div>
 
@@ -415,7 +415,7 @@ export default function TrainingPage() {
               onChange={(e) => setCaseStudy(e.target.value)}
               className="w-full text-xs bg-brand-navy-dark text-brand-offwhite border border-brand-grey-border/80 focus:border-brand-gold rounded-lg px-2.5 py-2 focus:outline-none cursor-pointer"
             >
-              <option value="sahel">Sahel / Lake Chad Basin herder herding</option>
+              <option value="sahel">Sahel / Lake Chad Basin pastoralists</option>
               <option value="somalia">Somalia pastoral conflicts</option>
               <option value="south_sudan">South Sudan local peace</option>
               <option value="horn_of_africa">Horn of Africa displacement</option>
@@ -543,7 +543,7 @@ export default function TrainingPage() {
                 1. Overview & Learning Objectives
               </h3>
               <p className="leading-relaxed">
-                This training plan equips YCPS policy planners and herder herding leaders with tools to mainstream climate adaptation and peacebuilding activities.
+                This training plan equips YCPS policy planners and pastoralist community leaders with tools to mainstream climate adaptation and peacebuilding activities.
               </p>
               <div className="grid sm:grid-cols-2 gap-3 bg-brand-navy-light/25 border border-brand-grey-border/30 p-3 rounded-lg print:bg-gray-100">
                 <div>

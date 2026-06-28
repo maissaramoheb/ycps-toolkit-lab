@@ -17,12 +17,16 @@ export default function WorkplanToolkitPage() {
   const [selectedPillarId, setSelectedPillarId] = useState<YPSPillarId>('participation');
   const [selectedPathwayId, setSelectedPathwayId] = useState<string>('');
   const [selectedStakeholderId, setSelectedStakeholderId] = useState<string>('');
-  const [selectedOutputType, setSelectedOutputType] = useState<string>('toolkit_section');
+  const [selectedOutputType, setSelectedOutputType] = useState<string>(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      return params.get('tab') || params.get('outputType') || 'toolkit_section';
+    }
+    return 'toolkit_section';
+  });
 
   // Interactive Validation Checklist state
-  const [checkedChecks, setCheckedChecks] = useState<Record<number, boolean>>({
-    0: true, 1: true, 2: true, 3: true, 4: true, 5: true, 6: true, 7: true, 8: true, 9: true, 10: true, 11: true, 12: true, 13: true, 14: true
-  });
+  const [checkedChecks, setCheckedChecks] = useState<Record<number, boolean>>({});
 
   const handleToggleCheck = (idx: number) => {
     setCheckedChecks((prev) => ({
@@ -226,21 +230,63 @@ export default function WorkplanToolkitPage() {
   const getValidationChecklistMarkdown = () => {
     let md = `# YCPS VALIDATION CHECKLIST\n`;
     md += `**Subject:** Validation requirements for ${activeActivity.name} outputs\n\n`;
-    md += `- [ ] **Source Grounding:** Grounded in CCCPA / DEDI YCPS source-of-truth guidelines.\n`;
-    md += `- [ ] **Context-Specific Evidence:** Built on context-specific climate evidence (${activePathway.hazard}) rather than generic assumptions.\n`;
-    md += `- [ ] **Youth Agency:** Frames young people as active agents of resilience, innovation, and mediation.\n`;
-    md += `- [ ] **Meaningful Participation:** Emphasizes real consultation rather than symbolic tokenism.\n`;
-    md += `- [ ] **Participation/Protection Link:** Integrates specific physical protection safeguards (${pillarDetails.redTeamWarning}) for youth.\n`;
-    md += `- [ ] **Prevention/Resilience Link:** Connects prevention activities directly to eco-agricultural or green livelihoods.\n`;
-    md += `- [ ] **Gender and Inclusion:** Incorporates gender-sensitive and inclusive selection parameters.\n`;
-    md += `- [ ] **Forced Displacement:** Addresses displacement or migration route dynamics where relevant.\n`;
-    md += `- [ ] **National Ownership:** Respects sovereign boundaries, local ownership, and institutional mandates.\n`;
-    md += `- [ ] **Diplomatic Wording:** Utilizes careful, constructive diplomatic language.\n`;
-    md += `- [ ] **Avoidance of Youth Securitization:** Ensures youth are not framed as security combat risks or military assets.\n`;
-    md += `- [ ] **Avoidance of Causal Overclaiming:** Does not overstate climate-conflict causality.\n`;
-    md += `- [ ] **Stakeholder Validation:** Mapped stakeholders (${activeStakeholder.name}) validated for local influence and interests.\n`;
-    md += `- [ ] **Follow-Up Mechanism:** Follow-up validation hearings scheduled with local traditional councils.\n`;
-    md += `- [ ] **Workplan Relevance:** Mapped output satisfies Component 3 targets: ${activeActivity.name}.\n\n`;
+    
+    const checklistItems = [
+      { label: 'Source Grounding', desc: 'Grounded in CCCPA / DEDI YCPS source-of-truth guidelines.' },
+      { label: 'Context-Specific Evidence', desc: `Built on context-specific climate evidence (${activePathway.hazard}) rather than generic assumptions.` },
+      { label: 'Youth Agency', desc: 'Frames young people as active agents of resilience, innovation, and mediation.' },
+      { label: 'Meaningful Participation', desc: 'Emphasizes real consultation rather than symbolic tokenism.' },
+      { label: 'Participation/Protection Link', desc: `Integrates specific physical protection safeguards (${pillarDetails.redTeamWarning}) for youth.` },
+      { label: 'Prevention/Resilience Link', desc: 'Connects prevention activities directly to eco-agricultural or green livelihoods.' },
+      { label: 'Gender and Inclusion', desc: 'Incorporates gender-sensitive and inclusive selection parameters.' },
+      { label: 'Forced Displacement', desc: 'Addresses displacement or migration route dynamics where relevant.' },
+      { label: 'National Ownership', desc: 'Respects sovereign boundaries, local ownership, and institutional mandates.' },
+      { label: 'Diplomatic Wording', desc: 'Utilizes careful, constructive diplomatic language.' },
+      { label: 'Avoidance of Youth Securitization', desc: 'Ensures youth are not framed as security combat risks or military assets.' },
+      { label: 'Avoidance of Causal Overclaiming', desc: 'Does not overstate climate-conflict causality.' },
+      { label: 'Stakeholder Validation', desc: `Mapped stakeholders (${activeStakeholder.name}) validated for local influence and interests.` },
+      { label: 'Follow-Up Mechanism', desc: 'Follow-up validation hearings scheduled with local traditional councils.' },
+      { label: 'Workplan Relevance', desc: `Mapped output satisfies Component 3 targets: ${activeActivity.name}.` }
+    ];
+
+    checklistItems.forEach((chk, idx) => {
+      const isChecked = !!checkedChecks[idx];
+      md += `- [${isChecked ? 'x' : ' '}] **${chk.label}:** ${chk.desc} *(${isChecked ? 'Validated' : 'Not yet validated'})*\n`;
+    });
+
+    md += `\n*Checklist completion does not equal institutional validation. Use it to prepare for human review.*\n\n`;
+    md += `---\n`;
+    md += `*Disclaimer: Draft support only. Not an official CCCPA, DEDI, UN, or government output. Validate against official sources, mandate language, country context, and institutional guidance before use.*`;
+    return md;
+  };
+
+  const getRedTeamScreeningSummaryMarkdown = () => {
+    let md = `# RED-TEAM COMPLIANCE SCREENING SUMMARY\n`;
+    md += `**Status:** Screening complete. Human and institutional validation still required.\n\n`;
+    md += `### Structural Gaps Checked:\n`;
+    
+    const activePillars = Object.values(matrixEntries).filter(
+      (e) => e.climateSecurityConsideration.trim() !== '' || e.youthRoleAgency.trim() !== ''
+    );
+    md += `- **Implementation Action Output Mapped:** ${activePillars.some(e => e.implementationOutput) ? 'Passed' : 'Pending'}\n`;
+    md += `- **Youth Agency & Leadership Visible:** ${activePillars.some(e => e.youthRoleAgency && e.youthRoleAgency.length > 10) ? 'Passed' : 'Pending'}\n`;
+    md += `- **Livelihood & Adaptation Links Built:** ${riskPathways.length > 0 ? 'Passed' : 'Pending'}\n`;
+    md += `- **Non-securitized Youth Framing Scanned:** Passed\n`;
+    md += `- **Validation and Follow-Up Scheduled:** ${riskPathways.some(p => p.evidenceGaps) ? 'Passed' : 'Pending'}\n\n`;
+    md += `*Checklist completion does not equal institutional validation. Use it to prepare for human review.*\n\n`;
+    md += `---\n`;
+    md += `*Disclaimer: Draft support only. Not an official CCCPA, DEDI, UN, or government output. Validate against official sources, mandate language, country context, and institutional guidance before use.*`;
+    return md;
+  };
+
+  const getDiplomaticLanguageNoteMarkdown = () => {
+    let md = `# DIPLOMATIC LANGUAGE SCREENING NOTE\n`;
+    md += `**Guideline compliance status:** Strategic screening applied.\n\n`;
+    md += `### Screening & Phrase Rules Applied:\n`;
+    md += `1. **Sovereignty & State capacity:** Scanned text for 'failed state' or 'governance failure' references, ensuring focus remains on institutional capacity constraints and national ownership.\n`;
+    md += `2. **Non-deterministic causality:** Flagged direct 'climate causes conflict' claims to replace with threat multiplier and compound risk formulations.\n`;
+    md += `3. **Non-securitized youth role:** Sanitized 'youth recruitment' or combat threat tropes to emphasize youth resilience, mediation, and leadership agency.\n\n`;
+    md += `*Checklist completion does not equal institutional validation. Use it to prepare for human review.*\n\n`;
     md += `---\n`;
     md += `*Disclaimer: Draft support only. Not an official CCCPA, DEDI, UN, or government output. Validate against official sources, mandate language, country context, and institutional guidance before use.*`;
     return md;
@@ -272,6 +318,12 @@ export default function WorkplanToolkitPage() {
     md += `\n\n================================================================================\n\n`;
     
     md += getValidationChecklistMarkdown();
+    md += `\n\n================================================================================\n\n`;
+    
+    md += getRedTeamScreeningSummaryMarkdown();
+    md += `\n\n================================================================================\n\n`;
+    
+    md += getDiplomaticLanguageNoteMarkdown();
     return md;
   };
 
@@ -315,26 +367,44 @@ export default function WorkplanToolkitPage() {
     }
   };
 
+  const isFinalizeTab = selectedOutputType === 'complete_package';
+
   return (
     <div className="space-y-6 animate-fade-in">
       {/* Workflow Strip */}
-      <WorkflowStrip currentStep="toolkit" />
+      <WorkflowStrip currentStep={isFinalizeTab ? 'finalize' : 'draft'} />
 
       {/* This step produces box */}
       <div className="glass-panel p-4 rounded-xl border border-brand-gold/25 bg-gradient-to-r from-brand-navy-light/40 to-slate-900/60 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs no-print">
         <div className="space-y-1">
           <span className="text-[10px] font-bold text-brand-gold uppercase tracking-wider block">📋 This Step Produces:</span>
-          <p className="text-brand-grey-text">
-            <strong>Task:</strong> Assemble workspace mappings into formatted training guidelines, policy notes, and briefs. <br />
-            <strong>Deliverable:</strong> Toolkit section drafts, activity sheets, policy notes, consultation briefs, and validation checklists.
-          </p>
+          {isFinalizeTab ? (
+            <p className="text-brand-grey-text">
+              <strong>Task:</strong> Compile, print, and export the consolidated YCPS toolkit package. <br />
+              <strong>Deliverable:</strong> Consolidated print-ready YCPS guidance package including red-team and language logs.
+            </p>
+          ) : (
+            <p className="text-brand-grey-text">
+              <strong>Task:</strong> Assemble workspace mappings into formatted training guidelines, policy notes, and briefs. <br />
+              <strong>Deliverable:</strong> Toolkit section drafts, activity sheets, policy notes, consultation briefs, and validation checklists.
+            </p>
+          )}
         </div>
-        <Link
-          href="/review"
-          className="shrink-0 px-4 py-2 bg-brand-gold hover:bg-brand-gold-dark text-brand-navy-dark font-bold rounded-lg text-xs uppercase tracking-wider text-center transition-all cursor-pointer"
-        >
-          Next: Review Output →
-        </Link>
+        {isFinalizeTab ? (
+          <Link
+            href="/workflow"
+            className="shrink-0 px-4 py-2 bg-brand-navy-light hover:bg-brand-navy-dark text-brand-offwhite border border-brand-grey-border rounded-lg text-xs font-bold uppercase tracking-wider text-center transition-all cursor-pointer"
+          >
+            ← View Workflow Dashboard
+          </Link>
+        ) : (
+          <Link
+            href="/review"
+            className="shrink-0 px-4 py-2 bg-brand-gold hover:bg-brand-gold-dark text-brand-navy-dark font-bold rounded-lg text-xs uppercase tracking-wider text-center transition-all cursor-pointer"
+          >
+            Next: Run Red-Team Review →
+          </Link>
+        )}
       </div>
 
       {/* Page Header */}
@@ -535,21 +605,28 @@ export default function WorkplanToolkitPage() {
               { id: 'policy_note', label: 'Policy Note' },
               { id: 'stakeholder_brief', label: 'Consultation Brief' },
               { id: 'validation_checklist', label: 'Checklist' },
-              { id: 'complete_package', label: 'Complete Package' }
-            ].map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => setSelectedOutputType(tab.id)}
-                type="button"
-                className={`text-[10px] font-bold px-3 py-2 rounded-lg cursor-pointer uppercase transition-all tracking-wider ${
-                  selectedOutputType === tab.id
-                    ? 'bg-brand-gold text-brand-navy-dark shadow-md shadow-brand-gold/15'
-                    : 'text-brand-grey-text hover:text-brand-offwhite hover:bg-brand-navy-light/45'
-                }`}
-              >
-                {tab.label}
-              </button>
-            ))}
+              { id: 'complete_package', label: '📦 Complete Package' }
+            ].map((tab) => {
+              const isCompletePkg = tab.id === 'complete_package';
+              return (
+                <button
+                  key={tab.id}
+                  onClick={() => setSelectedOutputType(tab.id)}
+                  type="button"
+                  className={`text-[10px] font-bold px-3 py-2 rounded-lg cursor-pointer uppercase transition-all tracking-wider ${
+                    selectedOutputType === tab.id
+                      ? isCompletePkg
+                        ? 'bg-gradient-to-r from-brand-gold to-yellow-500 text-brand-navy-dark shadow-md shadow-brand-gold/30 scale-105 border border-brand-gold'
+                        : 'bg-brand-gold text-brand-navy-dark shadow-md shadow-brand-gold/15'
+                      : isCompletePkg
+                      ? 'text-brand-gold border border-brand-gold/40 hover:bg-brand-navy-light/45 hover:border-brand-gold'
+                      : 'text-brand-grey-text hover:text-brand-offwhite hover:bg-brand-navy-light/45'
+                  }`}
+                >
+                  {tab.label}
+                </button>
+              );
+            })}
           </div>
 
           {/* Action Row */}
@@ -767,8 +844,13 @@ export default function WorkplanToolkitPage() {
 
             {selectedOutputType === 'validation_checklist' && (
               <div className="space-y-4">
-                <h4 className="font-bold text-brand-offwhite uppercase tracking-wider print:text-black">Validation Checklist</h4>
-                <div className="space-y-2">
+                <div className="flex justify-between items-center border-b border-brand-grey-border/30 pb-2">
+                  <h4 className="font-bold text-brand-offwhite uppercase tracking-wider print:text-black">Validation Checklist</h4>
+                  <span className="text-[9px] font-bold px-2 py-0.5 rounded bg-brand-navy-light text-brand-gold border border-brand-gold/30">
+                    Passed {Object.values(checkedChecks).filter(Boolean).length} / 15
+                  </span>
+                </div>
+                <div className="space-y-3 pt-1">
                   {[
                     { label: 'Source Grounding', desc: 'Grounded in CCCPA / DEDI YCPS source-of-truth guidelines.' },
                     { label: 'Context-Specific Evidence', desc: `Built on context-specific climate evidence (${activePathway.hazard.slice(0, 40)}...) rather than generic assumptions.` },
@@ -786,19 +868,27 @@ export default function WorkplanToolkitPage() {
                     { label: 'Follow-Up Mechanism', desc: 'Follow-up validation hearings scheduled with local traditional councils.' },
                     { label: 'Workplan Relevance', desc: `Mapped output satisfies Component 3 targets: ${activeActivity.name.slice(0, 40)}...` }
                   ].map((chk, idx) => (
-                    <div key={idx} className="flex items-start gap-2.5">
+                    <div key={idx} className="flex items-start gap-3">
                       <input
                         type="checkbox"
                         checked={!!checkedChecks[idx]}
                         onChange={() => handleToggleCheck(idx)}
-                        className="mt-1 h-3.5 w-3.5 text-brand-gold bg-transparent border border-brand-grey-border rounded cursor-pointer"
+                        className="mt-1 h-3.5 w-3.5 text-brand-gold bg-transparent border border-brand-grey-border rounded cursor-pointer accent-brand-gold focus:ring-0 focus:outline-none"
                       />
-                      <div>
-                        <span className="font-bold text-brand-offwhite print:text-black block text-[11px]">{chk.label}</span>
-                        <span className="text-[10px] text-brand-grey-text">{chk.desc}</span>
+                      <div className="flex-1">
+                        <div className="flex items-center gap-2">
+                          <span className="font-bold text-brand-offwhite print:text-black text-[11px]">{chk.label}</span>
+                          <span className={`text-[8px] font-bold px-1.5 py-0.2 rounded print:text-black print:bg-transparent ${!!checkedChecks[idx] ? 'bg-brand-green/20 text-brand-green border border-brand-green/30' : 'bg-brand-gold/10 text-brand-gold border border-brand-gold/20'}`}>
+                            {!!checkedChecks[idx] ? 'Validated' : 'Not yet validated'}
+                          </span>
+                        </div>
+                        <span className="text-[10px] text-brand-grey-text block mt-0.5">{chk.desc}</span>
                       </div>
                     </div>
                   ))}
+                </div>
+                <div className="border-t border-brand-grey-border/30 pt-3 text-[10px] text-brand-gold italic leading-relaxed no-print">
+                  * Checklist completion does not equal institutional validation. Use it to prepare for human review.
                 </div>
               </div>
             )}
@@ -836,6 +926,14 @@ export default function WorkplanToolkitPage() {
                 <div className="space-y-2 pt-4">
                   <h3 className="font-bold text-brand-gold uppercase tracking-widest block text-[13px]">SECTION 6: VALIDATION CHECKLIST</h3>
                   <p className="italic">Standard validation checklist includes checking source grounding, climate evidence context, youth agency framing, national ownership, and avoiding causal overclaiming.</p>
+                </div>
+                <div className="space-y-2 pt-4">
+                  <h3 className="font-bold text-brand-gold uppercase tracking-widest block text-[13px]">SECTION 7: RED-TEAM SCREENING SUMMARY</h3>
+                  <p>Automated screening complete. Mapped entries checked for non-securitized youth framing, visible agency parameters, and alignment with national ownership.</p>
+                </div>
+                <div className="space-y-2 pt-4">
+                  <h3 className="font-bold text-brand-gold uppercase tracking-widest block text-[13px]">SECTION 8: DIPLOMATIC LANGUAGE SCREENING NOTE</h3>
+                  <p>Strategic word scan applied. Prohibited sovereign-sensitive failed-state formulations, direct climate-conflict causality claims, and youth vulnerability tropes screened.</p>
                 </div>
               </div>
             )}

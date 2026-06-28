@@ -161,7 +161,7 @@ export default function StakeholdersPage() {
   return (
     <div className="space-y-6 animate-fade-in">
       {/* Workflow Strip */}
-      <WorkflowStrip currentStep="plan" />
+      <WorkflowStrip currentStep="stakeholders" />
 
       {/* This step produces box */}
       <div className="glass-panel p-4 rounded-xl border border-brand-gold/25 bg-gradient-to-r from-brand-navy-light/40 to-slate-900/60 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs no-print">

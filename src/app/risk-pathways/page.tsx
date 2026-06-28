@@ -145,7 +145,7 @@ export default function RiskPathwaysPage() {
   return (
     <div className="space-y-6">
       {/* Workflow Strip */}
-      <WorkflowStrip currentStep="analyze" />
+      <WorkflowStrip currentStep="risk" />
 
       {/* This step produces box */}
       <div className="glass-panel p-4 rounded-xl border border-brand-gold/25 bg-gradient-to-r from-brand-navy-light/40 to-slate-900/60 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs no-print">
@@ -171,7 +171,7 @@ export default function RiskPathwaysPage() {
             Climate-Security Risk Pathway Builder
           </h1>
           <p className="text-xs text-brand-grey-text mt-1">
-            Map causal chains of how climate stressors cascade through institutional vulnerabilities into local conflicts, and detail youth impact and response opportunities.
+            Map context-specific pathways through which climate-related stressors may compound vulnerabilities and contribute to instability, and detail youth impact and response opportunities.
           </p>
         </div>
         <div className="text-xs px-3 py-1.5 rounded-lg bg-brand-navy-light border border-brand-grey-border font-medium text-brand-gold self-start">

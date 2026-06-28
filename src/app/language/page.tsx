@@ -124,10 +124,10 @@ export default function DiplomaticLanguagePage() {
           </p>
         </div>
         <Link
-          href="/toolkit"
+          href="/toolkit?outputType=complete_package"
           className="shrink-0 px-4 py-2 bg-brand-gold hover:bg-brand-gold-dark text-brand-navy-dark font-bold rounded-lg text-xs uppercase tracking-wider text-center transition-all cursor-pointer"
         >
-          Final: Export Package →
+          Finalize: Complete Package →
         </Link>
       </div>
 
