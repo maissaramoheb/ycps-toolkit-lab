@@ -33,3 +33,12 @@
 - [x] Added context-aware print titles and browser header/footer guidance across print actions.
 - [x] Replaced deterministic, security-heavy, and operationally sensitive wording across toolkit, training, case-study, workflow, and scenario content.
 - [x] Re-ran ESLint, TypeScript, and the production build successfully.
+
+## 2026-06-28 — v0.4.0 CBD-Inspired YCPS Matrix 2.0
+- [x] Upgraded `/matrix` to YCPS Matrix 2.0 featuring a 6x6 visual interactive grid.
+- [x] Implemented "How to use this matrix" box and recommended starter cells panel.
+- [x] Designed cell state structure, status chip colors, and horizontal scroll wrapper.
+- [x] Added selected-cell workspace with 4 sliders (Priority, Protection Risk, Feasibility, Evidence Confidence).
+- [x] Integrated computed planning interpretation box and output actions (Save, Copy note, Copy for toolkit).
+- [x] Configured localStorage state keys and legacy synchronization for official YPS pillars.
+- [x] Verified ESLint, TypeScript compilation, and build success.
