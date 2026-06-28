@@ -24,3 +24,12 @@
 - [x] Refined button labels across the workspace to make them clear and action-specific.
 - [x] Added empty-state presets loader helper controls to pathways, stakeholders, and red-team desks.
 - [x] Verified build and linter status with zero errors and warnings.
+
+## 2026-06-28 — v0.3.5 Print System & Output Quality Correction
+
+- [x] Added a dedicated print-only Trainer's Guide Pack with agenda, activity, facilitation, safeguards, evaluation, and validation sections.
+- [x] Reworked the Complete Package into a structured 15-section operational dossier with intentional page groups and a meaningful closing review section.
+- [x] Converted the validation output into a 12-item unchecked review checklist and clarified that completion is not institutional validation.
+- [x] Added context-aware print titles and browser header/footer guidance across print actions.
+- [x] Replaced deterministic, security-heavy, and operationally sensitive wording across toolkit, training, case-study, workflow, and scenario content.
+- [x] Re-ran ESLint, TypeScript, and the production build successfully.

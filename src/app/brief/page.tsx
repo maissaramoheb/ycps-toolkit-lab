@@ -4,6 +4,7 @@ import React, { useRef } from 'react';
 import { useApp } from '@/context/AppContext';
 import { CopyButton } from '@/components/CopyButton';
 import { SourceIntegrityPanel } from '@/components/SourceIntegrityPanel';
+import { getPrintContextLabel, printWithDocumentTitle } from '@/lib/printUtils';
 
 export default function BriefGeneratorPage() {
   const { matrixEntries, riskPathways, stakeholders, contextName } = useApp();
@@ -20,7 +21,7 @@ export default function BriefGeneratorPage() {
       return 'No active analytical entries found. Please load a demo scenario or enter data in the Matrix and Risk Pathway modules to compile this briefing.';
     }
     
-    return `This brief outlines strategic stabilization recommendations for ${contextName}. By integrating the Youth, Peace and Security (YPS) and Climate, Peace and Security (CPS) agendas, this analysis identifies ${riskPathways.length} critical climate-security pathways and maps ${stakeholders.length} key stakeholders. The findings underscore that youth are not merely vulnerable demographics or security risks, but primary agents of local adaptation, early warning, and community mediation. Successful implementation requires embedding youth representatives into formal natural resource management committees while mitigating specific protection risks and intergenerational tensions.`;
+    return `This brief outlines strategic programming recommendations for ${contextName}. By integrating the Youth, Peace and Security (YPS) and Climate, Peace and Security (CPS) agendas, this analysis identifies ${riskPathways.length} critical climate-security pathways and maps ${stakeholders.length} key stakeholders. The findings underscore that youth are not merely vulnerable demographics or security risks, but primary agents of local adaptation, early warning, and community mediation. Successful implementation requires embedding youth representatives into formal natural resource management committees while mitigating specific protection risks and intergenerational tensions.`;
   };
 
   // Compile full markdown version for clipboard copying
@@ -40,7 +41,7 @@ export default function BriefGeneratorPage() {
     } else {
       riskPathways.forEach((p, idx) => {
         const isToValidate = p.evidenceStrength === 'Low' || p.evidenceStrength === 'Unclear';
-        md += `### Pathway ${idx + 1}: ${p.hazard} leading to ${p.pathwayType.replace('_', ' ')} ${isToValidate ? '[TO BE VALIDATED]' : ''}\n`;
+        md += `### Pathway ${idx + 1}: ${p.hazard} - risk relationship: ${p.pathwayType.replace('_', ' ')} ${isToValidate ? '[TO BE VALIDATED]' : ''}\n`;
         md += `- **Context/Location:** ${p.context}\n`;
         md += `- **Exposure & Vulnerability:** ${p.exposure || 'Not specified'} | ${p.vulnerability || 'Not specified'}\n`;
         md += `- **Governance Constraint (User Notes):** ${p.capacityConstraint || 'None'}\n`;
@@ -184,7 +185,7 @@ export default function BriefGeneratorPage() {
   };
 
   const handlePrint = () => {
-    window.print();
+    printWithDocumentTitle(`YCPS Policy Brief - ${getPrintContextLabel(contextName)}`);
   };
 
   const isBriefActive = activePillars.length > 0 || riskPathways.length > 0 || stakeholders.length > 0;
@@ -203,9 +204,9 @@ export default function BriefGeneratorPage() {
         </div>
         
         {/* Action Controls */}
-        <div className="flex items-center gap-2 self-start sm:self-center">
+        <div className="flex flex-col items-start sm:items-end gap-1.5 self-start sm:self-center">
           {isBriefActive && (
-            <>
+            <><div className="flex flex-wrap items-center gap-2">
               <CopyButton text={compileMarkdown()} label="Copy Markdown" />
               <button
                 onClick={downloadWordDoc}
@@ -227,7 +228,8 @@ export default function BriefGeneratorPage() {
                 </svg>
                 <span>Print Brief</span>
               </button>
-            </>
+            </div>
+            <p className="text-[9px] text-brand-grey-text max-w-sm sm:text-right">For a clean PDF: choose Save as PDF, turn Headers and footers Off, keep Background graphics On, and use Default or None margins based on preview.</p></>
           )}
         </div>
       </div>
@@ -250,7 +252,7 @@ export default function BriefGeneratorPage() {
           {/* Main Brief Content (Styled Sheet) */}
           <div
             ref={printAreaRef}
-            className="lg:col-span-3 bg-gradient-to-br from-brand-navy-light/65 to-brand-navy-dark/95 border border-brand-gold/45 rounded-xl p-8 md:p-12 shadow-2xl print:bg-white print:text-black print:border-none print:shadow-none print:p-0"
+            className="lg:col-span-3 bg-gradient-to-br from-brand-navy-light/65 to-brand-navy-dark/95 border border-brand-gold/45 rounded-xl p-8 md:p-12 shadow-2xl print:bg-white print:text-black print:border-none print:shadow-none print:p-0 print-document"
           >
             {/* Brief Header */}
             <div className="border-b-2 border-brand-gold pb-6 space-y-2 mb-8 print:border-black">
@@ -284,7 +286,7 @@ export default function BriefGeneratorPage() {
                   2. Context Analysis (User Working Notes)
                 </h2>
                 <p>
-                  This briefing document maps the complex feedback loops between climate variability and local peace and security within the <span className="font-semibold text-brand-offwhite print:text-black">{contextName}</span>. In line with regional stabilization goals and UN guidelines, this document translates strategic declarations into granular interventions, positioning youth as central to resilience.
+                  This briefing document maps the complex feedback loops between climate variability and local peace and security within the <span className="font-semibold text-brand-offwhite print:text-black">{contextName}</span>. In line with regional programming priorities and UN guidelines, this document translates strategic declarations into granular interventions, positioning youth as central to resilience.
                 </p>
               </section>
 
@@ -512,7 +514,7 @@ export default function BriefGeneratorPage() {
                   <span className="font-semibold text-brand-offwhite">{activePillars.length} / 5</span>
                 </div>
                 <div className="flex justify-between">
-                  <span>Causal Pathways:</span>
+                  <span>Risk Pathways:</span>
                   <span className="font-semibold text-brand-offwhite">{riskPathways.length}</span>
                 </div>
                 <div className="flex justify-between">

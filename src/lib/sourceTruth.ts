@@ -48,7 +48,7 @@ export const SOURCES_HIERARCHY: Record<SourceId, SourceMetadata> = {
     priority: 4,
     institutionalContext: 'Institutional training methodology.',
     focusArea: 'Climate risk analysis, scenario-based learning, and CARANA simulation structures.',
-    mandateReminder: 'Ensure pathways follow clear logical links: Climate Hazard → Exposure → Vulnerability → Capacity Constraint → Conflict Pathway.'
+    mandateReminder: 'Support clear, evidence-aware links: Climate Hazard → Exposure → Vulnerability → Capacity Constraint → Context-Specific Risk Pathway.'
   },
   beyond_vuln: {
     id: 'beyond_vuln',
@@ -217,7 +217,7 @@ export const APPROVED_VOCABULARY_RULES: readonly WordingRule[] = [
     prohibitedPattern: /climate\s+(?:directly\s+)?causes?\s+(?:conflict|war)|climate[-\s]conflict\s+(?:is\s+)?direct|causes?\s+war/i,
     prohibitedWord: 'climate causes conflict',
     approvedReplacement: 'climate-related risks compound existing vulnerabilities and contribute to instability under specific conditions',
-    reason: 'Avoid overstating causal links. Climate-related stressors do not directly cause war, but rather interact with socio-economic context factors.',
+    reason: 'Avoid overstating direct links. Climate-related stressors do not directly cause war, but rather interact with socio-economic context factors.',
     category: 'Unsupported climate-conflict causality',
     confidence: 'Context-sensitive suggestion'
   },

@@ -5,6 +5,7 @@ import { SourceIntegrityPanel } from '@/components/SourceIntegrityPanel';
 import { APPROVED_VOCABULARY_RULES, WordingRule } from '@/lib/sourceTruth';
 import { CopyButton } from '@/components/CopyButton';
 import { WorkflowStrip } from '@/components/WorkflowStrip';
+import { printWithDocumentTitle } from '@/lib/printUtils';
 import Link from 'next/link';
 
 interface AuditResult {
@@ -93,7 +94,7 @@ export default function DiplomaticLanguagePage() {
   };
 
   const handlePrint = () => {
-    window.print();
+    printWithDocumentTitle('YCPS Diplomatic Language Briefing Note');
   };
 
   // Rewrite Confidence Badge style helper
@@ -274,7 +275,7 @@ export default function DiplomaticLanguagePage() {
               ⚖️ Why Language Matters
             </h3>
             <p className="text-[11px] text-brand-grey-text leading-relaxed">
-              In Youth, Climate, Peace and Security programming, language determines political sensitivity, funding eligibility, and community uptake. Using non-inflammatory, rights-based, and youth-centered wording avoids over-securitization and ensures national ownership.
+              In Youth, Climate, Peace and Security programming, language affects political sensitivity, funding eligibility, and community uptake. Using non-inflammatory, rights-based, and youth-centered wording avoids over-securitization and supports national ownership.
             </p>
           </div>
 
@@ -330,7 +331,12 @@ export default function DiplomaticLanguagePage() {
               </div>
 
               {/* Practical Output: Diplomatic Language Briefing Note */}
-              <div className="glass-panel p-5 rounded-xl border border-brand-gold/45 bg-gradient-to-br from-brand-navy-light/65 to-brand-navy-dark/95 space-y-4">
+              <div className="glass-panel p-5 rounded-xl border border-brand-gold/45 bg-gradient-to-br from-brand-navy-light/65 to-brand-navy-dark/95 space-y-4 print-document print:bg-white print:text-black print:border-none print:shadow-none">
+                <div className="hidden print:block border-b-2 border-black pb-3">
+                  <h1 className="text-xl font-bold">YCPS Toolkit Lab</h1>
+                  <p className="text-sm font-semibold">Output Type: Diplomatic Language Briefing Note</p>
+                  <p className="text-xs">Status: Draft for Review and Contextual Validation</p>
+                </div>
                 <div className="border-b border-brand-grey-border/30 pb-2 flex justify-between items-center">
                   <div>
                     <span className="text-[9px] font-bold text-brand-gold uppercase tracking-widest block">
@@ -369,7 +375,7 @@ export default function DiplomaticLanguagePage() {
 
                   <div className="p-3 bg-brand-navy-dark/65 rounded border border-brand-grey-border/45 text-[10px] text-brand-grey-text leading-relaxed">
                     <span className="font-semibold text-brand-gold block mb-0.5">🔍 Validation Reminder:</span>
-                    Confirm that terminology matches official AU / LCBC stabilization frameworks, security mandates, and context-specific data.
+                    Check whether terminology is consistent with relevant national and regional frameworks, institutional mandate language, and context-specific data.
                   </div>
 
                   {/* Export Action Controls */}
@@ -384,6 +390,7 @@ export default function DiplomaticLanguagePage() {
                       Print Briefing Note
                     </button>
                   </div>
+                  <p className="text-[9px] text-brand-grey-text no-print">For a clean PDF: choose Save as PDF, turn Headers and footers Off, keep Background graphics On, and use Default or None margins based on preview.</p>
 
                   <div className="border-t border-brand-grey-border/30 pt-2.5 text-[9px] text-brand-gold/90 italic leading-relaxed">
                     * Draft planning output. To be validated against official regional mandates and context-specific field evidence before deployment.

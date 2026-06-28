@@ -81,7 +81,7 @@ export const SCENARIOS: Record<
         suggestedAction: 'Fund and deliver peer-led conflict mediation and sustainable transhumance management training for 120 youth committee representatives.',
         indicator: 'Number of localized land-use and water-sharing agreements co-signed and monitored by youth committee members.',
         diplomaticWording: 'Supporting local community resilience by formalizing youth-led resource sharing initiatives within traditional and municipal governance structures.',
-        redTeamWarning: 'Establishing youth committees without involving traditional elders can trigger intergenerational backlash. Ensure elders are consulted and respected as mentors.'
+        redTeamWarning: 'Establishing youth committees without involving traditional elders may contribute to intergenerational tensions. Consult elders and respect appropriate mentorship roles.'
       },
       protection: {
         pillarId: 'protection',
@@ -92,7 +92,7 @@ export const SCENARIOS: Record<
         suggestedAction: 'Construct 5 secure, solar-lighted water stations near settlements, managed by mixed-gender local youth committees.',
         indicator: 'Reduction in reported security incidents along transhumance corridors and water collection points.',
         diplomaticWording: 'Enhancing human security and protection along transit routes through community-led infrastructure and communication networks.',
-        redTeamWarning: 'Creating local security patrols run by youth can inadvertently feed into informal militia dynamics. Keep youth roles strictly focused on early warning, reporting, and logistics.'
+        redTeamWarning: 'Creating local informal monitoring structures run by youth can inadvertently feed into communal security tensions. Keep youth roles strictly focused on early warning, reporting, and logistics.'
       },
       prevention: {
         pillarId: 'prevention',
@@ -118,7 +118,7 @@ export const SCENARIOS: Record<
       },
       disengagement_reintegration: {
         pillarId: 'disengagement_reintegration',
-        climateSecurityConsideration: 'Climate-driven desertification and soil degradation limit the availability of arable land, hindering the economic reintegration of former combatants.',
+        climateSecurityConsideration: 'Desertification and soil degradation may limit arable land availability and complicate the economic reintegration of former combatants.',
         youthRoleAgency: 'Demobilized youth work alongside local community members in collaborative land restoration and afforestation programs, rebuilding social trust through shared physical labor.',
         protectionConcern: 'Former combatants face stigmatization, social ostracization, and potential reprisal attacks from affected community members.',
         practicalEntryPoint: 'Implement community-based \'Green Reintegration\' projects that couple land reclamation with facilitated social reconciliation dialogs.',
@@ -163,7 +163,7 @@ export const SCENARIOS: Record<
         id: 'sahel-stake-1',
         name: 'Lake Chad Basin Commission (LCBC)',
         actorType: 'regional_organization',
-        interest: 'Regional stability, water resource management, and implementation of the Regional Stabilization Strategy.',
+        interest: 'Regional cooperation, water resource management, and implementation of conflict-sensitive programming priorities.',
         influence: 'High',
         position: 'Supportive',
         youthInclusionQuality: 'Medium',
@@ -203,7 +203,7 @@ export const SCENARIOS: Record<
     matrix: {
       participation: {
         pillarId: 'participation',
-        climateSecurityConsideration: 'Sea-level rise and soil salinization in the Nile Delta destroy agricultural lands, forcing urban migration. Climate policy-making remains centralized in Cairo, lacking local youth inputs.',
+        climateSecurityConsideration: 'Sea-level rise and soil salinization may degrade agricultural land in the Nile Delta and contribute to urban mobility pressures. Climate policy-making remains centralized in Cairo, with limited local youth inputs.',
         youthRoleAgency: 'University-based youth coalitions design localized environmental monitoring systems and lead community adaptation campaigns in coastal cities.',
         protectionConcern: 'Strict regulation on civil society organizations and public gatherings limits the operational space for youth-led climate advocacy.',
         practicalEntryPoint: 'Establish institutionalized green innovation hubs within public universities in collaboration with the Ministry of Environment.',
@@ -306,7 +306,7 @@ export const SCENARIOS: Record<
     matrix: {
       participation: {
         pillarId: 'participation',
-        climateSecurityConsideration: 'Recurrent droughts decimate livestock herds, forcing pastoralists into urban IDP camps. Clan-based resource allocation excludes youth.',
+        climateSecurityConsideration: 'Recurrent droughts may reduce livestock holdings and contribute to movement towards urban displacement sites. Clan-based resource allocation can limit meaningful youth participation.',
         youthRoleAgency: 'Young pastoralists establish community water monitoring groups and run mobile clinics to support migrating herds.',
         protectionConcern: 'Youth are targeted for recruitment by Al-Shabaab, which exploits resource grievances.',
         practicalEntryPoint: 'Form local agropastoral peace committees with mandatory youth quotas to manage borehole sharing.',
@@ -339,7 +339,7 @@ export const SCENARIOS: Record<
       },
       partnerships: {
         pillarId: 'partnerships',
-        climateSecurityConsideration: 'International aid projects ignore local clan dynamics, leading to projects being captured by dominant clans.',
+        climateSecurityConsideration: 'International aid projects that overlook local clan dynamics may be disproportionately influenced by dominant groups.',
         youthRoleAgency: 'Cross-clan youth alliances act as neutral project monitoring teams for development programs.',
         protectionConcern: 'Dominant clans threaten youth who highlight unequal aid distribution.',
         practicalEntryPoint: 'Incorporate youth-led multi-clan monitoring boards into all local climate adaptation contracts.',
@@ -369,7 +369,7 @@ export const SCENARIOS: Record<
         vulnerability: 'Dwindling livestock assets, lack of access to veterinary services, and high clan tensions',
         capacityConstraint: 'Inability of local administrations to manage transhumance disputes over permanent water boreholes',
         pathwayType: 'resource_competition',
-        youthImpact: 'Young pastoralist scouts clash with settled farmers over access to permanent wells, triggering broader clan disputes.',
+        youthImpact: 'Young pastoralists and settled farmers may face localized incidents around permanent-well access, with a risk of wider inter-community tensions.',
         youthOpportunity: 'Developing youth early-warning systems to alert pastoralists of borehole capacity and grazing availability.',
         intervention: 'Equip local youth networks with basic satellite communication tools and training in pasture assessment.',
         evidenceStrength: 'High',
@@ -409,7 +409,7 @@ export const SCENARIOS: Record<
     matrix: {
       participation: {
         pillarId: 'participation',
-        climateSecurityConsideration: 'Unprecedented flooding in Jonglei submerges vast grazing lands, forcing pastoralists into Equatoria, causing land conflicts.',
+        climateSecurityConsideration: 'Severe flooding in Jonglei may submerge grazing land, contribute to pastoralist movement towards Equatoria, and compound existing land-related pressures.',
         youthRoleAgency: 'Young cattle keepers act as liaisons to negotiate temporary grazing rights with host communities before cattle arrive.',
         protectionConcern: 'Youth are heavily armed and easily mobilized by politicians for cattle raiding.',
         practicalEntryPoint: 'Form Youth Cattle Joint Councils between migrating pastoralists and host farmers.',
@@ -448,7 +448,7 @@ export const SCENARIOS: Record<
         practicalEntryPoint: 'Create a direct reporting link between local youth cattle councils and the National Peace Commission.',
         suggestedAction: 'Facilitate youth testimony at national peace dialogue forums on climate-security links.',
         indicator: 'References to climate adaptation and cattle migration in local peace agreements.',
-        diplomaticWording: 'Integrating localized climate-security dynamics into national peace and stabilization processes.',
+        diplomaticWording: 'Integrating localized climate-security dynamics into national peace and conflict-sensitive programming processes.',
         redTeamWarning: 'Ensure youth presenters are balanced geographically to represent both migrating and host communities.'
       },
       disengagement_reintegration: {
@@ -459,7 +459,7 @@ export const SCENARIOS: Record<
         practicalEntryPoint: 'Engage demobilized youth in dyke construction under joint community-military civil works programs.',
         suggestedAction: 'Construct 5 kilometers of protective dykes employing 150 local youths, including demobilized personnel.',
         indicator: 'Kilometers of dykes built and percentage of demobilized youth reporting positive community relations.',
-        diplomaticWording: 'Supporting community flood defense and local stabilization through inclusive public work programs.',
+        diplomaticWording: 'Supporting community flood resilience and conflict-sensitive local programming through inclusive public work programs.',
         redTeamWarning: 'Ensure dyke construction is engineered properly; poorly constructed dykes can burst, causing catastrophic damage.'
       }
     },
@@ -540,7 +540,7 @@ export const SCENARIOS: Record<
         practicalEntryPoint: 'Advocate for cross-border trade permits for registered youth micro-enterprises under regional agreements.',
         suggestedAction: 'Register 10 cross-border youth cooperatives and supply veterinary solar-refrigeration units.',
         indicator: 'Value of cross-border veterinary supplies traded by youth cooperatives.',
-        diplomaticWording: 'Supporting cross-border economic resilience and stabilizing borderlands through trade facilitation for youth.',
+        diplomaticWording: 'Supporting cross-border economic resilience and conflict-sensitive borderland programming through trade facilitation for youth.',
         redTeamWarning: 'SMART monitoring is required to ensure cooperatives do not import prohibited goods, which would lead to border closures.'
       },
       partnerships: {
@@ -562,7 +562,7 @@ export const SCENARIOS: Record<
         practicalEntryPoint: 'Integrate returning youth into national public works programs focusing on rural community rehabilitation.',
         suggestedAction: 'Rebuild 3 community wells and 2 schools using returnee-staffed reconstruction brigades.',
         indicator: 'Number of community infrastructures rebuilt and returnee retention rate.',
-        diplomaticWording: 'Rehabilitating rural infrastructure and supporting stabilization through youth reconstruction brigades.',
+        diplomaticWording: 'Rehabilitating rural infrastructure and supporting conflict-sensitive programming through youth-led reconstruction initiatives.',
         redTeamWarning: 'Reconstruction must focus on projects selected by local communities to ensure appreciation and local buy-in.'
       }
     },
@@ -572,7 +572,7 @@ export const SCENARIOS: Record<
         context: 'Kenya-Somalia Borderlands (Dadaab/Garissa)',
         hazard: 'Successive failed rainy seasons and extreme vegetation loss',
         exposure: 'High concentration of displaced families in camp settings collecting firewood',
-        vulnerability: 'Rapid depletion of local forest cover, causing environmental friction with host community',
+        vulnerability: 'Rapid depletion of local forest cover that may compound resource pressures with host communities',
         capacityConstraint: 'Inability of local administrations to provide alternative cooking fuel sources',
         pathwayType: 'forced_displacement',
         youthImpact: 'Displaced youth must travel deep into host community lands for firewood, exposing them to arrest and violence.',
@@ -615,7 +615,7 @@ export const SCENARIOS: Record<
     matrix: {
       participation: {
         pillarId: 'participation',
-        climateSecurityConsideration: 'Upstream damming and erratic rainfall dry up the Carana River, fueling resource disputes between downstream farmers and nomadic herders.',
+        climateSecurityConsideration: 'Upstream damming and erratic rainfall dry up the Carana River, which may contribute to resource-related tensions between downstream farmers and nomadic herders.',
         youthRoleAgency: 'Downstream and nomadic youth create a joint water-sharing committee called \'Carana River Youth Alliance\' to coordinate water allocation.',
         protectionConcern: 'Local political factions try to manipulate youth leaders to support aggressive water-right claims.',
         practicalEntryPoint: 'Establish a formal consultative seat for the Youth Alliance on the CARANA Water Commission.',
@@ -628,7 +628,7 @@ export const SCENARIOS: Record<
         pillarId: 'protection',
         climateSecurityConsideration: 'Water scarcity may alter migration routes and increase exposure to mine-contaminated or otherwise unsafe areas.',
         youthRoleAgency: 'Youth groups map secure water paths and put up simple warning markers near suspected danger areas.',
-        protectionConcern: 'Youth run the risk of landmine accidents or arrests by border patrol guards.',
+        protectionConcern: 'Youth face risks of environmental hazards or encounter mobility constraints at crossing points.',
         practicalEntryPoint: 'Coordinate with international demining organizations to train youth in mine risk education.',
         suggestedAction: 'Train 30 youth leaders as Mine Risk Educators to conduct sessions along migration corridors.',
         indicator: 'Number of mine risk education sessions conducted and community members reached.',
@@ -643,7 +643,7 @@ export const SCENARIOS: Record<
         practicalEntryPoint: 'Collaborate with local environmental authorities to secure community land leases for youth agroforestry.',
         suggestedAction: 'Establish 2 solar-irrigated agroforestry nurseries managed by youth cooperatives.',
         indicator: 'Hectares of border forest under community agroforestry management by youth.',
-        diplomaticWording: 'Promoting community forest conservation and sustainable agricultural livelihoods to stabilize border zones.',
+        diplomaticWording: 'Promoting community forest conservation and sustainable agricultural livelihoods through conflict-sensitive borderland programming.',
         redTeamWarning: 'Ensure land tenure agreements are legally binding to protect youth investments from seizure by local elites.'
       },
       partnerships: {
@@ -678,7 +678,7 @@ export const SCENARIOS: Record<
         vulnerability: 'High clan polarization, complete dependence on the river, and low alternative livelihood options',
         capacityConstraint: 'Lack of bilateral transboundary river management treaties between East and West administrations',
         pathwayType: 'resource_competition',
-        youthImpact: 'Farming youth block upstream nomadic herders from watering their cattle, leading to armed skirmishes at river banks.',
+        youthImpact: 'Farming youth block upstream nomadic herders from watering their cattle, which may increase the risk of localized incidents at river banks.',
         youthOpportunity: 'Facilitating a youth-led borderland dialogue to establish shared water scheduling.',
         intervention: 'Fund independent flow monitors and facilitate joint youth cattle-watering agreements.',
         evidenceStrength: 'Medium',
@@ -696,13 +696,13 @@ export const SCENARIOS: Record<
         youthInclusionQuality: 'Low',
         risks: 'Highly politicized decision-making and low budget for local community outreach.',
         diplomaticSensitivity: 'Commissioners represent rival national political groups; discussions must be framed technically.',
-        engagementStrategy: 'Present hydrological data proving that youth-led water sharing agreements improve overall water use efficiency.'
+        engagementStrategy: 'Present hydrological data testing whether youth-supported arrangements can improve coordination and overall water use efficiency.'
       },
       {
         id: 'carana-stake-2',
         name: 'Carana River Youth Alliance (CRYA)',
         actorType: 'youth_actor',
-        interest: 'Fair water allocation, prevention of border skirmishes, and inclusion in local water committees.',
+        interest: 'Fair water allocation, prevention of localized incidents, and inclusion in local water committees.',
         influence: 'Medium',
         position: 'Supportive',
         youthInclusionQuality: 'High',

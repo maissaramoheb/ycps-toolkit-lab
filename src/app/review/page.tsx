@@ -149,7 +149,7 @@ export default function RedTeamReviewPage() {
       passed: activePillars.length > 0
     },
     {
-      label: 'Construct causal pathways: at least one Risk Pathway built',
+      label: 'Construct risk pathways: at least one Risk Pathway built',
       passed: riskPathways.length > 0
     }
   ];

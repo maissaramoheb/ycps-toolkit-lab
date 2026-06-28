@@ -388,7 +388,7 @@ export default function MatrixPage() {
               <div className="space-y-1">
                 <span className="text-[10px] font-bold text-brand-gold uppercase block">📌 What to do next?</span>
                 <p className="text-[11px] text-brand-grey-text leading-relaxed">
-                  Mainstream the generated strategic recommendations and localized indicators into municipal plans or regional climate-stabilization briefings.
+                  Mainstream the generated strategic recommendations and localized indicators into municipal plans or regional climate, peace and security programming briefings.
                 </p>
               </div>
 

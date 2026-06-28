@@ -179,7 +179,7 @@ export default function RiskPathwaysPage() {
         </div>
       </div>
 
-      {/* Causal Claim Safeguard Guidance Note */}
+      {/* Risk relationship safeguard guidance note */}
       <div className="glass-panel p-4 rounded-xl border border-brand-gold/15 bg-brand-navy-light/25 text-xs text-brand-grey-text space-y-2">
         <span className="text-[10px] font-bold text-brand-gold tracking-widest uppercase block">
           Candidate Methodology: Climate-Security Causality Guidance
@@ -396,7 +396,7 @@ export default function RiskPathwaysPage() {
                 </svg>
                 <div>
                   <span className="font-semibold block">⚠️ TO BE VALIDATED:</span>
-                  This causal pathway relies on low or unclear evidence strength. Validate against official reports and context evidence before exporting.
+                  This risk pathway relies on low or unclear evidence strength. Validate against official reports and context evidence before exporting.
                 </div>
               </div>
             )}
@@ -424,7 +424,7 @@ export default function RiskPathwaysPage() {
           {/* Lightweight Guidance Box */}
           <div className="mt-4 p-3.5 bg-brand-navy-dark/45 border border-brand-grey-border/40 rounded-xl text-[11px] text-brand-grey-text leading-relaxed no-print">
             <span className="font-semibold text-brand-gold block mb-1">💡 Next Step:</span>
-            After mapping the pathway, review the Pathway Programming Card. Copy the programming note or validate evidence gaps against local realities before using the output. Always verify that causal claims are backed by local evidence without assuming automatic climate-conflict dynamics.
+            After mapping the pathway, review the Pathway Programming Card. Copy the programming note or validate evidence gaps against local realities before using the output. Always verify that proposed relationships are backed by local evidence without assuming automatic climate-conflict dynamics.
           </div>
         </div>
 
@@ -439,7 +439,7 @@ export default function RiskPathwaysPage() {
               <h3 className="text-sm font-semibold text-brand-offwhite">
                 Mapped Pathways ({riskPathways.length})
               </h3>
-              <span className="text-[10px] text-brand-grey-text">Causal relationships</span>
+              <span className="text-[10px] text-brand-grey-text">Risk relationships</span>
             </div>
 
             {riskPathways.length === 0 ? (
@@ -531,7 +531,7 @@ export default function RiskPathwaysPage() {
                       </div>
                     </div>
 
-                    {/* Causal Chain Display */}
+                    {/* Risk pathway display */}
                     <div className="grid md:grid-cols-3 gap-3 bg-brand-navy-light/45 p-3 rounded-lg border border-brand-grey-border/30 text-[11px] pl-4">
                       <div className="space-y-1">
                         <span className="text-[10px] text-brand-grey-text font-semibold uppercase block">
@@ -564,7 +564,7 @@ export default function RiskPathwaysPage() {
                       </div>
                     </div>
 
-                    {/* Causal Intervention */}
+                    {/* Conflict-sensitive programming action */}
                     {path.intervention && (
                       <div className="bg-brand-green/5 border border-brand-green/20 p-2.5 rounded-lg text-xs leading-normal pl-4 text-brand-offwhite flex gap-2">
                         <div className="text-brand-green shrink-0 mt-0.5">
@@ -573,7 +573,7 @@ export default function RiskPathwaysPage() {
                           </svg>
                         </div>
                         <div>
-                          <span className="font-semibold text-brand-green">Stabilization Intervention:</span> {path.intervention}
+                          <span className="font-semibold text-brand-green">Cooperative Adaptation Action:</span> {path.intervention}
                         </div>
                       </div>
                     )}
@@ -604,7 +604,7 @@ export default function RiskPathwaysPage() {
                       </div>
                       <div className="text-[11px] leading-relaxed text-brand-grey-text space-y-2">
                         <div>
-                          <span className="font-semibold text-brand-offwhite block mb-0.5">Causal Chain & Programming Action:</span>
+                          <span className="font-semibold text-brand-offwhite block mb-0.5">Risk Pathway & Programming Action:</span>
                           Under {path.hazard}, young people face {path.youthImpact || 'risks'} due to {path.capacityConstraint || 'capacity constraints'}. Youth agency focuses on {path.youthOpportunity || 'resilience actions'}. Prevention response targets: <span className="text-brand-gold font-medium">{path.intervention || 'Not specified'}</span>.
                         </div>
                         <div className="grid grid-cols-2 gap-2 text-[10px] border-t border-brand-grey-border/20 pt-1.5">

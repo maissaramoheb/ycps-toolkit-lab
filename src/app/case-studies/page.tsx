@@ -71,12 +71,12 @@ ${cs.questions.map((q, i) => `${i+1}. ${q}`).join('\n')}
     return `YCPS Facilitator Guidance Notes: ${cs.title}
 --------------------------------------------------
 - Main YPS Pillar: ${cs.ypsPillar}
-- Primary Conflict Pathway: ${cs.pathway}
+- Primary Risk Pathway: ${cs.pathway}
 - Participation/Protection Safeguard Link: Formalize youth seats on resource councils while actively mitigating elder retaliation and border conflict vulnerabilities.
 - Prevention/Resilience Link: Transition drying pasture risks into climate-resilient agropastoral youth cooperative programs.
 - Facilitator Cautions & Safeguards:
 ${cs.cautions.map((c) => `- ${c}`).join('\n')}
-- Validation Guidelines: Ensure evidence quality (${cs.evidenceStrength}) is highlighted. Address gaps: traditional elder alignment and border security coordinates.`;
+- Validation Guidelines: Note the evidence quality (${cs.evidenceStrength}). Address gaps through traditional elder alignment and validated mobility and access data.`;
   };
 
   const cases: CaseStudy[] = [
@@ -86,14 +86,14 @@ ${cs.cautions.map((c) => `- ${c}`).join('\n')}
       region: 'West & Central Africa',
       pathway: 'Resource herding/competition',
       ypsPillar: 'Participation',
-      summary: 'Drying of Lake Chad shifts herder routes, driving localized resource clashes where community councils lack herder youth representation.',
+      summary: 'Changes around Lake Chad may alter herder routes and contribute to localized resource-related tensions where community councils lack herder youth representation.',
       trainingUse: 'Regional Security Seminars',
-      policyUse: 'Cross-border Stabilization Plans',
+      policyUse: 'Cross-border Programming Plans',
       evidenceStrength: 'High',
       context: 'The Lake Chad Basin (spanning Niger, Nigeria, Chad, and Cameroon) has experienced severe environmental variability, changing grazing patterns and herder transhumance corridors.',
       stressors: 'Siltation, drying of floodplains, expanding desert margins, and highly unpredictable rainfall cycles.',
       risksAndVulnerabilities: 'Agropastoral communities depend entirely on rain-fed crops and natural pastures. The lack of clean surface water compounds historical vulnerabilities.',
-      securityDynamics: 'Shifts in transhumance timing cause herders to enter farming zones before crops are harvested, leading to crop destruction, herder retaliation, and localized skirmishes that are sometimes exploited by armed groups.',
+      securityDynamics: 'Shifts in transhumance timing may result in herders entering farming zones before harvest, which can contribute to crop damage and localized tensions where coordination is limited.',
       youthDimensions: 'Young herders handle migration decisions under severe stress, while young farmers bear the brunt of crop losses. Youth are active in forming local herder-farmer mediation committees.',
       integrationOpportunities: 'Formalizing herder-farmer youth committees inside traditional local governance structures to pre-negotiate seasonal water pan sharing.',
       stakeholderGroups: [
@@ -101,8 +101,8 @@ ${cs.cautions.map((c) => `- ${c}`).join('\n')}
         'Association of pastoralist youth (local youth group)',
         'Traditional local council of elders'
       ],
-      pathwayPrompts: 'Stressor: rainfall shifts -> Exposure: agropastoral communities -> Vulnerability: loss of pasture -> Capacity Constraint: lack of municipal transhumance corridors -> Conflict Pathway: localized clashes.',
-      interventions: 'Demarcating regional grazing corridors using GPS tracking apps managed by mixed pastoralist youth committees.',
+      pathwayPrompts: 'Stressor: rainfall shifts -> Exposure: agropastoral communities -> Vulnerability: loss of pasture -> Capacity Constraint: lack of municipal transhumance corridors -> Risk Pathway: localized tensions.',
+      interventions: 'Demarcating regional grazing corridors using participatory mapping tools managed by mixed pastoralist youth committees.',
       cautions: [
         'Do not overstate climate-conflict links. Environmental factors act as threat multipliers, not direct triggers.',
         'Avoid securitizing pastoralist youth; frame them as community resource managers.',
@@ -115,18 +115,18 @@ ${cs.cautions.map((c) => `- ${c}`).join('\n')}
     },
     {
       id: 'somalia',
-      title: 'Somalia pastoral conflicts',
+      title: 'Somalia pastoral context',
       region: 'East & Horn of Africa',
       pathway: 'Elite capture',
       ypsPillar: 'Prevention',
-      summary: 'Severe droughts trigger water point capture by dominant clans, excluding minority herding youth and heightening resource access constraints.',
+      summary: 'Severe drought may compound unequal control of water points, exclusion risks for minority pastoralist youth, and wider resource-access constraints.',
       trainingUse: 'Diplomatic Briefings',
       policyUse: 'National Adaptation Plans',
       evidenceStrength: 'Medium',
       context: 'Semi-arid pastoral zones in central and southern Somalia where clan systems govern access to deep wells and shallow boreholes.',
       stressors: 'Frequent multi-season droughts, vegetation loss, and flash floods that destroy infrastructure.',
       risksAndVulnerabilities: 'Absolute dependence of nomadic pastoralists on deep aquifers. Clannish control of water points leaves minor lineages marginalized.',
-      securityDynamics: 'Water points are captured by dominant herder clan militias during droughts, forcing minority herding groups to pay high fees, which can compound historical clan grievances.',
+      securityDynamics: 'Unequal control of water points during droughts may require minority herding groups to pay high fees, which can compound historical clan grievances.',
       youthDimensions: 'Excluded herding youth face absolute loss of livestock, exposing them to heightened recruitment risks under resource constraints. Youth networks lead local water trucking operations.',
       integrationOpportunities: 'Establishing multi-clan youth environmental protection committees to manage common sand dams and open herding ranges.',
       stakeholderGroups: [
@@ -134,7 +134,7 @@ ${cs.cautions.map((c) => `- ${c}`).join('\n')}
         'Somali Youth for Climate Action (SYCA)',
         'Clan elders and local water user boards'
       ],
-      pathwayPrompts: 'Stressor: severe drought -> Exposure: nomadic pastoral herders -> Vulnerability: clan water exclusion -> Capacity Constraint: weak state utility networks -> Conflict Pathway: water herding disputes.',
+      pathwayPrompts: 'Stressor: severe drought -> Exposure: nomadic pastoral herders -> Vulnerability: clan water exclusion -> Capacity Constraint: weak state utility networks -> Risk Pathway: water sharing disputes.',
       interventions: 'Constructing community sand dams with rain-harvesting channels, co-managed by youth herder user groups.',
       cautions: [
         'Do not blame clan hierarchies directly in policy documents; describe them as traditional resource user networks.',
@@ -152,13 +152,13 @@ ${cs.cautions.map((c) => `- ${c}`).join('\n')}
       region: 'East & Horn of Africa',
       pathway: 'Armed herder group exploitation',
       ypsPillar: 'Reintegration',
-      summary: 'White Nile floods displace cattle herders into agricultural highlands, causing clashes that militarized cattle camp youth herders navigate.',
+      summary: 'White Nile flooding may contribute to cattle-herder movement into agricultural highlands and increase localized resource pressures affecting cattle-camp youth.',
       trainingUse: 'Local Mediation Workshops',
       policyUse: 'Peace Operations Design',
       evidenceStrength: 'Medium',
       context: 'Jonglei and Lakes Governorates, which have faced unprecedented, multi-year flooding of the Sudd wetlands.',
       stressors: 'Unprecedented rainfall, rising river basins, and massive environmental displacement.',
-      risksAndVulnerabilities: 'High reliance on livestock (cattle camps). Floods destroy agricultural land and grazing fields, forcing herders to relocate to highland agricultural zones.',
+      risksAndVulnerabilities: 'High reliance on livestock and cattle camps. Flooding may damage agricultural land and grazing fields and contribute to movement towards highland agricultural zones.',
       securityDynamics: 'Cattle herder movement into crop zones leads to clashes. Cattle camp youth (' + 'Gelweng' + ') act as local defense forces, increasing local arms carrying.',
       youthDimensions: 'Young cattle herders coordinate camp defense but are receptive to local peace dialogs; ex-combatant youth herders participate in shared flood defense works.',
       integrationOpportunities: 'Green Reintegration programs where demobilized herding youth and local communities work together on flood embankment dykes.',
@@ -167,7 +167,7 @@ ${cs.cautions.map((c) => `- ${c}`).join('\n')}
         'Gelweng Youth Leaders (Jonglei cattle camps)',
         'Local municipal agricultural committees'
       ],
-      pathwayPrompts: 'Stressor: extreme Sudd wetland flooding -> Exposure: herder cattle camps -> Vulnerability: pasture loss -> Capacity Constraint: low local police presence -> Conflict Pathway: cattle raiding.',
+      pathwayPrompts: 'Stressor: extreme Sudd wetland flooding -> Exposure: herder cattle camps -> Vulnerability: pasture loss -> Capacity Constraint: low local police presence -> Risk Pathway: cattle raiding risks.',
       interventions: 'Joint returnee-community green work programs focusing on clay dyke building and soil restoration.',
       cautions: [
         'Avoid pointing blame at state security services. Frame challenges around institutional capacity constraints.',
@@ -185,11 +185,11 @@ ${cs.cautions.map((c) => `- ${c}`).join('\n')}
       region: 'East & Horn of Africa',
       pathway: 'Forced displacement',
       ypsPillar: 'Protection',
-      summary: 'Drought forcing rural herder youth into informal peri-urban camps, triggering friction over firewood and local resources.',
+      summary: 'Drought may contribute to rural youth movement into informal peri-urban camps and compound pressures around firewood and local resources.',
       trainingUse: 'Regional Displacement Forums',
       policyUse: 'Cross-border Humanitarian Action',
       evidenceStrength: 'Low',
-      context: 'Displacement camps and host communities in Garissa County, Kenya, hosting herding herders fleeing droughts in Somalia and borderlands.',
+      context: 'Displacement sites and host communities in Garissa County, Kenya, receiving pastoralist communities affected by drought in Somalia and surrounding borderlands.',
       stressors: 'Consecutive season rainfall failure, water scarcity, and agricultural collapse.',
       risksAndVulnerabilities: 'Displaced nomadic herders enter informal camps with zero assets, facing high food insecurity and limited water.',
       securityDynamics: 'Competition for scarce firewood and pasture between displaced herders and host community herders leads to local environmental protection clashes.',
@@ -200,7 +200,7 @@ ${cs.cautions.map((c) => `- ${c}`).join('\n')}
         'Garissa Youth Environmental Network (Kenya)',
         'UNHCR camp environmental desks'
       ],
-      pathwayPrompts: 'Stressor: consecutive droughts -> Exposure: displaced rural herders -> Vulnerability: lack of livelihood -> Capacity Constraint: camp regulatory limits -> Conflict Pathway: resource gathering clashes.',
+      pathwayPrompts: 'Stressor: consecutive droughts -> Exposure: displaced rural herders -> Vulnerability: lack of livelihood -> Capacity Constraint: camp regulatory limits -> Risk Pathway: resource gathering tensions.',
       interventions: 'Funding youth-led cooperative green energy ventures (prosopis weed processing hubs) in host communities.',
       cautions: [
         'Flag this case study as "To Be Validated" due to limited empirical tracking of host-refugee resource conflicts.',
@@ -218,14 +218,14 @@ ${cs.cautions.map((c) => `- ${c}`).join('\n')}
       region: 'North Africa',
       pathway: 'Livelihood loss',
       ypsPillar: 'Partnerships',
-      summary: 'Nile Delta soil salinization drives rural youth to coastal cities. Academic green start-ups provide adaptation tools.',
+      summary: 'Nile Delta soil salinization may contribute to rural youth mobility towards coastal cities. Academic green start-ups provide adaptation tools.',
       trainingUse: 'COP Consultations',
       policyUse: 'Green Transition Strategy',
       evidenceStrength: 'High',
       context: 'The Nile Delta and coastal cities of Egypt, facing agricultural degradation due to rising seas.',
       stressors: 'Sea-level rise, coastal erosion, salinization of arable soil, and extreme heat.',
       risksAndVulnerabilities: 'High youth density in the delta with heavy economic dependence on agriculture and fisheries. Soil salinity ruins farm yields.',
-      securityDynamics: 'Degradation of delta farmland drives youth migration to Alexandria and Cairo, increasing competition for water, space, and jobs.',
+      securityDynamics: 'Degradation of delta farmland may contribute to youth mobility towards Alexandria and Cairo and compound pressures around water, space, and jobs.',
       youthDimensions: 'University youth lead scientific innovation, delta soil monitoring, and green entrepreneurship.',
       integrationOpportunities: 'Pairing delta agricultural youth cooperatives with technical university green startups for salinity-resistant farming.',
       stakeholderGroups: [
@@ -233,7 +233,7 @@ ${cs.cautions.map((c) => `- ${c}`).join('\n')}
         'Nile Delta Green Youth Coalition (NGO)',
         'Egyptian National Development Banks'
       ],
-      pathwayPrompts: 'Stressor: sea-level rise -> Exposure: Delta farming youth herders -> Vulnerability: soil salinization -> Capacity Constraint: centralized green finance -> Conflict Pathway: urban resource competition.',
+      pathwayPrompts: 'Stressor: sea-level rise -> Exposure: Delta farming youth herders -> Vulnerability: soil salinization -> Capacity Constraint: centralized green finance -> Risk Pathway: resource competition.',
       interventions: 'Supporting delta soil restoration startups and youth energy cooperatives through micro-finance grants.',
       cautions: [
         'Keep Nile water discussions focused strictly on local efficiency, adaptation, and green jobs. Avoid transboundary politics.',
@@ -253,21 +253,21 @@ ${cs.cautions.map((c) => `- ${c}`).join('\n')}
       ypsPillar: 'Participation',
       summary: 'Fictional border dispute over the Sudd-fed Carana River herding zones, designed for diplomat training simulations.',
       trainingUse: 'Scenario-based simulation',
-      policyUse: 'Stabilization training',
+      policyUse: 'Climate, Peace and Security training',
       evidenceStrength: 'Unclear',
       context: 'Fictional border region between Upper and Lower CARANA, containing changing agropastoral corridors and the Carana River basin.',
       stressors: 'Shifting river corridors, sudden regional droughts, and unmapped herding corridors.',
       risksAndVulnerabilities: 'High borderland dependency on shared water basins. Frontier communities lack formal communication channels.',
-      securityDynamics: 'Migrating herders cross frontiers without local permit notice, causing local herder defense mobilizations and border security skirmishes.',
-      youthDimensions: 'Borderland youth herders coordinate river access timings but face specific protection risks and border transhumance arrest threats.',
+      securityDynamics: 'Cross-frontier pastoralist mobility without local notification may contribute to localized resource tensions and coordination difficulties between communities.',
+      youthDimensions: 'Borderland youth herders coordinate river access timings but face specific protection risks and border transhumance access constraints.',
       integrationOpportunities: 'Establishing a joint youth-led CARANA Borderland Water Pan Commission to manage shared ranges.',
       stakeholderGroups: [
         'CARANA Water Commission (Joint board)',
         'Carana River Youth Alliance (CRYA)',
         'Borderland local traditional councils'
       ],
-      pathwayPrompts: 'Stressor: Carana River shifting -> Exposure: borderland pastoralist communities -> Vulnerability: lack of border checkpoints -> Capacity Constraint: uncoordinated border policies -> Conflict Pathway: borderland resource clashes.',
-      interventions: 'Setting up joint youth-elder border resource monitoring kiosks equipped with mobile GPS tracking units.',
+      pathwayPrompts: 'Stressor: Carana River shifting -> Exposure: borderland pastoralist communities -> Vulnerability: lack of border checkpoints -> Capacity Constraint: uncoordinated border policies -> Risk Pathway: borderland resource sharing tensions.',
+      interventions: 'Setting up joint youth-elder border resource monitoring kiosks equipped with resource mapping templates.',
       cautions: [
         'This is a fictional training model. Use to test extreme scenarios without political sensitivities.',
         'Ensure neither Upper nor Lower CARANA is framed as a "failed state."',
@@ -486,7 +486,7 @@ ${cs.cautions.map((c) => `- ${c}`).join('\n')}
             {/* Pathway Filter */}
             <div className="space-y-1">
               <label htmlFor="filter-pathway-select" className="block text-[10px] font-bold text-brand-offwhite uppercase tracking-widest">
-                Conflict Pathway
+                Risk Pathway
               </label>
               <select
                 id="filter-pathway-select"
@@ -556,12 +556,12 @@ ${cs.cautions.map((c) => `- ${c}`).join('\n')}
                 className="w-full text-xs bg-brand-navy-dark text-brand-offwhite border border-brand-grey-border/80 rounded px-2.5 py-1.5 focus:outline-none focus:border-brand-gold cursor-pointer"
               >
                 <option value="all">All Policy Targets</option>
-                <option value="Cross-border Stabilization Plans">Cross-border Stabilization Plans</option>
+                <option value="Cross-border Programming Plans">Cross-border Programming Plans</option>
                 <option value="National Adaptation Plans">National Adaptation Plans</option>
                 <option value="Peace Operations Design">Peace Operations Design</option>
                 <option value="Cross-border Humanitarian Action">Cross-border Humanitarian Action</option>
                 <option value="Green Transition Strategy">Green Transition Strategy</option>
-                <option value="Stabilization training">Stabilization training</option>
+                <option value="Climate, Peace and Security training">Climate, Peace and Security training</option>
               </select>
             </div>
           </div>
@@ -803,7 +803,7 @@ ${cs.cautions.map((c) => `- ${c}`).join('\n')}
                       <div className="bg-brand-navy-dark/45 p-3 rounded border border-brand-grey-border/30 space-y-1.5">
                         <span className="text-[10px] font-bold text-brand-gold uppercase block">🔑 Facilitator Guide Notes</span>
                         <p className="text-brand-grey-text">
-                          Includes primary conflict pathways, YPS/YCPS nexus links, protection safeguards, and validation checkpoints.
+                          Includes primary risk pathways, YPS/YCPS nexus links, protection safeguards, and validation checkpoints.
                         </p>
                         <div className="pt-1">
                           <CopyButton
@@ -912,7 +912,7 @@ ${cs.cautions.map((c) => `- ${c}`).join('\n')}
                   {/* Section 6: Possible Interventions */}
                   <div className="space-y-2">
                     <h3 className="text-xs font-bold text-brand-offwhite uppercase tracking-wider print:text-black print:border-b print:pb-0.5">
-                      5. Recommended stabilization Interventions
+                      5. Recommended Programming Interventions
                     </h3>
                     <p className="p-3 bg-brand-navy-light/35 border border-brand-grey-border/40 rounded print:bg-gray-100 print:text-black">
                       {activeCase.interventions}

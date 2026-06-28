@@ -130,7 +130,7 @@ export default function GuidedWorkflowPage() {
                 <strong>Task:</strong> Integrate climate security factors across five Youth, Peace & Security pillars.
               </p>
               <p className="text-[11px] text-brand-grey-text/80 leading-normal">
-                <strong>Why it matters:</strong> Connects climate risks to youth-inclusive stabilization opportunities.
+                <strong>Why it matters:</strong> Connects climate risks to youth-inclusive programming opportunities.
               </p>
             </div>
             <div className="space-y-2 pt-2">
@@ -262,7 +262,7 @@ export default function GuidedWorkflowPage() {
                 <strong>Task:</strong> Run compliance reviews, wording screen, and safeguards check.
               </p>
               <p className="text-[11px] text-brand-grey-text/80 leading-normal">
-                <strong>Why it matters:</strong> Ensures youth protection and sovereign-friendly language.
+                <strong>Why it matters:</strong> Supports youth protection and nationally owned, diplomatically appropriate language.
               </p>
             </div>
             <div className="space-y-2 pt-2">
@@ -425,7 +425,7 @@ export default function GuidedWorkflowPage() {
                   <span className="text-[8px] px-1.5 py-0.5 rounded bg-blue-500/10 text-blue-400 border border-blue-500/20">Future Enhancement</span>
                 </div>
                 <p className="text-[10px] text-brand-grey-text leading-normal">
-                  Aligns national adaptation plans (NAPs) and nationally determined contributions (NDCs) with local YCPS stabilization matrices.
+                  Aligns national adaptation plans (NAPs) and nationally determined contributions (NDCs) with local YCPS programming matrices.
                 </p>
                 <div className="flex justify-between items-center pt-1 text-[10px]">
                   <span className="text-brand-grey-text/60">Output: NDC Integration Prompts</span>

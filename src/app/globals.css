@@ -25,6 +25,109 @@ body {
   min-height: 100vh;
 }
 
+.print-only {
+  display: none;
+}
+
+.complete-package-dossier h1 {
+  color: var(--color-brand-offwhite);
+  font-size: 1.6rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.complete-package-dossier h2 {
+  color: var(--color-brand-gold);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.dossier-cover,
+.dossier-page,
+.dossier-closing {
+  display: grid;
+  gap: 1rem;
+}
+
+.dossier-kicker {
+  color: var(--color-brand-gold);
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.dossier-lead {
+  max-width: 48rem;
+  line-height: 1.65;
+}
+
+.dossier-meta {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  border-radius: 0.6rem;
+  padding: 1rem;
+  background: rgba(7, 13, 30, 0.35);
+}
+
+.dossier-meta div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.dossier-meta strong {
+  color: var(--color-brand-gold);
+  font-size: 0.58rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.dossier-box,
+.dossier-key-output,
+.dossier-validation,
+.dossier-section,
+.dossier-final-disclaimer {
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  border-radius: 0.6rem;
+  padding: 1rem;
+  background: rgba(16, 28, 54, 0.38);
+}
+
+.dossier-key-output {
+  border-color: rgba(92, 143, 103, 0.65);
+}
+
+.dossier-validation,
+.dossier-final-disclaimer {
+  border-color: rgba(197, 168, 128, 0.65);
+}
+
+.dossier-section ul,
+.dossier-section ol {
+  margin-top: 0.55rem;
+  padding-left: 1.15rem;
+}
+
+.dossier-section li + li {
+  margin-top: 0.35rem;
+}
+
+.dossier-checklist {
+  list-style: none;
+  padding-left: 0 !important;
+}
+
+.dossier-note {
+  margin-top: 0.75rem;
+  color: var(--color-brand-gold);
+  font-style: italic;
+}
+
 /* Glassmorphism utilities */
 .glass-panel {
   background: rgba(16, 28, 54, 0.65);
@@ -89,6 +192,9 @@ body {
     background: white !important;
     color: #111827 !important;
   }
+  .print-document > .space-y-4 > *:not(:last-child) {
+    margin-block-end: 3mm !important;
+  }
   .print-hidden {
     display: none !important;
   }
@@ -105,5 +211,250 @@ body {
   }
   .md\:pl-64 {
     padding-left: 0 !important;
+  }
+
+  .training-print-pack {
+    font-size: 10.25pt;
+    line-height: 1.45;
+  }
+
+  .print-pack-header {
+    border-bottom: 2px solid #111827;
+    padding-bottom: 6mm;
+    margin-bottom: 6mm;
+  }
+
+  .print-pack-title-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 8mm;
+  }
+
+  .print-pack-title-row h1 {
+    margin: 1mm 0 0;
+    font-size: 24pt;
+    line-height: 1.1;
+  }
+
+  .print-kicker {
+    margin: 0;
+    font-size: 9pt;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .print-status {
+    max-width: 55mm;
+    margin: 0;
+    border: 1px solid #111827;
+    padding: 2.5mm 3mm;
+    font-size: 8.5pt;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  .print-meta-grid,
+  .print-summary-grid,
+  .print-note-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 3mm 6mm;
+  }
+
+  .print-meta-grid {
+    margin-top: 6mm;
+  }
+
+  .print-meta-grid div,
+  .print-summary-grid div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5mm;
+  }
+
+  .print-meta-grid strong,
+  .print-summary-grid strong {
+    font-size: 7.5pt;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #4b5563;
+  }
+
+  .print-callout,
+  .print-output-box,
+  .print-key-output,
+  .print-validation-box {
+    margin-top: 4mm;
+    border: 1px solid #9ca3af;
+    background: #f3f4f6 !important;
+    padding: 4mm;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .print-callout p,
+  .print-key-output p,
+  .print-validation-box p {
+    margin: 1.5mm 0 0;
+  }
+
+  .print-section {
+    margin: 0 0 6mm;
+  }
+
+  .print-section h2 {
+    margin: 0 0 3mm;
+    border-bottom: 1px solid #6b7280;
+    padding-bottom: 1.5mm;
+    font-size: 14pt;
+    line-height: 1.2;
+  }
+
+  .print-section ul,
+  .print-section ol {
+    margin: 2mm 0 0;
+    padding-left: 6mm;
+  }
+
+  .print-section li + li {
+    margin-top: 1.5mm;
+  }
+
+  .print-agenda {
+    display: grid;
+    gap: 2mm;
+  }
+
+  .print-agenda-row {
+    display: grid;
+    grid-template-columns: 8mm 1fr;
+    gap: 3mm;
+    border-bottom: 1px solid #d1d5db;
+    padding: 0 0 2mm;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .print-agenda-row > span {
+    display: flex;
+    width: 7mm;
+    height: 7mm;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #111827;
+    border-radius: 999px;
+    font-size: 8pt;
+    font-weight: 800;
+  }
+
+  .print-agenda-row p,
+  .print-note-grid p {
+    margin: 0.5mm 0 0;
+  }
+
+  .print-note-grid div {
+    border: 1px solid #d1d5db;
+    padding: 3mm;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .print-checklist {
+    list-style: none;
+    padding-left: 0 !important;
+    columns: 2;
+    column-gap: 8mm;
+  }
+
+  .print-checklist li {
+    break-inside: avoid;
+  }
+
+  .print-checklist li::before {
+    content: "☐ ";
+    font-weight: 700;
+  }
+
+  .complete-package-dossier {
+    font-size: 9.6pt;
+    line-height: 1.42;
+  }
+
+  .complete-package-dossier h1,
+  .complete-package-dossier h2,
+  .dossier-kicker,
+  .dossier-note {
+    color: #111827 !important;
+  }
+
+  .complete-package-dossier h1 {
+    font-size: 22pt;
+  }
+
+  .complete-package-dossier h2 {
+    border-bottom: 1px solid #6b7280;
+    padding-bottom: 1.5mm;
+    font-size: 11pt;
+  }
+
+  .dossier-cover,
+  .dossier-page,
+  .dossier-closing {
+    gap: 4mm;
+  }
+
+  .dossier-meta {
+    border-color: #9ca3af;
+    border-radius: 0;
+    background: #f9fafb !important;
+    padding: 4mm;
+    gap: 3mm 6mm;
+  }
+
+  .dossier-meta strong {
+    color: #4b5563 !important;
+  }
+
+  .dossier-box,
+  .dossier-key-output,
+  .dossier-validation,
+  .dossier-section,
+  .dossier-final-disclaimer {
+    border-color: #9ca3af;
+    border-radius: 0;
+    background: white !important;
+    padding: 3.5mm;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .dossier-box,
+  .dossier-key-output,
+  .dossier-validation,
+  .dossier-final-disclaimer {
+    background: #f3f4f6 !important;
+  }
+
+  .dossier-section ul,
+  .dossier-section ol {
+    margin-top: 2mm;
+    padding-left: 5mm;
+  }
+
+  .dossier-section li + li {
+    margin-top: 1mm;
+  }
+
+  .dossier-checklist {
+    columns: 2;
+    column-gap: 8mm;
+    padding-left: 0 !important;
+  }
+
+  .dossier-checklist li {
+    break-inside: avoid;
+    page-break-inside: avoid;
   }
 }
