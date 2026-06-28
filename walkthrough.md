@@ -1,51 +1,46 @@
-# Operational Walkthrough — YCPS Toolkit Lab v0.4.2 (Matrix Fit-to-Screen & Global Font Readability Pass)
+# Operational Walkthrough — YCPS Toolkit Lab v0.4.3 (Global Readability & Screen-Share Typography Pass)
 
-We have successfully refined the YCPS Matrix 2.0 visual grid layout and global typography settings to deliver a fit-to-screen desktop console experience that requires no horizontal scrolling, while carefully upgrading readability across the entire web application.
+We have successfully refined the YCPS Toolkit Lab typography layout and spacing parameters to deliver a screen-share and live-interview friendly presentation.
 
 ## 🛠️ Changes Implemented
 
-### 1. Matrix Grid Fit-to-Screen (Desktop optimized)
-- **File modified:** [page.tsx (Matrix)](file:///Users/maissaraselim/Library/CloudStorage/OneDrive-Personal/Consultancy/YCPS%20Toolkit%20Lap/src/app/matrix/page.tsx)
-- Removed the rigid desktop `min-w-[1280px]` table width constraint.
-- Implemented a fluid, responsive CSS grid: `w-full table-fixed lg:min-w-0 min-w-[1080px]`.
-- Enabled the full 6x6 grid layout to render in plain view on standard screens (e.g. 13-inch laptops, 1920x1080 display layouts, and screen shares) without horizontal scroll bars.
-- Retained horizontal scrolling on viewports narrower than `1080px` (including mobile layouts at `390px`) to prevent squishing.
-
-### 2. Shorter Column Labels & Supportive Subtitles
-- Shortened primary visible header labels to 1-2 words:
-  1. *Climate* (was *Climate Stressor*)
-  2. *Peace Pathway* (was *Peace Pathway*)
-  3. *Youth Entry* (was *Youth Entry*)
-  4. *Safeguard* (was *Safeguard*)
-  5. *Coordination* (was *Coordination*)
-  6. *Indicator* (was *Indicator*)
-- Refined subtitles in header rendering block to clarify thematic focus:
-  - Climate Stressor: `Stressor analysis`
-  - Peace Pathway: `Risk pathway`
-  - Youth Entry: `Agency role`
-  - Safeguard: `Protection check`
-  - Coordination: `Actors/partners`
-  - Indicator: `M&E / validation`
-
-### 3. Tightened Cell Sizing
-- Reduced cell vertical height from `min-h-[112px]` to `min-h-[100px]`.
-- Reduced cell padding from `px-4 py-5` to `px-3 py-4`.
-- Reduced row label header padding from `px-5 py-5` to `px-3.5 py-4`.
-- Preserved cell text preview font size at `text-[11px]` (with 2-line clamping) and kept codes and status badges visible at `text-[8.5px] - text-[9px]`.
-
-### 4. Global Typography & Readability Pass
+### 1. Global Readability (16px base)
 - **File modified:** [Globals CSS](file:///Users/maissaraselim/Library/CloudStorage/OneDrive-Personal/Consultancy/YCPS%20Toolkit%20Lap/src/app/globals.css)
-- Increased the global body font size base to `15.5px` (previously standard browser sans defaults) and line height to `1.55`.
-- Carefully scaled text sizing across sidebar items, description blocks, labels, and text fields without breaking compact UI cards.
+- Increased global body base font size to `16px` and line height to `1.6`.
+- Maintained `Urbanist` font family mappings globally.
+
+### 2. Print Typography Sizing Isolation (Safeguard)
+- **File modified:** [Globals CSS](file:///Users/maissaraselim/Library/CloudStorage/OneDrive-Personal/Consultancy/YCPS%20Toolkit%20Lap/src/app/globals.css)
+- Isolated print layout typography inside the `.print-document` rules under `@media print`.
+- Enforced a standard compact print sizing `font-size: 11.5px !important` and `line-height: 1.45 !important` on printed documents.
+- This guarantees that the Toolkit Annex and Trainer Guide PDFs compile and print cleanly without text overflows or page alignment shifts.
+
+### 3. Sidebar Navigation Legibility
+- **File modified:** [Sidebar.tsx](file:///Users/maissaraselim/Library/CloudStorage/OneDrive-Personal/Consultancy/YCPS%20Toolkit%20Lap/src/components/Sidebar.tsx)
+- Brand Title: Changed font size to `text-[14.5px] font-bold`.
+- Subtitle: Changed from `text-[9px]` to `text-[10px]`.
+- Navigation item links: Changed text size to `text-[13px]` and set weight to `font-semibold`.
+- Section headers: Upgraded section labels to `text-[11px] font-bold uppercase tracking-widest` to define content groupings clearly.
+- Diplomatic reminders box: Shifted box text from `text-[11px]` to `text-xs` to keep it clean but highly readable.
+
+### 4. Selected-Cell Workspace Sizing
+- **File modified:** [page.tsx (Matrix)](file:///Users/maissaraselim/Library/CloudStorage/OneDrive-Personal/Consultancy/YCPS%20Toolkit%20Lap/src/app/matrix/page.tsx)
+- Workspace Header: Scaled heading up to `text-base` (from `text-sm`) and editing coordinate summaries to `text-[13px]`.
+- Textarea controls: Increased textarea text to `text-sm` (14px) and label elements to `text-xs font-bold`.
+- Sliders: Set slider headers to `text-xs` (labels) and set feedback metadata descriptions (e.g. Low Relevance, Difficult, Assumption) to `text-[10px]` for high resolution legibility.
+- Advanced legacy integration inputs: Shifted advanced textarea inputs to `text-sm` and headers to `text-xs`.
+- Action buttons: Scaled label sizes up from `text-xs` to `text-[13px]` and set spacing to feel balanced.
 
 ---
 
 ## 🧪 Verification & Testing Results
 
 ### Automated Validation
-- **Linter Run:** `npm run lint` -> Passed with **0 errors**.
-- **Production Build:** `npm run build` -> Passed with success, prerendering all routes smoothly.
+- **Linter Run:** `npm run lint` -> Passed successfully with **0 warnings / errors**.
+- **Production Build:** `npm run build` -> Compiled routes successfully.
 
 ### Layout Verification
-- **Desktop Sizing:** Opened `/matrix` and confirmed that the grid scales fluidly with screen width. The horizontal scrollbar is hidden on standard desktop widths, and all cells fit on screen.
-- **Mobile Viewport (390px):** Confirmed horizontal scroll remains fully functional on smaller screen sizes. Cells remain readable, and workspace editing stacks correctly.
+- **Desktop Matrix Fit:** confirmed that the full 6x6 matrix visual grid fits completely on standard desktop viewports without requiring horizontal scrollbars.
+- **Mobile Responsive Layout (390px):** verified that horizontal scroll triggers cleanly on the matrix table, and input grids stack correctly.
+- **App Shell Sizing:** Sidebar and text panels remain balanced and do not clip or break borders.
+- **Vercel Analytics:** Verified that `Analytics` component from `@vercel/analytics/react` remains active in `src/app/layout.tsx`.

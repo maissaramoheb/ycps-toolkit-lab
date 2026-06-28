@@ -139,8 +139,8 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, setIsOpen }) => {
               YC
             </div>
             <div>
-              <span className="font-semibold text-sm tracking-wider text-brand-offwhite">YCPS Toolkit</span>
-              <span className="block text-[9px] text-brand-gold font-bold uppercase tracking-widest">Lab • Africa</span>
+              <span className="font-bold text-[14.5px] tracking-wider text-brand-offwhite">YCPS Toolkit</span>
+              <span className="block text-[10px] text-brand-gold font-bold uppercase tracking-widest">Lab • Africa</span>
             </div>
           </Link>
           <button
@@ -160,7 +160,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, setIsOpen }) => {
             <Link
               href="/"
               onClick={() => setIsOpen(false)}
-              className={`flex items-center gap-3 px-3 py-2 rounded-lg text-xs font-semibold tracking-wide transition-all duration-150 ${
+              className={`flex items-center gap-3 px-3 py-2 rounded-lg text-[13px] font-semibold tracking-wide transition-all duration-150 ${
                 isActive('/')
                   ? 'bg-brand-navy-light text-brand-gold border-l-2 border-brand-gold shadow-md'
                   : 'text-brand-offwhite hover:text-brand-gold hover:bg-brand-navy-light/40'
@@ -174,7 +174,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, setIsOpen }) => {
             <Link
               href="/workflow"
               onClick={() => setIsOpen(false)}
-              className={`flex items-center gap-3 px-3 py-2 rounded-lg text-xs font-semibold tracking-wide transition-all duration-150 ${
+              className={`flex items-center gap-3 px-3 py-2 rounded-lg text-[13px] font-semibold tracking-wide transition-all duration-150 ${
                 isActive('/workflow')
                   ? 'bg-brand-navy-light text-brand-gold border-l-2 border-brand-gold shadow-md'
                   : 'text-brand-offwhite hover:text-brand-gold hover:bg-brand-navy-light/40'
@@ -189,7 +189,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, setIsOpen }) => {
 
           {/* A. Analysis Workspace */}
           <div>
-            <span className="block px-3 text-[10px] font-bold text-brand-gold uppercase tracking-widest mb-2">
+            <span className="block px-3 text-[11px] font-bold text-brand-gold uppercase tracking-widest mb-2">
               Analysis Workspace
             </span>
             <nav className="space-y-0.5">
@@ -200,7 +200,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, setIsOpen }) => {
                     key={link.href}
                     href={link.href}
                     onClick={() => setIsOpen(false)}
-                    className={`flex items-center gap-3 px-3 py-2 rounded-lg text-xs font-medium transition-all duration-150 ${
+                    className={`flex items-center gap-3 px-3 py-2 rounded-lg text-[13px] font-semibold transition-all duration-150 ${
                       active
                         ? 'bg-brand-navy-light text-brand-gold border-l-2 border-brand-gold shadow-md'
                         : 'text-brand-grey-text hover:text-brand-offwhite hover:bg-brand-navy-light/40'
@@ -218,7 +218,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, setIsOpen }) => {
 
           {/* B. Applied Learning & Training */}
           <div>
-            <span className="block px-3 text-[10px] font-bold text-brand-gold uppercase tracking-widest mb-2">
+            <span className="block px-3 text-[11px] font-bold text-brand-gold uppercase tracking-widest mb-2">
               Applied Learning & Training
             </span>
             <nav className="space-y-0.5">
@@ -229,7 +229,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, setIsOpen }) => {
                     key={link.href}
                     href={link.href}
                     onClick={() => setIsOpen(false)}
-                    className={`flex items-center gap-3 px-3 py-2 rounded-lg text-xs font-medium transition-all duration-150 ${
+                    className={`flex items-center gap-3 px-3 py-2 rounded-lg text-[13px] font-semibold transition-all duration-150 ${
                       active
                         ? 'bg-brand-navy-light text-brand-gold border-l-2 border-brand-gold shadow-md'
                         : 'text-brand-grey-text hover:text-brand-offwhite hover:bg-brand-navy-light/40'
@@ -247,7 +247,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, setIsOpen }) => {
 
           {/* C. Output, Review & Validation */}
           <div>
-            <span className="block px-3 text-[10px] font-bold text-brand-gold uppercase tracking-widest mb-2">
+            <span className="block px-3 text-[11px] font-bold text-brand-gold uppercase tracking-widest mb-2">
               Output, Review & Validation
             </span>
             <nav className="space-y-0.5">
@@ -259,7 +259,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, setIsOpen }) => {
                     key={link.href}
                     href={link.href}
                     onClick={() => setIsOpen(false)}
-                    className={`flex items-center gap-3 px-3 py-2 rounded-lg text-xs font-medium transition-all duration-150 ${
+                    className={`flex items-center gap-3 px-3 py-2 rounded-lg text-[13px] font-semibold transition-all duration-150 ${
                       active
                         ? 'bg-brand-navy-light text-brand-gold border-l-2 border-brand-gold shadow-md'
                         : isPlanned
@@ -279,7 +279,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, setIsOpen }) => {
         </div>
 
         {/* Policy Rule Reminder Box */}
-        <div className="p-4 m-4 rounded-lg bg-brand-navy-light/40 border border-brand-grey-border/40 text-[11px] text-brand-grey-text/80 leading-relaxed">
+        <div className="p-4 m-4 rounded-lg bg-brand-navy-light/40 border border-brand-grey-border/40 text-xs text-brand-grey-text/80 leading-relaxed">
           <p className="font-semibold text-brand-gold mb-1 flex items-center gap-1">
             <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
               <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />

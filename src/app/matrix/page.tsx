@@ -680,10 +680,10 @@ Validation: ${cell.validationNote}`;
               {/* Workspace Header */}
               <div className="flex justify-between items-start border-b border-brand-grey-border/30 pb-3.5 gap-4">
                 <div>
-                  <h2 className="text-sm font-bold text-brand-gold uppercase tracking-wider flex items-center gap-2">
+                  <h2 className="text-base font-bold text-brand-gold uppercase tracking-wider flex items-center gap-2">
                     Selected Cell Workspace
                   </h2>
-                  <p className="text-xs text-brand-grey-text mt-1">
+                  <p className="text-[13px] text-brand-grey-text mt-1">
                     Editing: <span className="text-brand-offwhite font-bold">{rows.find(r => r.id === activeRow)?.name}</span> × <span className="text-brand-offwhite font-bold">{cols.find(c => c.id === activeCol)?.name}</span>
                   </p>
                 </div>
@@ -706,7 +706,7 @@ Validation: ${cell.validationNote}`;
                 
                 {/* Matters */}
                 <div className="space-y-1.5">
-                  <label htmlFor="cell-matters" className="block font-bold text-brand-offwhite text-[11px] tracking-wide">
+                  <label htmlFor="cell-matters" className="block font-bold text-brand-offwhite text-xs tracking-wide">
                     1. Why this intersection matters
                   </label>
                   <textarea
@@ -714,13 +714,13 @@ Validation: ${cell.validationNote}`;
                     value={cell.whyMatters}
                     onChange={(e) => handleCellFieldChange('whyMatters', e.target.value)}
                     rows={3}
-                    className="w-full text-xs bg-brand-navy-dark text-brand-offwhite border border-brand-grey-border/80 focus:border-brand-gold rounded-lg p-3 focus:outline-none resize-none leading-relaxed min-h-[100px]"
+                    className="w-full text-sm bg-brand-navy-dark text-brand-offwhite border border-brand-grey-border/80 focus:border-brand-gold rounded-lg p-3 focus:outline-none resize-none leading-relaxed min-h-[100px]"
                   />
                 </div>
 
                 {/* Practical Action */}
                 <div className="space-y-1.5">
-                  <label htmlFor="cell-action" className="block font-bold text-brand-offwhite text-[11px] tracking-wide">
+                  <label htmlFor="cell-action" className="block font-bold text-brand-offwhite text-xs tracking-wide">
                     2. Draft practical action
                   </label>
                   <textarea
@@ -728,13 +728,13 @@ Validation: ${cell.validationNote}`;
                     value={cell.draftAction}
                     onChange={(e) => handleCellFieldChange('draftAction', e.target.value)}
                     rows={3}
-                    className="w-full text-xs bg-brand-navy-dark text-brand-offwhite border border-brand-grey-border/80 focus:border-brand-gold rounded-lg p-3 focus:outline-none resize-none leading-relaxed min-h-[100px]"
+                    className="w-full text-sm bg-brand-navy-dark text-brand-offwhite border border-brand-grey-border/80 focus:border-brand-gold rounded-lg p-3 focus:outline-none resize-none leading-relaxed min-h-[100px]"
                   />
                 </div>
 
                 {/* Youth Role */}
                 <div className="space-y-1.5">
-                  <label htmlFor="cell-youth-role" className="block font-bold text-brand-offwhite text-[11px] tracking-wide">
+                  <label htmlFor="cell-youth-role" className="block font-bold text-brand-offwhite text-xs tracking-wide">
                     3. Youth agency role
                   </label>
                   <textarea
@@ -742,13 +742,13 @@ Validation: ${cell.validationNote}`;
                     value={cell.youthRole}
                     onChange={(e) => handleCellFieldChange('youthRole', e.target.value)}
                     rows={3}
-                    className="w-full text-xs bg-brand-navy-dark text-brand-offwhite border border-brand-grey-border/80 focus:border-brand-gold rounded-lg p-3 focus:outline-none resize-none leading-relaxed min-h-[100px]"
+                    className="w-full text-sm bg-brand-navy-dark text-brand-offwhite border border-brand-grey-border/80 focus:border-brand-gold rounded-lg p-3 focus:outline-none resize-none leading-relaxed min-h-[100px]"
                   />
                 </div>
 
                 {/* Safeguard */}
                 <div className="space-y-1.5">
-                  <label htmlFor="cell-safeguard" className="block font-bold text-brand-offwhite text-[11px] tracking-wide">
+                  <label htmlFor="cell-safeguard" className="block font-bold text-brand-offwhite text-xs tracking-wide">
                     4. Participation/protection safeguard
                   </label>
                   <textarea
@@ -756,13 +756,13 @@ Validation: ${cell.validationNote}`;
                     value={cell.safeguard}
                     onChange={(e) => handleCellFieldChange('safeguard', e.target.value)}
                     rows={3}
-                    className="w-full text-xs bg-brand-navy-dark text-brand-offwhite border border-brand-grey-border/80 focus:border-brand-gold rounded-lg p-3 focus:outline-none resize-none leading-relaxed min-h-[100px]"
+                    className="w-full text-sm bg-brand-navy-dark text-brand-offwhite border border-brand-grey-border/80 focus:border-brand-gold rounded-lg p-3 focus:outline-none resize-none leading-relaxed min-h-[100px]"
                   />
                 </div>
 
                 {/* Stakeholders */}
                 <div className="space-y-1.5">
-                  <label htmlFor="cell-stakeholders" className="block font-bold text-brand-offwhite text-[11px] tracking-wide">
+                  <label htmlFor="cell-stakeholders" className="block font-bold text-brand-offwhite text-xs tracking-wide">
                     5. Stakeholders to involve
                   </label>
                   <textarea
@@ -770,13 +770,13 @@ Validation: ${cell.validationNote}`;
                     value={cell.stakeholders}
                     onChange={(e) => handleCellFieldChange('stakeholders', e.target.value)}
                     rows={3}
-                    className="w-full text-xs bg-brand-navy-dark text-brand-offwhite border border-brand-grey-border/80 focus:border-brand-gold rounded-lg p-3 focus:outline-none resize-none leading-relaxed min-h-[100px]"
+                    className="w-full text-sm bg-brand-navy-dark text-brand-offwhite border border-brand-grey-border/80 focus:border-brand-gold rounded-lg p-3 focus:outline-none resize-none leading-relaxed min-h-[100px]"
                   />
                 </div>
 
                 {/* Indicator */}
                 <div className="space-y-1.5">
-                  <label htmlFor="cell-indicator" className="block font-bold text-brand-offwhite text-[11px] tracking-wide">
+                  <label htmlFor="cell-indicator" className="block font-bold text-brand-offwhite text-xs tracking-wide">
                     6. Draft M&E indicator
                   </label>
                   <textarea
@@ -784,13 +784,13 @@ Validation: ${cell.validationNote}`;
                     value={cell.indicator}
                     onChange={(e) => handleCellFieldChange('indicator', e.target.value)}
                     rows={3}
-                    className="w-full text-xs bg-brand-navy-dark text-brand-offwhite border border-brand-grey-border/80 focus:border-brand-gold rounded-lg p-3 focus:outline-none resize-none leading-relaxed min-h-[100px]"
+                    className="w-full text-sm bg-brand-navy-dark text-brand-offwhite border border-brand-grey-border/80 focus:border-brand-gold rounded-lg p-3 focus:outline-none resize-none leading-relaxed min-h-[100px]"
                   />
                 </div>
 
                 {/* Evidence Gap */}
                 <div className="space-y-1.5">
-                  <label htmlFor="cell-evidence-gap" className="block font-bold text-brand-offwhite text-[11px] tracking-wide">
+                  <label htmlFor="cell-evidence-gap" className="block font-bold text-brand-offwhite text-xs tracking-wide">
                     7. Evidence gap (Assumptions / Data lack)
                   </label>
                   <textarea
@@ -798,13 +798,13 @@ Validation: ${cell.validationNote}`;
                     value={cell.evidenceGap}
                     onChange={(e) => handleCellFieldChange('evidenceGap', e.target.value)}
                     rows={3}
-                    className="w-full text-xs bg-brand-navy-dark text-brand-offwhite border border-brand-grey-border/80 focus:border-brand-gold rounded-lg p-3 focus:outline-none resize-none leading-relaxed min-h-[100px]"
+                    className="w-full text-sm bg-brand-navy-dark text-brand-offwhite border border-brand-grey-border/80 focus:border-brand-gold rounded-lg p-3 focus:outline-none resize-none leading-relaxed min-h-[100px]"
                   />
                 </div>
 
                 {/* Validation Note */}
                 <div className="space-y-1.5">
-                  <label htmlFor="cell-validation-note" className="block font-bold text-brand-offwhite text-[11px] tracking-wide">
+                  <label htmlFor="cell-validation-note" className="block font-bold text-brand-offwhite text-xs tracking-wide">
                     8. Validation note
                   </label>
                   <textarea
@@ -812,7 +812,7 @@ Validation: ${cell.validationNote}`;
                     value={cell.validationNote}
                     onChange={(e) => handleCellFieldChange('validationNote', e.target.value)}
                     rows={3}
-                    className="w-full text-xs bg-brand-navy-dark text-brand-offwhite border border-brand-grey-border/80 focus:border-brand-gold rounded-lg p-3 focus:outline-none resize-none leading-relaxed min-h-[100px]"
+                    className="w-full text-sm bg-brand-navy-dark text-brand-offwhite border border-brand-grey-border/80 focus:border-brand-gold rounded-lg p-3 focus:outline-none resize-none leading-relaxed min-h-[100px]"
                   />
                 </div>
 
@@ -826,38 +826,38 @@ Validation: ${cell.validationNote}`;
                   </summary>
                   <div className="grid md:grid-cols-2 gap-4 mt-4 text-xs">
                     <div className="space-y-1.5">
-                      <span className="block font-bold text-brand-offwhite text-[11px]">Practical Entry Point</span>
+                      <span className="block font-bold text-brand-offwhite text-xs">Practical Entry Point</span>
                       <textarea
                         value={matrixEntries[activeRow as YPSPillarId]?.practicalEntryPoint || ''}
                         onChange={(e) => updateMatrixEntry(activeRow as YPSPillarId, { practicalEntryPoint: e.target.value })}
                         rows={2}
-                        className="w-full text-xs bg-brand-navy-dark text-brand-offwhite border border-brand-grey-border/80 focus:border-brand-gold rounded-lg p-2.5 focus:outline-none resize-none leading-normal"
+                        className="w-full text-sm bg-brand-navy-dark text-brand-offwhite border border-brand-grey-border/80 focus:border-brand-gold rounded-lg p-2.5 focus:outline-none resize-none leading-normal"
                       />
                     </div>
                     <div className="space-y-1.5">
-                      <span className="block font-bold text-brand-offwhite text-[11px]">Diplomatic Wording</span>
+                      <span className="block font-bold text-brand-offwhite text-xs">Diplomatic Wording</span>
                       <textarea
                         value={matrixEntries[activeRow as YPSPillarId]?.diplomaticWording || ''}
                         onChange={(e) => updateMatrixEntry(activeRow as YPSPillarId, { diplomaticWording: e.target.value })}
                         rows={2}
-                        className="w-full text-xs bg-brand-navy-dark text-brand-offwhite border border-brand-grey-border/80 focus:border-brand-gold rounded-lg p-2.5 focus:outline-none resize-none leading-normal"
+                        className="w-full text-sm bg-brand-navy-dark text-brand-offwhite border border-brand-grey-border/80 focus:border-brand-gold rounded-lg p-2.5 focus:outline-none resize-none leading-normal"
                       />
                     </div>
                     <div className="space-y-1.5">
-                      <span className="block font-bold text-brand-offwhite text-[11px]">Red-Team Warning</span>
+                      <span className="block font-bold text-brand-offwhite text-xs">Red-Team Warning</span>
                       <textarea
                         value={matrixEntries[activeRow as YPSPillarId]?.redTeamWarning || ''}
-                        onChange={(e) => updateMatrixEntry(activeRow as YPSPillarId, { redTeamWarning: e.target.value })}
+                        onChange={(e) => updateMatrixEntry(activeRow as YPSPillarId, { diplomaticWording: e.target.value })}
                         rows={2}
-                        className="w-full text-xs bg-brand-navy-dark text-brand-offwhite border border-brand-grey-border/80 focus:border-brand-gold rounded-lg p-2.5 focus:outline-none resize-none leading-normal"
+                        className="w-full text-sm bg-brand-navy-dark text-brand-offwhite border border-brand-grey-border/80 focus:border-brand-gold rounded-lg p-2.5 focus:outline-none resize-none leading-normal"
                       />
                     </div>
                     <div className="space-y-1.5">
-                      <span className="block font-bold text-brand-offwhite text-[11px]">Implementation Output</span>
+                      <span className="block font-bold text-brand-offwhite text-xs">Implementation Output</span>
                       <select
                         value={matrixEntries[activeRow as YPSPillarId]?.implementationOutput || ''}
                         onChange={(e) => updateMatrixEntry(activeRow as YPSPillarId, { implementationOutput: e.target.value })}
-                        className="w-full text-xs bg-brand-navy-dark text-brand-offwhite border border-brand-grey-border/80 focus:border-brand-gold rounded-lg p-2.5 focus:outline-none cursor-pointer"
+                        className="w-full text-sm bg-brand-navy-dark text-brand-offwhite border border-brand-grey-border/80 focus:border-brand-gold rounded-lg p-2.5 focus:outline-none cursor-pointer"
                       >
                         <option value="">-- Select Practical Output Type --</option>
                         <option value="policy_entry_point">Policy Entry Point</option>
@@ -879,7 +879,7 @@ Validation: ${cell.validationNote}`;
                 {/* 1. Priority */}
                 <div className="space-y-2.5">
                   <div className="flex justify-between items-center text-xs">
-                    <span className="font-bold text-brand-offwhite text-[11px] uppercase tracking-wide">Priority</span>
+                    <span className="font-bold text-brand-offwhite text-xs uppercase tracking-wide">Priority</span>
                     <span className="font-bold text-brand-gold text-sm">{cell.priority} / 5</span>
                   </div>
                   <input
@@ -891,7 +891,7 @@ Validation: ${cell.validationNote}`;
                     onChange={(e) => handleCellFieldChange('priority', parseInt(e.target.value))}
                     className="w-full h-1 bg-brand-navy-dark rounded-lg appearance-none cursor-pointer accent-brand-gold"
                   />
-                  <div className="flex justify-between text-[9px] text-brand-grey-text/70 uppercase">
+                  <div className="flex justify-between text-[10px] text-brand-grey-text/70 uppercase">
                     <span>Low Relevance</span>
                     <span>Critical</span>
                   </div>
@@ -900,7 +900,7 @@ Validation: ${cell.validationNote}`;
                 {/* 2. Protection Risk */}
                 <div className="space-y-2.5">
                   <div className="flex justify-between items-center text-xs">
-                    <span className="font-bold text-brand-offwhite text-[11px] uppercase tracking-wide">Protection Risk</span>
+                    <span className="font-bold text-brand-offwhite text-xs uppercase tracking-wide">Protection Risk</span>
                     <span className="font-bold text-brand-gold text-sm">{cell.protectionRisk} / 5</span>
                   </div>
                   <input
@@ -912,7 +912,7 @@ Validation: ${cell.validationNote}`;
                     onChange={(e) => handleCellFieldChange('protectionRisk', parseInt(e.target.value))}
                     className="w-full h-1 bg-brand-navy-dark rounded-lg appearance-none cursor-pointer accent-brand-gold"
                   />
-                  <div className="flex justify-between text-[9px] text-brand-grey-text/70 uppercase">
+                  <div className="flex justify-between text-[10px] text-brand-grey-text/70 uppercase">
                     <span>Low Risk</span>
                     <span>High Risk</span>
                   </div>
@@ -921,7 +921,7 @@ Validation: ${cell.validationNote}`;
                 {/* 3. Feasibility */}
                 <div className="space-y-2.5">
                   <div className="flex justify-between items-center text-xs">
-                    <span className="font-bold text-brand-offwhite text-[11px] uppercase tracking-wide">Feasibility</span>
+                    <span className="font-bold text-brand-offwhite text-xs uppercase tracking-wide">Feasibility</span>
                     <span className="font-bold text-brand-gold text-sm">{cell.feasibility} / 5</span>
                   </div>
                   <input
@@ -933,7 +933,7 @@ Validation: ${cell.validationNote}`;
                     onChange={(e) => handleCellFieldChange('feasibility', parseInt(e.target.value))}
                     className="w-full h-1 bg-brand-navy-dark rounded-lg appearance-none cursor-pointer accent-brand-gold"
                   />
-                  <div className="flex justify-between text-[9px] text-brand-grey-text/70 uppercase">
+                  <div className="flex justify-between text-[10px] text-brand-grey-text/70 uppercase">
                     <span>Difficult</span>
                     <span>Feasible</span>
                   </div>
@@ -942,7 +942,7 @@ Validation: ${cell.validationNote}`;
                 {/* 4. Evidence Confidence */}
                 <div className="space-y-2.5">
                   <div className="flex justify-between items-center text-xs">
-                    <span className="font-bold text-brand-offwhite text-[11px] uppercase tracking-wide">Evidence Confidence</span>
+                    <span className="font-bold text-brand-offwhite text-xs uppercase tracking-wide">Evidence Confidence</span>
                     <span className="font-bold text-brand-gold text-sm">{cell.evidenceConfidence} / 5</span>
                   </div>
                   <input
@@ -954,7 +954,7 @@ Validation: ${cell.validationNote}`;
                     onChange={(e) => handleCellFieldChange('evidenceConfidence', parseInt(e.target.value))}
                     className="w-full h-1 bg-brand-navy-dark rounded-lg appearance-none cursor-pointer accent-brand-gold"
                   />
-                  <div className="flex justify-between text-[9px] text-brand-grey-text/70 uppercase">
+                  <div className="flex justify-between text-[10px] text-brand-grey-text/70 uppercase">
                     <span>Assumption</span>
                     <span>Evidence-based</span>
                   </div>
@@ -969,27 +969,27 @@ Validation: ${cell.validationNote}`;
                 <button
                   type="button"
                   onClick={handleSaveCell}
-                  className="flex-1 px-5 py-3 bg-brand-gold hover:bg-brand-gold-dark text-brand-navy-dark font-extrabold rounded-lg text-xs uppercase tracking-wider text-center transition-all cursor-pointer shadow-md shadow-brand-gold/15"
+                  className="flex-1 px-5 py-3 bg-brand-gold hover:bg-brand-gold-dark text-brand-navy-dark font-extrabold rounded-lg text-[13px] uppercase tracking-wider text-center transition-all cursor-pointer shadow-md shadow-brand-gold/15"
                 >
                   Save cell to workspace
                 </button>
                 <button
                   type="button"
                   onClick={handleCopyCellNote}
-                  className="flex-1 px-5 py-3 bg-brand-navy-light hover:bg-brand-navy-dark text-brand-offwhite border border-brand-grey-border rounded-lg text-xs font-bold tracking-wider uppercase text-center transition-all cursor-pointer"
+                  className="flex-1 px-5 py-3 bg-brand-navy-light hover:bg-brand-navy-dark text-brand-offwhite border border-brand-grey-border rounded-lg text-[13px] font-bold tracking-wider uppercase text-center transition-all cursor-pointer"
                 >
                   Copy selected cell note
                 </button>
                 <button
                   type="button"
                   onClick={handleCopyForToolkit}
-                  className="flex-1 px-5 py-3 border border-brand-grey-border hover:bg-brand-navy-light text-brand-grey-text hover:text-brand-offwhite rounded-lg text-xs font-bold tracking-wider uppercase text-center transition-all cursor-pointer"
+                  className="flex-1 px-5 py-3 border border-brand-grey-border hover:bg-brand-navy-light text-brand-grey-text hover:text-brand-offwhite rounded-lg text-[13px] font-bold tracking-wider uppercase text-center transition-all cursor-pointer"
                 >
                   Copy for Toolkit Package
                 </button>
                 <Link
                   href="/risk-pathways"
-                  className="flex-grow px-5 py-3 bg-brand-navy-light border border-brand-gold/25 hover:border-brand-gold text-brand-gold rounded-lg text-xs font-bold tracking-wider uppercase text-center transition-all"
+                  className="flex-grow px-5 py-3 bg-brand-navy-light border border-brand-gold/25 hover:border-brand-gold text-brand-gold rounded-lg text-[13px] font-bold tracking-wider uppercase text-center transition-all"
                 >
                   Next: Map Risk Pathway
                 </Link>
@@ -997,14 +997,14 @@ Validation: ${cell.validationNote}`;
 
               {/* Temporary copy/save indicator */}
               {copyFeedback && (
-                <div className="text-[11px] text-brand-gold text-center font-semibold italic mt-2 animate-pulse">
+                <div className="text-xs text-brand-gold text-center font-semibold italic mt-2 animate-pulse">
                   {copyFeedback}
                 </div>
               )}
 
             </div>
           ) : (
-            <div className="glass-panel p-6 rounded-xl border border-brand-grey-border/60 text-xs text-brand-grey-text text-center italic">
+            <div className="glass-panel p-6 rounded-xl border border-brand-grey-border/60 text-sm text-brand-grey-text text-center italic">
               Loading YCPS Matrix 2.0 workspace cells...
             </div>
           )}

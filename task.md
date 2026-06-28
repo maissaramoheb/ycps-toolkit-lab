@@ -60,3 +60,12 @@
 - [x] Clarified column focus through subtitles (e.g. Stressor analysis, Risk pathway, Agency role).
 - [x] Increased global base font size to `15.5px` and line height to `1.55` in globals.css.
 - [x] Verified build success and linter compatibility.
+
+## 2026-06-28 — v0.4.3 Global Readability & Screen-Share Typography Pass
+- [x] Increased global body font size to `16px` and line-height to `1.6` in globals.css.
+- [x] Isolated print-document typography inside `.print-document` print media query to keep A4 prints compact (11.5px size, 1.45 line-height).
+- [x] Increased sidebar navigation links to `text-[13px] font-semibold`, brand headers to `14.5px`, and reminders to `text-xs`.
+- [x] Upgraded Selected Cell Workspace textarea font size to `text-sm` (14px) and field labels to `text-xs font-bold`.
+- [x] Increased slider metadata label to `text-[10px]` and label font to `text-xs`.
+- [x] Verified desktop fit-to-screen and 390px mobile layout remain fully operational.
+- [x] Verified lint checks and Turbopack page build successfully compile.
