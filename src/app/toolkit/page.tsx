@@ -18,6 +18,18 @@ export default function WorkplanToolkitPage() {
   const [selectedStakeholderId, setSelectedStakeholderId] = useState<string>('');
   const [selectedOutputType, setSelectedOutputType] = useState<string>('toolkit_section');
 
+  // Interactive Validation Checklist state
+  const [checkedChecks, setCheckedChecks] = useState<Record<number, boolean>>({
+    0: true, 1: true, 2: true, 3: true, 4: true, 5: true, 6: true, 7: true, 8: true, 9: true, 10: true, 11: true, 12: true, 13: true, 14: true
+  });
+
+  const handleToggleCheck = (idx: number) => {
+    setCheckedChecks((prev) => ({
+      ...prev,
+      [idx]: !prev[idx]
+    }));
+  };
+
   const activeActivity = WORKPLAN_ACTIVITIES.find((a) => a.id === selectedActivity) || WORKPLAN_ACTIVITIES[0];
 
   // Predefined Fallback Template Data (CARANA Fictional Scenario)
@@ -314,19 +326,24 @@ export default function WorkplanToolkitPage() {
             Assemble YCPS analysis into practical toolkit-ready outputs for review, training, policy dialogue, and validation.
           </p>
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-3">
           {/* Optional Demo Helper */}
-          <button
-            onClick={() => {
-              if (window.confirm("This will load the CARANA Fictional Training Scenario into your workspace to demonstrate the Toolkit Builder. Continue?")) {
-                loadScenario('carana');
-              }
-            }}
-            type="button"
-            className="px-3.5 py-1.5 bg-brand-gold/15 border border-brand-gold/30 hover:bg-brand-gold/25 text-brand-gold rounded-lg text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer no-print animate-pulse"
-          >
-            <span>🎮 Load CARANA Demo Scenario Data</span>
-          </button>
+          <div className="flex flex-col items-end no-print">
+            <button
+              onClick={() => {
+                if (window.confirm("This will load the CARANA Fictional Training Scenario into your workspace to demonstrate the Toolkit Builder. Continue?")) {
+                  loadScenario('carana');
+                }
+              }}
+              type="button"
+              className="px-3.5 py-1.5 bg-brand-gold/15 border border-brand-gold/30 hover:bg-brand-gold/25 text-brand-gold rounded-lg text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer animate-pulse"
+            >
+              <span>🎮 Load Demo Toolkit Package</span>
+            </button>
+            <span className="text-[9px] text-brand-grey-text mt-0.5">
+              Demo template only — CARANA fictional training scenario
+            </span>
+          </div>
           <div className="text-xs px-3 py-1.5 rounded-lg bg-brand-navy-light border border-brand-grey-border font-medium text-brand-gold">
             Context: {contextName}
           </div>
@@ -749,7 +766,12 @@ export default function WorkplanToolkitPage() {
                     { label: 'Workplan Relevance', desc: `Mapped output satisfies Component 3 targets: ${activeActivity.name.slice(0, 40)}...` }
                   ].map((chk, idx) => (
                     <div key={idx} className="flex items-start gap-2.5">
-                      <input type="checkbox" readOnly checked disabled className="mt-1 h-3.5 w-3.5 text-brand-gold bg-transparent border border-brand-grey-border rounded cursor-not-allowed" />
+                      <input
+                        type="checkbox"
+                        checked={!!checkedChecks[idx]}
+                        onChange={() => handleToggleCheck(idx)}
+                        className="mt-1 h-3.5 w-3.5 text-brand-gold bg-transparent border border-brand-grey-border rounded cursor-pointer"
+                      />
                       <div>
                         <span className="font-bold text-brand-offwhite print:text-black block text-[11px]">{chk.label}</span>
                         <span className="text-[10px] text-brand-grey-text">{chk.desc}</span>
@@ -822,7 +844,7 @@ export default function WorkplanToolkitPage() {
             href="/review"
             className="flex-1 px-4 py-2.5 bg-brand-gold hover:bg-brand-gold-dark text-brand-navy-dark font-bold rounded-lg text-xs tracking-wider uppercase text-center transition-all cursor-pointer shadow-md shadow-brand-gold/15"
           >
-            Review Output →
+            Review Output
           </Link>
           <Link
             href="/language"
