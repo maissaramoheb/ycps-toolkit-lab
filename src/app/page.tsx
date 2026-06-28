@@ -124,53 +124,90 @@ export default function Dashboard() {
                 type="button"
                 className="px-5 py-2.5 bg-brand-gold hover:bg-brand-gold-dark text-brand-navy-dark font-bold rounded-lg text-xs tracking-wider uppercase shadow-md transition-all duration-200 cursor-pointer"
               >
-                Seed Sahel Preset Scenario (Recommended)
+                Load Sahel Scenario into Workspace
               </button>
             )}
             <Link
               href="/matrix"
               className="px-5 py-2.5 bg-brand-navy-light hover:bg-brand-navy-dark text-brand-offwhite border border-brand-grey-border rounded-lg text-xs font-bold tracking-wider uppercase transition-all duration-200"
             >
-              Start Empty Workspace Matrix
+              Open Matrix Workspace
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Demo Flow Navigation Bar */}
-      <section className="glass-panel p-5 rounded-xl border border-brand-gold/25 bg-gradient-to-r from-brand-navy-light/35 to-slate-900 space-y-3">
-        <div className="flex items-center justify-between">
-          <span className="text-[10px] font-bold text-brand-gold tracking-widest uppercase">Quick Demo Flow Navigation (Follow Steps in under 60 seconds)</span>
-          <span className="text-[9px] text-brand-grey-text/80 uppercase">Demo Sequence</span>
-        </div>
-        <div className="flex flex-wrap gap-2 text-[10px] font-medium">
-          <Link href="/case-studies" className="px-3 py-2 rounded bg-brand-navy-light/65 border border-brand-grey-border/50 text-brand-grey-text hover:text-brand-gold hover:border-brand-gold transition-all">
-            1. Select Case Study
-          </Link>
-          <span className="text-brand-grey-text/40 self-center">→</span>
-          <Link href="/matrix" className="px-3 py-2 rounded bg-brand-navy-light/65 border border-brand-grey-border/50 text-brand-grey-text hover:text-brand-gold hover:border-brand-gold transition-all">
-            2. Build YPS Matrix
-          </Link>
-          <span className="text-brand-grey-text/40 self-center">→</span>
-          <Link href="/risk-pathways" className="px-3 py-2 rounded bg-brand-navy-light/65 border border-brand-grey-border/50 text-brand-grey-text hover:text-brand-gold hover:border-brand-gold transition-all">
-            3. Risk Pathway
-          </Link>
-          <span className="text-brand-grey-text/40 self-center">→</span>
-          <Link href="/stakeholders" className="px-3 py-2 rounded bg-brand-navy-light/65 border border-brand-grey-border/50 text-brand-grey-text hover:text-brand-gold hover:border-brand-gold transition-all">
-            4. Stakeholder Map
-          </Link>
-          <span className="text-brand-grey-text/40 self-center">→</span>
-          <Link href="/toolkit" className="px-3 py-2 rounded bg-brand-navy-light/65 border border-brand-grey-border/50 text-brand-grey-text hover:text-brand-gold hover:border-brand-gold transition-all">
-            5. Workplan / Training
-          </Link>
-          <span className="text-brand-grey-text/40 self-center">→</span>
-          <Link href="/language" className="px-3 py-2 rounded bg-brand-navy-light/65 border border-brand-grey-border/50 text-brand-grey-text hover:text-brand-gold hover:border-brand-gold transition-all">
-            6. Wording Review
-          </Link>
-          <span className="text-brand-grey-text/40 self-center">→</span>
-          <Link href="/review" className="px-3 py-2 rounded bg-brand-navy-light/65 border border-brand-grey-border/50 text-brand-grey-text hover:text-brand-gold hover:border-brand-gold transition-all">
-            7. Red-Team Review
-          </Link>
+      {/* Guided Workflow Entry Card */}
+      <section className="relative overflow-hidden rounded-2xl border border-brand-gold/20 bg-gradient-to-br from-brand-navy-light/80 to-slate-900/90 p-8 shadow-xl">
+        <div className="absolute top-0 right-0 w-64 h-64 bg-brand-gold/5 rounded-full filter blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-48 h-48 bg-brand-green/5 rounded-full filter blur-3xl pointer-events-none" />
+        
+        <div className="flex flex-col lg:flex-row justify-between gap-8">
+          <div className="space-y-4 max-w-2xl">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase bg-brand-gold/15 text-brand-gold border border-brand-gold/30">
+              ⚡ Recommended Path
+            </span>
+            <h2 className="text-2xl md:text-3xl font-bold text-brand-offwhite">
+              Start Guided YCPS Toolkit Workflow
+            </h2>
+            <p className="text-xs md:text-sm text-brand-grey-text leading-relaxed">
+              Follow a step-by-step path from scenario selection to final toolkit-ready outputs.
+            </p>
+            
+            {/* Horizontal Stepper Graphic */}
+            <div className="py-2">
+              <div className="flex flex-wrap items-center gap-2 text-[10px] font-bold text-brand-grey-text/80 uppercase">
+                <span className="text-brand-gold">1. Select Context</span>
+                <span className="text-brand-grey-text/40">→</span>
+                <span>2. Analyze</span>
+                <span className="text-brand-grey-text/40">→</span>
+                <span>3. Plan</span>
+                <span className="text-brand-grey-text/40">→</span>
+                <span>4. Protect & Validate</span>
+                <span className="text-brand-grey-text/40">→</span>
+                <span>5. Generate Toolkit Outputs</span>
+                <span className="text-brand-grey-text/40">→</span>
+                <span>6. Review and Refine</span>
+                <span className="text-brand-grey-text/40">→</span>
+                <span className="text-brand-green">7. Export Package</span>
+              </div>
+            </div>
+
+            <div className="pt-2 flex flex-wrap gap-3">
+              <Link
+                href="/workflow"
+                className="px-5 py-2.5 bg-brand-gold hover:bg-brand-gold-dark text-brand-navy-dark font-bold rounded-lg text-xs tracking-wider uppercase shadow-md transition-all duration-200 cursor-pointer text-center"
+              >
+                Start Guided Workflow
+              </Link>
+              <Link
+                href="/toolkit"
+                className="px-5 py-2.5 bg-brand-navy-light hover:bg-brand-navy-dark text-brand-offwhite border border-brand-grey-border rounded-lg text-xs font-bold tracking-wider uppercase transition-all duration-200 text-center"
+              >
+                View Final Output Package
+              </Link>
+            </div>
+          </div>
+
+          <div className="lg:w-80 bg-brand-navy-dark/45 border border-brand-grey-border/40 rounded-xl p-5 space-y-3">
+            <h4 className="text-[11px] font-bold text-brand-gold uppercase tracking-wider">
+              📦 What you will produce:
+            </h4>
+            <ul className="grid grid-cols-2 gap-x-4 gap-y-1.5 text-[10px] text-brand-grey-text list-disc pl-3">
+              <li>Context summary</li>
+              <li>YCPS integration recommendation</li>
+              <li>Climate-security pathway note</li>
+              <li>Youth agency map</li>
+              <li>Participation/protection risk screen</li>
+              <li>Stakeholder coordination strategy</li>
+              <li>Toolkit section draft</li>
+              <li>Activity sheet</li>
+              <li>Facilitator note</li>
+              <li>Policy / programming note</li>
+              <li>Validation checklist</li>
+              <li>Diplomatic language note</li>
+            </ul>
+          </div>
         </div>
       </section>
 
@@ -461,8 +498,8 @@ export default function Dashboard() {
             }
           />
           <ModuleCard
-            title="Activity & Workplan Connector"
-            description="Connect matrix entries, risk pathways, and stakeholder assessments to a CCCPA/DEDI workplan activity and compile a draft workshop session plan."
+            title="Toolkit Builder"
+            description="Assemble workspace data into toolkit-ready materials, including section drafts, activity sheets, facilitator guide notes, policy briefs, and validation checklists."
             href="/toolkit"
             statusText={isPlanReady ? 'Ready' : 'Empty State'}
             statusType={isPlanReady ? 'completed' : 'draft'}

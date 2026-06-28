@@ -6,6 +6,7 @@ import { YPSPillarId, MatrixEntry } from '@/types';
 import { SourceIntegrityPanel } from '@/components/SourceIntegrityPanel';
 import { CopyButton } from '@/components/CopyButton';
 import Link from 'next/link';
+import { WorkflowStrip } from '@/components/WorkflowStrip';
 
 export default function MatrixPage() {
   const { matrixEntries, updateMatrixEntry, contextName } = useApp();
@@ -104,6 +105,26 @@ export default function MatrixPage() {
 
   return (
     <div className="space-y-6">
+      {/* Workflow Strip */}
+      <WorkflowStrip currentStep="analyze" />
+
+      {/* This step produces box */}
+      <div className="glass-panel p-4 rounded-xl border border-brand-gold/25 bg-gradient-to-r from-brand-navy-light/40 to-slate-900/60 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs no-print">
+        <div className="space-y-1">
+          <span className="text-[10px] font-bold text-brand-gold uppercase tracking-wider block">📋 This Step Produces:</span>
+          <p className="text-brand-grey-text">
+            <strong>Task:</strong> Assess and edit Climate-Security integration actions across the 5 YPS pillars. <br />
+            <strong>Deliverable:</strong> Local YCPS action recommendations and M&E indicators.
+          </p>
+        </div>
+        <Link
+          href="/risk-pathways"
+          className="shrink-0 px-4 py-2 bg-brand-gold hover:bg-brand-gold-dark text-brand-navy-dark font-bold rounded-lg text-xs uppercase tracking-wider text-center transition-all cursor-pointer"
+        >
+          Next: Map Risk Pathway →
+        </Link>
+      </div>
+
       {/* Page Header */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-brand-grey-border/60 pb-5">
         <div>
@@ -459,13 +480,13 @@ export default function MatrixPage() {
                 href="/review"
                 className="flex-1 px-3 py-2 bg-brand-gold hover:bg-brand-gold-dark text-brand-navy-dark font-bold rounded-md text-[10px] tracking-wider uppercase text-center transition-all cursor-pointer"
               >
-                Review this output →
+                Run Red-Team Review
               </Link>
               <Link
                 href="/toolkit"
                 className="flex-1 px-3 py-2 bg-brand-navy-light hover:bg-brand-navy-dark text-brand-offwhite border border-brand-grey-border rounded-md text-[10px] font-bold tracking-wider uppercase text-center transition-all cursor-pointer"
               >
-                Use in Toolkit / Workplan
+                Open Toolkit Builder
               </Link>
             </div>
           </div>

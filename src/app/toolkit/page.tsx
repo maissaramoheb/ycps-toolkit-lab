@@ -7,6 +7,7 @@ import { CopyButton } from '@/components/CopyButton';
 import { SourceIntegrityPanel } from '@/components/SourceIntegrityPanel';
 import { YPSPillarId } from '@/types';
 import Link from 'next/link';
+import { WorkflowStrip } from '@/components/WorkflowStrip';
 
 export default function WorkplanToolkitPage() {
   const { matrixEntries, riskPathways, stakeholders, contextName, loadScenario } = useApp();
@@ -316,6 +317,26 @@ export default function WorkplanToolkitPage() {
 
   return (
     <div className="space-y-6 animate-fade-in">
+      {/* Workflow Strip */}
+      <WorkflowStrip currentStep="toolkit" />
+
+      {/* This step produces box */}
+      <div className="glass-panel p-4 rounded-xl border border-brand-gold/25 bg-gradient-to-r from-brand-navy-light/40 to-slate-900/60 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs no-print">
+        <div className="space-y-1">
+          <span className="text-[10px] font-bold text-brand-gold uppercase tracking-wider block">📋 This Step Produces:</span>
+          <p className="text-brand-grey-text">
+            <strong>Task:</strong> Assemble workspace mappings into formatted training guidelines, policy notes, and briefs. <br />
+            <strong>Deliverable:</strong> Toolkit section drafts, activity sheets, policy notes, consultation briefs, and validation checklists.
+          </p>
+        </div>
+        <Link
+          href="/review"
+          className="shrink-0 px-4 py-2 bg-brand-gold hover:bg-brand-gold-dark text-brand-navy-dark font-bold rounded-lg text-xs uppercase tracking-wider text-center transition-all cursor-pointer"
+        >
+          Next: Review Output →
+        </Link>
+      </div>
+
       {/* Page Header */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-brand-grey-border/60 pb-5 no-print">
         <div>

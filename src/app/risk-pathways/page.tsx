@@ -5,6 +5,8 @@ import { useApp } from '@/context/AppContext';
 import { RiskPathway, PeaceSecurityPathwayType, EvidenceStrengthType } from '@/types';
 import { SourceIntegrityPanel } from '@/components/SourceIntegrityPanel';
 import { CopyButton } from '@/components/CopyButton';
+import { WorkflowStrip } from '@/components/WorkflowStrip';
+import Link from 'next/link';
 
 export default function RiskPathwaysPage() {
   const {
@@ -12,7 +14,8 @@ export default function RiskPathwaysPage() {
     addRiskPathway,
     updateRiskPathway,
     deleteRiskPathway,
-    contextName
+    contextName,
+    loadScenario
   } = useApp();
 
   // Form State
@@ -141,6 +144,26 @@ export default function RiskPathwaysPage() {
 
   return (
     <div className="space-y-6">
+      {/* Workflow Strip */}
+      <WorkflowStrip currentStep="analyze" />
+
+      {/* This step produces box */}
+      <div className="glass-panel p-4 rounded-xl border border-brand-gold/25 bg-gradient-to-r from-brand-navy-light/40 to-slate-900/60 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs no-print">
+        <div className="space-y-1">
+          <span className="text-[10px] font-bold text-brand-gold uppercase tracking-wider block">📋 This Step Produces:</span>
+          <p className="text-brand-grey-text">
+            <strong>Task:</strong> Map compound climate stressors, capacity constraints, youth impacts, and opportunities. <br />
+            <strong>Deliverable:</strong> Context-specific climate-security programming notes and entry points.
+          </p>
+        </div>
+        <Link
+          href="/stakeholders"
+          className="shrink-0 px-4 py-2 bg-brand-gold hover:bg-brand-gold-dark text-brand-navy-dark font-bold rounded-lg text-xs uppercase tracking-wider text-center transition-all cursor-pointer"
+        >
+          Next: Map Stakeholders →
+        </Link>
+      </div>
+
       {/* Page Header */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-brand-grey-border/60 pb-5">
         <div>
@@ -420,7 +443,7 @@ export default function RiskPathwaysPage() {
             </div>
 
             {riskPathways.length === 0 ? (
-              <div className="glass-panel p-8 text-center rounded-xl border border-brand-grey-border/45 space-y-3">
+              <div className="glass-panel p-8 text-center rounded-xl border border-brand-grey-border/45 space-y-4">
                 <div className="text-brand-grey-text/40 flex justify-center">
                   <svg className="w-12 h-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
@@ -428,8 +451,27 @@ export default function RiskPathwaysPage() {
                 </div>
                 <h4 className="text-sm font-bold text-brand-offwhite">No Risk Pathways Mapped</h4>
                 <p className="text-xs text-brand-grey-text max-w-sm mx-auto">
-                  Define a custom pathway using the form, or select a preset scenario from the top bar to load pre-mapped agropastoral cascades.
+                  No workspace input yet. Start with a case study or continue with the CARANA fictional training scenario template.
                 </p>
+                <div className="flex flex-col sm:flex-row justify-center gap-3 pt-2">
+                  <Link
+                    href="/case-studies"
+                    className="px-4 py-2 bg-brand-gold hover:bg-brand-gold-dark text-brand-navy-dark text-xs font-bold rounded-lg uppercase tracking-wider transition-all text-center"
+                  >
+                    Choose Case Study
+                  </Link>
+                  <button
+                    onClick={() => {
+                      if (window.confirm("This will load the CARANA Fictional Scenario into your workspace. Continue?")) {
+                        loadScenario('carana');
+                      }
+                    }}
+                    type="button"
+                    className="px-4 py-2 bg-brand-navy-light hover:bg-brand-navy-dark text-brand-offwhite border border-brand-grey-border text-xs font-bold rounded-lg uppercase tracking-wider transition-all cursor-pointer text-center"
+                  >
+                    Continue with CARANA Template
+                  </button>
+                </div>
               </div>
             ) : (
               <div className="space-y-4">

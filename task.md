@@ -15,3 +15,12 @@
 - [x] Upgraded /toolkit to a full Toolkit Builder page with 7 exportable document types.
 - [x] Added demo scenario loader, copy-to-clipboard markdown compilers, and print overrides.
 - [x] Re-ran linter and compiled clean production build.
+
+## 2026-06-28 — Guided Workflow & Tool Clusters
+- [x] Added prominent Guided Workflow hero entry card to Dashboard.
+- [x] Created step-by-step workflow controller page under `/workflow` with status and cluster mappings.
+- [x] Integrated reusable `WorkflowStrip` navigation bar at the top of all 8 core workspace pages.
+- [x] Implemented "This step produces" guidance panels on all core pages with action-oriented redirections.
+- [x] Refined button labels across the workspace to make them clear and action-specific.
+- [x] Added empty-state presets loader helper controls to pathways, stakeholders, and red-team desks.
+- [x] Verified build and linter status with zero errors and warnings.

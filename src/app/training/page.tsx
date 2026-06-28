@@ -5,6 +5,8 @@ import { useApp } from '@/context/AppContext';
 import { SourceIntegrityPanel } from '@/components/SourceIntegrityPanel';
 import { SourceId } from '@/lib/sourceTruth';
 import { CopyButton } from '@/components/CopyButton';
+import { WorkflowStrip } from '@/components/WorkflowStrip';
+import Link from 'next/link';
 
 export default function TrainingPage() {
   const { riskPathways, stakeholders, contextName } = useApp();
@@ -231,6 +233,26 @@ export default function TrainingPage() {
 
   return (
     <div className="space-y-6 animate-fade-in">
+      {/* Workflow Strip */}
+      <WorkflowStrip currentStep="toolkit" />
+
+      {/* This step produces box */}
+      <div className="glass-panel p-4 rounded-xl border border-brand-gold/25 bg-gradient-to-r from-brand-navy-light/40 to-slate-900/60 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs no-print">
+        <div className="space-y-1">
+          <span className="text-[10px] font-bold text-brand-gold uppercase tracking-wider block">📋 This Step Produces:</span>
+          <p className="text-brand-grey-text">
+            <strong>Task:</strong> Configure workshop simulation designs and trainer guidelines. <br />
+            <strong>Deliverable:</strong> Workshop session plan, activity cards, and facilitator guide notes.
+          </p>
+        </div>
+        <Link
+          href="/toolkit"
+          className="shrink-0 px-4 py-2 bg-brand-gold hover:bg-brand-gold-dark text-brand-navy-dark font-bold rounded-lg text-xs uppercase tracking-wider text-center transition-all cursor-pointer"
+        >
+          Use in Toolkit Package →
+        </Link>
+      </div>
+
       {/* Page Header */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-brand-grey-border/60 pb-5 no-print">
         <div>

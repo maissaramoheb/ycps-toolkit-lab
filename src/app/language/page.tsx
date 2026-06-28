@@ -4,6 +4,8 @@ import React, { useState } from 'react';
 import { SourceIntegrityPanel } from '@/components/SourceIntegrityPanel';
 import { APPROVED_VOCABULARY_RULES, WordingRule } from '@/lib/sourceTruth';
 import { CopyButton } from '@/components/CopyButton';
+import { WorkflowStrip } from '@/components/WorkflowStrip';
+import Link from 'next/link';
 
 interface AuditResult {
   rule: WordingRule;
@@ -109,6 +111,26 @@ export default function DiplomaticLanguagePage() {
 
   return (
     <div className="space-y-6 animate-fade-in">
+      {/* Workflow Strip */}
+      <WorkflowStrip currentStep="review" />
+
+      {/* This step produces box */}
+      <div className="glass-panel p-4 rounded-xl border border-brand-gold/25 bg-gradient-to-r from-brand-navy-light/40 to-slate-900/60 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs no-print">
+        <div className="space-y-1">
+          <span className="text-[10px] font-bold text-brand-gold uppercase tracking-wider block">📋 This Step Produces:</span>
+          <p className="text-brand-grey-text">
+            <strong>Task:</strong> Paste text drafts here to scan them for strategic diplomatic wording compliance. <br />
+            <strong>Deliverable:</strong> Revised diplomatic text and screening briefing notes.
+          </p>
+        </div>
+        <Link
+          href="/toolkit"
+          className="shrink-0 px-4 py-2 bg-brand-gold hover:bg-brand-gold-dark text-brand-navy-dark font-bold rounded-lg text-xs uppercase tracking-wider text-center transition-all cursor-pointer"
+        >
+          Final: Export Package →
+        </Link>
+      </div>
+
       {/* Page Header */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-brand-grey-border/60 pb-5 no-print">
         <div>
@@ -195,7 +217,7 @@ export default function DiplomaticLanguagePage() {
                   onClick={() => handleExampleClick('')}
                   className="px-4 py-2.5 border border-brand-grey-border hover:bg-brand-navy-light text-brand-grey-text hover:text-brand-offwhite rounded-lg text-xs font-bold transition-all duration-200 cursor-pointer"
                 >
-                  Clear
+                  Clear Text Editor
                 </button>
               )}
             </div>

@@ -5,6 +5,8 @@ import { useApp } from '@/context/AppContext';
 import { Stakeholder, ActorType, InfluenceType, PositionType, YouthInclusionQualityType } from '@/types';
 import { SourceIntegrityPanel } from '@/components/SourceIntegrityPanel';
 import { CopyButton } from '@/components/CopyButton';
+import { WorkflowStrip } from '@/components/WorkflowStrip';
+import Link from 'next/link';
 
 export default function StakeholdersPage() {
   const {
@@ -12,7 +14,8 @@ export default function StakeholdersPage() {
     addStakeholder,
     updateStakeholder,
     deleteStakeholder,
-    contextName
+    contextName,
+    loadScenario
   } = useApp();
 
   // Form State
@@ -157,6 +160,26 @@ export default function StakeholdersPage() {
 
   return (
     <div className="space-y-6 animate-fade-in">
+      {/* Workflow Strip */}
+      <WorkflowStrip currentStep="plan" />
+
+      {/* This step produces box */}
+      <div className="glass-panel p-4 rounded-xl border border-brand-gold/25 bg-gradient-to-r from-brand-navy-light/40 to-slate-900/60 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs no-print">
+        <div className="space-y-1">
+          <span className="text-[10px] font-bold text-brand-gold uppercase tracking-wider block">📋 This Step Produces:</span>
+          <p className="text-brand-grey-text">
+            <strong>Task:</strong> Map actor interest, influence, and youth inclusion levels. <br />
+            <strong>Deliverable:</strong> Stakeholder coordination strategy and partnership map.
+          </p>
+        </div>
+        <Link
+          href="/toolkit"
+          className="shrink-0 px-4 py-2 bg-brand-gold hover:bg-brand-gold-dark text-brand-navy-dark font-bold rounded-lg text-xs uppercase tracking-wider text-center transition-all cursor-pointer"
+        >
+          Next: Generate Toolkit Output →
+        </Link>
+      </div>
+
       {/* Page Header */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-brand-grey-border/60 pb-5">
         <div>
@@ -486,7 +509,7 @@ export default function StakeholdersPage() {
 
             {/* Table Container */}
             {filteredStakeholders.length === 0 ? (
-              <div className="glass-panel p-8 text-center rounded-xl border border-brand-grey-border/45 space-y-3">
+              <div className="glass-panel p-8 text-center rounded-xl border border-brand-grey-border/45 space-y-4">
                 <div className="text-brand-grey-text/40 flex justify-center">
                   <svg className="w-12 h-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
@@ -495,9 +518,30 @@ export default function StakeholdersPage() {
                 <h4 className="text-sm font-bold text-brand-offwhite">No Stakeholders Mapped</h4>
                 <p className="text-xs text-brand-grey-text max-w-sm mx-auto">
                   {stakeholders.length === 0
-                    ? 'Register a stakeholder using the registration form on the left, or seed a preset scenario from the dashboard overview to populate the workspace.'
+                    ? 'No workspace input yet. Start with a case study or continue with the CARANA fictional training scenario template.'
                     : 'No stakeholders match your active filter settings. Try resetting the filters above.'}
                 </p>
+                {stakeholders.length === 0 && (
+                  <div className="flex flex-col sm:flex-row justify-center gap-3 pt-2">
+                    <Link
+                      href="/case-studies"
+                      className="px-4 py-2 bg-brand-gold hover:bg-brand-gold-dark text-brand-navy-dark text-xs font-bold rounded-lg uppercase tracking-wider transition-all text-center"
+                    >
+                      Choose Case Study
+                    </Link>
+                    <button
+                      onClick={() => {
+                        if (window.confirm("This will load the CARANA Fictional Scenario into your workspace. Continue?")) {
+                          loadScenario('carana');
+                        }
+                      }}
+                      type="button"
+                      className="px-4 py-2 bg-brand-navy-light hover:bg-brand-navy-dark text-brand-offwhite border border-brand-grey-border text-xs font-bold rounded-lg uppercase tracking-wider transition-all cursor-pointer text-center"
+                    >
+                      Continue with CARANA Template
+                    </button>
+                  </div>
+                )}
               </div>
             ) : (
               <div className="space-y-4">

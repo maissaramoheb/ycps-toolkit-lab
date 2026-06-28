@@ -8,9 +8,13 @@ import {
   ComplianceWarning
 } from '@/lib/sourceTruth';
 import { CopyButton } from '@/components/CopyButton';
+import { WorkflowStrip } from '@/components/WorkflowStrip';
+import Link from 'next/link';
 
 export default function RedTeamReviewPage() {
-  const { matrixEntries, riskPathways, stakeholders, contextName } = useApp();
+  const { matrixEntries, riskPathways, stakeholders, contextName, loadScenario } = useApp();
+
+  const isWorkspaceEmpty = riskPathways.length === 0 && stakeholders.length === 0 && Object.values(matrixEntries).every(e => e.climateSecurityConsideration.trim() === '' && e.youthRoleAgency.trim() === '');
 
   // Run compliance audit across all loaded data
   const audits: { source: string; text: string; warnings: ComplianceWarning[] }[] = [];
@@ -175,6 +179,57 @@ ${failedChecks.map((f, i) => `${i+1}. ${f}`).join('\n') || 'All checklist items 
 
   return (
     <div className="space-y-6 animate-fade-in">
+      {/* Workflow Strip */}
+      <WorkflowStrip currentStep="protect" />
+
+      {/* This step produces box */}
+      <div className="glass-panel p-4 rounded-xl border border-brand-gold/25 bg-gradient-to-r from-brand-navy-light/40 to-slate-900/60 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs no-print">
+        <div className="space-y-1">
+          <span className="text-[10px] font-bold text-brand-gold uppercase tracking-wider block">📋 This Step Produces:</span>
+          <p className="text-brand-grey-text">
+            <strong>Task:</strong> Run compliance audits on wording infractions and complete checklist reviews. <br />
+            <strong>Deliverable:</strong> Readiness action plan and youth participation/protection safeguard notes.
+          </p>
+        </div>
+        <Link
+          href="/language"
+          className="shrink-0 px-4 py-2 bg-brand-gold hover:bg-brand-gold-dark text-brand-navy-dark font-bold rounded-lg text-xs uppercase tracking-wider text-center transition-all cursor-pointer"
+        >
+          Next: Refine Wording →
+        </Link>
+      </div>
+
+      {/* Empty State Banner */}
+      {isWorkspaceEmpty && (
+        <div className="glass-panel p-4 rounded-xl border border-brand-gold/30 bg-brand-gold/5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs no-print">
+          <div className="space-y-1">
+            <span className="text-[10px] font-bold text-brand-gold uppercase tracking-wider block">⚠️ No Workspace Data Logged</span>
+            <p className="text-brand-grey-text">
+              No workspace input yet. Start with a case study or continue with the CARANA fictional training scenario template.
+            </p>
+          </div>
+          <div className="flex gap-2">
+            <Link
+              href="/case-studies"
+              className="px-3.5 py-1.5 bg-brand-gold hover:bg-brand-gold-dark text-brand-navy-dark font-bold rounded-lg text-[10px] tracking-wider uppercase text-center transition-all cursor-pointer"
+            >
+              Choose Case Study
+            </Link>
+            <button
+              onClick={() => {
+                if (window.confirm("This will load the CARANA Fictional Scenario into your workspace. Continue?")) {
+                  loadScenario('carana');
+                }
+              }}
+              type="button"
+              className="px-3.5 py-1.5 bg-brand-navy-light hover:bg-brand-navy-dark text-brand-offwhite border border-brand-grey-border font-bold rounded-lg text-[10px] tracking-wider uppercase text-center transition-all cursor-pointer"
+            >
+              Continue with CARANA Template
+            </button>
+          </div>
+        </div>
+      )}
+
       {/* Page Header */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-brand-grey-border/60 pb-5">
         <div>

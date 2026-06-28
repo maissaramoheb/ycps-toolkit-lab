@@ -5,6 +5,8 @@ import { useApp } from '@/context/AppContext';
 import { SourceIntegrityPanel } from '@/components/SourceIntegrityPanel';
 import { SourceId } from '@/lib/sourceTruth';
 import { CopyButton } from '@/components/CopyButton';
+import { WorkflowStrip } from '@/components/WorkflowStrip';
+import Link from 'next/link';
 
 interface CaseStudy {
   id: string; // matches scenarioId exactly
@@ -355,6 +357,26 @@ ${cs.cautions.map((c) => `- ${c}`).join('\n')}
 
   return (
     <div className="space-y-6 animate-fade-in">
+      {/* Workflow Strip */}
+      <WorkflowStrip currentStep="context" />
+
+      {/* This step produces box */}
+      <div className="glass-panel p-4 rounded-xl border border-brand-gold/25 bg-gradient-to-r from-brand-navy-light/40 to-slate-900/60 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs no-print">
+        <div className="space-y-1">
+          <span className="text-[10px] font-bold text-brand-gold uppercase tracking-wider block">📋 This Step Produces:</span>
+          <p className="text-brand-grey-text">
+            <strong>Task:</strong> Select and load a training case study context or configure a custom context. <br />
+            <strong>Deliverable:</strong> Context summary and case-based exercise baseline.
+          </p>
+        </div>
+        <Link
+          href="/matrix"
+          className="shrink-0 px-4 py-2 bg-brand-gold hover:bg-brand-gold-dark text-brand-navy-dark font-bold rounded-lg text-xs uppercase tracking-wider text-center transition-all cursor-pointer"
+        >
+          Next: Build YCPS Matrix →
+        </Link>
+      </div>
+
       {/* Page Header */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-brand-grey-border/60 pb-5 no-print">
         <div>
@@ -739,7 +761,7 @@ ${cs.cautions.map((c) => `- ${c}`).join('\n')}
                       type="button"
                       className="px-3.5 py-2 bg-brand-gold hover:bg-brand-gold-dark text-brand-navy-dark font-bold rounded-lg text-xs tracking-wider uppercase transition-all duration-200 cursor-pointer shadow-md shadow-brand-gold/10"
                     >
-                      Use this case in workspace
+                      Load this case into workspace
                     </button>
                     <CopyButton text={getMarkdownBrief(activeCase)} label="Export Case Brief" />
                   </div>
