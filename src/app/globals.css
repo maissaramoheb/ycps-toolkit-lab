@@ -193,8 +193,8 @@ body {
     box-shadow: none !important;
     background: white !important;
     color: #111827 !important;
-    font-size: 11.5px !important;
-    line-height: 1.45 !important;
+    font-size: 11.5px;
+    line-height: 1.45;
   }
   .print-document > .space-y-4 > *:not(:last-child) {
     margin-block-end: 3mm !important;

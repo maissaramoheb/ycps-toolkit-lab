@@ -760,7 +760,7 @@ export default function WorkplanToolkitPage() {
             {/* Screen Header block inside the sheet (Hidden on print) */}
             <div className="border-b border-brand-gold pb-4 print:hidden">
               <span className="text-[10px] font-bold text-brand-gold uppercase tracking-widest block">
-                CCCPA Component 3 Operational Planner
+                Prototype planner aligned with Component 3
               </span>
               <h2 className="text-base font-bold text-brand-offwhite leading-snug mt-1 uppercase">
                 {selectedOutputType.replace('_', ' ')}: {activeActivity.name}

@@ -69,3 +69,15 @@
 - [x] Increased slider metadata label to `text-[10px]` and label font to `text-xs`.
 - [x] Verified desktop fit-to-screen and 390px mobile layout remain fully operational.
 - [x] Verified lint checks and Turbopack page build successfully compile.
+
+## 2026-06-29 — v0.4.4 Critical Interview Freeze Fixes
+- [x] Refactored `handleSaveCell` to be column-aware and non-destructive for official pillars.
+- [x] Changed cross-cutting lens cell save feedback to accurately report that official YPS fields remain unchanged.
+- [x] Fixed Red-Team Warning textarea binding so that it writes to `redTeamWarning` instead of `diplomaticWording`.
+- [x] Implemented keyboard accessibility (`role="button"`, `tabIndex={0}`, `aria-label`, and `onKeyDown`) on matrix cells.
+- [x] Added `aria-label` attributes to the four scoring sliders.
+- [x] Increased status badge microtext from `8px` to `9.5px` and added guidance note below starter cells heading.
+- [x] Performed terminology replacements across dashboard, case-studies, toolkit, brief, and risk-pathways.
+- [x] Changed footer version label to `Prototype version: v0.4.4`.
+- [x] Removed `!important` from print-only font-size inside globals.css to support typographic hierarchy on A4 printouts.
+- [x] Verified lint/build compilation successfully passes.

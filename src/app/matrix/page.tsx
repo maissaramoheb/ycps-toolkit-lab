@@ -307,17 +307,37 @@ export default function MatrixPage() {
     
     // 2. Synchronize compatible legacy fields if row is an official YPS pillar
     const isOfficial = activeRow !== 'youth_agency_leadership';
+    let feedback = 'Cell saved. No legacy pillar fields were changed for this planning dimension.';
+    
     if (isOfficial) {
-      updateMatrixEntry(activeRow as YPSPillarId, {
-        climateSecurityConsideration: cell.whyMatters,
-        suggestedAction: cell.draftAction,
-        youthRoleAgency: cell.youthRole,
-        protectionConcern: cell.safeguard,
-        indicator: cell.indicator
-      });
+      if (activeCol === 'climate_stressor') {
+        updateMatrixEntry(activeRow as YPSPillarId, {
+          climateSecurityConsideration: cell.whyMatters
+        });
+        feedback = 'Cell saved and compatible pillar field updated.';
+      } else if (activeCol === 'youth_entry') {
+        updateMatrixEntry(activeRow as YPSPillarId, {
+          youthRoleAgency: cell.youthRole
+        });
+        feedback = 'Cell saved and compatible pillar field updated.';
+      } else if (activeCol === 'protection_safeguard') {
+        updateMatrixEntry(activeRow as YPSPillarId, {
+          protectionConcern: cell.safeguard
+        });
+        feedback = 'Cell saved and compatible pillar field updated.';
+      } else if (activeCol === 'indicator_validation') {
+        updateMatrixEntry(activeRow as YPSPillarId, {
+          indicator: cell.indicator
+        });
+        feedback = 'Cell saved and compatible pillar field updated.';
+      } else {
+        feedback = 'Cell saved. No legacy pillar fields were changed for this planning dimension.';
+      }
+    } else {
+      feedback = 'Cross-cutting lens cell saved. Official YPS pillar fields were not changed.';
     }
     
-    setCopyFeedback('Cell saved and synchronized to global workspace!');
+    setCopyFeedback(feedback);
     setTimeout(() => setCopyFeedback(''), 3000);
   };
 
@@ -518,6 +538,7 @@ Validation: ${cell.validationNote}`;
         </div>
         <div className="glass-panel p-4 rounded-xl border border-brand-grey-border/30 bg-slate-900/40 text-xs space-y-2">
           <h3 className="font-bold text-brand-offwhite uppercase tracking-wider text-[11px]">Recommended starter cells</h3>
+          <p className="text-[10px] text-brand-grey-text italic">Start here if you are not sure which cell to analyze first.</p>
           <div className="flex flex-wrap gap-1.5 pt-0.5">
             {starterCells.map((starter, idx) => {
               const active = activeRow === starter.rowId && activeCol === starter.colId;
@@ -525,7 +546,7 @@ Validation: ${cell.validationNote}`;
                 <button
                   key={idx}
                   onClick={() => handleCellClick(starter.rowId, starter.colId)}
-                  className={`text-[9px] font-semibold px-2.5 py-1.5 rounded-lg border transition-all text-left cursor-pointer ${
+                  className={`text-[10px] font-semibold px-2.5 py-1.5 rounded-lg border transition-all text-left cursor-pointer ${
                     active
                       ? 'bg-brand-gold text-brand-navy-dark border-brand-gold font-bold'
                       : 'bg-brand-navy-light/40 text-brand-grey-text border-brand-grey-border/20 hover:text-brand-offwhite hover:border-brand-grey-border/40'
@@ -640,7 +661,16 @@ Validation: ${cell.validationNote}`;
                     <td
                       key={cellKey}
                       onClick={() => handleCellClick(row.id as YCPSMatrixRowId, col.id as YCPSMatrixColumnId)}
-                      className={`px-3 py-4 border border-brand-grey-border/20 transition-all cursor-pointer text-left align-top select-none ${statusBg} ${
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                          e.preventDefault();
+                          handleCellClick(row.id as YCPSMatrixRowId, col.id as YCPSMatrixColumnId);
+                        }
+                      }}
+                      role="button"
+                      tabIndex={0}
+                      aria-label={`Select intersection cell: ${row.name} by ${col.label}`}
+                      className={`px-3 py-4 border border-brand-grey-border/20 transition-all cursor-pointer text-left align-top select-none focus:outline-none focus:ring-2 focus:ring-brand-gold ${statusBg} ${
                         isSelected
                           ? 'ring-2 ring-brand-gold bg-brand-navy-light/95 border-transparent shadow-xl shadow-brand-gold/15 z-10'
                           : 'hover:bg-brand-navy-light/25'
@@ -651,7 +681,7 @@ Validation: ${cell.validationNote}`;
                           <span className="text-[9px] text-brand-grey-text font-bold uppercase tracking-wider">
                             {row.id.slice(0, 4)}×{col.id.slice(0, 4)}
                           </span>
-                          <span className={`flex items-center gap-1 text-[8px] font-bold px-1.5 py-0.5 rounded border ${statusBorder} ${statusDotColor.replace('bg-', 'text-')}`}>
+                          <span className={`flex items-center gap-1 text-[9.5px] font-bold px-1.5 py-0.5 rounded border ${statusBorder} ${statusDotColor.replace('bg-', 'text-')}`}>
                             <span className={`h-1.5 w-1.5 rounded-full ${statusDotColor}`} />
                             {statusText}
                           </span>
@@ -847,7 +877,7 @@ Validation: ${cell.validationNote}`;
                       <span className="block font-bold text-brand-offwhite text-xs">Red-Team Warning</span>
                       <textarea
                         value={matrixEntries[activeRow as YPSPillarId]?.redTeamWarning || ''}
-                        onChange={(e) => updateMatrixEntry(activeRow as YPSPillarId, { diplomaticWording: e.target.value })}
+                        onChange={(e) => updateMatrixEntry(activeRow as YPSPillarId, { redTeamWarning: e.target.value })}
                         rows={2}
                         className="w-full text-sm bg-brand-navy-dark text-brand-offwhite border border-brand-grey-border/80 focus:border-brand-gold rounded-lg p-2.5 focus:outline-none resize-none leading-normal"
                       />
@@ -888,6 +918,7 @@ Validation: ${cell.validationNote}`;
                     max="5"
                     step="1"
                     value={cell.priority}
+                    aria-label="Priority Score"
                     onChange={(e) => handleCellFieldChange('priority', parseInt(e.target.value))}
                     className="w-full h-1 bg-brand-navy-dark rounded-lg appearance-none cursor-pointer accent-brand-gold"
                   />
@@ -909,6 +940,7 @@ Validation: ${cell.validationNote}`;
                     max="5"
                     step="1"
                     value={cell.protectionRisk}
+                    aria-label="Protection Risk Score"
                     onChange={(e) => handleCellFieldChange('protectionRisk', parseInt(e.target.value))}
                     className="w-full h-1 bg-brand-navy-dark rounded-lg appearance-none cursor-pointer accent-brand-gold"
                   />
@@ -930,6 +962,7 @@ Validation: ${cell.validationNote}`;
                     max="5"
                     step="1"
                     value={cell.feasibility}
+                    aria-label="Feasibility Score"
                     onChange={(e) => handleCellFieldChange('feasibility', parseInt(e.target.value))}
                     className="w-full h-1 bg-brand-navy-dark rounded-lg appearance-none cursor-pointer accent-brand-gold"
                   />
@@ -951,6 +984,7 @@ Validation: ${cell.validationNote}`;
                     max="5"
                     step="1"
                     value={cell.evidenceConfidence}
+                    aria-label="Evidence Confidence Score"
                     onChange={(e) => handleCellFieldChange('evidenceConfidence', parseInt(e.target.value))}
                     className="w-full h-1 bg-brand-navy-dark rounded-lg appearance-none cursor-pointer accent-brand-gold"
                   />
@@ -1044,7 +1078,7 @@ Validation: ${cell.validationNote}`;
               <div className="space-y-1">
                 <span className="text-[10px] font-bold text-brand-gold uppercase block">🔍 What to validate?</span>
                 <p className="text-[11px] text-brand-grey-text leading-relaxed">
-                  Verify local seasonal corridor availability, elder-mentor roles, and potential transhumance security hazards in border zones.
+                  Verify local seasonal corridor availability, elder-mentor roles, and potential protection and access risks in border zones.
                 </p>
               </div>
 

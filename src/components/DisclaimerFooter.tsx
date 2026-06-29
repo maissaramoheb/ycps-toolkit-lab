@@ -15,7 +15,7 @@ export const DisclaimerFooter: React.FC = () => {
           </p>
         </div>
         <div className="text-[10px] text-brand-grey-text/60 font-mono self-end">
-          YCPS Toolkit Lab v1.0.0
+          Prototype version: v0.4.4
         </div>
       </div>
     </footer>

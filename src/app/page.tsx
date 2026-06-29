@@ -109,7 +109,7 @@ export default function Dashboard() {
             Youth, Climate, Peace and <span className="text-brand-gold">Security Toolkit Lab</span>
           </h1>
           <p className="text-sm md:text-base text-brand-grey-text leading-relaxed">
-            YCPS Toolkit Lab is a practical planning and training workspace that helps users translate Youth, Climate, Peace and Security concepts into validated policy, programming, stakeholder, and training outputs for African contexts. Moving from <span className="text-brand-gold font-semibold">Recognition to Implementation</span>.
+            YCPS Toolkit Lab is a practical planning and training workspace that helps users translate Youth, Climate, Peace and Security concepts into draft, review-ready policy, programming, stakeholder, and training outputs for African contexts. Moving from <span className="text-brand-gold font-semibold">Recognition to Implementation</span>.
           </p>
 
           <div className="pt-2 text-xs text-brand-grey-text space-y-1.5">
@@ -302,7 +302,7 @@ export default function Dashboard() {
           <div className="glass-panel p-4 rounded-xl border border-brand-grey-border/50 space-y-1.5">
             <span className="text-[10px] font-bold text-brand-gold uppercase tracking-wider block">Stakeholders</span>
             <span className="font-semibold text-brand-offwhite block">Nexus Coordination Strategy</span>
-            <p className="text-[11px] text-brand-grey-text">Synthesize supportive actors, spoilers, and localized learning loops into coordination logs.</p>
+            <p className="text-[11px] text-brand-grey-text">Synthesize supportive actors, potential constraints, and localized learning loops into coordination logs.</p>
           </div>
           <div className="glass-panel p-4 rounded-xl border border-brand-grey-border/50 space-y-1.5">
             <span className="text-[10px] font-bold text-brand-gold uppercase tracking-wider block">Case Studies</span>
@@ -321,7 +321,7 @@ export default function Dashboard() {
           </div>
           <div className="glass-panel p-4 rounded-xl border border-brand-grey-border/50 space-y-1.5">
             <span className="text-[10px] font-bold text-brand-gold uppercase tracking-wider block">Review</span>
-            <span className="font-semibold text-brand-offwhite block">Readiness Action Plan</span>
+            <span className="font-semibold text-brand-offwhite block">Review Action Plan</span>
             <p className="text-[11px] text-brand-grey-text">Verify compliance, highlight missing entry points, and compile pre-validation reviews.</p>
           </div>
           <div className="glass-panel p-4 rounded-xl border border-brand-grey-border/50 space-y-1.5">

@@ -46,7 +46,7 @@ export default function StakeholdersPage() {
     { value: 'donor', label: 'Donor / Funding Agency' },
     { value: 'regional_organization', label: 'Regional Organization (e.g. AU, LCBC, IGAD)' },
     { value: 'civil_society', label: 'Civil Society Organization' },
-    { value: 'possible_spoiler', label: 'Possible Spoiler' },
+    { value: 'possible_spoiler', label: 'Potential constraint / sensitive actor' },
     { value: 'other', label: 'Other' }
   ];
 
@@ -62,7 +62,7 @@ export default function StakeholdersPage() {
     return `Operational YCPS Nexus Coordination Strategy:
 - High-Influence Supportive Partners: ${supportive.join(', ') || 'None mapped'}
 - Actors Needing Careful Engagement: ${careful.join(', ') || 'None mapped'}
-- Possible Diplomatic Spoilers / Sensitive Actors: ${spoilers.join(', ') || 'None mapped'}
+- Potential Constraints / Sensitive Actors: ${spoilers.join(', ') || 'None mapped'}
 - Immediate Coordination Step: Convene local dialogue panels linking youth-led groups with traditional elders and Ministry officials.
 - Youth Inclusion Quality Notes: Ensure youth representatives hold voting authority rather than advisory observer status.
 - Feedback & Learning Loop: Establish monthly regional briefing rounds with regional organizations (AU, LCBC, or IGAD) to relay local data to high-level policy desks.
@@ -221,7 +221,7 @@ export default function StakeholdersPage() {
                 </h3>
               </div>
               <p className="text-[11px] text-brand-grey-text mt-1.5">
-                Record actor interests and potential security/spoiler positions.
+                Record actor interests and sensitive, divergent, or potentially obstructive positions.
               </p>
             </div>
 

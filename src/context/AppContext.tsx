@@ -139,7 +139,7 @@ export const SCENARIOS: Record<
         pathwayType: 'resource_competition',
         youthImpact: 'Young herders must migrate earlier and further into farming territory, raising the risk of clash. Young farmers face crop destruction and loss of livelihood.',
         youthOpportunity: 'Establishing youth-led cooperative resource councils to pre-negotiate grazing corridors and water sharing timings.',
-        intervention: 'Equip youth committees with GPS mapping tools and support community-led corridor demarcation and mediation training.',
+        intervention: 'Equip youth committees with Participatory resource mapping tools and support community-led corridor demarcation and mediation training.',
         evidenceStrength: 'High',
         evidenceGaps: 'Lack of real-time spatial data on transhumance movements relative to changing vegetation densities.'
       },

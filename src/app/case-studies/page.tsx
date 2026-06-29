@@ -274,7 +274,7 @@ ${cs.cautions.map((c) => `- ${c}`).join('\n')}
         'Focus herders on corridor coordination and mediation rather than military containment.'
       ],
       questions: [
-        'How does joint border resource management reduce the need for military intervention during extreme dry seasons?',
+        'How does joint border resource management reduce the need for escalatory or coercive responses during extreme dry seasons?',
         'What indicators measure the quality of youth inclusion in joint border resource commissions?'
       ]
     }

@@ -321,7 +321,7 @@ export default function DiplomaticLanguagePage() {
                           <span className="font-semibold text-brand-gold">Guideline Context:</span> {res.rule.reason}
                         </p>
                         <p className="bg-brand-green/5 border border-brand-green/15 p-2 rounded text-[11px] text-brand-green leading-normal">
-                          <span className="font-semibold block text-[10px] text-brand-offwhite">Approved wording:</span>
+                          <span className="font-semibold block text-[10px] text-brand-offwhite">Suggested wording for review:</span>
                           &ldquo;{res.rule.approvedReplacement}&rdquo;
                         </p>
                       </div>

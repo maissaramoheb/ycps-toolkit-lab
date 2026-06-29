@@ -21,7 +21,7 @@ export default function BriefGeneratorPage() {
       return 'No active analytical entries found. Please load a demo scenario or enter data in the Matrix and Risk Pathway modules to compile this briefing.';
     }
     
-    return `This brief outlines strategic programming recommendations for ${contextName}. By integrating the Youth, Peace and Security (YPS) and Climate, Peace and Security (CPS) agendas, this analysis identifies ${riskPathways.length} critical climate-security pathways and maps ${stakeholders.length} key stakeholders. The findings underscore that youth are not merely vulnerable demographics or security risks, but primary agents of local adaptation, early warning, and community mediation. Successful implementation requires embedding youth representatives into formal natural resource management committees while mitigating specific protection risks and intergenerational tensions.`;
+    return `This brief outlines strategic programming recommendations for ${contextName}. By integrating the Youth, Peace and Security (YPS) and Climate, Peace and Security (CPS) agendas, this analysis identifies ${riskPathways.length} draft climate-security risk pathways and maps ${stakeholders.length} key stakeholders. The working analysis suggests that youth are not merely vulnerable demographics or security risks, but primary agents of local adaptation, early warning, and community mediation. A proposed approach for review is embedding youth representatives into formal natural resource management committees while mitigating specific protection risks and intergenerational tensions.`;
   };
 
   // Compile full markdown version for clipboard copying
@@ -33,7 +33,7 @@ export default function BriefGeneratorPage() {
 
     md += `## 1. Executive Summary (Suggested Draft Language)\n${getExecutiveSummary()}\n\n`;
 
-    md += `## 2. Context Analysis (User Working Notes)\nThis briefing analyzes the climate-security conflict dynamics specifically affecting the ${contextName} region, mapping resource-scarcity pressure points to youth-inclusive resilience options.\n\n`;
+    md += `## 2. Context Analysis (User Working Notes)\nThis briefing analyzes the context-specific climate-security risk relationships specifically affecting the ${contextName} region, mapping resource-scarcity pressure points to youth-inclusive resilience options.\n\n`;
 
     md += `## 3. Climate-Security Risk Pathways (To Be Validated where evidence is Low/Unclear)\n`;
     if (riskPathways.length === 0) {

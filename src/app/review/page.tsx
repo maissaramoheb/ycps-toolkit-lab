@@ -154,7 +154,7 @@ export default function RedTeamReviewPage() {
     }
   ];
 
-  const compileReadinessActionPlan = () => {
+  const compileReviewActionPlan = () => {
     const failedChecks = structuralChecks.filter(c => !c.passed).map(c => c.label);
     const passedCount = structuralChecks.filter(c => c.passed).length;
     const totalCount = structuralChecks.length;
@@ -185,7 +185,7 @@ ${failedChecks.map((f, i) => `${i+1}. ${f}`).join('\n') || 'All checklist items 
           <span className="text-[10px] font-bold text-brand-gold uppercase tracking-wider block">📋 This Step Produces:</span>
           <p className="text-brand-grey-text">
             <strong>Task:</strong> Run compliance audits on wording infractions and complete checklist reviews. <br />
-            <strong>Deliverable:</strong> Readiness action plan and youth participation/protection safeguard notes.
+            <strong>Deliverable:</strong> Review action plan and youth participation/protection safeguard notes.
           </p>
         </div>
         <Link
@@ -421,7 +421,7 @@ ${failedChecks.map((f, i) => `${i+1}. ${f}`).join('\n') || 'All checklist items 
             </h2>
           </div>
           <CopyButton
-            text={compileReadinessActionPlan()}
+            text={compileReviewActionPlan()}
             label="Copy Validation Action Plan"
           />
         </div>

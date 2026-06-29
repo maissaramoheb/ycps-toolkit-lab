@@ -182,7 +182,7 @@ export default function RiskPathwaysPage() {
       {/* Risk relationship safeguard guidance note */}
       <div className="glass-panel p-4 rounded-xl border border-brand-gold/15 bg-brand-navy-light/25 text-xs text-brand-grey-text space-y-2">
         <span className="text-[10px] font-bold text-brand-gold tracking-widest uppercase block">
-          Candidate Methodology: Climate-Security Causality Guidance
+          Candidate Methodology: Climate-Security Risk Relationship Guidance
         </span>
         <p className="leading-relaxed">
           Climate hazards do not automatically cause conflict. Instead, they interact with and compound existing vulnerability dynamics, resource exclusion, governance bottlenecks, coping capacities, and social trust. Highlight these institutional capacity constraints in your mapping.
