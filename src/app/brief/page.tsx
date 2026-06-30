@@ -301,12 +301,7 @@ export default function BriefGeneratorPage() {
                   padding: 10px 12px !important;
                   margin-bottom: 12px !important;
                 }
-                .brief-print-document .source-basis {
-                  border: 1px solid #e5e7eb !important;
-                  background: #f9fafb !important;
-                  padding: 10px 12px !important;
-                  margin-bottom: 12px !important;
-                }
+
                 .brief-print-document .validation-checklist {
                   border: 1px solid #e5e7eb !important;
                   background: #fafafa !important;
@@ -382,15 +377,7 @@ export default function BriefGeneratorPage() {
               </ul>
             </div>
 
-            {/* Source Basis Box */}
-            <div className="p-4 rounded-lg bg-brand-green/5 border border-brand-green/20 text-brand-grey-text mb-6 space-y-1.5 source-basis print:text-gray-800">
-              <h3 className="font-bold text-brand-green print:text-black text-xs uppercase tracking-wider">
-                📚 Grounding & Source Framing References
-              </h3>
-              <p className="text-[11px] leading-relaxed">
-                This drafting support tool package is framed around and traces to: (1) Consultant ToR guidelines on YCPS; (2) DEDI Project Document (2024–2028); (3) CCCPA / DEDI timeline workplans; (4) CCCPA training manuals on CPS; and (5) Guidebook on YCPS Programming in UN Peace Operations.
-              </p>
-            </div>
+
 
             {/* Document body - 11 sections */}
             <div className="space-y-8 text-xs text-brand-grey-text leading-relaxed print:text-gray-800 print:text-[11pt]">
@@ -642,8 +629,13 @@ export default function BriefGeneratorPage() {
             </div>
 
             {/* Brief Footer Disclaimer */}
-            <div className="mt-10 pt-5 border-t border-brand-grey-border/50 text-[10px] text-brand-grey-text leading-relaxed disclaimer-block print:text-gray-500 print:border-gray-400">
-              <span className="font-semibold text-brand-gold print:text-black">Disclaimer:</span> Prototype support tool for regional policy dialogue training. Not an official UN, CCCPA, DEDI, AU, or government platform. Users should validate all draft outputs against official mandates, policies, and context-specific evidence.
+            <div className="mt-10 pt-5 border-t border-brand-grey-border/50 text-[10px] text-brand-grey-text leading-relaxed disclaimer-block print:text-gray-500 print:border-gray-400 space-y-1">
+              <p>
+                <span className="font-semibold text-brand-gold print:text-black">Disclaimer:</span> Prototype support tool for regional policy dialogue training. Not an official UN, CCCPA, DEDI, AU, or government platform. Users should validate all draft outputs against official mandates, policies, and context-specific evidence.
+              </p>
+              <p className="text-[9.5px] italic text-brand-grey-text/90 print:text-gray-500">
+                Source basis: Draft aligned with ToR, DEDI/CCCPA framing, and YCPS/CPS methodology. Requires institutional and contextual validation.
+              </p>
             </div>
 
             <div className="border-t border-brand-grey-border/30 pt-2 text-[9px] text-brand-gold/90 italic leading-relaxed no-print">

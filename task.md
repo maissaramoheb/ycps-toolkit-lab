@@ -92,3 +92,10 @@
 - [x] Upgrade the Policy Brief visual design: professional letterhead, metadata grid, key messages panel, source basis tracking box, validation checklist, and softer safeguard notes.
 - [x] Optimize print CSS scoped to the Brief page container to ensure clean page margins, spacing, and page splits.
 - [x] Validate implementation compile checks using npm run lint and npm run build.
+
+## 2026-06-30 — v0.4.6 Remove Grounding References Box from Printed Reports
+- [x] Removed the standalone "Grounding & Source Framing References" box from the Policy Brief printable view (`src/app/brief/page.tsx`).
+- [x] Removed the print CSS style targeting `.source-basis` to clean up print outputs.
+- [x] Added a subtle, italicized "Source basis" note inside the printed disclaimer box at the bottom of the brief.
+- [x] Confirmed other pages (Toolkit, Case Studies) contain only subtle inline metadata lines and do not render large visual grounding blocks.
+- [x] Verified code builds and linting tests pass successfully.
