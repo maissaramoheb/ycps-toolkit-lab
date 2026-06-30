@@ -451,7 +451,7 @@ export default function RiskPathwaysPage() {
                 </div>
                 <h4 className="text-sm font-bold text-brand-offwhite">No Risk Pathways Mapped</h4>
                 <p className="text-xs text-brand-grey-text max-w-sm mx-auto">
-                  No workspace input yet. Start with a case study or continue with the CARANA fictional training scenario template.
+                  No workspace input yet. Choose a case study or load the preferred regional policy dialogue demo preset.
                 </p>
                 <div className="flex flex-col sm:flex-row justify-center gap-3 pt-2">
                   <Link
@@ -462,14 +462,14 @@ export default function RiskPathwaysPage() {
                   </Link>
                   <button
                     onClick={() => {
-                      if (window.confirm("This will load the CARANA Fictional Scenario into your workspace. Continue?")) {
-                        loadScenario('carana');
+                      if (window.confirm("This will load the Regional Policy Dialogue Scenario into your workspace. Continue?")) {
+                        loadScenario('dialogue');
                       }
                     }}
                     type="button"
                     className="px-4 py-2 bg-brand-navy-light hover:bg-brand-navy-dark text-brand-offwhite border border-brand-grey-border text-xs font-bold rounded-lg uppercase tracking-wider transition-all cursor-pointer text-center"
                   >
-                    Continue with CARANA Template
+                    Load Dialogue Preset
                   </button>
                 </div>
               </div>

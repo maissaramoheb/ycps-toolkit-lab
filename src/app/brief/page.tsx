@@ -252,22 +252,147 @@ export default function BriefGeneratorPage() {
           {/* Main Brief Content (Styled Sheet) */}
           <div
             ref={printAreaRef}
-            className="lg:col-span-3 bg-gradient-to-br from-brand-navy-light/65 to-brand-navy-dark/95 border border-brand-gold/45 rounded-xl p-8 md:p-12 shadow-2xl print:bg-white print:text-black print:border-none print:shadow-none print:p-0 print-document"
+            className="lg:col-span-3 bg-gradient-to-br from-brand-navy-light/65 to-brand-navy-dark/95 border border-brand-gold/45 rounded-xl p-8 md:p-12 shadow-2xl print:bg-white print:text-black print:border-none print:shadow-none print:p-0 print-document brief-print-document"
           >
+            <style dangerouslySetInnerHTML={{ __html: `
+              @media print {
+                .brief-print-document {
+                  font-size: 11px !important;
+                  line-height: 1.45 !important;
+                  color: #1f2937 !important;
+                  background: #ffffff !important;
+                  font-family: system-ui, -apple-system, sans-serif !important;
+                }
+                .brief-print-document h2 {
+                  font-size: 13px !important;
+                  font-weight: bold !important;
+                  color: #111827 !important;
+                  border-bottom: 1.5px solid #d97706 !important;
+                  padding-bottom: 2px !important;
+                  margin-top: 14px !important;
+                  margin-bottom: 6px !important;
+                  page-break-after: avoid !important;
+                  break-after: avoid !important;
+                  text-transform: uppercase !important;
+                  letter-spacing: 0.05em !important;
+                }
+                .brief-print-document h3 {
+                  font-size: 11.5px !important;
+                  font-weight: bold !important;
+                  color: #1f2937 !important;
+                  margin-top: 8px !important;
+                  margin-bottom: 4px !important;
+                }
+                .brief-print-document section {
+                  margin-bottom: 14px !important;
+                  page-break-inside: avoid !important;
+                  break-inside: avoid !important;
+                }
+                .brief-print-document .metadata-grid {
+                  border: 1px solid #e5e7eb !important;
+                  background: #f9fafb !important;
+                  padding: 8px 12px !important;
+                  margin-bottom: 12px !important;
+                }
+                .brief-print-document .key-messages {
+                  border: 1px solid #f59e0b !important;
+                  border-left-width: 4px !important;
+                  background: #fffbeb !important;
+                  padding: 10px 12px !important;
+                  margin-bottom: 12px !important;
+                }
+                .brief-print-document .source-basis {
+                  border: 1px solid #e5e7eb !important;
+                  background: #f9fafb !important;
+                  padding: 10px 12px !important;
+                  margin-bottom: 12px !important;
+                }
+                .brief-print-document .validation-checklist {
+                  border: 1px solid #e5e7eb !important;
+                  background: #fafafa !important;
+                  padding: 10px 12px !important;
+                  margin-bottom: 12px !important;
+                }
+                .brief-print-document .disclaimer-block {
+                  border-top: 1.5px solid #d97706 !important;
+                  margin-top: 18px !important;
+                  padding-top: 8px !important;
+                  font-size: 9px !important;
+                  color: #4b5563 !important;
+                  page-break-inside: avoid !important;
+                  break-inside: avoid !important;
+                }
+              }
+            ` }} />
+
             {/* Brief Header */}
-            <div className="border-b-2 border-brand-gold pb-6 space-y-2 mb-8 print:border-black">
-              <span className="text-[10px] font-bold text-brand-gold tracking-widest uppercase block no-print">
-                YCPS Operational Briefing Note
-              </span>
-              <h1 className="text-2xl md:text-3xl font-extrabold text-brand-offwhite leading-tight print:text-black">
-                YCPS POLICY BRIEF: STRATEGIC RECOMMENDATIONS FOR {contextName.toUpperCase()}
-              </h1>
-              <p className="text-xs text-brand-grey-text print:text-gray-600">
-                Prepared on: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+            <div className="border-b-2 border-brand-gold pb-5 space-y-2.5 mb-6 print:border-black flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
+              <div>
+                <span className="text-[10px] font-bold text-brand-gold tracking-widest uppercase block print:text-black">
+                  Youth, Climate, Peace and Security (YCPS) Regional Policy Dialogue
+                </span>
+                <h1 className="text-xl md:text-2xl font-extrabold text-brand-offwhite leading-tight mt-0.5 print:text-black uppercase">
+                  YCPS Policy Brief: Strategic Recommendations
+                </h1>
+                <p className="text-xs text-brand-grey-text print:text-gray-600">
+                  Target Context / Focus: <span className="text-brand-offwhite font-bold print:text-black">{contextName}</span>
+                </p>
+              </div>
+              <div className="text-left md:text-right text-[10px] text-brand-grey-text/80 print:text-gray-600 space-y-0.5 self-start md:self-end">
+                <div>Document Ref: <span className="font-semibold text-brand-gold print:text-black">YCPS-PB-{contextName.toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0, 5) || 'TEMP'}</span></div>
+                <div>Date Generated: <span className="font-semibold">{new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</span></div>
+              </div>
+            </div>
+
+            {/* Metadata Grid */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-4 rounded-lg bg-brand-navy-light/40 border border-brand-grey-border/30 mb-6 text-[11px] metadata-grid print:text-black">
+              <div>
+                <span className="block text-[9px] font-bold text-brand-gold uppercase tracking-wider print:text-gray-500">Document Status</span>
+                <span className="font-semibold text-brand-offwhite print:text-black">Draft for Review</span>
+              </div>
+              <div>
+                <span className="block text-[9px] font-bold text-brand-gold uppercase tracking-wider print:text-gray-500">Verification Stage</span>
+                <span className="font-semibold text-brand-offwhite print:text-black">Capacity-Building Demonstration</span>
+              </div>
+              <div>
+                <span className="block text-[9px] font-bold text-brand-gold uppercase tracking-wider print:text-gray-500">Regional Alignment</span>
+                <span className="font-semibold text-brand-offwhite print:text-black">YPS & CPS Frameworks</span>
+              </div>
+              <div>
+                <span className="block text-[9px] font-bold text-brand-gold uppercase tracking-wider print:text-gray-500">Support Context</span>
+                <span className="font-semibold text-brand-offwhite print:text-black">Draft for Review & Validation</span>
+              </div>
+            </div>
+
+            {/* Key Messages Box */}
+            <div className="p-4 rounded-lg bg-brand-gold/5 border-l-4 border-brand-gold text-brand-grey-text mb-6 space-y-1.5 key-messages print:text-gray-800">
+              <h3 className="font-bold text-brand-gold print:text-black text-xs uppercase tracking-wider">
+                📢 Strategic Summary & Core Precepts
+              </h3>
+              <ul className="list-disc pl-4 space-y-1 text-[11px] leading-relaxed">
+                <li>
+                  <strong className="text-brand-offwhite print:text-black">Climate-Security Risk Relationships:</strong> Climate stressors amplify existing vulnerabilities, water constraints, and livelihood challenges under specific governance conditions, rather than acting as direct causes of conflict.
+                </li>
+                <li>
+                  <strong className="text-brand-offwhite print:text-black">Youth Leadership Agency:</strong> Young people contribute actively as environmental entrepreneurs, local mediators, and dialogue partners, rather than being securitized or treated solely as vulnerable.
+                </li>
+                <li>
+                  <strong className="text-brand-offwhite print:text-black">National Ownership:</strong> All proposed interventions are structured to align with national development priorities, local capacities, and community-led dialogue.
+                </li>
+              </ul>
+            </div>
+
+            {/* Source Basis Box */}
+            <div className="p-4 rounded-lg bg-brand-green/5 border border-brand-green/20 text-brand-grey-text mb-6 space-y-1.5 source-basis print:text-gray-800">
+              <h3 className="font-bold text-brand-green print:text-black text-xs uppercase tracking-wider">
+                📚 Grounding & Source Framing References
+              </h3>
+              <p className="text-[11px] leading-relaxed">
+                This drafting support tool package is framed around and traces to: (1) Consultant ToR guidelines on YCPS; (2) DEDI Project Document (2024–2028); (3) CCCPA / DEDI timeline workplans; (4) CCCPA training manuals on CPS; and (5) Guidebook on YCPS Programming in UN Peace Operations.
               </p>
             </div>
 
-            {/* Document body - 10 sections */}
+            {/* Document body - 11 sections */}
             <div className="space-y-8 text-xs text-brand-grey-text leading-relaxed print:text-gray-800 print:text-[11pt]">
               
               {/* 1. Executive Summary */}
@@ -461,10 +586,10 @@ export default function BriefGeneratorPage() {
                 )}
               </section>
 
-              {/* 10. Red-Team Warnings */}
-              <section className="space-y-2">
+              {/* 10. Conflict Sensitivity & Review Safeguards */}
+              <section className="space-y-2 print:avoid-break">
                 <h2 className="text-sm font-bold text-brand-offwhite uppercase tracking-wider print:text-black print:border-b print:border-gray-300 print:pb-1">
-                  10. Red-Team Warnings & Sensitive Risks (User Working Notes)
+                  10. Conflict Sensitivity, Safeguards & Review Flags
                 </h2>
                 {activePillars.map((e) => e.redTeamWarning).filter(Boolean).length === 0 &&
                 stakeholders.map((s) => s.risks).filter(Boolean).length === 0 ? (
@@ -475,9 +600,9 @@ export default function BriefGeneratorPage() {
                       ...activePillars.map((e) => e.redTeamWarning).filter(Boolean),
                       ...stakeholders.map((s) => s.risks).filter(Boolean)
                     ].map((w, idx) => (
-                      <li key={idx} className="pl-1 text-red-400 print:text-red-800">
-                        <span className="font-bold uppercase text-[9px] px-1 bg-red-950/30 border border-red-500/20 rounded mr-1 print:bg-transparent print:border-none print:text-red-800">
-                          Red Team
+                      <li key={idx} className="pl-1 text-brand-grey-text print:text-gray-700">
+                        <span className="font-semibold text-brand-gold print:text-black mr-1 uppercase text-[9.5px] tracking-wider">
+                          [Safeguard Flag]
                         </span>{' '}
                         {w}
                       </li>
@@ -486,14 +611,42 @@ export default function BriefGeneratorPage() {
                 )}
               </section>
 
+              {/* 11. Pre-Validation Dialogue Checklist */}
+              <section className="space-y-2 print:avoid-break">
+                <h2 className="text-sm font-bold text-brand-offwhite uppercase tracking-wider print:text-black print:border-b print:border-gray-300 print:pb-1">
+                  11. Pre-Validation Dialogue Checklist
+                </h2>
+                <p className="text-[11px] text-brand-grey-text mb-2 print:text-gray-700">
+                  Prior to incorporating this draft briefing into official policy dialogue frameworks, confirm local context assumptions:
+                </p>
+                <div className="grid sm:grid-cols-2 gap-2.5 text-[11px] bg-brand-navy-light/10 p-3.5 rounded border border-brand-grey-border/20 validation-checklist print:bg-transparent print:border-none print:p-0 print:text-black">
+                  <div className="flex items-start gap-2">
+                    <span className="text-brand-gold print:text-black font-bold">□</span>
+                    <span>Assess alignment of terminology with national sovereignty mandates.</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="text-brand-gold print:text-black font-bold">□</span>
+                    <span>Verify regional water allocation and grazing corridor availability.</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="text-brand-gold print:text-black font-bold">□</span>
+                    <span>Conduct intergenerational leadership audits to prevent elder exclusion.</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="text-brand-gold print:text-black font-bold">□</span>
+                    <span>Confirm safety pathways and localized risk warning protocols with local administration.</span>
+                  </div>
+                </div>
+              </section>
+
             </div>
 
             {/* Brief Footer Disclaimer */}
-            <div className="mt-12 pt-6 border-t border-brand-grey-border/50 text-[10px] text-brand-grey-text leading-relaxed print:text-gray-500 print:border-gray-400">
-              <span className="font-semibold text-brand-gold print:text-black">Disclaimer:</span> Prototype support tool. Not an official UN, CCCPA, DEDI, or government platform. Users should validate all outputs against official mandates, policies, and context-specific evidence.
+            <div className="mt-10 pt-5 border-t border-brand-grey-border/50 text-[10px] text-brand-grey-text leading-relaxed disclaimer-block print:text-gray-500 print:border-gray-400">
+              <span className="font-semibold text-brand-gold print:text-black">Disclaimer:</span> Prototype support tool for regional policy dialogue training. Not an official UN, CCCPA, DEDI, AU, or government platform. Users should validate all draft outputs against official mandates, policies, and context-specific evidence.
             </div>
 
-            <div className="border-t border-brand-grey-border/30 pt-2.5 text-[9px] text-brand-gold/90 italic leading-relaxed no-print">
+            <div className="border-t border-brand-grey-border/30 pt-2 text-[9px] text-brand-gold/90 italic leading-relaxed no-print">
               * Draft planning output. To be validated against official regional mandates and context-specific field evidence before deployment.
             </div>
           </div>

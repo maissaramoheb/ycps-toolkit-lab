@@ -68,6 +68,121 @@ export const SCENARIOS: Record<
     stakeholders: Stakeholder[];
   }
 > = {
+  dialogue: {
+    name: 'African Youth Climate Resilience & Peacebuilding Dialogue',
+    context: 'Regional Policy Dialogue (Fictional Training Scenario)',
+    matrix: {
+      participation: {
+        pillarId: 'participation',
+        climateSecurityConsideration: 'Climate-related livelihood pressures and water stress may impact local resource sharing. Fostering youth representation in transboundary river basin and local governance structures ensures inclusive dialogue.',
+        youthRoleAgency: 'Youth representatives join community natural resource management committees, contributing local environmental data and proposing gender-sensitive water sharing rotas.',
+        protectionConcern: 'Young leaders face institutional exclusion or tokenism where traditional policy dialogue structures do not recognize youth voices as equal advisory partners.',
+        practicalEntryPoint: 'Integrate youth representatives into regional and national adaptation planning panels, ensuring they have structured advisory pathways to policymakers.',
+        suggestedAction: 'Convene capacity-building training on diplomatic negotiation and environmental policy formulation for 80 youth policy delegates.',
+        indicator: 'Percentage of regional environmental policy drafts incorporating youth-authored consultation chapters.',
+        diplomaticWording: 'Enhancing youth-led policy contributions by formalizing green consultative pathways within regional adaptation dialogue frameworks.',
+        redTeamWarning: 'Avoid tokenistic consultations. Ensure youth delegates receive adequate technical briefing materials and administrative support prior to regional dialogues.'
+      },
+      protection: {
+        pillarId: 'protection',
+        climateSecurityConsideration: 'Erratic rainfall and shifting grazing corridors can alter migration patterns, potentially exposing mobile youth to protection and access risks in border zones.',
+        youthRoleAgency: 'Youth civil society networks establish local resource information centers to report on safe routes, shelter, and water point locations.',
+        protectionConcern: 'Mobile pastoralist youth face discrimination or exclusion from local public services, while young women face differentiated risks at remote water points.',
+        practicalEntryPoint: 'Establish district-level coordination desks run by local youth and community elders to monitor access to water and report protection concerns.',
+        suggestedAction: 'Deploy solar-powered lighting and security-enhanced facilities at 10 communal water points, managed by gender-balanced youth committees.',
+        indicator: 'Reported protection incidents at targeted communal water points and border crossings.',
+        diplomaticWording: 'Strengthening local protection frameworks and human rights compliance along mobility corridors through participatory mapping.',
+        redTeamWarning: 'Avoid forming armed vigilante or securitized patrol groups. Focus youth roles strictly on reporting, information sharing, and community mediation.'
+      },
+      prevention: {
+        pillarId: 'prevention',
+        climateSecurityConsideration: 'Prolonged water stress and land degradation can constrain agricultural livelihoods, leaving youth vulnerable to economic exclusion and limited green employment options.',
+        youthRoleAgency: 'Youth social enterprises launch solar-powered drip irrigation projects and land restoration initiatives, building climate-adaptive agricultural livelihoods.',
+        protectionConcern: 'Lack of secure land tenure or startup capital often prevents youth-led agricultural cooperatives from scaling their projects.',
+        practicalEntryPoint: 'Partner with national land ministries to secure long-term, community-backed leases for youth-led eco-agricultural cooperatives.',
+        suggestedAction: 'Provide startup micro-grants and climate-smart agronomy packages to 15 youth-managed agricultural enterprises.',
+        indicator: 'Number of young farmers retaining green employment and demonstrating increased household food security.',
+        diplomaticWording: 'Promoting youth-led green entrepreneurship as a prevention strategy against economic exclusion and livelihood insecurity.',
+        redTeamWarning: 'Ensure equitable resource distribution. Directing all funding to returnees or select groups may cause local resentment and conflict.'
+      },
+      partnerships: {
+        pillarId: 'partnerships',
+        climateSecurityConsideration: 'Siloed implementation of youth policies, climate change adaptation plans, and peacebuilding projects reduces efficiency and ignores local synergy opportunities.',
+        youthRoleAgency: 'Youth advocacy coalitions present joint policy inputs to regional authorities to integrate YCPS principles into regional plans.',
+        protectionConcern: 'Partner agencies often lack formal mechanisms for sustained funding of youth organizations, leading to disjointed projects.',
+        practicalEntryPoint: 'Designate a dedicated YCPS liaison officer within the planning commission to coordinate youth-led pilot projects.',
+        suggestedAction: 'Launch a YCPS partnership facility to pool resources and disburse small grants to local youth-led climate organizations.',
+        indicator: 'Total funding disbursed to youth-led organizations and number of joint projects under regional frameworks.',
+        diplomaticWording: 'Facilitating multi-stakeholder partnerships and direct funding channels to support youth-led climate-resilience actions.',
+        redTeamWarning: 'Ensure capacity support is provided alongside financial grants to assist youth-led organizations in complying with reporting guidelines.'
+      },
+      disengagement_reintegration: {
+        pillarId: 'disengagement_reintegration',
+        climateSecurityConsideration: 'Degraded land and drought can limit return options for disengaged youth, complicating their social and economic reintegration into rural economies.',
+        youthRoleAgency: 'Reintegrating youth work alongside local host communities in ecological restoration, building check-dams and planting trees to reclaim degraded pastures.',
+        protectionConcern: 'Returning youth face social stigma and mistrust from host communities, which can trigger social friction.',
+        practicalEntryPoint: 'Organize community-led green work projects that foster collaboration and dialogue between returning youth and local residents.',
+        suggestedAction: 'Rehabilitate 100 hectares of degraded communal grazing land through joint youth-community soil conservation and afforestation.',
+        indicator: 'Hectares of communal land successfully restored and community trust score increases.',
+        diplomaticWording: 'Fostering community-centered social cohesion and environmental recovery through collaborative green work programs.',
+        redTeamWarning: 'Avoid giving unequal assets or wages to returning youth over resident youth, which can create local conflict. Maintain strict wage parity.'
+      }
+    },
+    riskPathways: [
+      {
+        id: 'dialogue-path-1',
+        context: 'Regional Agropastoral Borderlands',
+        hazard: 'Prolonged dry spells and soil salinization',
+        exposure: 'Smallholder agricultural and nomadic pastoral communities reliant on seasonal water points',
+        vulnerability: 'Limited alternative livelihoods, low access to climate-adaptive tools, and intergenerational resource governance gaps',
+        capacityConstraint: 'Constrained district-level resources and lack of cross-community water sharing frameworks',
+        pathwayType: 'resource_competition',
+        youthImpact: 'Water stress forces herders to migrate earlier, raising access risks at local farming zones and straining communal relations.',
+        youthOpportunity: 'Engaging youth representatives in joint water-sharing dialogues and resource mapping to defuse resource tensions.',
+        intervention: 'Equip local youth committees with participatory resource mapping templates and facilitate seasonal water-sharing protocols.',
+        evidenceStrength: 'High',
+        evidenceGaps: 'Localized groundwater recharge rates under changing climate projections.'
+      }
+    ],
+    stakeholders: [
+      {
+        id: 'dialogue-stake-1',
+        name: 'Regional Economic Commission (REC)',
+        actorType: 'regional_organization',
+        interest: 'Promoting regional policy coordination, climate adaptation, and inclusive youth engagement.',
+        influence: 'High',
+        position: 'Supportive',
+        youthInclusionQuality: 'Medium',
+        risks: 'Bureaucratic coordination bottlenecks and funding gaps for local youth organizations.',
+        diplomaticSensitivity: 'Respect national ownership and avoid country-specific sovereignty claims.',
+        engagementStrategy: 'Advocate for a dedicated youth desk and formal YCPS consultative status.'
+      },
+      {
+        id: 'dialogue-stake-2',
+        name: 'National Ministry of Environment',
+        actorType: 'government_institution',
+        interest: 'Implementing national adaptation plans and aligning them with localized climate priorities.',
+        influence: 'High',
+        position: 'Supportive',
+        youthInclusionQuality: 'Medium',
+        risks: 'Weak local enforcement capacity and low budget allocations for community-level dialogue.',
+        diplomaticSensitivity: 'Align with national development plans and coordinate with regional entities.',
+        engagementStrategy: 'Propose pilot youth eco-cooperatives as model adaptation activities.'
+      },
+      {
+        id: 'dialogue-stake-3',
+        name: 'Youth Climate and Peacebuilding Coalition',
+        actorType: 'youth_actor',
+        interest: 'Advocating for green jobs, inclusion in adaptation planning, and protection of youth rights.',
+        influence: 'Medium',
+        position: 'Supportive',
+        youthInclusionQuality: 'High',
+        risks: 'Limited institutional funding and technical capacity constraints.',
+        diplomaticSensitivity: 'Maintain strictly neutral, non-partisan posture to prevent political interference.',
+        engagementStrategy: 'Provide technical advice in environmental policy and connect them to international climate finance.'
+      }
+    ]
+  },
   sahel: {
     name: 'Sahel / Lake Chad Basin',
     context: 'Sahel & Lake Chad Basin Region (Niger, Nigeria, Chad, Cameroon)',

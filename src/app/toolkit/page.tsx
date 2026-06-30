@@ -306,7 +306,11 @@ export default function WorkplanToolkitPage() {
     md += `**YCPS Pillar:** ${pillarDetails.name}\n`;
     md += `**Status:** Draft for Review and Contextual Validation\n`;
     md += `**Date Generated:** ${new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}\n`;
-    if (/carana/i.test(contextName)) md += `**Scenario Note:** CARANA is a fictional training scenario.\n`;
+    if (/carana/i.test(contextName)) {
+      md += `**Scenario Note:** CARANA is a fictional training scenario.\n`;
+    } else if (/dialogue/i.test(contextName)) {
+      md += `**Scenario Note:** Regional policy dialogue fictional training scenario.\n`;
+    }
 
     md += `\n## 2. EXECUTIVE SUMMARY\n`;
     md += `This package links the ${pillarDetails.name} pillar with a context-specific risk pathway, stakeholder coordination, practical programming options, and review safeguards. Climate-related stressors are treated as interacting with institutional, livelihood, mobility, and service pressures rather than as automatic causes of conflict.\n`;
@@ -484,8 +488,8 @@ export default function WorkplanToolkitPage() {
           <div className="flex flex-col items-end no-print">
             <button
               onClick={() => {
-                if (window.confirm("This will load the CARANA Fictional Training Scenario into your workspace to demonstrate the Toolkit Builder. Continue?")) {
-                  loadScenario('carana');
+                if (window.confirm("This will load the Regional Policy Dialogue Scenario into your workspace to demonstrate the Toolkit Builder. Continue?")) {
+                  loadScenario('dialogue');
                 }
               }}
               type="button"
@@ -494,7 +498,7 @@ export default function WorkplanToolkitPage() {
               <span>🎮 Load Demo Toolkit Package</span>
             </button>
             <span className="text-[9px] text-brand-grey-text mt-0.5">
-              Demo template only — CARANA fictional training scenario
+              Demo template only — Regional Policy Dialogue scenario
             </span>
           </div>
           <div className="text-xs px-3 py-1.5 rounded-lg bg-brand-navy-light border border-brand-grey-border font-medium text-brand-gold">
@@ -754,6 +758,9 @@ export default function WorkplanToolkitPage() {
               </div>
               {/carana/i.test(contextName) && (
                 <p className="mt-3 text-[9px] font-semibold text-gray-700">CARANA is a fictional training scenario. Replace scenario assumptions with validated local evidence before use.</p>
+              )}
+              {/dialogue/i.test(contextName) && (
+                <p className="mt-3 text-[9px] font-semibold text-gray-700">Regional Policy Dialogue is a fictional training scenario. Validate assumptions with context-specific evidence before use.</p>
               )}
             </div>
 
@@ -1067,7 +1074,7 @@ export default function WorkplanToolkitPage() {
                     <div><strong>YCPS pillar</strong><span>{pillarDetails.name}</span></div>
                     <div><strong>Status</strong><span>Draft for Review and Contextual Validation</span></div>
                     <div><strong>Date generated</strong><span>{new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</span></div>
-                    <div><strong>Scenario status</strong><span>{/carana/i.test(contextName) ? 'CARANA - fictional training scenario' : 'Context evidence to be validated'}</span></div>
+                    <div><strong>Scenario status</strong><span>{/carana/i.test(contextName) ? 'CARANA - fictional training scenario' : /dialogue/i.test(contextName) ? 'Regional dialogue fictional training scenario' : 'Context evidence to be validated'}</span></div>
                   </div>
                   <div className="dossier-box">
                     <h2>2. Executive Summary</h2>
@@ -1210,6 +1217,7 @@ export default function WorkplanToolkitPage() {
                     <h2>15. Final Validation Disclaimer</h2>
                     <p>Draft support only. Not an official CCCPA, DEDI, UN, or government output. Validate against official sources, mandate language, country context, and institutional guidance before use.</p>
                     {/carana/i.test(contextName) && <p><strong>Scenario note:</strong> CARANA is fictional and is intended only for training and prototype testing.</p>}
+                    {/dialogue/i.test(contextName) && <p><strong>Scenario note:</strong> Regional Policy Dialogue is fictional and is intended only for capacity-building demonstrations.</p>}
                   </section>
                 </div>
               </div>

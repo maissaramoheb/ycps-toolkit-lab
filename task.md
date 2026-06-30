@@ -81,3 +81,14 @@
 - [x] Changed footer version label to `Prototype version: v0.4.4`.
 - [x] Removed `!important` from print-only font-size inside globals.css to support typographic hierarchy on A4 printouts.
 - [x] Verified lint/build compilation successfully passes.
+
+## 2026-06-30 — v0.4.5 CCCPA-Resonant Demo Package & Policy Brief Polish
+- [x] Add the new `dialogue` preset scenario definition to `SCENARIOS` in `src/context/AppContext.tsx`.
+- [x] Render both "Load CCCPA Regional Dialogue Preset" and "Load Sahel Preset" on the empty workspace landing page dashboard.
+- [x] Add the regional dialogue case study to the Case Studies library (`src/app/case-studies/page.tsx`).
+- [x] Integrate the dialogue case study into the Training simulator (`src/app/training/page.tsx`).
+- [x] Update Toolkit Builder, Review, Risk Pathways, and Stakeholders pages to use `dialogue` as the preferred quick-load preset when the workspace is empty.
+- [x] Support the new dialogue preset in Toolkit disclaimers and status indicators.
+- [x] Upgrade the Policy Brief visual design: professional letterhead, metadata grid, key messages panel, source basis tracking box, validation checklist, and softer safeguard notes.
+- [x] Optimize print CSS scoped to the Brief page container to ensure clean page margins, spacing, and page splits.
+- [x] Validate implementation compile checks using npm run lint and npm run build.

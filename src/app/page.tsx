@@ -119,13 +119,22 @@ export default function Dashboard() {
           
           <div className="pt-4 flex flex-wrap gap-3">
             {currentScenario === 'custom' && (
-              <button
-                onClick={() => loadScenario('sahel')}
-                type="button"
-                className="px-5 py-2.5 bg-brand-gold hover:bg-brand-gold-dark text-brand-navy-dark font-bold rounded-lg text-xs tracking-wider uppercase shadow-md transition-all duration-200 cursor-pointer"
-              >
-                Load Sahel Scenario into Workspace
-              </button>
+              <>
+                <button
+                  onClick={() => loadScenario('dialogue')}
+                  type="button"
+                  className="px-5 py-2.5 bg-brand-gold hover:bg-brand-gold-dark text-brand-navy-dark font-bold rounded-lg text-xs tracking-wider uppercase shadow-md transition-all duration-200 cursor-pointer animate-pulse"
+                >
+                  Load CCCPA Regional Dialogue Preset
+                </button>
+                <button
+                  onClick={() => loadScenario('sahel')}
+                  type="button"
+                  className="px-5 py-2.5 bg-brand-navy-light hover:bg-brand-navy-dark text-brand-offwhite border border-brand-grey-border rounded-lg text-xs font-bold tracking-wider uppercase transition-all duration-200 cursor-pointer"
+                >
+                  Load Sahel Preset
+                </button>
+              </>
             )}
             <Link
               href="/matrix"

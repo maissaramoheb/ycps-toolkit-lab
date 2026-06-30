@@ -277,6 +277,39 @@ ${cs.cautions.map((c) => `- ${c}`).join('\n')}
         'How does joint border resource management reduce the need for escalatory or coercive responses during extreme dry seasons?',
         'What indicators measure the quality of youth inclusion in joint border resource commissions?'
       ]
+    },
+    {
+      id: 'dialogue',
+      title: 'African Youth Climate Resilience & Peacebuilding Dialogue',
+      region: 'East & Horn of Africa',
+      pathway: 'Resource herding/competition',
+      ypsPillar: 'Partnerships',
+      summary: 'Fictional regional policy training scenario demonstrating how youth-inclusive natural resource governance and adaptation strengthen climate, peace, and security dialogue.',
+      trainingUse: 'Regional Policy Dialogue Simulations',
+      policyUse: 'Capacity-Building & Toolkit Training',
+      evidenceStrength: 'High',
+      context: 'Regional Agropastoral Borderlands (Fictional Dialogue Setting). Contains agropastoral water access points and intergenerational resource councils.',
+      stressors: 'Prolonged dry spells, soil salinization in agricultural lowlands, and water stress near shared community pastures.',
+      risksAndVulnerabilities: 'High dependence on seasonal natural water tables, limited non-farm green employment options for youth, and intergenerational gaps in local resource sharing decisions.',
+      securityDynamics: 'Climate variability and water stress may impact local resource sharing and grazing corridors. Dialogue-based, non-escalatory regional governance is needed to address these access risks.',
+      youthDimensions: 'Youth organize environmental start-ups, drip irrigation networks, and local water-sharing councils, contributing local data to planning panels.',
+      integrationOpportunities: 'Formalizing youth advisory roles on national and regional adaptation planning desks to bridge policy and local action.',
+      stakeholderGroups: [
+        'Regional Economic Commission (REC)',
+        'National Ministry of Environment',
+        'Youth Climate & Peacebuilding Coalition'
+      ],
+      pathwayPrompts: 'Stressor: dry spells -> Exposure: agropastoral communities -> Vulnerability: limited alternative livelihoods -> Capacity Constraint: lack of local water agreements -> Risk Pathway: resource coordination challenges.',
+      interventions: 'Facilitating water-sharing agreements and equipping youth committees with participatory resource mapping templates.',
+      cautions: [
+        'Avoid direct climate-conflict causality; environmental stress acts as an amplifier of existing vulnerabilities.',
+        'Avoid armed-group or securitization narratives; youth are resource managers and mediators.',
+        'Respect national ownership and coordinate closely with local municipal and traditional authorities.'
+      ],
+      questions: [
+        'How can regional dialogue frameworks integrate local youth-led adaptation data into high-level policy briefs?',
+        'What indicators measure the success of youth environmental cooperatives in reducing rural livelihood exclusion?'
+      ]
     }
   ];
 

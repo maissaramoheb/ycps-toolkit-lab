@@ -202,7 +202,7 @@ ${failedChecks.map((f, i) => `${i+1}. ${f}`).join('\n') || 'All checklist items 
           <div className="space-y-1">
             <span className="text-[10px] font-bold text-brand-gold uppercase tracking-wider block">⚠️ No Workspace Data Logged</span>
             <p className="text-brand-grey-text">
-              No workspace input yet. Start with a case study or continue with the CARANA fictional training scenario template.
+              No workspace input yet. Choose a case study or load the preferred regional policy dialogue demo preset.
             </p>
           </div>
           <div className="flex gap-2">
@@ -214,14 +214,14 @@ ${failedChecks.map((f, i) => `${i+1}. ${f}`).join('\n') || 'All checklist items 
             </Link>
             <button
               onClick={() => {
-                if (window.confirm("This will load the CARANA Fictional Scenario into your workspace. Continue?")) {
-                  loadScenario('carana');
+                if (window.confirm("This will load the Regional Policy Dialogue Scenario into your workspace. Continue?")) {
+                  loadScenario('dialogue');
                 }
               }}
               type="button"
               className="px-3.5 py-1.5 bg-brand-navy-light hover:bg-brand-navy-dark text-brand-offwhite border border-brand-grey-border font-bold rounded-lg text-[10px] tracking-wider uppercase text-center transition-all cursor-pointer"
             >
-              Continue with CARANA Template
+              Load Dialogue Preset
             </button>
           </div>
         </div>

@@ -103,6 +103,12 @@ export default function TrainingPage() {
       pathway: 'Changes in the Carana River may contribute to cross-frontier mobility where local notification and coordination mechanisms are limited.',
       stakeholders: ['CARANA Border herder commissions', 'Carana River Youth Alliance', 'Frontier traditional chiefs'],
       action: 'Support borderland resource-sharing points using participatory mapping tools and locally validated communication channels.'
+    },
+    dialogue: {
+      context: 'African Youth Climate Resilience & Peacebuilding Dialogue',
+      pathway: 'Climate-related water stress and soil salinization may affect agricultural livelihoods, requiring dialogue-based natural resource governance.',
+      stakeholders: ['Youth Climate and Peacebuilding Coalition', 'National Ministry of Environment', 'Regional Economic Commission (REC)'],
+      action: 'Equip local youth committees with participatory resource mapping templates and establish local water-sharing protocols.'
     }
   };
 
@@ -426,6 +432,7 @@ export default function TrainingPage() {
               <option value="south_sudan">South Sudan local peace</option>
               <option value="horn_of_africa">Horn of Africa displacement</option>
               <option value="egypt">North Africa / Egypt green transition</option>
+              <option value="dialogue">African Youth Climate Resilience & Peacebuilding Dialogue</option>
               <option value="carana">CARANA fictional training scenario</option>
             </select>
           </div>
