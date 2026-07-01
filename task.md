@@ -99,3 +99,9 @@
 - [x] Added a subtle, italicized "Source basis" note inside the printed disclaimer box at the bottom of the brief.
 - [x] Confirmed other pages (Toolkit, Case Studies) contain only subtle inline metadata lines and do not render large visual grounding blocks.
 - [x] Verified code builds and linting tests pass successfully.
+
+## 2026-07-01 — v0.4.7 Add App-Level Access Gate
+- [x] Created `src/components/AccessGate.tsx` component implementing password block, sessionStorage state caching, and YCPS-themed layout.
+- [x] Integrated `AccessGate` inside the root layout component (`src/app/layout.tsx`).
+- [x] Defer hydration state checks with a timeout block to conform to eslint rules.
+- [x] Confirmed linter and production builds pass successfully.

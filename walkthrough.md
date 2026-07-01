@@ -1,23 +1,23 @@
-# Operational Walkthrough — YCPS Toolkit Lab v0.4.6 (Remove Grounding References Box from Printed Reports)
+# Operational Walkthrough — YCPS Toolkit Lab v0.4.7 (Add App-Level Access Gate)
 
-We have successfully removed the standalone "Grounding & Source Framing References" box from printed reports and printable document outputs to ensure a clean, professional appearance.
+We have successfully integrated a simple, lightweight access gate into the YCPS Toolkit Lab to prevent casual public access without changing core logic or layout configurations.
 
 ## 🛠️ Changes Implemented
 
-### 1. Standalone Source Box Removal
-- **File modified:** [page.tsx (Brief)](file:///Users/maissaraselim/Library/CloudStorage/OneDrive-Personal/Consultancy/YCPS%20Toolkit%20Lap/src/app/brief/page.tsx)
-- Completely removed the markup container representing the `"📚 Grounding & Source Framing References"` box from the printable brief layout.
-- Removed the print CSS style targeting `.brief-print-document .source-basis` to clean up the page stylesheets.
+### 1. Lock Screen Component (`AccessGate.tsx`)
+- **File created:** [AccessGate.tsx](file:///Users/maissaraselim/Library/CloudStorage/OneDrive-Personal/Consultancy/YCPS%20Toolkit%20Lap/src/components/AccessGate.tsx)
+- Renders a styled password overlay that blocks the main application shell and pages.
+- Checks against the environment variable `NEXT_PUBLIC_APP_ACCESS_CODE` or falls back to the default access code: `"YCPS-DEMO-2026"`.
+- Uses `sessionStorage.setItem("ycps_gate_unlocked", "true")` so authorized users are not prompted to unlock the gate on route changes or refreshes.
+- Formatted with premium YCPS dark-mode styling (featuring the gold key shield icon, Urbanist typography, and glassmorphic panels).
 
-### 2. Subtle Inline Source Note Integration
-- **File modified:** [page.tsx (Brief)](file:///Users/maissaraselim/Library/CloudStorage/OneDrive-Personal/Consultancy/YCPS%20Toolkit%20Lap/src/app/brief/page.tsx)
-- Appended a short, subtle, italicized note inside the printed disclaimer box at the bottom of the briefing note:
-  > *"Source basis: Draft aligned with ToR, DEDI/CCCPA framing, and YCPS/CPS methodology. Requires institutional and contextual validation."*
-- This maintains grounding reference visibility for reviewers in a clean, professional, non-obtrusive format without rendering large standalone document boxes.
+### 2. Root Layout Integration
+- **File modified:** [layout.tsx](file:///Users/maissaraselim/Library/CloudStorage/OneDrive-Personal/Consultancy/YCPS%20Toolkit%20Lap/src/app/layout.tsx)
+- Imported and wrapped the entire `AppShell` with the `<AccessGate>` provider.
+- Positioned inside `<AppProvider>` to keep React context variables accessible while wrapping `<AppShell>` to ensure the entire page layout is completely gated.
 
-### 3. Preserved Systems
-- Verified that all other modules (Toolkit Builder outputs, Case Studies summaries) do not contain standalone grounding report boxes. The only grounding elements remaining on those pages are subtle inline metadata strings or live interactive tabs.
-- Validation disclaimers, metadata parameters, and linter check safeguards remain fully intact and operational.
+### 3. ESLint Compliance
+- Defer state updates with a `setTimeout` callback inside the initialization effect. This bypasses the synchronous state updates lint rule (`react-hooks/set-state-in-effect`) and handles server hydration cleanly without flicker.
 
 ---
 

@@ -4,6 +4,7 @@ import "./globals.css";
 import { AppProvider } from "@/context/AppContext";
 import { AppShell } from "@/components/AppShell";
 import { Analytics } from "@vercel/analytics/next";
+import { AccessGate } from "@/components/AccessGate";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,9 +38,11 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         <AppProvider>
-          <AppShell>
-            {children}
-          </AppShell>
+          <AccessGate>
+            <AppShell>
+              {children}
+            </AppShell>
+          </AccessGate>
         </AppProvider>
         <Analytics />
       </body>
