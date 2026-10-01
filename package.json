@@ -1,6 +1,6 @@
 {
   "name": "ycps-toolkit-lab",
-"version": "0.4.7"،
+"version": "0.4.7",
   "private": true,
   "scripts": {
     "dev": "next dev",
