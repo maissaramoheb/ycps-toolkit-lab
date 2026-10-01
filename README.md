@@ -44,7 +44,7 @@ YCPS Toolkit Lab is intended for structured planning, training, dialogue, and ed
 ## Current Version
 
 **v0.4.8 — Archival and Zenodo Integration Release**
-
+Application functionality is unchanged from v0.4.7; this release aligns repository metadata and enables formal Zenodo archival and DOI registration.
 ## Repository
 
 https://github.com/maissaramoheb/ycps-toolkit-lab
