@@ -5,7 +5,7 @@ type: software
 authors:
   - family-names: "Selim"
     given-names: "Maissara"
-version: "0.4.7"
+version: "0.4.8"
 date-released: 2026-10-01
 abstract: "A browser-based planning, training, and policy-support workspace designed to help users translate Youth, Climate, Peace and Security concepts into structured, review-ready policy, programming, stakeholder, training, and toolkit outputs for African contexts."
 repository-code: "https://github.com/maissaramoheb/ycps-toolkit-lab"
