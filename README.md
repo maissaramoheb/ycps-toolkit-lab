@@ -43,7 +43,7 @@ YCPS Toolkit Lab is intended for structured planning, training, dialogue, and ed
 
 ## Current Version
 
-**v0.4.7 — Prototype Access Gate and YCPS Toolkit Workspace**
+**v0.4.8 — Archival and Zenodo Integration Release**
 
 ## Repository
 
