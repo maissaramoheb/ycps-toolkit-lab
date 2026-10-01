@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Youth, Climate, Peace and Security (YCPS) Toolkit Lab
 
-## Getting Started
+The YCPS Toolkit Lab is a browser-based planning, training, and policy-support workspace designed to help users translate Youth, Climate, Peace and Security concepts into structured, review-ready outputs for African contexts.
 
-First, run the development server:
+It supports policymakers, practitioners, trainers, youth actors, climate practitioners, and peacebuilding professionals in moving from conceptual recognition toward practical implementation.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Core Workflow
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The application provides a guided workflow:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Context and scenario selection
+2. YCPS Matrix
+3. Risk Pathways
+4. Stakeholder Mapping
+5. Toolkit and Session Builder
+6. Review and wording screen
+7. Final output package
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Main Components
 
-## Learn More
+- **YCPS Matrix 2.0** — structured integration of Youth, Peace and Security and climate-security considerations.
+- **Risk Pathway Builder** — maps stressors, risks, pathways, and possible interventions.
+- **Stakeholder Workspace** — supports actor identification, coordination analysis, and engagement planning.
+- **Case Studies** — provides fictional and regional scenarios for structured analysis and training.
+- **Training Simulator** — supports scenario-based learning and facilitation.
+- **Language Assistant** — supports clearer and more appropriate policy and programme wording.
+- **Toolkit Builder** — produces structured policy, programming, training, and planning outputs.
+- **Review Workspace** — supports critical review, wording checks, and validation before finalization.
+- **Policy Brief and Export Tools** — generate printable and transferable outputs.
 
-To learn more about Next.js, take a look at the following resources:
+## Intended Use
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+YCPS Toolkit Lab is intended for structured planning, training, dialogue, and educational use. It supports human analysis and professional judgment; it does not replace official policy, institutional validation, context-specific evidence, safeguarding requirements, or expert review.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Technical Model
 
-## Deploy on Vercel
+- Next.js / React / TypeScript
+- Browser-based application
+- Local browser persistence
+- No central operational database
+- No automated institutional validation
+- Prototype access gate for controlled demonstration
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Current Version
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**v0.4.7 — Prototype Access Gate and YCPS Toolkit Workspace**
+
+## Repository
+
+https://github.com/maissaramoheb/ycps-toolkit-lab
+
+## Developed by
+
+Maissara Selim
