@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it using the metadata below."
+title: "Youth, Climate, Peace and Security (YCPS) Toolkit Lab"
+type: software
+authors:
+  - family-names: "Selim"
+    given-names: "Maissara"
+version: "0.4.7"
+date-released: 2026-10-01
+abstract: "A browser-based planning, training, and policy-support workspace designed to help users translate Youth, Climate, Peace and Security concepts into structured, review-ready policy, programming, stakeholder, training, and toolkit outputs for African contexts."
+repository-code: "https://github.com/maissaramoheb/ycps-toolkit-lab"
+keywords:
+  - "Youth Climate Peace and Security"
+  - "Youth Peace and Security"
+  - "climate security"
+  - "peacebuilding"
+  - "youth"
+  - "policy planning"
+  - "capacity building"
+  - "training"
+  - "Africa"
